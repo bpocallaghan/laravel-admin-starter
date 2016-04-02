@@ -1,0 +1,4 @@
+id,title,description,html_title,html_description,slug,url,icon,is_main,list_main_order,is_footer,list_footer_order,is_hidden,parent_id,url_parent_id
+1,Home,Html Description,Home,Html Description,/,,,1,1,0,,0,0,0
+2,About,About,About,About,about,about,,1,3,0,,0,0,0
+3,Contact Us,Contact Us,Contact Us,Contact Us,contact-us,contact-us,,1,6,0,,0,0,0

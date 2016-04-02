@@ -1,0 +1,282 @@
+/*
+|-------------------------------------------
+| Animations
+| http://jackonthe.net/css3animateit
+| Only took a few I use for notify
+| Feel free to include the complete library
+|-------------------------------------------
+*/
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.bounceInRight, .bounceInLeft, .bounceInUp, .bounceInDown {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+}
+
+.fadeInRight, .fadeInLeft, .fadeInUp, .fadeInDown {
+    opacity: 0;
+    -webkit-transform: translateX(70px);
+    transform: translateX(70px);
+}
+
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(70px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(70px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+.animated.fadeInRight {
+    animation-name: fadeInRight;
+    -webkit-animation-name: fadeInRight;
+}
+
+@-webkit-keyframes fadeOutRight {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateX(70px);
+    }
+}
+
+@keyframes fadeOutRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(70px);
+    }
+}
+
+.animated.fadeOutRight {
+    animation-name: fadeOutRight;
+    -webkit-animation-name: fadeOutRight;
+}
+
+@-webkit-keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -webkit-transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-30px);
+    }
+    60% {
+        -webkit-transform: translateY(-15px);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.animated.bounce {
+    animation-name: bounce;
+    -webkit-animation-name: bounce;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+.animated.spin {
+    animation-name: spin;
+    -webkit-animation-name: spin;
+}
+
+@-webkit-keyframes shake {
+    0%,
+    100% {
+        -webkit-transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translateX(10px);
+    }
+}
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(10px);
+    }
+}
+.animated.shake {
+    animation-name: shake;
+    -webkit-animation-name: shake;
+}
+
+/*
+|------------------------------------------
+| NOTIFY
+|------------------------------------------
+*/
+#notify-container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+.notify {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    width: 400px;
+    color: white;
+    z-index: 9999;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.notify:hover {
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.notify .icon-big {
+    font-size: 50px;
+    position: absolute;
+    left: 17px;
+}
+
+.notify .textfull {
+    width: 93%;
+    float: left;
+    padding-left: 20px;
+}
+
+.notify .text {
+    width: 78%;
+    margin: 3px 20px 3px 80px;
+    float: left;
+}
+
+.icon-small {
+    position: absolute;
+    bottom: 8px;
+    right: 9px;
+    font-size: 20px;
+}
+
+.notify span {
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    display: block;
+    margin: 4px 0;
+}
+
+.notify p {
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    #notify-container {
+        position: fixed;
+        width: 95%;
+        right: 0;
+        top: 0;
+    }
+
+    .notify {
+        width: 95%;
+    }
+
+    .notify span {
+        font-size: 16px;
+    }
+
+    .notify p {
+        font-size: 12px;
+    }
+
+    .notify .text {
+        width: 55%;
+    }
+}
+

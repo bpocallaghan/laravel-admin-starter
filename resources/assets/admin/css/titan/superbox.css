@@ -1,0 +1,57 @@
+/*
+|------------------------------------------
+| SUPERBOX - IMAGES above the dropzone
+|------------------------------------------
+*/
+.superbox *,.superbox :after,.superbox :before {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-font-smoothing:antialiased;
+    -moz-font-smoothing:antialiased;
+    -o-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+    text-rendering:optimizeLegibility
+}
+.superbox-list {
+    display:inline-block;
+    zoom:1;
+    width:12.5%;
+    padding:5px;
+    position:relative
+}
+.superbox-img {
+    max-width:100%;
+    width:100%;
+    cursor:pointer
+}
+.superbox-img:hover {
+    opacity:.8
+}
+@media only screen and (min-width:320px) {
+    .superbox-list {
+        width:50%
+    }
+}
+@media only screen and (min-width:486px) {
+    .superbox-list {
+        width:25%
+    }
+}
+@media only screen and (min-width:768px) {
+    .superbox-list {
+        width:16.66666667%
+    }
+}
+@media only screen and (min-width:1025px) {
+    .superbox-list {
+        width:12.5%;
+    }
+}
+@media only screen and (min-width:1824px) {
+    .superbox-list {
+        width:12.5%;
+    }
+}

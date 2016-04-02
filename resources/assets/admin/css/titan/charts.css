@@ -1,0 +1,37 @@
+/*
+|------------------------------------------
+| CHARTS - CHART JS
+|------------------------------------------
+*/
+canvas {
+    width: 100% !important;
+    height: 400px;
+}
+
+.chart-legend ul {
+    list-style: outside none none;
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+}
+
+.chart-legend li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.chart-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.loading-widget {
+    text-align: center;
+    font-size: 350%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px 0px 0px -30px;
+}

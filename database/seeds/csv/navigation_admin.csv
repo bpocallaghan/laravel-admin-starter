@@ -1,0 +1,20 @@
+id,title,description,slug,url,icon,help_index_title,help_index_content,help_create_title,help_create_content,help_edit_title,help_edit_content,security_level,list_order,is_hidden,parent_id,url_parent_id
+1,Dashboard,,/,,home,,,,,,,1,1,0,0,0
+2,Settings,,settings,settings,cogs,,,,,,,7,12,0,0,0
+3,Administrators,,users,settings/admin/users,users,,,,,,,7,2,0,6,6
+4,Navigation,,navigation,settings/admin/navigation,align-center,Help,Helpfull text here - explaining what u can do here...,Information,Please complete the form to create the navigation,,,8,1,0,6,6
+5,Website,,website,settings/website,unlock-alt,,,,,,,6,1,0,2,2
+6,Admin,,admin,settings/admin,lock,,,,,,,7,2,0,2,2
+7,Profile,,profile,profile,user,,,,,,,6,999,1,0,0
+8,Admin Invites,,invites,settings/admin/users/invites,,,,,,,,7,1,1,3,3
+10,Geography,Geography,geography,geography,map-marker,,,,,,,7,10,0,0,0
+11,Countries,Countries,countries,geography/countries,,,,,,,,7,2,0,10,10
+12,Cities,,cities,geography/cities,,,,,,,,7,1,0,10,10
+13,Navigation,,navigation,settings/website/navigation,align-center,Help,All the menu items for the website.,Help,"You can set the HTML Title and HTML Description.<br/>\
+You can select the parent (under which navigation is this item).<br/>\
+You can specify if the menu is hidden.",,,6,1,0,5,5
+20,Tags,,tags,tags,tags,Information,All the tags for the articles. For now it only lists them,Help,,,,6,2,0,0,0
+30,Reports,,reports,reports,bar-chart,,,,,,,6,11,0,0,0
+31,Feedback,,feedback,reports/feedback,comments-o,,,,,,,6,2,0,30,30
+32,Contact Us,,contact-us,reports/feedback/contact-us,comment-o,,,,,,,6,1,0,31,31
+35,Summary,,summary,reports/summary,align-left,,,,,,,6,1,0,30,30
