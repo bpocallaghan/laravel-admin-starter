@@ -21,9 +21,10 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - Bootstrap Alerts and Form Error messages. package; bpocallaghan/alert
 - Flash a Notification after a CRUD resource action. package; bpocallaghan/notify
 - Generate crud resource, individual files. package; bpocallaghan/generators
+- Useful laravel helper classes / traits. package; bpocallaghan/titan
 
 ## Setup (Basic)
-- Download Zip
+- download zip
 - ```composer install```
 - rename .env.example - .env
 - ```php artisan key:generate```
@@ -54,13 +55,12 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
  	- more info https://github.com/spatie/laravel-analytics
  	- run the below to edit the config (set the name of the .p12)
  	- ```php artisan vendor:publish --provider="Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider"```
- - have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
+- have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
 
 ## TODO
 
 - Documentation (more user friendly)
 - Make project more 'open source' (currently heavily focused for me only)
-- Move the 'titan' folder to a package
 - Add more features (Roles, Permissions, Queue, Backup, etc)
 - Learn Testing
 - Learn Vue.js
