@@ -2,6 +2,16 @@
 
 return [
 
+    'title' => env('APP_TITLE', 'Fallback Title'),
+    'description' => env('APP_DESCRIPTION', 'Fallback Description'),
+    'author' => env('APP_AUTHOR', 'Fallback Author'),
+    'keywords' => env('APP_KEYWORDS', 'laravel'),
+
+    'facebook_id' => env('FACEBOOK_APP_ID', ''),
+    'recaptcha_public_key' => env('RECAPTCHA_PUBLIC_KEY', ''),
+    'google_analytics' => env('GOOGLE_ANALYTICS', ''),
+    'google_map_key' => env('GOOGLE_MAP_KEY', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

@@ -4,25 +4,25 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="{!! env('APP_AUTHOR') !!}">
-        <meta name="keywords" content="{!! env('APP_KEYWORDS') !!}">
-        <meta name="description" content="{!! isset($HTMLDescription) ? $HTMLDescription : env('APP_DESCRIPTION') !!}"/>
+        <meta name="author" content="{{ config('app.author') }}">
+        <meta name="keywords" content="{{ config('app.keywords') }}">
+        <meta name="description" content="{{ isset($HTMLDescription) ? $HTMLDescription : config('app.description') }}"/>
 
         <meta property="og:type" name="og:type" content="website"/>
-        <meta property="og:site_name" content="{{ env('APP_TITLE') }}" />
+        <meta property="og:site_name" content="{{ config('app.title') }}"/>
         <meta property="og:url" name="og:url" content="{{ Request::url() }}"/>
-        <meta property="og:caption" name="og:caption" content="{{ env('APP_URL') }}"/>
-        <meta property="fb:app_id" name="fb:app_id" content="{{ env('FACEBOOK_APP_ID') }}"/>
-        <meta property="og:title" name="og:title" content="{{ isset($HTMLTitle) ? $HTMLTitle : env('APP_TITLE') }}">
-        <meta property="og:description" name="og:description" content="{!! isset($HTMLDescription) ? $HTMLDescription : env('APP_DESCRIPTION') !!}">
-        <meta property="og:image" name="og:image" content="{{ env('APP_URL') }}{{ isset($HTMLImage) ? $HTMLImage : 'images/logo.png' }}">
+        <meta property="og:caption" name="og:caption" content="{{ config('app.url') }}"/>
+        <meta property="fb:app_id" name="fb:app_id" content="{{ config('app.facebook_id') }}"/>
+        <meta property="og:title" name="og:title" content="{{ isset($HTMLTitle) ? $HTMLTitle : config('app.title') }}">
+        <meta property="og:description" name="og:description" content="{{ isset($HTMLDescription) ? $HTMLDescription : config('app.description') }}">
+        <meta property="og:image" name="og:image" content="{{ config('app.url') }}{{ isset($HTMLImage) ? $HTMLImage : 'images/logo.png' }}">
 
-        <title>{{ isset($HTMLTitle) ? $HTMLTitle : env('APP_TITLE') }}</title>
+        <title>{{ isset($HTMLTitle) ? $HTMLTitle : config('app.title') }}</title>
 
         <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
 
         {{-- google font --}}
-        @if(env('APP_ENV') != 'local')
+        @if(config('app.env') != 'local')
         @endif
 
         {{-- stylesheet --}}
@@ -31,7 +31,7 @@
 
     <body>
         {{-- facebook root --}}
-        @if(env('APP_ENV') != 'local')
+        @if(config('app.env') != 'local')
             @include('partials.facebook')
         @endif
 
@@ -60,7 +60,7 @@
         {{-- page specific scripts --}}
         @yield('scripts')
 
-        @if(env('APP_ENV') != 'local')
+        @if(config('app.env') != 'local')
             @include('partials.google_analytics')
         @endif
     </body>
