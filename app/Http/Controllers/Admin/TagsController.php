@@ -12,90 +12,92 @@ use Illuminate\Http\Request;
 
 class TagsController extends TitanAdminController
 {
-	/**
-	 * Display a listing of tag.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return $this->view('tags.index')->with('items', Tag::all());
-	}
+    /**
+     * Display a listing of tag.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        session()->put('url', request()->url());
 
-	/**
-	 * Show the form for creating a new tag.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return $this->view('tags.add_edit');
-	}
+        return $this->view('tags.index')->with('items', Tag::all());
+    }
 
-	/**
-	 * Store a newly created tag in storage.
-	 *
-	 * @param Request $request
-	 * @return Response
-	 */
-	public function store(Request $request)
-	{
-		$this->validate($request, Tag::$rules, Tag::$messages);
+    /**
+     * Show the form for creating a new tag.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return $this->view('tags.add_edit');
+    }
+
+    /**
+     * Store a newly created tag in storage.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, Tag::$rules, Tag::$messages);
 
         $this->createEntry(Tag::class, $request->all());
 
-        return Redirect::route('admin.tags.index');
-	}
+        return redirect(session('url'));
+    }
 
-	/**
-	 * Display the specified tag.
-	 *
-	 * @param Tag $tags
-	 * @return Response
-	 */
-	public function show(Tag $tags)
-	{
-		return $this->view('tags.show')->with('item', $tags);
-	}
-
-	/**
-	 * Show the form for editing the specified tag.
-	 *
-	 * @param Tag $tags
+    /**
+     * Display the specified tag.
+     *
+     * @param Tag $tag
      * @return Response
      */
-    public function edit(Tag $tags)
-	{
-		return $this->view('tags.add_edit')->with('item', $tags);
-	}
+    public function show(Tag $tag)
+    {
+        return $this->view('tags.show')->with('item', $tag);
+    }
 
-	/**
-	 * Update the specified tag in storage.
-	 *
-	 * @param Tag  $tags
-     * @param Request    $request
+    /**
+     * Show the form for editing the specified tag.
+     *
+     * @param Tag $tag
      * @return Response
      */
-    public function update(Tag $tags, Request $request)
-	{
-		$this->validate($request, Tag::$rules, Tag::$messages);
+    public function edit(Tag $tag)
+    {
+        return $this->view('tags.add_edit')->with('item', $tag);
+    }
 
-        $this->updateEntry($tags, $request->all());
+    /**
+     * Update the specified tag in storage.
+     *
+     * @param Tag     $tag
+     * @param Request $request
+     * @return Response
+     */
+    public function update(Tag $tag, Request $request)
+    {
+        $this->validate($request, Tag::$rules, Tag::$messages);
 
-        return Redirect::route('admin.tags.index');
-	}
+        $this->updateEntry($tag, $request->all());
 
-	/**
-	 * Remove the specified tag from storage.
-	 *
-	 * @param Tag  $tags
-     * @param Request    $request
-	 * @return Response
-	 */
-	public function destroy(Tag $tags, Request $request)
-	{
-		$this->deleteEntry($tags, $request);
+        return redirect(session('url'));
+    }
 
-        return Redirect::route('admin.tags.index');
-	}
+    /**
+     * Remove the specified tag from storage.
+     *
+     * @param Tag     $tag
+     * @param Request $request
+     * @return Response
+     */
+    public function destroy(Tag $tag, Request $request)
+    {
+        $this->deleteEntry($tag, $request);
+
+        return redirect(session('url'));
+    }
 }

@@ -21,8 +21,9 @@ class CitiesController extends TitanAdminController
      */
     public function index()
     {
-        return $this->view('geography.cities.index')
-            ->with('items', City::with('country')->get());
+        session()->put('url', request()->url());
+
+        return $this->view('geography.cities.index')->with('items', City::with('country')->get());
     }
 
     /**
@@ -32,8 +33,7 @@ class CitiesController extends TitanAdminController
      */
     public function create()
     {
-        return $this->view('geography.cities.add_edit')
-            ->with('countries', Country::getAllLists());
+        return $this->view('geography.cities.add_edit')->with('countries', Country::getAllLists());
     }
 
     /**
@@ -48,60 +48,60 @@ class CitiesController extends TitanAdminController
 
         $this->createEntry(City::class, $request->except('files'));
 
-        return route_admin('geography.cities.index');
+        return redirect(session('url'));
     }
 
     /**
      * Display the specified city.
      *
-     * @param City $cities
+     * @param City $city
      * @return Response
      */
-    public function show(City $cities)
+    public function show(City $city)
     {
-        return $this->view('geography.cities.show')->with('item', $cities);
+        return $this->view('geography.cities.show')->with('item', $city);
     }
 
     /**
      * Show the form for editing the specified city.
      *
-     * @param City $cities
+     * @param City $city
      * @return Response
      */
-    public function edit(City $cities)
+    public function edit(City $city)
     {
         return $this->view('geography.cities.add_edit')
-            ->with('item', $cities)
+            ->with('item', $city)
             ->with('countries', Country::getAllLists());
     }
 
     /**
      * Update the specified city in storage.
      *
-     * @param City    $cities
+     * @param City    $city
      * @param Request $request
      * @return Response
      */
-    public function update(City $cities, Request $request)
+    public function update(City $city, Request $request)
     {
         $this->validate($request, City::$rules, City::$messages);
 
-        $this->updateEntry($cities, $request->except('files'));
+        $this->updateEntry($city, $request->except('files'));
 
-        return route_admin('geography.cities.index');
+        return redirect(session('url'));
     }
 
     /**
      * Remove the specified city from storage.
      *
-     * @param City    $cities
+     * @param City    $city
      * @param Request $request
      * @return Response
      */
-    public function destroy(City $cities, Request $request)
+    public function destroy(City $city, Request $request)
     {
-        $this->deleteEntry($cities, $request);
+        $this->deleteEntry($city, $request);
 
-        return route_admin('geography.cities.index');
+        return redirect(session('url'));
     }
 }

@@ -1,6 +1,8 @@
 # Laravel CMS Starter Project
 
 A Laravel CMS Starter project with AdminLTE theme and core features.
+- Laravel 5.4
+- Laravel 5.2 (Branch Laravel 5.2)
 
 [Preview project here](http://bpocallaghan.co.za/admin)
 - User: github@bpocallaghan.co.za
@@ -33,10 +35,10 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - ```php artisan migrate```
 - ```php artisan db:seed```
 	- open database\seeds\UserTableSeeder.php to create a different admin
-- open your browser (http://laravel-starter.dev/)
+- open your browser (http://laravel-admin.dev/)
 	- the home, about, contact us gets generated + the breadcrumb
-- log into the admin (http://laravel-starter.dev/admin)
-	- admin@laravel-starter.com
+- log into the admin (http://laravel-admin.dev/admin)
+	- admin@laravel-admin.com
 	- admin
 
 ## Setup (Advanced)

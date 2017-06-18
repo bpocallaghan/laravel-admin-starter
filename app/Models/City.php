@@ -44,7 +44,7 @@ class City extends TitanCMSModel
         return self::with('country')
             ->orderBy('title')
             ->get()
-            ->lists('title_country', 'id')
+            ->pluck('title_country', 'id')
             ->toArray();
     }
 }

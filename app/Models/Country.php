@@ -45,6 +45,6 @@ class Country extends TitanCMSModel
      */
     public static function getAllLists()
     {
-        return self::orderBy('title')->get()->lists('title_abr', 'id')->toArray();
+        return self::orderBy('title')->get()->pluck('title_abr', 'id')->toArray();
     }
 }
