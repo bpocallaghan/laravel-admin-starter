@@ -43,7 +43,7 @@
                 }
 
                 $('#box-total-views .loading-widget').show();
-                doAjax('/admin/analytics/visitors-views', {
+                doAjax('/api/analytics/visitors-views', {
                     'start': start, 'end': end,
                 }, createLineChart);
             }

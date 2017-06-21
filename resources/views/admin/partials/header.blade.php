@@ -3,18 +3,42 @@
     <!-- Logo -->
     <a href="{{ url('/admin') }}" class="logo">
         <span class="logo-mini"><img src="/images/logo-mini.png" style="width: 100%;"/></span>
-        <span class="logo-lg"><img src="/images/logo.png" style="width: 100%;"/></span>
+        <span class="logo-lg"><img src="/images/logo.png" style="width: 80%;"/></span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#modal-notifications">
+                        <i class="fa fa-envelope-o"></i>
+                        <span data-user="{{ user()->id }}" id="js-notifications-badge" class="label label-success" style="display: none;"></span>
+                    </a>
+                </li>
+
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell-o"></i>
+                        <span id="js-actions-badge" class="label label-warning" style="display: none;"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <ul id="js-actions-list" class="menu">
+
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="/admin/history/website">See All Actions</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -27,7 +51,8 @@
                             <img src="{{ profile_image() }}" class="img-circle" alt="User Image">
                             <p>
                                 {!! user()->fullname !!}
-                                <small>Member since {{ user()->created_at->format('d F Y') }}</small>
+                                <small>Member
+                                    since {{ user()->created_at->format('d F Y') }}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
@@ -36,7 +61,15 @@
                                 <a href="{{ url('/admin/profile') }}" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ url('/auth/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Sign out
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+
                             </div>
                         </li>
                     </ul>

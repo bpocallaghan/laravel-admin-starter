@@ -3,50 +3,46 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="{!! env('APP_AUTHOR') !!}">
-        <meta name="keywords" content="{!! env('APP_KEYWORDS') !!}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="author" content="{!! config('app.author') !!}">
+        <meta name="keywords" content="{!! config('app.keywords') !!}">
         <meta name="description" content="{{ $HTMLDescription }}"/>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        @include ('partials.favicons')
 
         <title>{{ $HTMLTitle }}</title>
 
-        <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
-
-        {{-- google font --}}
-        @if(env('APP_DEBUG') != 'local')
-            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" rel='stylesheet' type='text/css'>
+        @if(config('app.debug') != 'local')
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         @endif
 
-        {{-- stylesheet --}}
-        <link rel="stylesheet" href="/css/admin/all.css">
+        <link rel="stylesheet" href="/css/admin.css?v=1">
+        @yield('styles')
     </head>
 
     <body class="hold-transition skin-blue sidebar-mini">
 
         <div class="wrapper">
-
             @include('admin.partials.header')
 
             @include('admin.partials.navigation')
 
-            <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
                 <section class="content-header">
                     {!! $pagecrumb !!}
 
                     {!! $breadcrumb !!}
                 </section>
 
-                <!-- Main content -->
                 <section class="content">
                     @yield('content')
                 </section>
             </div>
 
             <footer class="main-footer">
-                <div class="" style="text-align: right">
-                    &copy; {{ date('Y') }} {!! env('APP_TITLE') !!}
+                <div class="text-right">
+                    &copy; {{ date('Y') }} <strong>{!! config('app.name') !!}</strong>
                 </div>
             </footer>
         </div>
@@ -54,22 +50,18 @@
         @include('notify::notify')
         @include('admin.partials.modals')
 
-        <!-- scripts -->
-        <script type="text/javascript" charset="utf-8" src="/js/admin/all.js"></script>
-
-        <script type="text/javascript">
+        <script type="text/javascript" charset="utf-8" src="/js/admin.js?v=1"></script>
+        <script type="text/javascript" charset="utf-8">
             $(document).ready(function ()
             {
                 initAdmin();
-
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-Token': '{{ csrf_token() }}'
-                    }
-                });
             });
         </script>
 
         @yield('scripts')
+
+        @if(config('app.env') != 'local')
+            @include('partials.analytics')
+        @endif
     </body>
 </html>

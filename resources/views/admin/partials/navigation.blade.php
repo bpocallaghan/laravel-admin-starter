@@ -1,9 +1,5 @@
-<!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
-        <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
                 <img src="{{ profile_image() }}" class="img-circle" alt="User Image">
@@ -14,9 +10,11 @@
             </div>
         </div>
 
-        <!-- sidebar menu: : style can be found in sidebar.less -->
         <nav>
-            {!! $navigation !!}
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">MAIN NAVIGATION</li>
+                {!! $navigation !!}
+            </ul>
         </nav>
     </section>
 </aside>

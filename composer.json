@@ -1,7 +1,7 @@
 {
-    "name": "bpocallaghan/laravel-starter-project",
+    "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["laravel", "starter", "admin", "admin-lte", "authorization", "google-analytics", "helpers"],
+    "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -13,14 +13,11 @@
         "intervention/image": "^2.3",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.4",
-        "spatie/laravel-analytics": "^1.4",
+        "spatie/laravel-analytics": "1.4.1",
         "yajra/laravel-datatables-oracle": "^7.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7",
         "bpocallaghan/generators": "^4.0",
         "barryvdh/laravel-debugbar": "^2.4",
         "barryvdh/laravel-ide-helper": "^2.3"

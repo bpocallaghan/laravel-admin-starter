@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin\Settings\Website;
 
-use App\Models\SportType;
 use App\Models\NavigationWebsite;
 use Illuminate\Http\Request;
 
@@ -13,12 +12,15 @@ class NavigationOrderController extends TitanAdminController
 {
     private $navigationType = 'main';
 
+    private $defaultParent = null;
+
     private $orderProperty = 'list_main_order';
 
     private function updateNavType($type = 'main')
     {
         $this->navigationType = $type;
         $this->orderProperty = 'list_' . $type . '_order';
+        $this->defaultParent = 0;
     }
 
     /**
@@ -31,7 +33,7 @@ class NavigationOrderController extends TitanAdminController
     {
         $this->updateNavType($type);
 
-        $itemsHtml = $this->getNavigationHtml();
+        $itemsHtml = $this->getNavigationHtml($this->defaultParent);
 
         return $this->view('settings.website.navigations.order', compact('itemsHtml'));
     }
@@ -39,18 +41,20 @@ class NavigationOrderController extends TitanAdminController
     /**
      * Update the order of navigation
      *
+     * @param string  $type
      * @param Request $request
      * @return array
      */
-    public function updateOrder(Request $request)
+    public function updateOrder(Request $request, $type = 'main')
     {
-        $type = 'main'; // tmp for now
         $this->updateNavType($type);
 
         $navigation = json_decode($request->get('list'), true);
 
         foreach ($navigation as $key => $nav) {
-            $row = $this->updateNavigationListOrder($nav['id'], ($key + 1));
+
+            $idd = $this->defaultParent ? $this->defaultParent->id : 0;
+            $row = $this->updateNavigationListOrder($nav['id'], ($key + 1), $idd);
 
             $this->updateIfNavHasChildren($nav);
         }
@@ -75,7 +79,8 @@ class NavigationOrderController extends TitanAdminController
 
         foreach ($items as $key => $nav) {
             $html .= '<li class="dd-item" data-id="' . $nav->id . '">';
-            $html .= '<div class="dd-handle">' . '<i class="fa-fw fa fa-' . $nav->icon . '"></i> ' . $nav->title . ' <span style="float:right"> ' . $nav->url . ' </span></div>';
+            $html .= '<div class="dd-handle">' . '<i class="fa-fw fa fa-' . $nav->icon . '"></i> ';
+            $html .= $nav->title . ' ' . ($nav->is_hidden == 1 ? '(HIDDEN)' : '') . ' <span style="float:right"> ' . $nav->url . ' </span></div>';
             $html .= $this->getNavigationHtml($nav);
             $html .= '</li>';
         }

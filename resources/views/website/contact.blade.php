@@ -2,11 +2,47 @@
 
 @section('content')
     <div class="container">
+
         <div class="row">
-            <div class="col-md-8 col-sm-8">
-                <div>
-                    <h2>Fill the form below</h2>
+            <div class="col-md-8">
+                <div id="js-map-contact-us" class="google_maps" style="height: 450px;">
+                    &nbsp;
                 </div>
+            </div>
+
+            <!-- Contact Details Column -->
+            <div class="col-md-4">
+                <h3>Contact Details</h3>
+                <p>
+                    Walvis Bay<br>Namibia<br>
+                </p>
+                <p><i class="fa fa-phone"></i>
+                    <abbr title="Phone">P</abbr>: (+264) 81 825 4455</p>
+                <p><i class="fa fa-envelope-o"></i>
+                    <abbr title="Email">E</abbr>: <a href="mailto:name@example.com">name@example.com</a>
+                </p>
+                <p><i class="fa fa-clock-o"></i>
+                    <abbr title="Hours">H</abbr>: Monday - Friday: 8:00 AM to 5:00 PM</p>
+                <ul class="list-unstyled list-inline list-social-icons">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Send us a Message</h3>
 
                 <div class="step">
                     <form id="form-contact-us" accept-charset="UTF-8" action="{{ Request::url().'/submit' }}" method="POST">
@@ -16,13 +52,13 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" name="firstname" placeholder="Enter Name" required>
+                                    <input type="text" class="form-control" name="firstname" placeholder="Enter Name">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label>Last Name</label>
-                                    <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name" required>
+                                    <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name">
                                 </div>
                             </div>
                         </div>
@@ -31,7 +67,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                                    <input type="email" name="email" class="form-control" placeholder="Enter Email">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -46,7 +82,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Message</label>
-                                    <textarea rows="5" name="content" class="form-control" placeholder="Write your message" style="height:200px;" required></textarea>
+                                    <textarea rows="5" name="content" class="form-control" placeholder="Write your message" style="height:200px;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -57,58 +93,44 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4">
-                <div>
-                    <h4>Address <span><i class="icon-pin pull-right"></i></span></h4>
-                    <p></p>
-                    <hr>
-                    <ul id="contact-info">
-                        <li>+264xxxxxxx</li>
-                        <li><a href="#">info@xxxxxxxxxx</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
 @endsection
 
-
 @section('scripts')
     @parent
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&sensor=truep&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ config('app.google_map_key') }}"></script>
     <script type="text/javascript" charset="utf-8">
         $(function ()
         {
-            // feedback form
-            var btn = $('#form-contact-us').find('[type="submit"]');
-            btn.prop('disabled', false);
-            btn.val(btn.attr('data-text'));
-
             $('#form-contact-us').submit(function ()
             {
-                var inputs = [
-                    {'name': 'firstname'},
-                    {'name': 'lastname'},
-                    {'name': 'email', 'email': true}
-                ];
+                return submitForm($(this));
+            });
 
-                if (validateForm($(this), inputs) === false) {
+            /**
+             * Helper to submit the forms via ajax
+             * @param form
+             * @returns {boolean}
+             */
+            function submitForm($form)
+            {
+                var inputs = [];
+                if (!FORM.validateForm($form, inputs)) {
                     return false;
                 }
 
-                sendFormToServer($(this), $(this).serialize());
+                FORM.sendFormToServer($form, $form.serialize());
                 return false;
-            });
+            }
 
-            var map = initGoogleMap('map-contact', -22.540180, 17.090636, 14);
-            addGoogleMapsMarker(map, -22.540180, 17.090636, 'logo');
+            var map = initGoogleMap('js-map-contact-us', -22.9666717, 14.5019224, 14);
         });
     </script>
 @endsection

@@ -2,22 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\LogAdminActivity;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use LaravelAnalytics;
+use App\Http\Controllers\Controller;
 use Titan\Controllers\TitanAdminController;
-use Titan\Controllers\Traits\Analytics;
 
-class DashboardController extends TitanAdminController
+class DashboardController extends AdminController
 {
-    use Analytics;
-
-    public function index()
-    {
-        $activities = LogAdminActivity::getLatest();
-
-        return $this->view('dashboard', compact('activities'));
-    }
+	public function index()
+	{
+		return $this->view('dashboard');
+	}
 }

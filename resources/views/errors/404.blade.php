@@ -1,20 +1,47 @@
-@extends('layouts.website')
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Whoops 404</title>
 
-@section('content')
-    <section class="slice bg-base" style="padding:90px 0;">
-        <div class="wp-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            <h2>The page could not be found</h2>
-                            <h1>404</h1>
-                            <p></p>
-                            <h4>Click <a href="/">here</a> to go back to the home page.</h4>
-                        </div>
-                    </div>
-                </div>
+        <link href="https://fonts.googleapis.com/css?family=lato:100" rel="stylesheet" type="text/css">
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #b0bec5;
+                display: table;
+                font-weight: 100;
+                font-family: 'lato';
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">404 - Page not found.</div>
             </div>
         </div>
-    </section>
-@stop
+    </body>
+</html>

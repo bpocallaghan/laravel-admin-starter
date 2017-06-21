@@ -13,8 +13,8 @@
 
                 <div class="box-body no-padding">
                     <form id="form-settings-administrators" method="POST" action="{{ Request::url() }}">
-                        <input type="hidden" name="invited_by" value="">
                         {!! csrf_field() !!}
+                        <input type="hidden" name="invited_by" value="">
 
                         <fieldset>
                             <section class="form-group {{ form_error_class('email', $errors) }}">

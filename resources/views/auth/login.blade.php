@@ -7,7 +7,7 @@
             <div class="logo"><img src="/images/logo.png"/></div>
 
             <div class="body">
-                <h4 class="auth-title">Sign in to <strong>{{ env('APP_TITLE') }}</strong></h4>
+                <h4 class="auth-title">Sign in to <strong>{{ config('app.name') }}</strong></h4>
 
                 @include('alert::alert')
                 @include('admin.partials.errors')
@@ -16,7 +16,7 @@
                     {!! csrf_field() !!}
 
                     <div class="form-group has-feedback">
-                        <input type="email" class="form-control" placeholder="Email" name="email"/>
+                        <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}"/>
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
 
@@ -24,14 +24,15 @@
                         <input type="password" class="form-control" placeholder="Password" name="password"/>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
-                    <a href="{{ url('/auth/password/email') }}">Forgot Password?</a>
 
-                    <div class="row">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember" checked="checked">
+                        <i></i>Stay signed in
+                    </label>
+
+                    <div class="row margin-top-10">
                         <div class="col-xs-8">
-                            <label class="checkbox">
-                                <input type="checkbox" name="remember" checked="">
-                                <i></i>Stay signed in
-                            </label>
+                            <a class="btn btn-link" href="{{ url('/auth/password/forgot') }}" style="padding-left: 0;">Forgot Password?</a>
                         </div>
                         <div class="col-xs-4">
                             <button type="submit" class="btn btn-primary btn-block btn-flat btn-submit">

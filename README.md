@@ -13,12 +13,15 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - Authorization
 	- login / forgot password
 	- register via authorization (admin invite user)
-- Dashboard
-	- google analytics
-	- list activities
+- Google Analytics Reports (with charts)
+	- visitors
+	- devices
+	- keywords
+	- pages
 - Admin Navigation
 - Website Navigation
-- Tag resource
+- Log Actions (if contact us was submitted, etc)
+- Notifications (Laravel 5.4 notifications)
 - Log Activities (user, resource, before, after)
 - Bootstrap Alerts and Form Error messages. package; bpocallaghan/alert
 - Flash a Notification after a CRUD resource action. package; bpocallaghan/notify

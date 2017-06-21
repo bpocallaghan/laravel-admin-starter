@@ -43,7 +43,7 @@
                 }
 
                 $('#box-browsers .loading-widget').show();
-                doAjax('/admin/analytics/browsers', {
+                doAjax('/api/analytics/browsers', {
                     'start': start, 'end': end,
                 }, createPieChart);
             }

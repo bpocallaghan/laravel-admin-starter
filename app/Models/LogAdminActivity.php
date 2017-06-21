@@ -38,7 +38,6 @@ class LogAdminActivity extends Model
     static public function getLatest()
     {
         return self::with('user')
-            ->has('subject')
             ->with('subject')
             ->orderBy('created_at', 'DESC')
             ->limit(100)

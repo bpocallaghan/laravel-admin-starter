@@ -9,5 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
-_ide_helper.php
 .phpstorm.meta.php
+_ide_helper.php
+public/mix-manifest.json
+storage/google-analytics.p12

@@ -17,25 +17,63 @@ class NavigationWebsite extends TitanWebsiteNavigation
     }
 
     /**
-     * Get the banners
-     * @return \Eloquent
+     * Get the top main level menu
+     *
+     * @param int $hidden
+     * @return mixed
      */
-    public function banners()
+    static public function mainNavigation($hidden = 0)
     {
-        return $this->belongsToMany(Banner::class);
+        $builder = self::where('parent_id', 0)->where('is_main', 1);
+
+        if ($hidden != 1) {
+            $builder->where('is_hidden', $hidden);
+        }
+
+        return $builder->orderBy('list_main_order')->get();
     }
 
     /**
-     * Get the top main level menu
+     * Get All navigation where parent id, and not hidden
      *
+     * @param        $id
+     * @param string $type
+     * @param string $order
+     * @param int    $hidden
      * @return mixed
      */
-    static public function mainNavigation()
+    static public function whereParentIdORM(
+        $id,
+        $type = 'main',
+        $order = 'list_main_order',
+        $hidden = 0
+    ) {
+        $query = self::whereParentId($id);
+
+        switch ($type) {
+            case 'footer';
+                $query->where('is_footer', 1);
+                break;
+            default:
+                $query->where('is_main', 1);
+        }
+
+        return $query->orderBy($order)->get();
+    }
+
+    /**
+     * Get All navigation where parent id, and not hidden
+     *
+     * @param        $id
+     * @param string $type
+     * @return mixed
+     */
+    static public function parentIdAndType($id, $type = 'main')
     {
-        return self::where('parent_id', 0)
-            ->where('is_main', 1)
-            ->where('is_hidden', 0)
-            ->orderBy('list_main_order')
-            ->get();
+        $builder = self::where('parent_id', $id);
+        $builder->where("is_$type", 1);
+        $builder->where("is_hidden", 0);
+
+        return $builder->orderBy("list_$type" . '_order')->get();
     }
 }

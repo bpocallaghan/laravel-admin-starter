@@ -14,7 +14,7 @@
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                color: #B0BEC5;
+                color: #566369;
                 display: table;
                 font-weight: 100;
                 font-family: 'Lato';
@@ -33,6 +33,12 @@
 
             .title {
                 font-size: 72px;
+                margin-bottom: 30px;
+                font-weight: bold;
+            }
+
+            .subtitle {
+                font-size: 42px;
                 margin-bottom: 40px;
             }
         </style>
@@ -40,7 +46,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">We will be right back.</div>
+                <div class="subtitle">We are getting an upgrade.</div>
             </div>
         </div>
     </body>

@@ -21,11 +21,9 @@
                         <thead>
                         <tr>
                             <th>Title</th>
-                            <th class="desktop">Description</th>
-                            <th>Slug</th>
+                            <th>Description</th>
                             <th>Url</th>
                             <th>Parent</th>
-                            <th>Main</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -33,11 +31,9 @@
                         @foreach ($items as $item)
                             <tr>
                                 <td>{{ $item->title }}</td>
-                                <td>{!! $item->html_description !!}</td>
-                                <td>{!! $item->slug !!}</td>
+                                <td>{!! $item->description !!}</td>
                                 <td>{!! $item->url !!}</td>
                                 <td>{{ ($item->parent)? $item->parent->title : '-' }}</td>
-                                <td>{{ ($item->is_main == 1)? 'Yes' : '' }}</td>
                                 <td>
                                     {!! action_row($selectedNavigation->url, $item->id, $item->title, ['edit', 'delete']) !!}
                                 </td>

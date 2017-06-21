@@ -13,7 +13,7 @@ class NavigationAdminTableSeeder extends Seeder
         $items = csv_to_array($csvPath);
 
         foreach ($items as $key => $item) {
-            NavigationAdmin::create([
+            $row = NavigationAdmin::create([
                 'id'                  => $item['id'],
                 'title'               => $item['title'],
                 'description'         => $item['description'],
@@ -33,6 +33,8 @@ class NavigationAdminTableSeeder extends Seeder
                 'created_by'          => 1,
                 'updated_by'          => 1,
             ]);
+
+            $row->roles()->attach(2);
         }
     }
 }

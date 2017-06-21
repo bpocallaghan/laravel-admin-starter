@@ -48,7 +48,7 @@
                     end = moment().format('YYYY-MM-DD');
                 }
 
-                doAjax('/admin/analytics/keywords', {
+                doAjax('/api/analytics/keywords', {
                     'start': start, 'end': end,
                 }, renderTableKeywords);
             }

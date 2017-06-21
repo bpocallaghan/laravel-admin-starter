@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Titan\Models\TitanCMSModel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Titan\Models\TitanCMSModel;
 
 class City extends TitanCMSModel
 {
@@ -17,23 +18,18 @@ class City extends TitanCMSModel
      * Validation rules for this model
      */
     static public $rules = [
-        'title' => 'required|min:3:max:255',
+        'title'       => 'required|min:3:max:255',
+        'province_id' => 'required|exists:provinces,id',
     ];
 
-    public function getTitleCountryAttribute()
-    {
-        return $this->attributes['title'] . ' (' . ($this->country ? $this->country->title : '-') . ')';
-    }
-
     /**
-     * Get the country
-     * @return \Eloquent
+     * Get the province
      */
-    public function country()
+    public function province()
     {
-        return $this->belongsTo(Country::class, 'country_id', 'id');
+        return $this->belongsTo(Province::class);
     }
-
+    
     /**
      * Get all the rows as an array (ready for dropdowns)
      *
@@ -41,10 +37,6 @@ class City extends TitanCMSModel
      */
     public static function getAllLists()
     {
-        return self::with('country')
-            ->orderBy('title')
-            ->get()
-            ->pluck('title_country', 'id')
-            ->toArray();
+    	return self::orderBy('title')->get()->pluck('title', 'id')->toArray();
     }
 }

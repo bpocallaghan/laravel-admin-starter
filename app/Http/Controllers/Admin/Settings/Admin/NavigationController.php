@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Settings\Admin;
 
-use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\NavigationAdmin;
-use Titan\Controllers\TitanAdminController;
 use Yajra\Datatables\Datatables;
+use App\Http\Controllers\Admin\AdminController;
 
-class NavigationController extends TitanAdminController
+class NavigationController extends AdminController
 {
     /**
      * Display a listing of navigation.
@@ -18,6 +18,8 @@ class NavigationController extends TitanAdminController
      */
     public function index()
     {
+        save_resource_url();
+
         return $this->showIndex('settings.admin.navigation.index');
     }
 
@@ -52,7 +54,7 @@ class NavigationController extends TitanAdminController
             $row->updateUrl()->save();
         }
 
-        return Redirect::route('admin.settings.admin.navigation.index');
+        return redirect_to_resource();
     }
 
     /**
@@ -101,7 +103,7 @@ class NavigationController extends TitanAdminController
         $navigation = $this->updateEntry($navigation, $inputs);
         $navigation->updateUrl()->save();
 
-        return Redirect::route('admin.settings.admin.navigation.index');
+        return redirect_to_resource();
     }
 
     /**
@@ -116,7 +118,7 @@ class NavigationController extends TitanAdminController
         $navigation = NavigationAdmin::findOrFail($id);
         $this->deleteEntry($navigation, $request);
 
-        return Redirect::route('admin.settings.admin.navigation.index');
+        return redirect_to_resource();
     }
 
     /**

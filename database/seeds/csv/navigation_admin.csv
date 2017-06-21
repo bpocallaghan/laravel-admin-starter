@@ -1,20 +1,35 @@
-id,title,description,slug,url,icon,help_index_title,help_index_content,help_create_title,help_create_content,help_edit_title,help_edit_content,security_level,list_order,is_hidden,parent_id,url_parent_id
-1,Dashboard,,/,,home,,,,,,,1,1,0,0,0
-2,Settings,,settings,settings,cogs,,,,,,,7,12,0,0,0
-3,Administrators,,users,settings/admin/users,users,,,,,,,7,2,0,6,6
-4,Navigation,,navigation,settings/admin/navigation,align-center,Help,Helpfull text here - explaining what u can do here...,Information,Please complete the form to create the navigation,,,8,1,0,6,6
-5,Website,,website,settings/website,unlock-alt,,,,,,,6,1,0,2,2
-6,Admin,,admin,settings/admin,lock,,,,,,,7,2,0,2,2
-7,Profile,,profile,profile,user,,,,,,,6,999,1,0,0
-8,Admin Invites,,invites,settings/admin/users/invites,,,,,,,,7,1,1,3,3
-10,Geography,Geography,geography,geography,map-marker,,,,,,,7,10,0,0,0
-11,Countries,Countries,countries,geography/countries,,,,,,,,7,2,0,10,10
-12,Cities,,cities,geography/cities,,,,,,,,7,1,0,10,10
-13,Navigation,,navigation,settings/website/navigation,align-center,Help,All the menu items for the website.,Help,"You can set the HTML Title and HTML Description.<br/>\
-You can select the parent (under which navigation is this item).<br/>\
-You can specify if the menu is hidden.",,,6,1,0,5,5
-20,Tags,,tags,tags,tags,Information,All the tags for the articles. For now it only lists them,Help,,,,6,2,0,0,0
-30,Reports,,reports,reports,bar-chart,,,,,,,6,11,0,0,0
-31,Feedback,,feedback,reports/feedback,comments-o,,,,,,,6,2,0,30,30
-32,Contact Us,,contact-us,reports/feedback/contact-us,comment-o,,,,,,,6,1,0,31,31
-35,Summary,,summary,reports/summary,align-left,,,,,,,6,1,0,30,30
+id,title,description,slug,url,icon,help_index_title,help_index_content,help_create_title,help_create_content,help_edit_title,help_edit_content,list_order,is_hidden,parent_id,url_parent_id,,
+1,Dashboard,,/,/admin,home,,,,,,,1,0,0,0,,
+2,Analytics,Google Analytics,analytics,/admin/analytics,line-chart,,,,,,,2,0,0,0,,
+3,Summary,,,/admin/analytics,star-half-o,,,,,,,1,0,2,2,,
+4,Devices,,devices,/admin/analytics/devices,tablet,,,,,,,2,0,2,2,,
+5,Demographics,,demographics,/admin/analytics/demographics,female,,,,,,,5,0,2,2,,
+6,Visits and Referrals,,visits-and-referrals,/admin/analytics/visits-and-referrals,cloud,,,,,,,3,0,2,2,,
+7,Interests,,interests,/admin/analytics/interests,heart,,,,,,,4,0,2,2,,
+8,History,,history,/admin/history,history,,,,,,,3,0,0,0,,
+9,Website,,website,/admin/history/website,home,,,,,,,1,0,8,8,,
+10,Admin,Admin,admin,/admin/history/admin,lock,,,,,,,2,0,8,8,,
+11,Testimonials,Testimonials,testimonials,/admin/general/testimonials,commenting-o,Info,List of all the testimonials on the website,How,Please complete the form to create the testimonial,How,Please complete the form to edit the selected testimonial,2,0,17,17,,
+12,Locations,,locations,/admin/general/locations,globe,,,,,,,3,0,17,17,,
+13,Countries,Countries,countries,/admin/general/locations/countries,map-marker,,,,,,,4,0,12,12,,
+14,Provinces,Provinces,provinces,/admin/general/locations/provinces,map-marker,,,,,,,3,0,12,12,,
+15,Cities,,cities,/admin/general/locations/cities,map-marker,,,,,,,2,0,12,12,,
+16,Suburbs,,suburbs,/admin/general/locations/suburbs,map-marker,,,,,,,1,0,12,12,,
+17,General,General Website,general,/admin/general,cubes,,,,,,,4,0,0,0,,
+18,Reports,,reports,/admin/reports,bar-chart,,,,,,,5,0,0,0,,
+19,Summary,,summary,/admin/reports/summary,align-left,,,,,,,1,0,18,18,,
+20,Contact Us,,contact-us,/admin/reports/contact-us,comments-o,,,,,,,2,0,18,18,,
+21,Settings,,settings,/admin/settings,cogs,,,,,,,6,0,0,0,,
+22,Website,,website,/admin/settings/website,unlock-alt,,,,,,,1,0,21,21,,
+23,Admin,,admin,/admin/settings/admin,lock,,,,,,,2,0,21,21,,
+24,Navigation,,navigation,/admin/settings/website/navigation,align-center,Help,All the menu items for the website.,Help,"You can set the HTML Title and HTML Description.<br/>
+You can select the parent (under which navigation is this item).<br/>
+You can specify if the menu is hidden.",,,1,0,22,22,,
+25,Changelogs,,changelogs,/admin/settings/website/changelogs,file-text-o,,,,,,,2,0,22,22,,
+26,Navigation,,navigation,/admin/settings/admin/navigation,align-center,Help,Helpfull text here - explaining what u can do here...,Information,Please complete the form to create the navigation,,,1,0,23,23,,
+27,Administrators,,users,/admin/settings/admin/users,users,,,,,,,2,0,23,23,,
+28,Admin Invites,,invites,/admin/settings/admin/users/invites,,,,,,,,1,1,27,27,,
+29,Profile,,profile,/admin/profile,user,,,,,,,7,1,0,0,,
+30,Navigation Order,Navigation Order,order,/admin/settings/admin/navigation/order,list-ol,,,,,,,1,1,26,26,,
+31,Navigation Order,Navigation Order,order,/admin/settings/website/navigation/order,list-ol,,,,,,,1,1,24,24,,
+32,Banners,Banners,banners,/admin/general/banners,image,,,,,,,1,0,17,17,,

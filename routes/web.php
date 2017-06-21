@@ -13,112 +13,133 @@
 
 /*
 |------------------------------------------
-| WEBSITE
+| Website
 |------------------------------------------
 */
 Route::group(['namespace' => 'Website'], function () {
-
     Route::get('/', 'HomeController@index');
     Route::get('/about', 'AboutController@index');
     Route::get('/contact-us', 'ContactUsController@index');
     Route::post('/contact-us/submit', 'ContactUsController@feedback');
+
+    Route::get('/pages/1-column', 'PagesController@column1');
+    Route::get('/pages/2-column', 'PagesController@column2');
+    Route::get('/pages/3-column', 'PagesController@column3');
+    Route::get('/pages/4-column', 'PagesController@column4');
+    Route::get('/pages/pricing', 'PagesController@pricing');
 });
 
 /*
 |------------------------------------------
-| AUTH ROUTES
+| Admin Auth
 |------------------------------------------
 */
 Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
+    // logout
+    Route::get('logout', 'LoginController@logout')->name('logout');
+    Route::post('logout', 'LoginController@logout');
 
-    // authentication
-    Route::get('login', 'AuthController@showLoginForm')->name('login');
-    Route::post('login', 'AuthController@login');
-    Route::get('logout', 'AuthController@logout');
+    // login
+    Route::get('login', 'LoginController@showLoginForm')->name('login');
+    Route::post('login', 'LoginController@login');
 
     // registration
-    Route::get('register/{token}', 'AuthController@showRegistrationForm');
-    Route::post('register', 'AuthController@register');
-    Route::get('register/confirm/{token}', 'AuthController@confirmRegister')
-        ->where('token', '[0-9a-zA-Z]+');
+    Route::get('register/{token}', 'RegisterController@showRegistrationForm')->name('register');
+    Route::post('register', 'RegisterController@register');
+    Route::get('register/confirm/{token}', 'RegisterController@confirmRegister');
 
     // password reset
-    Route::get('password/email', 'PasswordController@getEmail');
-    Route::post('password/email', 'PasswordController@postEmail');
-    Route::get('password/reset/{token}', 'PasswordController@showResetForm');
-    Route::post('password/reset', 'PasswordController@reset');
+    Route::get('password/forgot', 'ForgotPasswordController@showLinkRequestForm');
+    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
+    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')
+        ->name('password.reset');
+    Route::post('password/reset', 'ResetPasswordController@reset');
 });
 
 /*
 |------------------------------------------
-| ADMIN ROUTES (when authorized)
+| Admin (when authorized and admin)
 |------------------------------------------
 */
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'namespace' => 'Admin'],
+    function () {
+        Route::get('/', 'DashboardController@index')->name('admin');
 
-    Route::get('/', 'DashboardController@index');
-    Route::post('/analytics/keywords', 'DashboardController@getKeywords');
-    Route::post('/analytics/visitors', 'DashboardController@getVisitors');
-    Route::post('/analytics/browsers', 'DashboardController@getBrowsers');
-    Route::post('/analytics/visited-pages', 'DashboardController@getVisitedPages');
-    Route::post('/analytics/unique-visitors', 'DashboardController@getUniqueVisitors');
-    Route::post('/analytics/visitors-views', 'DashboardController@getVisitorsAndPageViews');
-    Route::post('/analytics/bounce-rate', 'DashboardController@getBounceRate');
-    Route::post('/analytics/page-load', 'DashboardController@getAvgPageLoad');
+        // profile
+        Route::get('/profile', 'ProfileController@index');
+        Route::put('/profile/{user}', 'ProfileController@update');
 
-    // tags
-    Route::resource('tags', 'TagsController');
+        // analytics
+        Route::group(['prefix' => 'analytics'], function () {
+            Route::get('/', 'AnalyticsController@summary');
+            Route::get('/devices', 'AnalyticsController@devices');
+            Route::get('/visits-and-referrals', 'AnalyticsController@visitsReferrals');
+            Route::get('/interests', 'AnalyticsController@interests');
+            Route::get('/demographics', 'AnalyticsController@demographics');
+        });
 
-    // geography
-    Route::group(['prefix' => 'geography', 'namespace' => 'Geography'], function () {
-        Route::resource('cities', 'CitiesController');
-        Route::resource('countries', 'CountriesController');
-    });
+        // history
+        Route::group(['prefix' => 'history', 'namespace' => 'History'], function () {
+            Route::get('/', 'HistoryController@website');
+            Route::get('/admin', 'HistoryController@admin');
+            Route::get('/website', 'HistoryController@website');
+        });
 
-    // reports
-    Route::group(['prefix' => 'reports', 'namespace' => 'Reports'], function () {
-        Route::get('summary', 'SummaryController@index');
+        Route::group(['prefix' => 'general'], function () {
+            Route::resource('banners', 'BannersController');
 
-        Route::group(['prefix' => 'feedback', 'namespace' => 'Feedback'], function () {
+            // testimonials
+            Route::get('testimonials/order', 'TestimonialsOrderController@index');
+            Route::post('testimonials/order', 'TestimonialsOrderController@updateOrder');
+            Route::resource('testimonials', 'TestimonialsController');
+
+            // locations
+            Route::group(['prefix' => 'locations', 'namespace' => 'Locations'], function () {
+                Route::resource('suburbs', 'SuburbsController');
+                Route::resource('cities', 'CitiesController');
+                Route::resource('provinces', 'ProvincesController');
+                Route::resource('countries', 'CountriesController');
+            });
+        });
+
+        // reports
+        Route::group(['prefix' => 'reports', 'namespace' => 'Reports'], function () {
+            Route::get('summary', 'SummaryController@index');
+
             // feedback contact us
             Route::get('contact-us', 'ContactUsController@index');
             Route::post('contact-us/chart', 'ContactUsController@getChartData');
             Route::get('contact-us/datatable', 'ContactUsController@getTableData');
         });
-    });
 
-    // profile
-    Route::get('profile', 'ProfileController@index');
-    Route::put('profile/{user}', 'ProfileController@update');
+        // settings / website
+        Route::group(['prefix' => 'settings/website', 'namespace' => 'Settings\Website'],
+            function () {
+                // navigation
+                Route::group(['prefix' => 'navigation/order'], function () {
+                    Route::get('{type?}', 'NavigationOrderController@index');
+                    Route::post('{type?}', 'NavigationOrderController@updateOrder');
+                });
+                Route::resource('navigation', 'NavigationController');
 
-    // settings / website
-    Route::group(['prefix' => 'settings/website', 'namespace' => 'Settings\Website'], function () {
+                // changelogs
+                Route::resource('changelogs', 'ChangelogsController');
+            });
 
-        // navigation order
-        Route::group(['prefix' => 'navigation/order'], function () {
-            Route::get('{type?}', 'NavigationOrderController@index');
-            Route::post('{type?}', 'NavigationOrderController@updateOrder');
+        // settings / admin
+        Route::group(['prefix' => 'settings/admin', 'namespace' => 'Settings\Admin'], function () {
+            // users
+            Route::get('users', 'AdministratorsController@index');
+            Route::get('users/invites', 'AdministratorsController@showInvites');
+            Route::post('users/invites', 'AdministratorsController@postInvite');
+
+            // navigation
+            Route::get('navigation/order', 'NavigationOrderController@index');
+            Route::post('navigation/order', 'NavigationOrderController@updateOrder');
+            Route::get('navigation/datatable', 'NavigationController@getTableData');
+            Route::resource('navigation', 'NavigationController');
         });
-
-        // navigation
-        Route::resource('navigation', 'NavigationController');
     });
-
-    // settings / admin
-    Route::group(['prefix' => 'settings/admin', 'namespace' => 'Settings\Admin'], function () {
-        // users
-        Route::get('users', 'AdministratorsController@index');
-        Route::get('users/invites', 'AdministratorsController@showInvites');
-        Route::post('users/invites', 'AdministratorsController@postInvite');
-
-        // navigation
-        Route::get('navigation/order', 'NavigationOrderController@index');
-        Route::post('navigation/order', 'NavigationOrderController@updateOrder');
-
-        Route::get('navigation/datatable', 'NavigationController@getTableData');
-        Route::resource('navigation', 'NavigationController');
-    });
-});
 
 /*
 |--------------------------------------------------------------------------

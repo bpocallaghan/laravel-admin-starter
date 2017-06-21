@@ -7,9 +7,7 @@
             <div class="logo"><img src="/images/logo.png"/></div>
 
             <div class="body">
-                <h4 class="auth-title">Register at <strong>{{ env('APP_TITLE') }}</strong></h4>
-
-                <!--@include('admin.partials.errors')-->
+                <h4 class="auth-title">Register at <strong>{{ config('app.name') }}</strong></h4>
 
                 <form id="form-member-register" method="POST" action="{{ url('/auth/register') }}">
                     {!! csrf_field() !!}
@@ -56,7 +54,7 @@
                     <section class="form-group {{ form_error_class('password_confirmation', $errors) }}">
                         <div class="input-group">
                             <input type="password" class="form-control" id="id-password_confirmation" name="password_confirmation" placeholder="Password Confirm" value="{{ old('password_confirmation') }}">
-                            <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                         </div>
                         {!! form_error_message('password_confirmation', $errors) !!}
                     </section>
@@ -75,9 +73,12 @@
                         </div>
                     </section>
 
+                    <hr/>
 
-                    <div class="form-footer" style="padding-bottom: 0px;">
-                        <button type="submit" class="btn btn-primary btn-submit">Register</button>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button type="submit" class="btn btn-primary btn-submit">Register</button>
+                        </div>
                     </div>
                 </form>
             </div>

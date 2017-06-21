@@ -17,7 +17,7 @@
 
                     @include('admin.partials.toolbar', ['order' => true])
 
-                    <table id="tbl-list" data-server="{{$ajax}}" class="dt-table table nowrap table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="tbl-list" data-server="{{$ajax}}" class="dt-table table table-bordered table-striped dataTable table-hover" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th>Title</th>

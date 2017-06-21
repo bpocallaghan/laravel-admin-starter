@@ -1,5 +1,14 @@
+var BUTTON;
 function initTitan()
 {
+    BUTTON = new ButtonClass();
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-Token': $("meta[name='csrf-token']").attr("content")
+        }
+    });
+
     $('.input-generate-slug').change(function ()
     {
         var v = convertStringToSlug($(this).val());
@@ -23,6 +32,8 @@ function initTitan()
             .replace(/-+$/, '')             // Trim - from end of text
             .replace(/-$/, '');             // Remove last floating dash if exists
     }
+
+    getHeaderNotifications();
 }
 
 function doAjax(url, data, callback)

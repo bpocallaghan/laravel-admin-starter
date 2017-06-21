@@ -5,5 +5,5 @@ function initAdmin()
     initTitan();
 
     $(".select2").select2();
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
 }

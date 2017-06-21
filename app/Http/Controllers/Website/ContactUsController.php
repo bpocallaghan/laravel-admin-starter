@@ -19,7 +19,6 @@ class ContactUsController extends WebsiteController
 
     public function feedback(Request $request)
     {
-        // validate basic model
         $this->validate($request, FeedbackContactUs::$rules);
 
         // validate google captcha
@@ -38,7 +37,7 @@ class ContactUsController extends WebsiteController
 
             event(new ContactUsFeedback($row));
 
-            return json_response('success');
+            return json_response('Thank you for contacting us.');
         }
 
         return $this->captchaResponse($response);

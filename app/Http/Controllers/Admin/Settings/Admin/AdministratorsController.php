@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Settings\Admin;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Models\UserInvite;
 use App\User;
 use App\Models\UsersInvite;
@@ -9,7 +10,7 @@ use Illuminate\Http\Request;
 use Mail;
 use Titan\Controllers\TitanAdminController;
 
-class AdministratorsController extends TitanAdminController
+class AdministratorsController extends AdminController
 {
     /**
      * Show all the administrators
@@ -18,6 +19,8 @@ class AdministratorsController extends TitanAdminController
      */
     public function index()
     {
+        save_resource_url();
+
         $items = User::all();
 
         $this->resource = 'Administrator';
@@ -49,14 +52,14 @@ class AdministratorsController extends TitanAdminController
         $row = UserInvite::create($request->only('token', 'email', 'invited_by'));
 
         // send the invitation mail
-        Mail::send('admin.emails.auth.invite', ['userInvite' => $row],
+        Mail::send('emails.admin.auth.invite', ['userInvite' => $row],
             function ($message) use ($row) {
-                $message->to($row->email, $row->email)->subject('Invited as Administrator at ' . env('APP_TITLE'));
+                $message->to($row->email, $row->email)->subject('Invited as Administrator at ' . config('app.name'));
             });
 
-        \Notify::success('Success', 'Invitation sent to ' . $row->email,
+        notify()->success('Success', 'Invitation sent to ' . $row->email,
             'thumbs-up bounce animated');
 
-        return redirect($this->baseUrl . 'settings/admin/users');
+        return redirect_to_resource();
     }
 }

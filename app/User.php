@@ -2,13 +2,17 @@
 
 namespace App;
 
+use App\Models\Traits\UserAdmin;
+use App\Models\Traits\UserHelper;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, UserHelper, UserAdmin;
+
+    protected $appends = ['fullname'];
 
     /**
      * The attributes that are mass assignable.
@@ -21,16 +25,21 @@ class User extends Authenticatable
         'email',
         'gender',
         'cellphone',
+        'telephone',
         'image',
+        'born_at',
+        'logged_in_as',
+        'security_level',
         'password',
         'session_token',
-        'registered_at',
         'logged_in_at',
-        'confirmation_token'
+        'confirmation_token',
+        'confirmed_at',
+        'disabled_at',
     ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
@@ -40,50 +49,34 @@ class User extends Authenticatable
         'deleted_by',
         'deleted_at',
         'logged_in_at',
-        'confirmation_token'
+        'confirmation_token',
+        'disabled_at'
     ];
 
-    protected $dates = ['registered_at', 'deleted_at', 'logged_in_at'];
+    protected $dates = ['confirmed_at', 'deleted_at', 'logged_in_at', 'activated_at'];
 
     /**
      * Validation rules for this model
      */
     static public $rules = [
-        'firstname' => 'required|min:3:max:255',
-        'lastname'  => 'required|min:3:max:255',
-        'email'     => 'required|min:3:max:255',
-        'gender'    => 'required|min:3:max:255',
-        'cellphone' => 'required|min:3:max:255',
-        'photo'     => 'required|image|max:6000|mimes:jpg,jpeg,png,bmp',
+        'firstname' => 'required',
+        'lastname'  => 'required',
+        'gender'    => 'required|in:male,female',
+        'email'     => 'required|email|unique:users',
+        'password'  => 'required|min:4|confirmed',
+        'token'     => 'required|exists:user_invites,token',
+
+        //'cellphone' => 'required|min:3:max:255',
+        //'photo'     => 'required|image|max:6000|mimes:jpg,jpeg,png,bmp',
     ];
 
     /**
-     * Get the user fullname (firstname + lastname)
-     *
-     * @return string
+     * Validation rules for this model
      */
-    public function getFullnameAttribute()
-    {
-        return $this->attributes['firstname'] . ' ' . $this->attributes['lastname'];
-    }
-
-    /**
-     * Set the unique confirmation_token
-     *
-     * @param [string] $confirmation_token
-     */
-    public function setConfirmationTokenAttribute($value)
-    {
-        $this->attributes['confirmation_token'] = $this->getUniqueConfirmationToken();
-    }
-
-    private function getUniqueConfirmationToken()
-    {
-        $token = token($this->email);
-        if (self::where('confirmation_token', $token)->first()) {
-            return $this->getUniqueConfirmationToken();
-        }
-
-        return $token;
-    }
+    static public $rulesProfile = [
+        'firstname' => 'required',
+        'lastname'  => 'required',
+        'gender'    => 'required|in:male,female',
+        'photo'     => 'required|image|max:6000|mimes:jpg,jpeg,png,bmp',
+    ];
 }

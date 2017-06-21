@@ -49,7 +49,7 @@
     <script type="text/javascript" charset="utf-8">
         $(function ()
         {
-            initNestableMenu(2, "{{ Request::url() }}");
+            initNestableMenu(5, "{{ Request::url() }}");
         })
     </script>
 @endsection

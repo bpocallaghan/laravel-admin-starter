@@ -7,7 +7,7 @@
             <div class="logo"><img src="/images/logo.png"/></div>
 
             <div class="body">
-                <h4 class="auth-title">Forgot Password for <strong>{{ env('APP_TITLE') }}</strong></h4>
+                <h4 class="auth-title">Reset Password</h4>
 
                 <form method="POST" action="{{ url('/auth/password/email') }}">
                     {!! csrf_field() !!}

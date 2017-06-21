@@ -44,7 +44,7 @@ class NavigationOrderController extends TitanAdminController
         $html = '<ol class="dd-list">';
 
         if (!(isset($parent) && $parent)) {
-            $items = NavigationAdmin::whereParentIdORM(0);
+            $items = NavigationAdmin::whereParentIdORM(0, true);
         }
         else {
             $items = NavigationAdmin::whereParentIdORM($parent->id, true);

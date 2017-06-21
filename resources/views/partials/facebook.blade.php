@@ -2,7 +2,7 @@
 <script>
     window.fbAsyncInit = function ()
     {
-        FB.init({appId: "{{ env('FACEBOOK_APP_ID') }}", xfbml: true, version: 'v2.5'});
+        FB.init({appId: "{{ config('app.facebook_id') }}", xfbml: true, version: 'v2.5'});
     };
 
     (function (d, s, id)
@@ -13,7 +13,7 @@
         }
         js = d.createElement(s);
         js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId={{ env('FACEBOOK_APP_ID') }}";
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId={{ config('app.facebook_id') }}";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>

@@ -7,9 +7,10 @@
         <meta name="author" content="{{ config('app.author') }}">
         <meta name="keywords" content="{{ config('app.keywords') }}">
         <meta name="description" content="{{ isset($HTMLDescription) ? $HTMLDescription : config('app.description') }}"/>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta property="og:type" name="og:type" content="website"/>
-        <meta property="og:site_name" content="{{ config('app.title') }}"/>
+        <meta property="og:site_name" content="{{ config('app.name') }}"/>
         <meta property="og:url" name="og:url" content="{{ Request::url() }}"/>
         <meta property="og:caption" name="og:caption" content="{{ config('app.url') }}"/>
         <meta property="fb:app_id" name="fb:app_id" content="{{ config('app.facebook_id') }}"/>
@@ -17,20 +18,15 @@
         <meta property="og:description" name="og:description" content="{{ isset($HTMLDescription) ? $HTMLDescription : config('app.description') }}">
         <meta property="og:image" name="og:image" content="{{ config('app.url') }}{{ isset($HTMLImage) ? $HTMLImage : 'images/logo.png' }}">
 
-        <title>{{ isset($HTMLTitle) ? $HTMLTitle : config('app.title') }}</title>
+        @include ('partials.favicons')
 
-        <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+        <title>{{ isset($HTMLTitle) ? $HTMLTitle : config('app.name') }}</title>
 
-        {{-- google font --}}
-        @if(config('app.env') != 'local')
-        @endif
-
-        {{-- stylesheet --}}
-        <link rel="stylesheet" href="/css/all.css">
+        <link rel="stylesheet" href="/css/website.css?v=2">
+        @yield('styles')
     </head>
 
     <body>
-        {{-- facebook root --}}
         @if(config('app.env') != 'local')
             @include('partials.facebook')
         @endif
@@ -39,29 +35,28 @@
 
         @include('website.partials.slider')
 
-        @include('website.partials.breadcrumb')
+        <div class="container">
+            @include('website.partials.breadcrumb')
 
-        @yield('content')
+            @yield('content')
+        </div>
 
         @include('website.partials.footer')
 
         @include('website.partials.popup')
 
-        {{-- scripts --}}
-        <script type="text/javascript" charset="utf-8" src="/js/all.js"></script>
-
+        <script type="text/javascript" charset="utf-8" src="/js/website.js?v=2"></script>
         <script type="text/javascript">
             $(document).ready(function ()
             {
-                $.ajaxSetup({headers: {'X-CSRF-Token': '{{ csrf_token() }}'}});
+                initWebsite();
             });
         </script>
 
-        {{-- page specific scripts --}}
         @yield('scripts')
 
         @if(config('app.env') != 'local')
-            @include('partials.google_analytics')
+            @include('partials.analytics')
         @endif
     </body>
 </html>

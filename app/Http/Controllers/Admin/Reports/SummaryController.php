@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Reports;
 
 use App\Http\Requests;
+use App\Models\FAQ;
 use App\Models\FeedbackPurchase;
 use Illuminate\Http\Request;
 use App\Models\FeedbackArtwork;
@@ -14,12 +15,12 @@ use Titan\Controllers\TitanAdminController;
 
 class SummaryController extends TitanAdminController
 {
-	public function index()
-	{
+    public function index()
+    {
         $items = $this->getData();
 
-		return $this->view('reports.summary', compact('items'));
-	}
+        return $this->view('reports.summary', compact('items'));
+    }
 
     private function getData()
     {
@@ -28,6 +29,10 @@ class SummaryController extends TitanAdminController
         $result[] = ['', ''];
         $result[] = ['<strong>Feedback Forms</strong>', ''];
         $result[] = ['Contact Us', FeedbackContactUs::count()];
+
+        $result[] = ['', ''];
+        $result[] = ['<strong>Item 2</strong>', ''];
+        $result[] = ['Total xx', '0'];
 
         return $result;
     }

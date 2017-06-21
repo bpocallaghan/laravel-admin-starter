@@ -1,47 +1,41 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+<header id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-            <div class="container">
+        @if(isset($banners) && count($banners) > 0)
+            @foreach($banners as $k => $banner)
+                <div class="item {{ $k == 0? 'active':'' }}">
+                    <img src="/uploads/images/{{ $banner->image }}"/>
+                    <div class="carousel-caption">
+                        <h2>{!! $banner->title !!}</h2>
+                        @if($banner->subtitle)
+                            <p>{!! $banner->subtitle !!}</p>
+                        @endif
+                        @if($banner->action_link)
+                            <a class="btn btn-default" target="_blank" href="{{ $banner->action_link }}">{{ $banner->action_title ?: 'Click Me' }}</a>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x500');"></div>
                 <div class="carousel-caption">
-                    <h1>Example headline.</h1>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    <h2>Title Caption 1</h2>
                 </div>
             </div>
-        </div>
-        <div class="item">
-            <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-            <div class="container">
+
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/1900x500');"></div>
                 <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    <h2>Title Caption 2</h2>
                 </div>
             </div>
-        </div>
-        <div class="item">
-            <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                </div>
-            </div>
-        </div>
+        @endif
     </div>
 
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
     </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
     </a>
-</div>
+</header>

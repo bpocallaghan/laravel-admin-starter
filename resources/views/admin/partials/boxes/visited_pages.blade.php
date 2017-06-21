@@ -48,7 +48,7 @@
                     end = moment().format('YYYY-MM-DD');
                 }
 
-                doAjax('/admin/analytics/visited-pages', {
+                doAjax('/api/analytics/visited-pages', {
                     'start': start, 'end': end,
                 }, renderTableVisitedPages);
             }

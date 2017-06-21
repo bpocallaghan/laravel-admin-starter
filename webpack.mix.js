@@ -15,8 +15,6 @@ var COMPILE = 'all';
 var public = 'public';
 var pathBase = 'resources/assets';
 
-// mix.copyDirectory('assets/img', 'public/img');
-
 if (COMPILE == 'all') {
     // copy all the fonts
     mix.copy(pathBase + '/fonts', public + '/fonts');
@@ -28,111 +26,124 @@ if (COMPILE == 'all') {
     mix.copy(pathBase + '/images', public + '/images');
 }
 
+// website assets
+if (COMPILE == 'website' || COMPILE == 'all') {
+    var path = pathBase + '/';
+    var pathCSS = path + '/css/';
+    var pathJS = path + '/js/';
+
+    mix.styles([
+        pathCSS + 'vendor/bootstrap.css',
+        pathCSS + 'vendor/font-awesome.css',
+
+        pathCSS + 'website.css',
+    ], public + '/css/website.css');
+
+    // admin javascripts
+    mix.scripts([
+        // jquery
+        pathJS + 'vendor/jquery-3.2.1.js',
+        // bootstrap
+        pathJS + 'vendor/bootstrap.js',
+
+        pathJS + 'titan/alerts.js',
+        pathJS + 'titan/buttons.js',
+        pathJS + 'titan/forms.js',
+        pathJS + 'titan/google_maps.js',
+        pathJS + 'titan/social_media.js',
+        pathJS + 'titan/utils.js',
+
+        pathJS + 'website.js',
+    ], public + '/js/website.js');
+}
+
+// admin assets
 if (COMPILE == 'admin' || COMPILE == 'all') {
-    // admin style sheets
     var path = pathBase + '/admin/';
 
     // copy all the fonts
     mix.copy(path + 'fonts', public + '/fonts');
 
+    // copy all the sounds
+    mix.copy(path + 'sounds', public + '/sounds');
+
     // copy all the images
     mix.copy(path + 'images', public + '/images/admin');
 
+    var pathCSS = path + '/css/';
     mix.styles([
-        path + 'bootstrap.css',
-        path + 'font-awesome.css',
-        path + 'ionicons.css',
+        pathCSS + 'vendor/bootstrap.css',
+        pathCSS + 'vendor/font-awesome.css',
+        pathCSS + 'vendor/ionicons.css',
 
         // plugins
-        path + 'plugins/select2.css',
-        path + 'plugins/lightbox.css',
-        path + 'plugins/dropzone.css',
-        path + 'plugins/summernote.css',
-        path + 'plugins/daterangepicker.css',
-        path + 'plugins/pace-theme-flash.css',
-        path + 'plugins/bootstrap-datetimepicker.css',
-        path + 'plugins/datatables/dataTables.bootstrap.css',
-        path + 'plugins/datatables/responsive.bootstrap.css',
+        pathCSS + 'vendor/select2.css',
+        pathCSS + 'vendor/lightbox.css',
+        pathCSS + 'vendor/dropzone.css',
+        pathCSS + 'vendor/summernote.css',
+        pathCSS + 'vendor/daterangepicker.css',
+        pathCSS + 'vendor/pace-theme-flash.css',
+        pathCSS + 'vendor/bootstrap-datetimepicker.css',
+        pathCSS + 'vendor/datatables.bootstrap.css',
+        pathCSS + 'vendor/responsive.bootstrap.css',
 
         // admin
-        path + 'admin-lte.css',
-        path + 'skins/skin-blue.css',
+        pathCSS + 'admin-lte.css',
+        pathCSS + 'skins/skin-blue.css',
 
-        // titan
-        path + 'titan/titan.css',
-        path + 'titan/charts.css',
-        path + 'titan/superbox.css',
-        path + 'titan/nestable.css',
-        path + 'titan/datatables.css',
-        path + 'titan/checkboxes.css',
+        // // titan
+        pathCSS + 'titan/titan.css',
+        pathCSS + 'titan/charts.css',
+        pathCSS + 'titan/superbox.css',
+        pathCSS + 'titan/nestable.css',
+        pathCSS + 'titan/datatables.css',
+        pathCSS + 'titan/checkboxes.css',
+        pathCSS + 'titan/notify.css',
 
-        path + 'titan/notify.css',
-    ], public + '/css/admin/all.css');
+        pathCSS + 'overrides.css',
+    ], public + '/css/admin.css');
 
+    var pathJS = path + '/js/';
     // admin javascripts
     mix.scripts([
         // jquery
-        path + 'jquery-2.2.1.js',
+        pathJS + 'vendor/jquery-3.2.1.js',
 
         // bootstrap
-        path + 'bootstrap.js',
+        pathJS + 'vendor/bootstrap.js',
 
         // plugins
-        path + 'plugins/pace.js',
-        path + 'plugins/chart.js',
-        path + 'plugins/select2.js',
-        path + 'plugins/dropzone.js',
-        path + 'plugins/lightbox.js',
-        path + 'plugins/fastclick.js',
-        path + 'plugins/summernote.js',
-        path + 'plugins/jquery.nestable.js',
+        pathJS + 'vendor/pace.js',
+        pathJS + 'vendor/chart.js',
+        pathJS + 'vendor/select2.js',
+        pathJS + 'vendor/dropzone.js',
+        pathJS + 'vendor/lightbox.js',
+        pathJS + 'plugins/fastclick.js',
+        pathJS + 'vendor/summernote.js',
+        pathJS + 'vendor/jquery.nestable.js',
 
         // date picker
-        path + 'plugins/moment.js',
-        path + 'plugins/daterangepicker.js',
-        path + 'plugins/bootstrap-datetimepicker.js',
+        pathJS + 'vendor/moment.js',
+        pathJS + 'vendor/daterangepicker.js',
+        pathJS + 'vendor/bootstrap-datetimepicker.js',
 
         // datatables | 1.10.11
         // https://datatables.net/extensions/responsive/classes
-        path + 'plugins/datatables/jquery.dataTables.js',
-        path + 'plugins/datatables/dataTables.bootstrap.js',
-        path + 'plugins/datatables/dataTables.responsive.js',
+        pathJS + 'vendor/jquery.datatables.js',
+        pathJS + 'vendor/datatables.bootstrap.js',
+        pathJS + 'vendor/datatables.responsive.js',
 
         // titan
-        path + 'titan/titan.js',
-        path + 'titan/datatables.js',
-        path + 'titan/google_maps.js',
-
-        path + 'titan/notify.js',
+        pathJS + 'titan/titan.js',
+        pathJS + 'titan/buttons.js',
+        pathJS + 'titan/notify.js',
+        pathJS + 'titan/datatables.js',
+        pathJS + 'titan/google_maps.js',
+        pathJS + 'titan/notifications.js',
 
         // admin
-        path + 'admin-lte.js',
-        path + 'admin.js',
+        pathJS + 'admin-lte.js',
+        pathJS + 'admin.js',
 
-    ], public + '/js/admin/all.js');
-}
-
-if (COMPILE == 'website' || COMPILE == 'all') {
-
-    // website stylesheets
-    var path = pathBase + '/website/';
-
-    // copy all the fonts
-    // mix.copy(path + 'fonts', public + '/fonts');
-
-    // copy all the images
-    // mix.copy(path + 'images', public + '/images');
-
-    mix.css([
-        path + 'bootstrap.css',
-        path + 'website.css',
-    ], public + '/css/all.css');
-
-    // admin javascripts
-    mix.scripts([
-        // jquery
-        path + 'jquery-2.2.1.js',
-        // bootstrap
-        path + 'bootstrap.js',
-    ], public + '/js/all.js');
+    ], public + '/js/admin.js');
 }
