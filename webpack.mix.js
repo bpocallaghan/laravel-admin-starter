@@ -20,7 +20,7 @@ if (COMPILE == 'all') {
     mix.copy(pathBase + '/fonts', public + '/fonts');
 
     // copy all the sound
-    mix.copy(pathBase + '/sounds', public + '/sounds');
+    // mix.copy(pathBase + '/sounds', public + '/sounds');
 
     // copy all the images
     mix.copy(pathBase + '/images', public + '/images');
