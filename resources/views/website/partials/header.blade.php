@@ -19,6 +19,16 @@
                         <a href="/">Home</a>
                     </li>
                 @endif
+                <li>
+                    <a href="/admin">
+                        @if(Auth::check())
+                            {!! user()->fullname !!}
+                        @else
+                            <i class="fa fa-user-secret"></i>
+                            Admin
+                        @endif
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

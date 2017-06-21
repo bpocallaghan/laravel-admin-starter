@@ -25,16 +25,10 @@
                     <abbr title="Hours">H</abbr>: Monday - Friday: 8:00 AM to 5:00 PM</p>
                 <ul class="list-unstyled list-inline list-social-icons">
                     <li>
-                        <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                        <a href="https://www.facebook.com/bpocallaghan"><i class="fa fa-2x fa-facebook-square"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                        <a href="https://twitter.com/bpocallaghan"><i class="fa fa-2x fa-twitter-square"></i></a>
                     </li>
                 </ul>
             </div>

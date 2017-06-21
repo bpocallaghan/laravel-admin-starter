@@ -2,6 +2,10 @@
 
 @section('content')
 
+    <div class="well well-sm bg-gray-light">
+        <p><strong>Note</strong>: uBlock Origin browser extension block the '<strong>/api/analtyics</strong>' ajax to get the google analytics</p>
+    </div>
+
     @include('admin.partials.boxes.dashboard_header')
 
     <div class="row">

@@ -6,7 +6,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 
 [Preview project here](http://bpocallaghan.co.za/admin)
 - User: github@bpocallaghan.co.za
-- Password: Github
+- Password: github
 
 ## Features / What it includes
 - Admin LTE admin theme
