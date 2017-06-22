@@ -20,14 +20,20 @@
                         {!! form_error_message('email', $errors) !!}
                     </section>
 
-                    <div class="form-footer" style="padding-bottom: 0px;">
-                        <div class="note">
-                            <a href="{{ url('/auth/login') }}">I remembered my password!</a>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="note">
+                                <a class="btn btn-link" href="{{ route('login') }}" style="padding-left: 0;">I remembered my password!</a>
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <i class="fa fa-refresh"></i> Send Instructions
-                        </button>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary btn-submit pull-right">
+                                <i class="fa fa-refresh"></i> Send Instructions
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>

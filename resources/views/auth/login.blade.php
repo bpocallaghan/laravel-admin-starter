@@ -32,11 +32,12 @@
 
                     <div class="row margin-top-10">
                         <div class="col-xs-8">
-                            <a class="btn btn-link" href="{{ url('/auth/password/forgot') }}" style="padding-left: 0;">Forgot Password?</a>
+                            <a class="btn btn-link" href="{{ route('forgot-password') }}" style="padding-left: 0;">Forgot Password?</a>
                         </div>
                         <div class="col-xs-4">
                             <button type="submit" class="btn btn-primary btn-block btn-flat btn-submit">
                                 Sign In
+                                <i class="fa fa-sign-in"></i>
                             </button>
                         </div>
                     </div>

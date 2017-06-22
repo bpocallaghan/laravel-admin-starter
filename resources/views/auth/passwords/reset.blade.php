@@ -37,10 +37,14 @@
                         {!! form_error_message('password_confirmation', $errors) !!}
                     </section>
 
-                    <div class="form-footer" style="padding-bottom: 0px;">
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <i class="fa fa-refresh"></i> Reset Password
-                        </button>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-submit pull-right">
+                                <i class="fa fa-refresh"></i> Reset Password
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>

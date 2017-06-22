@@ -1,18 +1,14 @@
 <header class="main-header">
-
-    <!-- Logo -->
     <a href="{{ url('/admin') }}" class="logo">
         <span class="logo-mini"><img src="/images/logo-mini.png" style="width: 100%;"/></span>
         <span class="logo-lg"><img src="/images/logo.png" style="width: 80%;"/></span>
     </a>
 
-    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
-        <!-- Navbar Right Menu -->
+
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li class="dropdown messages-menu">
@@ -22,7 +18,6 @@
                     </a>
                 </li>
 
-                <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
@@ -39,7 +34,6 @@
                     </ul>
                 </li>
 
-                <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ profile_image() }}" class="user-image" alt="User Image">
@@ -69,7 +63,6 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
-
                             </div>
                         </li>
                     </ul>

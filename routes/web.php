@@ -49,7 +49,7 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::get('register/confirm/{token}', 'RegisterController@confirmRegister');
 
     // password reset
-    Route::get('password/forgot', 'ForgotPasswordController@showLinkRequestForm');
+    Route::get('password/forgot', 'ForgotPasswordController@showLinkRequestForm')->name('forgot-password');
     Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
     Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')
         ->name('password.reset');
