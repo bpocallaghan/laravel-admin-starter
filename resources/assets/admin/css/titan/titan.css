@@ -205,3 +205,8 @@ form fieldset {
     padding-top: 0;
     padding-bottom: 0;
 }
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
+    background: #fff;
+    border-color: rgb(236, 240, 245);
+}

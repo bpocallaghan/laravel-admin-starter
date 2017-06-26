@@ -31,7 +31,7 @@
                         @foreach ($actions as $action)
                             <tr>
                                 <td>{!! $action->id !!}</td>
-                                <td>{!! $action->type !!}</td>
+                                <td>{!! $action->title !!}</td>
                                 <td>{!! $action->description !!}</td>
                                 <td>{{ $action->created_at->diffForHumans() }}</td>
                             </tr>

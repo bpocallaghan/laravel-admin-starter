@@ -44,7 +44,7 @@ class ChangelogsController extends AdminController
 
         $changelog = $this->createEntry(Changelog::class, $request->only(['version', 'date_at', 'content']));
 
-        log_action('Changelog Updated', 'Changelog was updated. ' . $changelog->version);
+        log_activity('Changelog Updated', 'Changelog was updated. ' . $changelog->version);
 
         return redirect_to_resource();
     }
@@ -84,7 +84,7 @@ class ChangelogsController extends AdminController
 
         $this->updateEntry($changelog, $request->only(['version', 'date_at', 'content']));
 
-        log_action('Changelog Updated', 'Changelog was updated. ' . $changelog->version);
+        log_activity('Changelog Updated', 'Changelog was updated. ' . $changelog->version);
 
         return redirect_to_resource();
     }
@@ -100,7 +100,7 @@ class ChangelogsController extends AdminController
     {
         $this->deleteEntry($changelog, $request);
 
-        log_action('Changelog deleted', 'Changelog was deleted.');
+        log_activity('Changelog deleted', 'Changelog was deleted.');
 
         return redirect_to_resource();
     }

@@ -51,7 +51,7 @@ class BannersController extends AdminController
             $banner = $this->createEntry(Banner::class, $request->except('photo'));
         }
 
-        log_action('Banner Created', 'Banner was created ' . $banner->title);
+        log_activity('Banner Created', 'Banner was created ' . $banner->title);
 
         return redirect_to_resource();
     }
@@ -99,7 +99,7 @@ class BannersController extends AdminController
 
         $this->updateEntry($banner, $request->except('photo'));
 
-        log_action('Banner Updated', 'Banner was updated. ' . $banner->title);
+        log_activity('Banner Updated', 'Banner was updated. ' . $banner->title);
 
         return redirect_to_resource();
     }

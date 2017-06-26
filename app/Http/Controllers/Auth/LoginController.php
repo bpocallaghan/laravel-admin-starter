@@ -117,7 +117,7 @@ class LoginController extends TitanController
 
         $this->clearLoginAttempts($request);
 
-        log_action('Login', user()->fullname . ' logged in.');
+        log_activity('Login', user()->fullname . ' logged in.');
 
         return redirect()->intended('/admin');
     }

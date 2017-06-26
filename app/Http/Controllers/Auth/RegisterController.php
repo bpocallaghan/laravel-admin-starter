@@ -72,7 +72,7 @@ class RegisterController extends TitanController
         alert()->success('Thank you,',
             'your account has been created, please check your inbox for further instructions.');
 
-        log_action('User Registered',
+        log_activity('User Registered',
             $user->fullname . ' registered on ' . Carbon::now()->format('d M Y'), $user);
 
         return redirect(route('login'));
@@ -98,7 +98,7 @@ class RegisterController extends TitanController
 
                 alert()->success('Success', 'Congratulations, your account has been activated');
 
-                log_action('User Confirmed',
+                log_activity('User Confirmed',
                     $user->fullname . ' confirmed account ' . Carbon::now()->format('d M Y'),
                     $user);
             }
@@ -106,7 +106,7 @@ class RegisterController extends TitanController
         else {
             alert()->error('Whoops!', 'Sorry, the token does not exist');
 
-            log_action('User Confirmed', 'INVALID TOKEN');
+            log_activity('User Confirmed', 'INVALID TOKEN');
         }
 
         return redirect(route('login'));

@@ -45,7 +45,7 @@ class TestimonialsController extends AdminController
         $testimonial = $this->createEntry(Testimonial::class,
             $request->only(['customer', 'link', 'description']));
 
-        log_action('Testimonial Created', 'Testimonial was created ' . $testimonial->customer);
+        log_activity('Testimonial Created', 'Testimonial was created ' . $testimonial->customer);
 
         return redirect_to_resource();
     }
@@ -85,7 +85,7 @@ class TestimonialsController extends AdminController
 
         $this->updateEntry($testimonial, $request->only(['customer', 'link', 'description']));
 
-        log_action('Testimonial Updated', 'Testimonial was updated. ' . $testimonial->customer);
+        log_activity('Testimonial Updated', 'Testimonial was updated. ' . $testimonial->customer);
 
         return redirect_to_resource();
     }

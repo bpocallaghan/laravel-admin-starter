@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\LogAction;
+use App\Models\LogActivity;
 use App\Models\Notification;
 use App\User;
 use Illuminate\Http\Request;
@@ -69,13 +69,13 @@ class NotificationsController extends ApiController
      */
     public function getLatestActions()
     {
-        $activities = LogAction::getLatestMinutes(12 * 60);
+        $activities = LogActivity::getLatestMinutes(12 * 60);
 
         $items = [];
         foreach ($activities as $k => $item) {
             $items [] = [
-                'title'      => $item->type,
-                'message'    => $item->message,
+                'title'      => $item->title,
+                'message'    => $item->description,
                 'created_at' => $item->created_at->diffForHumans(),
             ];
         }

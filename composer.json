@@ -12,7 +12,7 @@
         "intervention/image": "^2.3",
         "bpocallaghan/alert": "^1.0",
         "bpocallaghan/notify": "^2.0",
-        "bpocallaghan/titan": "0.2.0",
+        "bpocallaghan/titan": "^0.2.3",
         "spatie/laravel-analytics": "1.4.1",
         "yajra/laravel-datatables-oracle": "^7.7"
     },

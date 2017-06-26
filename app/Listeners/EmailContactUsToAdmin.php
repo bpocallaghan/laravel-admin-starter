@@ -26,7 +26,7 @@ class EmailContactUsToAdmin
             $user->notify(new ContactUsSubmitted($data));
         }
 
-        log_action('Contact Us', $data->fullname . ' submitted Contact Us.', $data);
+        log_activity('Contact Us', $data->fullname . ' submitted Contact Us.', $data);
         //Mail::send('emails.contactus_admin', ['obj' => $data], function ($message) use ($data) {
         //    $message = mail_to_admins($message);
         //    $message->subject($data->type . ' - ' . env('app.name'));
