@@ -1,6 +1,6 @@
 <aside class="main-sidebar">
     <section class="sidebar">
-        <div class="user-panel">
+        <div class="user-panel hide">
             <div class="pull-left image">
                 <img src="{{ profile_image() }}" class="img-circle" alt="User Image">
             </div>
@@ -12,8 +12,8 @@
 
         <nav>
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">MAIN NAVIGATION</li>
-                {!! $navigation !!}
+                <li class="header">NAVIGATION</li>
+                @include ('admin.partials.navigation_list', ['collection' => $navigation['root']])
             </ul>
         </nav>
     </section>
