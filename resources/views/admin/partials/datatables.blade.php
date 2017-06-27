@@ -7,9 +7,15 @@
             if ($('#tbl-list').attr('data-server') == 'true') {
                 var options = {!! json_encode($options) !!}; // convert php array to js array
                 @if(isset($action) && $action == true || isset($action) == false)
-                    options.push({data: 'action', name: 'action', orderable: false, searchable: false}); // add actions column
+                    options.push({
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false,
+                        visible: true
+                    }); // add actions column
                 @endif
-                initDatatablesAjax('#tbl-list', "{{ Request::url().'/datatable' }}", options); // init datatables
+                var table = initDatatablesAjax("{{ (isset($id)? $id: '#tbl-list') }}", "{{ (isset($url)? $url: request()->url().'/datatable') }}", options); // init datatables
             }
         })
     </script>

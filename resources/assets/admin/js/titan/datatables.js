@@ -46,8 +46,17 @@ function initDataTables(selector, options)
     options.sDom = "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>" +
         "t" +
         "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>";
+    options.drawCallback = function(settings) {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
 
-    return $(selector).DataTable(options);
+    // datatable
+    var table = $(selector).DataTable(options);
+
+    // reregister the tooltip events on table
+    table.$('[data-toggle="tooltip"]').tooltip();
+
+    return table;
 }
 
 function getOrderBy(element)
@@ -68,12 +77,23 @@ function getOrderBy(element)
     return orderBy;
 }
 
-function initActionDeleteClick()
+function initActionDeleteClick(element)
 {
     $('.dt-table').off('click', '.btn-delete-row');
+    $('.dt-table').off('click', '.btn-confirm-modal-row');
+    if(element) {
+        element.off('click', '.btn-delete-row');
+        element.off('click', '.btn-confirm-modal-row');
+    }
 
     // DELETE ROW LINK
     $('.dt-table').on('click', '.btn-delete-row', onActionDeleteClick);
+    $('.dt-table').on('click', '.btn-confirm-modal-row', onConfirmRowlick);
+
+    if(element) {
+        element.on('click', '.btn-delete-row', onActionDeleteClick);
+        element.on('click', '.btn-confirm-modal-row', onConfirmRowlick);
+    }
 
     function onActionDeleteClick(e)
     {
@@ -92,6 +112,23 @@ function initActionDeleteClick()
         });
         $('#modal-confirm').modal('show');
 
+        return false;
+    }
+
+    function onConfirmRowlick(e)
+    {
+        e.preventDefault();
+        var formId = $(this).attr('data-form');
+        var title = $(this).attr('data-original-title');
+        title = '<strong>' + title + '</strong>';
+
+        var content = "Are you sure you want to " + title + "? ";
+        $('#modal-confirm').find('.modal-body').find('p').html(content);
+        $('#modal-confirm').find('.modal-footer').find('.btn-primary').on('click', function (e)
+        {
+            $('#' + formId).submit();
+        });
+        $('#modal-confirm').modal('show');
         return false;
     }
 }
