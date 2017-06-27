@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
 {
-    public function run()
+    public function run(Faker\Generator $faker)
     {
         User::truncate();
 
@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
             'lastname'       => 'O\'Callaghan',
             'cellphone'      => '123456789',
             'email'          => 'bpocallaghan@gmail.com',
-            'gender'         => 'male',
+            'gender'         => 'ninja',
             'password'       => bcrypt('admin'),
             'security_level' => 10,
             'confirmed_at'   => Carbon::now()
@@ -47,5 +47,23 @@ class UserTableSeeder extends Seeder
             \App\Models\Role::$ADMIN,
             \App\Models\Role::$DEVELOPER,
         ]);
+
+        for ($i = 0; $i < 30; $i++) {
+            $user = User::create([
+                'firstname'      => $faker->firstName,
+                'lastname'       => $faker->lastName,
+                'cellphone'      => $faker->phoneNumber,
+                'email'          => $faker->email,
+                'gender'         => $faker->randomElement(['male', 'female']),
+                'password'       => bcrypt('secret'),
+                'security_level' => 10,
+                'confirmed_at'   => Carbon::now()
+            ]);
+
+            $user->syncRoles([
+                \App\Models\Role::$ADMIN,
+                \App\Models\Role::$DEVELOPER,
+            ]);
+        }
     }
 }

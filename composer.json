@@ -6,13 +6,14 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0",
-        "google/recaptcha": "^1.1",
-        "intervention/image": "^2.3",
         "bpocallaghan/alert": "^1.0",
+        "bpocallaghan/impersonate": "^0.1.0",
         "bpocallaghan/notify": "^2.0",
         "bpocallaghan/titan": "^0.2.3",
+        "google/recaptcha": "^1.1",
+        "intervention/image": "^2.3",
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "~1.0",
         "spatie/laravel-analytics": "1.4.1",
         "yajra/laravel-datatables-oracle": "^7.7"
     },

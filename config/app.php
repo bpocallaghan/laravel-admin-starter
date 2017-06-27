@@ -194,6 +194,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Bpocallaghan\Notify\NotifyServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Bpocallaghan\Impersonate\ImpersonateServiceProvider::class,
         Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
     ],
 

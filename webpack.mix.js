@@ -121,6 +121,7 @@ if (COMPILE == 'admin' || COMPILE == 'all') {
         pathJS + 'plugins/fastclick.js',
         pathJS + 'vendor/summernote.js',
         pathJS + 'vendor/jquery.nestable.js',
+        pathJS + 'vendor/jquery.cookie.js',
 
         // date picker
         pathJS + 'vendor/moment.js',

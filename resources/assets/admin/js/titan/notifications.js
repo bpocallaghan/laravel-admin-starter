@@ -1,13 +1,31 @@
 function getHeaderNotifications()
 {
-    function getHeaderActions()
+    function getHeaderActivities()
     {
-        doAjax('/api/notifications/actions/latest', null, function (response)
+        $.cookie.json = true;
+        $('.dropdown-toggle').on('click', function ()
         {
-            renderActions(response);
+            var type = $(this).attr('data-type');
+            if (type) {
+                var cookie = $.cookie(type);
+                if (cookie) {
+                    var items = [];
+                    // mark all items as 'read'
+                    for (var i = 0; i < cookie.length; i++) {
+                        items.push({'id': cookie[i]['id'], 'read': true});
+                    }
+                    $.cookie(type, items, {expires: 2});
+                    $('#js-' + type + '-badge').hide();
+                }
+            }
         });
 
-        function renderActions(response)
+        doAjax('/api/notifications/actions/latest', null, function (response)
+        {
+            renderActivities(response, 'activities');
+        });
+
+        function renderActivities(response, type)
         {
             if (!(response.success || response.data)) {
                 return false;
@@ -15,16 +33,21 @@ function getHeaderNotifications()
 
             var items = response['data'];
             if (items.length > 0) {
-                $('#js-actions-badge').show();
-                $('#js-actions-badge').html(items.length);
+                $('#js-' + type + '-badge').show();
+                $('#js-' + type + '-badge').html(items.length);
 
             } else {
-                $('#js-actions-badge').hide();
-                $('#js-actions-list').html('<li><a><p style="margin-left: 0px; text-align: center">There are no actions</p></a></li>');
+                $('#js-' + type + '-badge').hide();
+                $('#js-' + type + '-list').html('<li><a><p style="margin-left: 0px; text-align: center">There are no ' + type + '</p></a></li>');
                 return false;
             }
 
-            $('#js-actions-list').html('');
+            // get the items from cookie
+            var cookie = $.cookie(type);
+
+            var total = items.length;
+            var cookieItems = [];
+            $('#js-' + type + '-list').html('');
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
 
@@ -36,8 +59,30 @@ function getHeaderNotifications()
                 html += item['message'];
                 html += '</p></a></li>';
 
-                $('#js-actions-list').append(html);
+                // if cookie
+                if (cookie) {
+                    // find item in cookie
+                    for (var j = 0; j < cookie.length; j++) {
+                        if (cookie[j]['id'] == item['id'] && cookie[j]['read']) {
+                            total--; // decrement total
+                            items[i]['read'] = true;
+                        }
+                    }
+                }
+
+                cookieItems.push({'id': items[i]['id'], 'read': items[i]['read']});
+
+                $('#js-' + type + '-list').append(html);
             }
+
+            // update counter
+            if (total > 0) {
+                $('#js-' + type + '-badge').html(total);
+            } else { // hide if all is read
+                $('#js-' + type + '-badge').hide();
+            }
+
+            $.cookie(type, cookieItems, {expires: 2, path: '/admin'});
         }
     }
 
@@ -99,7 +144,7 @@ function getHeaderNotifications()
         });
     }
 
-    getHeaderActions();
+    getHeaderActivities();
     getUnreadNotifications($('#js-notifications-badge').attr('data-user'));
 }
 

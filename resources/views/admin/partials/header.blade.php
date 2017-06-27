@@ -11,6 +11,20 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+
+                @if (impersonate()->isActive())
+                    <li>
+                        <a href="{{ route('impersonate.logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('impersonate-logout-form').submit();">
+                            Return to original user
+                        </a>
+
+                        <form id="impersonate-logout-form" action="{{ route('impersonate.logout') }}" method="post" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                @endif
+
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#modal-notifications">
                         <i class="fa fa-envelope-o"></i>
@@ -19,9 +33,9 @@
                 </li>
 
                 <li class="dropdown messages-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a data-type="activities" href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
-                        <span id="js-actions-badge" class="label label-warning" style="display: none;"></span>
+                        <span id="js-activities-badge" class="label label-warning" style="display: none;"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
@@ -29,7 +43,7 @@
 
                             </ul>
                         </li>
-                        <li class="footer"><a href="/admin/history/website">See All Actions</a>
+                        <li class="footer"><a href="/admin/history/website">See All Activities</a>
                         </li>
                     </ul>
                 </li>

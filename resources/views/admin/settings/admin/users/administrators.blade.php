@@ -29,6 +29,7 @@
                             <th><i class="fa fa-fw fa-mobile-phone text-muted"></i> Cellphone</th>
                             <th>Gender</th>
                             <th><i class="fa fa-fw fa-calendar text-muted"></i> Last Login</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,16 @@
                                 <td>{{ $user->cellphone }}</td>
                                 <td>{{ $user->gender }}</td>
                                 <td>{{ ($user->logged_in_at)? $user->logged_in_at->diffForHumans():'-' }}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <form id="impersonate-login-form-{{ $user->id }}" action="{{ route('impersonate.login', $user->id) }}" method="post">
+                                            <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                            <a data-form="impersonate-login-form-{{ $user->id }}" class="btn btn-danger btn-xs btn-confirm-modal-row" data-toggle="tooltip" title="Impersonate {{ $user->fullname }}">
+                                                <i class="fa fa-user-secret"></i>
+                                            </a>
+                                        </form>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
