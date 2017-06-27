@@ -8,8 +8,8 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - User: github@bpocallaghan.co.za
 - Password: github
 
-### New
-- [Impersonation](http://bpocallaghan.co.za/admin) When logged in, [go here](http://bpocallaghan.co.za/admin/settings/admin/users) and click on the 'impersonate user' action.
+### What is New?
+- [Impersonation](https://github.com/bpocallaghan/impersonate) When logged in, [go here](http://bpocallaghan.co.za/admin/settings/admin/users) and click on the 'impersonate user' action.
 
 ## Features / What it includes
 - Admin LTE admin theme
