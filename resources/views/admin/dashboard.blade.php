@@ -3,7 +3,16 @@
 @section('content')
 
     <div class="well well-sm bg-gray-light">
-        <p><strong>Note</strong>: uBlock Origin browser extension block the '<strong>/api/analtyics</strong>' ajax to get the google analytics</p>
+        <ul>
+            <li><strong>uBlock Origin</strong> browser extension block the '<strong>/api/analtyics</strong>' ajax to
+                get the google analytics
+            </li>
+            <li>
+                <a target="_blank" href="https://github.com/bpocallaghan/impersonate">Impersonation</a>.
+                Go <a href="/admin/settings/admin/users">here</a> and click on the 'impersonate
+                user' action
+            </li>
+        </ul>
     </div>
 
     @include('admin.partials.boxes.dashboard_header')

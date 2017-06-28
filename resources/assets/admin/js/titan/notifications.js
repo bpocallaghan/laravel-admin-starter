@@ -14,7 +14,7 @@ function getHeaderNotifications()
                     for (var i = 0; i < cookie.length; i++) {
                         items.push({'id': cookie[i]['id'], 'read': true});
                     }
-                    $.cookie(type, items, {expires: 2});
+                    $.cookie(type, items, {expires: 2, path: '/admin'});
                     $('#js-' + type + '-badge').hide();
                 }
             }

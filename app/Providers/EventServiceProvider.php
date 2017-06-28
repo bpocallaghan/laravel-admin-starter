@@ -14,7 +14,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         // log actions
-        'App\Events\ActionWasTriggered' => [
+        'App\Events\ActivityWasTriggered' => [
             'App\Listeners\SaveActivity',
         ],
         'App\Events\ContactUsFeedback' => [

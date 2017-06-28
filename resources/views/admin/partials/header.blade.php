@@ -39,7 +39,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <ul id="js-actions-list" class="menu">
+                            <ul id="js-activities-list" class="menu">
 
                             </ul>
                         </li>
