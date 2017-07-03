@@ -1,5 +1,5 @@
 <div class="pull-right box-tools">
-    <button type="button" class="btn btn-primary btn-sm daterange" data-toggle="tooltip" title="Date range">
+    <button type="button" class="btn {{ isset($btnDateClass)? $btnDateClass: 'btn-primary' }}  btn-sm daterange" data-toggle="tooltip" title="Date Range">
         <i class="fa fa-calendar"></i>
     </button>
 

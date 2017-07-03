@@ -15,16 +15,20 @@
 
                 <div class="box-body">
 
-                    @include('admin.partials.reports.linechart')
+                    @include('admin.partials.charts.linechart', [
+                        'id' => 'box-main-chart',
+                    ])
 
                     <hr/>
 
-                    <table data-order-by="4|desc" id="main-datatable" class="table table-striped table-bordered" width="100%">
+                    <table data-order-by="5|desc" id="main-datatable" class="table table-striped table-bordered" width="100%">
                         <thead>
                         <tr>
+                            <th>Category</th>
                             <th>Fullname</th>
                             <th>Phone</th>
                             <th>Email</th>
+                            <th>Subject</th>
                             <th>Content</th>
                             <th>Created On</th>
                         </tr>
@@ -42,9 +46,11 @@
         function onUpdate(start, end)
         {
             datatable = initDatatablesAjax('#main-datatable', "{{ Request::url() }}" + "/datatable?date_from=" + start + '&date_to=' + end, [
+                {data: 'category', name: 'category'},
                 {data: 'fullname', name: 'fullname'},
                 {data: 'phone', name: 'phone'},
                 {data: 'email', name: 'email'},
+                {data: 'subject', name: 'subject'},
                 {data: 'content', name: 'content'},
                 {data: 'date', name: 'date'},
             ]);

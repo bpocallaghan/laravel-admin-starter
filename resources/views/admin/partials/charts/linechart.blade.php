@@ -1,10 +1,10 @@
-<div class="loading-widget text-primary" style="top: 20%;">
+<div class="loading-widget text-primary">
     <i class="fa fa-fw fa-spinner fa-spin"></i>
 </div>
 
-<div id="main-chart-legend" class="chart-legend"></div>
+<div class="chart-legend"></div>
 
-<canvas id="main-chart"></canvas>
+<canvas class="line-chart"></canvas>
 
 @section('scripts')
     @parent
@@ -14,7 +14,7 @@
         {
             var chart;
 
-            initToolbarDateRange('#box-main-chart .daterange', updateChart);
+            initToolbarDateRange('#{{ $id }} .daterange', updateChart);
 
             /**
              * Get the chart's data
@@ -22,22 +22,27 @@
              */
             function updateChart(start, end)
             {
-                if (chart) { chart.destroy(); }
-                if (datatable) { datatable.destroy(); }
+                if (chart) {
+                    chart.destroy();
+                }
+
+                if (datatable) {
+                    datatable.destroy();
+                }
 
                 if (!start) {
                     start = moment().subtract(29, 'days').format('YYYY-MM-DD');
                     end = moment().format('YYYY-MM-DD');
                 }
 
-                $('#box-main-chart .loading-widget').show();
+                $('#{{ $id }} .loading-widget').show();
 
-                doAjax("{{ Request::url() }}" + '/chart', {
+                doAjax("{{ isset($url)? $url : Request::url() . '/chart' }}", {
                     'date_from': start, 'date_to': end,
                 }, createLineChart);
 
-                if(onUpdate && isFunction(onUpdate))
-                {
+                // if there is an update function in parent to notify about date change
+                if (typeof onUpdate != 'undefined' && isFunction(onUpdate)) {
                     onUpdate(start, end);
                 }
             }
@@ -45,16 +50,18 @@
             function createLineChart(data)
             {
                 // total page views and visitors line chart
-                var ctx = document.getElementById("main-chart").getContext("2d");
+                var ctx = document.getElementById("{{ $id }}").getElementsByClassName("line-chart")[0].getContext("2d");
 
                 chart = new Chart(ctx).Line(data, {
-                    tooltipTemplate: "<%= value %> - <%= datasetLabel %>",
+                    //tooltipTemplate: "<%= value %> - <%= datasetLabel %>",
                     multiTooltipTemplate: "<%= value %> - <%= datasetLabel %>"
                 });
 
-                 $('#box-main-chart .loading-widget').slideUp();
+                $('#{{ $id }} .loading-widget').slideUp();
 
-                $('#main-chart').html(chart.generateLegend());
+                @if(isset($legend) && $legend == true || !isset($legend))
+                    $('#{{ $id }} .chart-legend').html(chart.generateLegend());
+                @endif
             }
 
             setTimeout(function ()

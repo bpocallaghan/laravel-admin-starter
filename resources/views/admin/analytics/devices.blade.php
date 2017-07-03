@@ -4,17 +4,17 @@
     {{-- devices + browsers --}}
     <div class="row">
         <div class="col-md-6">
-            @include('admin.partials.boxes.devices_category')
+            @include('admin.partials.analytics.devices_category')
         </div>
 
         <div class="col-md-6">
-            @include('admin.partials.boxes.browsers')
+            @include('admin.partials.analytics.browsers')
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6">
-            @include('admin.partials.boxes.devices')
+            @include('admin.partials.analytics.devices')
         </div>
     </div>
 @endsection
