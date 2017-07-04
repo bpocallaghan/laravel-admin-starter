@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="box-body">
-                    <table id="tbl-list-activities" data-server="false" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="tbl-list-activities" data-order-by="0|desc" data-server="false" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th>ID</th>

@@ -49,7 +49,8 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::get('register/confirm/{token}', 'RegisterController@confirmRegister');
 
     // password reset
-    Route::get('password/forgot', 'ForgotPasswordController@showLinkRequestForm')->name('forgot-password');
+    Route::get('password/forgot', 'ForgotPasswordController@showLinkRequestForm')
+        ->name('forgot-password');
     Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
     Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')
         ->name('password.reset');
@@ -112,9 +113,11 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::get('contact-us/datatable', 'ContactUsController@getTableData');
         });
 
-        // settings / website
-        Route::group(['prefix' => 'settings/website', 'namespace' => 'Settings\Website'],
-            function () {
+        Route::group(['prefix' => 'settings', 'namespace' => 'Settings'], function () {
+            Route::resource('roles', 'RolesController');
+
+            // settings / website
+            Route::group(['prefix' => 'website', 'namespace' => 'Website'], function () {
                 // navigation
                 Route::group(['prefix' => 'navigation/order'], function () {
                     Route::get('{type?}', 'NavigationOrderController@index');
@@ -126,18 +129,19 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
                 Route::resource('changelogs', 'ChangelogsController');
             });
 
-        // settings / admin
-        Route::group(['prefix' => 'settings/admin', 'namespace' => 'Settings\Admin'], function () {
-            // users
-            Route::get('users', 'AdministratorsController@index');
-            Route::get('users/invites', 'AdministratorsController@showInvites');
-            Route::post('users/invites', 'AdministratorsController@postInvite');
+            // settings / admin
+            Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+                // users
+                Route::get('users', 'AdministratorsController@index');
+                Route::get('users/invites', 'AdministratorsController@showInvites');
+                Route::post('users/invites', 'AdministratorsController@postInvite');
 
-            // navigation
-            Route::get('navigation/order', 'NavigationOrderController@index');
-            Route::post('navigation/order', 'NavigationOrderController@updateOrder');
-            Route::get('navigation/datatable', 'NavigationController@getTableData');
-            Route::resource('navigation', 'NavigationController');
+                // navigation
+                Route::get('navigation/order', 'NavigationOrderController@index');
+                Route::post('navigation/order', 'NavigationOrderController@updateOrder');
+                Route::get('navigation/datatable', 'NavigationController@getTableData');
+                Route::resource('navigation', 'NavigationController');
+            });
         });
     });
 
