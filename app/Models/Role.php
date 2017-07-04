@@ -9,13 +9,18 @@ class Role extends TitanCMSModel
 {
     use SoftDeletes;
 
-    public static $BASIC = 'basic'; // 1
+    // basic website
+    public static $BASIC = 'website'; // 1
 
-    // Admin - Developer / access to everything
+    // basic admin
     public static $ADMIN = 'admin'; // 2
 
-    // Super Admin - Developer / access to everything
-    public static $DEVELOPER = 'developer'; // 3
+    // admin + analytics
+    public static $ANALYTICS = 'analytics'; // 3
+
+    public static $ADMIN_SUPER = 'admin_super'; // 4
+
+    public static $DEVELOPER = 'developer'; // 5
 
     protected $table = 'roles';
 
@@ -33,6 +38,11 @@ class Role extends TitanCMSModel
         return '<i class="fa fa-' . $this->attributes['icon'] . '"</i> ' . $this->attributes['title'];
     }
 
+    public function getTitleSlugAttribute()
+    {
+        return $this->attributes['title'] . ' (' . $this->attributes['slug'] . ')';
+    }
+
     /**
      * Get all the rows as an array (ready for dropdowns)
      *
@@ -40,6 +50,6 @@ class Role extends TitanCMSModel
      */
     public static function getAllLists()
     {
-    	return self::orderBy('level')->get()->pluck('title', 'id')->toArray();
+        return self::orderBy('title')->get()->pluck('title', 'id')->toArray();
     }
 }

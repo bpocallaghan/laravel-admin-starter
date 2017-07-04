@@ -51,11 +51,23 @@
                                 </section>
                             </div>
 
-                            <section class="form-group {{ form_error_class('description', $errors) }}">
-                                <label for="id-description">Description</label>
-                                <input type="text" class="form-control" id="id-description" name="description" placeholder="Please insert the Description" value="{{ ($errors && $errors->any()? old('description') : (isset($item)? $item->description : '')) }}">
-                                {!! form_error_message('description', $errors) !!}
-                            </section>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <section class="form-group {{ form_error_class('description', $errors) }}">
+                                        <label for="id-description">Description</label>
+                                        <input type="text" class="form-control" id="id-description" name="description" placeholder="Please insert the Description" value="{{ ($errors && $errors->any()? old('description') : (isset($item)? $item->description : '')) }}">
+                                        {!! form_error_message('description', $errors) !!}
+                                    </section>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group {{ form_error_class('roles', $errors) }}">
+                                        <label for="roles">Roles (which user roles have access to navigation)</label>
+                                        {!! form_select('roles[]', $roles, ($errors && $errors->any()? old('roles') : (isset($item)? $item->roles->pluck('id')->all() : '')), ['class' => 'select2 form-control', 'multiple']) !!}
+                                        {!! form_error_message('roles', $errors) !!}
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col col-2">
@@ -69,7 +81,7 @@
                                 </div>
 
                                 <div class="col col-5">
-                                    <section class="form-group {{ form_error_class('description', $errors) }}">
+                                    <section class="form-group {{ form_error_class('parent_id', $errors) }}">
                                         <label for="id-parent_id">Parent (navigation parent, under
                                             which navigation it will display)</label>
                                         {!! form_select('parent_id', ([0 => 'Please select a Parent'] + $parents), isset($item)? ($errors && $errors->any()? old('parent_id') : $item->parent_id) : old('parent_id'), ['class' => 'select2 form-control ']) !!}
@@ -81,7 +93,7 @@
                                     <section class="form-group {{ form_error_class('url_parent_id', $errors) }}">
                                         <label for="id-parent_id">Url Parent (parent that will be
                                             used to generate the url, same as parent if
-                                            empty</label>
+                                            empty)</label>
                                         {!! form_select('url_parent_id', ([0 => 'Please select a Url Parent'] + $parents), ($errors && $errors->any()? old('url_parent_id') : (isset($item)? $item->url_parent_id : '')), ['class' => 'select2 form-control']) !!}
                                         {!! form_error_message('url_parent_id', $errors) !!}
                                     </section>

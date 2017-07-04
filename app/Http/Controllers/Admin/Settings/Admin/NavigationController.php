@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Settings\Admin;
 
 use App\Http\Requests;
 use App\Models\Notification;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\NavigationAdmin;
 use Yajra\Datatables\Datatables;
@@ -30,8 +31,12 @@ class NavigationController extends AdminController
      */
     public function create()
     {
+        $roles = Role::getAllLists();
+        $parents = NavigationAdmin::getAllLists();
+
         return $this->view('settings.admin.navigation.add_edit')
-            ->with('parents', NavigationAdmin::getAllLists());
+            ->with('roles', $roles)
+            ->with('parents', $parents);
     }
 
     /**
@@ -44,7 +49,20 @@ class NavigationController extends AdminController
     {
         $this->validate($request, NavigationAdmin::$rules, NavigationAdmin::$messages);
 
-        $inputs = $request->all();
+        $inputs = $request->only([
+            'icon',
+            'title',
+            'slug',
+            'description',
+            'help_index_title',
+            'help_index_content',
+            'help_create_title',
+            'help_create_content',
+            'help_edit_title',
+            'help_edit_content',
+            'parent_id',
+            'url_parent_id'
+        ]);
         $inputs['is_hidden'] = boolval($request->has('is_hidden'));
         $inputs['url_parent_id'] = ($inputs['url_parent_id'] == 0 ? $inputs['parent_id'] : $inputs['url_parent_id']);
 
@@ -52,6 +70,7 @@ class NavigationController extends AdminController
 
         if ($row) {
             $row->updateUrl()->save();
+            $row->roles()->attach(input('roles'));
         }
 
         return redirect_to_resource();
@@ -78,10 +97,12 @@ class NavigationController extends AdminController
      */
     public function edit($id)
     {
+        $roles = Role::getAllLists();
         $navigation = NavigationAdmin::findOrFail($id);
 
         return $this->view('settings.admin.navigation.add_edit')
             ->with('item', $navigation)
+            ->with('roles', $roles)
             ->with('parents', NavigationAdmin::getAllLists());
     }
 
@@ -96,12 +117,26 @@ class NavigationController extends AdminController
     {
         $this->validate($request, NavigationAdmin::$rules, NavigationAdmin::$messages);
 
-        $inputs = $request->all();
+        $inputs = $request->only([
+            'icon',
+            'title',
+            'slug',
+            'description',
+            'help_index_title',
+            'help_index_content',
+            'help_create_title',
+            'help_create_content',
+            'help_edit_title',
+            'help_edit_content',
+            'parent_id',
+            'url_parent_id'
+        ]);
         $inputs['is_hidden'] = boolval($request->has('is_hidden'));
 
         $navigation = NavigationAdmin::findOrFail($id);
         $navigation = $this->updateEntry($navigation, $inputs);
         $navigation->updateUrl()->save();
+        $navigation->roles()->sync(input('roles'));
 
         return redirect_to_resource();
     }
@@ -134,7 +169,8 @@ class NavigationController extends AdminController
         })->editColumn('is_hidden', function ($row) {
             return ($row->is_hidden == 1 ? 'Yes' : '');
         })->addColumn('action', function ($row) {
-            return action_row($this->selectedNavigation->url, $row->id, $row->title, ['edit', 'delete']);
+            return action_row($this->selectedNavigation->url, $row->id, $row->title,
+                ['edit', 'delete']);
         })->make(true);
     }
 
@@ -144,6 +180,6 @@ class NavigationController extends AdminController
      */
     protected function getTableRows()
     {
-        return NavigationAdmin::with('parent')->get();
+        return NavigationAdmin::with('parent', 'roles')->get();
     }
 }

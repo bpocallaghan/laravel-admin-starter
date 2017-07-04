@@ -25,7 +25,7 @@
                             <th>Slug</th>
                             <th>Url</th>
                             <th>Parent</th>
-                            <th>Hidden</th>
+                            <th>Roles</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -37,7 +37,7 @@
                                 <td>{{ $item->slug }}</td>
                                 <td>{{ $item->url }}</td>
                                 <td>{{ ($item->parent)? $item->parent->title : '-' }}</td>
-                                <td>{{ ($item->is_hidden == 1)? 'Yes' : '' }}</td>
+                                <td>{{ $item->rolesString }}</td>
                                 <td>
                                     {!! action_row($selectedNavigation->url, $item->id, $item->title, ['edit', 'delete']) !!}
                                 </td>

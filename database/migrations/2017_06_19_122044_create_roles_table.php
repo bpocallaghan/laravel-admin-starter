@@ -19,7 +19,6 @@ class CreateRolesTable extends Migration
             $table->string('slug', 50);
             $table->string('keyword', 50)->unique();
             $table->string('summary')->nullable();
-            $table->integer('level');
             $table->timestamps();
             $table->softDeletes();
             $table->integer('created_by')->unsigned();

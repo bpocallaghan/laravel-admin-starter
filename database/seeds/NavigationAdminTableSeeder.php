@@ -8,6 +8,7 @@ class NavigationAdminTableSeeder extends Seeder
     public function run()
     {
         NavigationAdmin::truncate();
+        DB::delete('TRUNCATE navigation_admin_role');
 
         $csvPath = database_path() . '/seeds/csv/' . 'navigation_admin.csv';
         $items = csv_to_array($csvPath);
@@ -34,7 +35,8 @@ class NavigationAdminTableSeeder extends Seeder
                 'updated_by'          => 1,
             ]);
 
-            $row->roles()->attach(2);
+            $roles = explode(',', $item['roles']);
+            $row->roles()->attach($roles);
         }
     }
 }
