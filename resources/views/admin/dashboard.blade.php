@@ -15,31 +15,31 @@
         </ul>
     </div>
 
-    @include('admin.partials.boxes.dashboard_header')
+    @include('admin.partials.analytics.analytics_header')
 
     <div class="row">
         <div class="col-sm-12">
-            @include('admin.partials.boxes.visitors_views')
+            @include('admin.partials.analytics.visitors_views')
         </div>
     </div>
 
     {{-- devices + browsers --}}
     <div class="row">
         <div class="col-md-6">
-            @include('admin.partials.boxes.devices_category')
+            @include('admin.partials.analytics.devices_category')
         </div>
 
         <div class="col-md-6">
-            @include('admin.partials.boxes.browsers')
+            @include('admin.partials.analytics.browsers')
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6">
-            @include('admin.partials.boxes.devices')
+            @include('admin.partials.analytics.devices')
         </div>
         <div class="col-sm-6">
-            @include('admin.partials.boxes.visited_pages')
+            @include('admin.partials.analytics.visited_pages')
         </div>
     </div>
 @endsection
