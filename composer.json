@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "bpocallaghan/laravel-admin-starter",
+    "description": "A Laravel CMS Starter project with AdminLTE theme and core features.",
+    "keywords": ["framework", "laravel", "adminlte", "roles", "impersonate", "navigation", "analytics", "cms", "admin"],
     "license": "MIT",
     "type": "project",
     "require": {
