@@ -74,6 +74,7 @@ class NotificationsController extends ApiController
         $items = [];
         foreach ($activities as $k => $item) {
             $items [] = [
+                'id'         => $item->id,
                 'title'      => $item->title,
                 'message'    => $item->description,
                 'created_at' => $item->created_at->diffForHumans(),

@@ -1,6 +1,6 @@
 {
     "name": "bpocallaghan/laravel-admin-starter",
-    "description": "A Laravel CMS Starter project with AdminLTE theme and core features.",
+    "description": "A Laravel CMS Starter project with AdminLTE, Roles, Impersonations, Analytics, Activity, Notifications and more.",
     "keywords": ["framework", "laravel", "adminlte", "roles", "impersonate", "navigation", "analytics", "cms", "admin"],
     "license": "MIT",
     "type": "project",

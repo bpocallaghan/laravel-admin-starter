@@ -19,7 +19,10 @@ class SaveActivity
             $title = str_replace(['App\\', 'Models\\'], '', get_class($event->eloquent));
         }
 
-        $subject = get_class($event->eloquent);
+        $subject = null;
+        if (!is_null($event->eloquent)) {
+            $subject = get_class($event->eloquent);
+        }
         $subjectId = $event->eloquent ? $event->eloquent->id : null;
 
         if ($event->eloquent && !strpos($subject, '\Models')) {
