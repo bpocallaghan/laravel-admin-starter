@@ -11,6 +11,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 ### What is New?
 - [Impersonation](https://github.com/bpocallaghan/impersonate) When logged in, [go here](http://bpocallaghan.co.za/admin/settings/admin/users) and click on the 'impersonate user' action.
 - Roles (Assign a role to user and assign role to navigation. Can only see navigation for given role)
+- Subscription Plans (Manage the Subscription Plans and Features)
 
 ## Features / What it includes
 - Admin LTE admin theme

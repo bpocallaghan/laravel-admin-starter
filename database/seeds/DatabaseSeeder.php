@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(NavigationAdminTableSeeder::class);
         $this->call(NavigationWebsiteTableSeeder::class);
+
+        $this->call(SubscriptionPlanFeaturesSeeder::class);
+        $this->call(SubscriptionPlanTableSeeder::class);
     }
 }

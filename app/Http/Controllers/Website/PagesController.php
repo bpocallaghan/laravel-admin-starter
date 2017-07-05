@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Requests;
+use App\Models\SubscriptionPlan;
 
 class PagesController extends WebsiteController
 {
-
     public function column1()
     {
         return $this->view('column_1');
@@ -34,6 +34,8 @@ class PagesController extends WebsiteController
      */
     public function pricing()
     {
-        return $this->view('pricing');
+        $subscriptionPlans = SubscriptionPlan::with('features')->get();
+
+        return $this->view('pricing', compact('subscriptionPlans'));
     }
 }

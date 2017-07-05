@@ -7,10 +7,21 @@
             <li><strong>uBlock Origin</strong> browser extension block the '<strong>/api/analtyics</strong>' ajax to
                 get the google analytics
             </li>
+        </ul>
+        <ul>
+            <p style="margin-top: 5px; margin-bottom: 0;"><strong>What is New?</strong></p>
             <li>
                 <a target="_blank" href="https://github.com/bpocallaghan/impersonate">Impersonation</a>.
                 Go <a href="/admin/settings/admin/users">here</a> and click on the 'impersonate
                 user' action
+            </li>
+            <li>
+                <a target="_blank" href="/admin/settings/roles">Roles</a>.
+                See the list of roles
+            </li>
+            <li>
+                <a target="_blank" href="/admin/settings/website/subscription-plans">Subscription Plans</a>.
+                Manage the subscription plans - They are also rendered on the <a target="_blank" href="/pages/pricing">Website</a>.
             </li>
         </ul>
     </div>

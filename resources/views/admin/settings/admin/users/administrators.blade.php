@@ -28,6 +28,7 @@
                             <th><i class="fa fa-fw fa-envelope text-muted"></i> Email</th>
                             <th><i class="fa fa-fw fa-mobile-phone text-muted"></i> Cellphone</th>
                             <th>Gender</th>
+                            <th>Roles</th>
                             <th><i class="fa fa-fw fa-calendar text-muted"></i> Last Login</th>
                             <th>Action</th>
                         </tr>
@@ -39,6 +40,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->cellphone }}</td>
                                 <td>{{ $user->gender }}</td>
+                                <td>{{ $user->roles_string }}</td>
                                 <td>{{ ($user->logged_in_at)? $user->logged_in_at->diffForHumans():'-' }}</td>
                                 <td>
                                     <div class="btn-group">

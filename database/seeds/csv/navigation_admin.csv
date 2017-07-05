@@ -35,3 +35,4 @@ You can specify if the menu is hidden.",,,1,0,22,22,4
 32,Banners,Banners,banners,/admin/general/banners,image,,,,,,,1,0,17,17,4
 33,Subscription Plans,Subscription Plans,subscription-plans,/admin/settings/website/subscription-plans,money,,,,,,,3,0,22,22,4
 34,Roles,Roles,roles,/admin/settings/roles,universal-access,,,,,,,3,0,21,21,4
+35,Features,Features,features,/admin/settings/website/subscription-plans/features,tags,,,,,,,999,1,33,33,4

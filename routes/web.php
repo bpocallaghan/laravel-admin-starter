@@ -127,6 +127,12 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
 
                 // changelogs
                 Route::resource('changelogs', 'ChangelogsController');
+
+                Route::resource('subscription-plans/features', 'FeaturesController');
+                Route::resource('subscription-plans', 'SubscriptionPlansController');
+
+                Route::get('subscription-plans/{subscription_plan}/features/order', 'SubscriptionPlansController@showFeaturesOrder');
+                Route::post('subscription-plans/{subscription_plan}/features/order', 'SubscriptionPlansController@updateFeaturesOrder');
             });
 
             // settings / admin

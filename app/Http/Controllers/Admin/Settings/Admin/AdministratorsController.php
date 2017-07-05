@@ -21,7 +21,7 @@ class AdministratorsController extends AdminController
     {
         save_resource_url();
 
-        $items = User::all();
+        $items = User::with('roles')->get();
 
         $this->resource = 'Administrator';
 
