@@ -26,13 +26,16 @@ $(function ()
     initActionDeleteClick();
 });
 
-function initDatatablesAjax(selector, url, columns)
+function initDatatablesAjax(selector, url, columns, displayLength)
 {
+    displayLength = (displayLength ? displayLength : 10);
     return initDataTables(selector, {
         ajax: url,
         processing: true,
         serverSide: true,
         columns: columns,
+        iDisplayLength: (displayLength ? displayLength : 10),
+        aLengthMenu: [[displayLength, 25, 50, -1], [displayLength, 25, 50, "All"]]
     });
 }
 

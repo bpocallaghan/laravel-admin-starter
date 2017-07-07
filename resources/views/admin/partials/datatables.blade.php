@@ -4,10 +4,10 @@
         $(function ()
         {
             // check if we need to get data from server
-            if ($('#tbl-list').attr('data-server') == 'true') {
+            if ($("{{ (isset($id)? $id: '#tbl-list') }}").attr('data-server') == 'true') {
                 var options = {!! json_encode($options) !!}; // convert php array to js array
                 @if(isset($action) && $action == true || isset($action) == false)
-                    options.push({
+                        options.push({
                         data: 'action',
                         name: 'action',
                         orderable: false,
@@ -15,7 +15,7 @@
                         visible: true
                     }); // add actions column
                 @endif
-                var table = initDatatablesAjax("{{ (isset($id)? $id: '#tbl-list') }}", "{{ (isset($url)? $url: request()->url().'/datatable') }}", options); // init datatables
+                var table = initDatatablesAjax("{{ (isset($id)? $id: '#tbl-list') }}", "{{ (isset($url)? $url: request()->url().'/datatable') }}", options, "{{ (isset($displayLength)? $displayLength: 10) }}"); // init datatables
             }
         })
     </script>
