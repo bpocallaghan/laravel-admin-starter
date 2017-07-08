@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Requests;
-use App\Models\SubscriptionPlan;
+use App\Models\Changelog;
+use App\Models\Testimonial;
 
 class PagesController extends WebsiteController
 {
@@ -28,14 +29,26 @@ class PagesController extends WebsiteController
     }
 
     /**
-     * Show the pricing page
+     * Show the changelog page
      *
      * @return \Illuminate\Http\Response
      */
-    public function pricing()
+    public function changelog()
     {
-        $subscriptionPlans = SubscriptionPlan::with('features')->get();
+        $items = Changelog::orderBy('version', 'DESC')->get();
 
-        return $this->view('pricing', compact('subscriptionPlans'));
+        return $this->view('changelog', compact('items'));
+    }
+
+    /**
+     * Show the changelog page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function testimonials()
+    {
+        $items = Testimonial::orderBy('list_order')->get();
+
+        return $this->view('testimonials', compact('items'));
     }
 }

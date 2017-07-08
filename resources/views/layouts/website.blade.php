@@ -33,7 +33,9 @@
 
         @include('website.partials.header')
 
-        @include('website.partials.slider')
+        @if(isset($showPageBanner) && $showPageBanner == true || !isset($showPageBanner))
+            @include('website.partials.slider')
+        @endif
 
         <div class="container">
             @include('website.partials.breadcrumb')

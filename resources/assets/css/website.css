@@ -103,3 +103,9 @@ footer {
     color: #3c8dbc;
     font-size: 150%;
 }
+
+.changelog-box hr {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+

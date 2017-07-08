@@ -26,7 +26,11 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/pages/2-column', 'PagesController@column2');
     Route::get('/pages/3-column', 'PagesController@column3');
     Route::get('/pages/4-column', 'PagesController@column4');
-    Route::get('/pages/pricing', 'PagesController@pricing');
+
+    Route::get('/changelog', 'PagesController@changelog');
+    Route::get('/testimonials', 'PagesController@testimonials');
+
+    Route::get('/pricing', 'PricingController@index');
 });
 
 /*
@@ -80,13 +84,15 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
         });
 
         // history
-        Route::group(['prefix' => 'history', 'namespace' => 'History'], function () {
+        Route::group(['prefix' => 'latest-activity', 'namespace' => 'History'], function () {
             Route::get('/', 'HistoryController@website');
             Route::get('/admin', 'HistoryController@admin');
             Route::get('/website', 'HistoryController@website');
         });
 
         Route::group(['prefix' => 'general'], function () {
+            Route::resource('tags', 'TagsController');
+
             Route::resource('banners', 'BannersController');
 
             // testimonials
@@ -131,8 +137,10 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
                 Route::resource('subscription-plans/features', 'FeaturesController');
                 Route::resource('subscription-plans', 'SubscriptionPlansController');
 
-                Route::get('subscription-plans/{subscription_plan}/features/order', 'SubscriptionPlansController@showFeaturesOrder');
-                Route::post('subscription-plans/{subscription_plan}/features/order', 'SubscriptionPlansController@updateFeaturesOrder');
+                Route::get('subscription-plans/{subscription_plan}/features/order',
+                    'SubscriptionPlansController@showFeaturesOrder');
+                Route::post('subscription-plans/{subscription_plan}/features/order',
+                    'SubscriptionPlansController@updateFeaturesOrder');
             });
 
             // settings / admin

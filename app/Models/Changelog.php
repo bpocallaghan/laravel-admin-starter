@@ -13,6 +13,8 @@ class Changelog extends TitanCMSModel
 
     protected $guarded = ['id'];
 
+    protected $dates = ['date_at'];
+
     /**
      * Validation rules for this model
      */

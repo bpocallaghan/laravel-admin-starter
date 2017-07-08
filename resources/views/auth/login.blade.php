@@ -41,6 +41,12 @@
                             </button>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12 text-right margin-top-10">
+                            <p><i><a target="_blank" href="https://github.com/bpocallaghan/laravel-admin-starter">Read more on Github</a></i></p>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

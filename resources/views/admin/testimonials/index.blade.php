@@ -21,7 +21,7 @@
                         <thead>
                         <tr>
                             <th>Customer</th>
-                            <th class="desktop">Testimonial</th>
+                            <th class="desktop" style="width: 50%">Testimonial</th>
                             <th>Link</th>
                             <th>Created</th>
                             <th>Action</th>
