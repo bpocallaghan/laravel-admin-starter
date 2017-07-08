@@ -27,7 +27,7 @@
     </head>
 
     <body>
-        @if(config('app.env') != 'local')
+        @if(config('app.env') == 'llocall')
             @include('partials.facebook')
         @endif
 

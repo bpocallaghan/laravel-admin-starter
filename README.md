@@ -11,7 +11,6 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 ### What is New?
 - [Impersonation](https://github.com/bpocallaghan/impersonate) When logged in, [go here](http://bpocallaghan.co.za/admin/settings/admin/users) and click on the 'impersonate user' action.
 - Roles (Assign a role to user and assign role to navigation. Can only see navigation for given role)
-- Subscription Plans (Manage the Subscription Plans and Features)
 
 ## Features / What it includes
 - Admin LTE admin theme
@@ -25,13 +24,14 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 	- pages
 - Admin Navigation
 - Website Navigation
-- Log Actions (if contact us was submitted, etc)
+- Log Website Activities (if contact us was submitted, etc)
 - Notifications (Laravel 5.4 notifications)
-- Log Activities (user, resource, before, after)
+- Log Admin Activities (when admin create,edit,delete a resource)
 - Bootstrap Alerts and Form Error messages. package; bpocallaghan/alert
 - Flash a Notification after a CRUD resource action. package; bpocallaghan/notify
 - Generate crud resource, individual files. package; bpocallaghan/generators
-- Useful laravel helper classes / traits. package; bpocallaghan/titan
+- Impersonate any of your customers
+- Roles, Assign roles to the user and navigation to exlude navigation for a user.
 
 ## Setup (Basic)
 - download zip
@@ -67,14 +67,6 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
  	- ```php artisan vendor:publish --provider="Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider"```
 - have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
 
-## TODO
-
-- Documentation (more user friendly)
-- Make project more 'open source' (currently heavily focused for me only)
-- Add more features (Roles, Permissions, Queue, Backup, etc)
-- Learn Testing
-- Learn Vue.js
-
 ## Thank you
 
 - [ADMIN LTE](https://github.com/almasaeed2010/AdminLTE).
@@ -88,8 +80,14 @@ This is my starter project for most small crud admin portals.
 I try to keep it clean, flexibly and friendly to use. This is not a complete project or best practises, just trying to help the community :).
 Please let me know about any issues or if you have any suggestions.
 
-## My Packages being used
+## Change log
 
-- [Laravel 5 Flash a bootstrap alert](https://github.com/bpocallaghan/alert) When login failes
-- [Laravel 5 Flash Notifications with icons and animations and with a timeout](https://github.com/bpocallaghan/notify) When you login or create / delete / edit any resource
-- [Laravel custom Generate Files with a config file and publishable stubs](https://github.com/bpocallaghan/generators)
+Please see the [CHANGELOG](http://bpocallaghan.co.za/changelog) for more information about changes.
+
+## My Packages Included
+
+- [File Generators](https://github.com/bpocallaghan/generators) Laravel 5 File Generators with config and publishable stubs
+- [Notify](https://github.com/bpocallaghan/notify) Laravel 5 Flash Notifications with icons and animations and with a timeout
+- [Alert](https://github.com/bpocallaghan/alert) A helper package to flash a bootstrap alert to the browser via a Facade or a helper function.
+- [Impersonate User](https://github.com/bpocallaghan/impersonate) This allows you to authenticate as any of your customers.
+- [Sluggable](https://github.com/bpocallaghan/sluggable) Provides a HasSlug trait that will generate a unique slug when saving your Laravel Eloquent model.
