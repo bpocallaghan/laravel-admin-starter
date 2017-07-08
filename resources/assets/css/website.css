@@ -62,21 +62,21 @@ header.carousel .fill {
 /* Footer Styles */
 
 footer {
-    padding: 30px 20px;
+    padding: 30px 20px 20px 20px;
     border-top: 1px solid #ddd;
     margin-top: 40px;
 }
 
 /* Responsive Styles */
 
-@media(max-width:991px) {
+@media (max-width: 991px) {
     .customer-img,
     .img-related {
         margin-bottom: 30px;
     }
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
     .img-portfolio {
         margin-bottom: 15px;
     }
@@ -90,6 +90,7 @@ footer {
     color: #000;
     background-color: #d2d6de !important;
 }
+
 .bg-gray-light {
     color: #000;
     background-color: #f7f7f7;
@@ -109,3 +110,23 @@ footer {
     margin-bottom: 10px;
 }
 
+/* HOME packages */
+.packages a {
+    text-decoration: none;
+}
+
+.packages .panel:hover {
+    border-color: #337ab7;
+}
+
+.packages .panel-body {
+    text-align: center;
+}
+
+.packages .panel .title {
+    margin-top: 0px;
+}
+
+.packages .panel .description {
+    color: #333;
+}

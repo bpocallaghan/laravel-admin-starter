@@ -8,117 +8,138 @@
             </h1>
         </div>
         <div class="col-md-4">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="min-height: 300px;">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-check"></i> Laravel v5.4.27</h4>
+                    <h4><i class="fa fa-fw fa-check"></i> Laravel v5.4.28</h4>
                 </div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio
-                        corporis quae nulla aspernatur in alias at numquam rerum ea excepturi
-                        expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum
-                        quod?</p>
-                    <a href="#" class="btn btn-default">Learn More</a>
+                    <ul>
+                        <li><strong>Laravel v5.4.28</strong></li>
+                        <li><strong>AdminLTE v2.4.0</strong></li>
+                        <li><strong>Bootstrap v3.3.7</strong></li>
+                        <li><strong>jQuery v3.2.1</strong></li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="min-height: 300px;">
                 <div class="panel-heading">
                     <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
                 </div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio
-                        corporis quae nulla aspernatur in alias at numquam rerum ea excepturi
-                        expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum
-                        quod?</p>
-                    <a href="#" class="btn btn-default">Learn More</a>
+                    <ul>
+                        <li>Auth (Login, Register, Forgot Password)</li>
+                        <li>Roles</li>
+                        <li>Testimonials</li>
+                        <li>Changelog</li>
+                        <li>Pricing</li>
+                        <li>Banners</li>
+                        <li>Tags</li>
+                        <li>Locations</li>
+                        <li>Banners</li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="min-height: 300px;">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
+                    <h4><i class="fa fa-fw fa-compass"></i> Many Features</h4>
                 </div>
                 <div class="panel-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio
-                        corporis quae nulla aspernatur in alias at numquam rerum ea excepturi
-                        expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum
-                        quod?</p>
-                    <a href="#" class="btn btn-default">Learn More</a>
+                    <ul>
+                        <li>Log Activity (website and admin)</li>
+                        <li>Notifications</li>
+                        <li>Google Analytics Reports</li>
+                        <li>Manage Admins</li>
+                        <li>Manage Navigation (Website + Admin)</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /.row -->
 
-    <!-- Portfolio Section -->
-    <div class="row">
+    <div class="row packages">
         <div class="col-lg-12">
-            <h2 class="page-header">Portfolio Heading</h2>
+            <h2 class="page-header">Personal Packages Included</h2>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="#">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a target="_blank" href="https://github.com/bpocallaghan/generators">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="title text-primary">File Generators</h3>
+                        <div class="description">
+                            Laravel 5 File Generators with config and publishable stubs
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="#">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a target="_blank" href="https://github.com/bpocallaghan/impersonate">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="title text-primary">Impersonate User</h3>
+                        <div class="description">
+                            This allows you to authenticate as any of your customers.
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="#">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a target="_blank" href="https://github.com/bpocallaghan/sluggable">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="title text-primary">Sluggable</h3>
+                        <div class="description">
+                            Provides a HasSlug trait that will generate a unique slug when saving
+                            your Laravel Eloquent model.
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="#">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a target="_blank" href="https://github.com/bpocallaghan/notify">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="title text-primary">Notification</h3>
+                        <div class="description">
+                            Laravel 5 Flash Notifications with icons and animations and with a
+                            timeout
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="#">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a target="_blank" href="https://github.com/bpocallaghan/alert">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="title text-primary">Alert</h3>
+                        <div class="description">
+                            A helper package to flash a bootstrap alert to the browser via a Facade
+                            or a helper function.
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
         <div class="col-md-4 col-sm-6">
-            <a href="#">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+            <a target="_blank" href="https://github.com/bpocallaghan/titan">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="title text-primary">Titan</h3>
+                        <div class="description">
+                            Projects Core Useful classes you can use for every Laravel project
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
     </div>
-    <!-- /.row -->
-
-    <!-- Features Section -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="page-header">Features</h2>
-        </div>
-        <div class="col-md-6">
-            <ul>
-                <li><strong>Laravel v5.4.27</strong></li>
-                <li><strong>AdminLTE v2.4.0</strong></li>
-                <li><strong>Bootstrap v3.3.7</strong></li>
-                <li><strong>jQuery v3.2.1</strong></li>
-                <li>Auth (Login, Register, Forgot Password)</li>
-                <li>Roles (Basic)</li>
-                <li>Navigation (Website + Admin)</li>
-                <li>Testimonials</li>
-                <li>Locations</li>
-                <li><strong>Actions</strong></li>
-                <li><strong>Notifications</strong></li>
-                <li><strong>Google Analytics Reports</strong></li>
-                <li>Banners</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque
-                non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea.</p>
-        </div>
-        <div class="col-md-6">
-            <img class="img-responsive" src="http://placehold.it/700x450" alt="">
-        </div>
-    </div>
-    <!-- /.row -->
 
     <hr>
 
@@ -131,7 +152,10 @@
                     asperiores commodi.</p>
             </div>
             <div class="col-md-4">
-                <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
+                <a class="btn btn-lg btn-default btn-block" href="https://github.com/bpocallaghan/laravel-admin-starter">
+                    <i class="fa fa-github"></i>
+                    Read More on GitHub
+                </a>
             </div>
         </div>
     </div>
