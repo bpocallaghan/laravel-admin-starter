@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9281c374bbf65b0e5bd7bea52c2da105",
+    "content-hash": "823125a88b4f19e95f75828952f7c5fb",
     "packages": [
         {
             "name": "bpocallaghan/alert",
@@ -2696,20 +2696,20 @@
         },
         {
             "name": "bpocallaghan/generators",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bpocallaghan/generators.git",
-                "reference": "96536dc0710391db6a1735f702fe9e0ff69319bf"
+                "reference": "6a80ef1354f3450cf94ab00b3e4b46b6281818f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bpocallaghan/generators/zipball/96536dc0710391db6a1735f702fe9e0ff69319bf",
-                "reference": "96536dc0710391db6a1735f702fe9e0ff69319bf",
+                "url": "https://api.github.com/repos/bpocallaghan/generators/zipball/6a80ef1354f3450cf94ab00b3e4b46b6281818f7",
+                "reference": "6a80ef1354f3450cf94ab00b3e4b46b6281818f7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.6.4"
             },
             "type": "library",
             "autoload": {
@@ -2729,10 +2729,14 @@
             ],
             "description": "Custom Laravel 5 File Generators with config and publishable stubs.",
             "keywords": [
+                "commands",
+                "config",
+                "customization",
                 "generators",
-                "laravel"
+                "laravel",
+                "stubs"
             ],
-            "time": "2017-07-01T09:59:30+00:00"
+            "time": "2017-07-08T09:14:31+00:00"
         },
         {
             "name": "fzaninotto/faker",

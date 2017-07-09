@@ -6,7 +6,10 @@
         <div class="row">
             <div class="col-md-6">
                 <ul>
-                    <li><a href="/changelog" target="_blank"><strong>CHANGELOG</strong></a></li>
+                    <li>
+                        <a href="/changelog" target="_blank"><strong>CHANGELOG</strong></a> &bullet;
+                        <a href="/" target="_blank"><strong>WEBSITE HOME</strong></a>
+                    </li>
                     <li><strong>uBlock Origin</strong> browser extension block the '<strong>/api/analtyics</strong>'
                         ajax to
                         get the google analytics
