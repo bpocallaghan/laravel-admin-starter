@@ -9,7 +9,7 @@ use Titan\Controllers\TitanWebsiteController;
 
 class WebsiteController extends TitanWebsiteController
 {
-    protected $showPageBanner = true;
+    protected $showPageBanner = false;
 
     /**
      * Return / Render the view

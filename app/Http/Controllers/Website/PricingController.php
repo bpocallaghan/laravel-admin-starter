@@ -12,7 +12,7 @@ class PricingController extends WebsiteController
 {
 	public function index()
 	{
-        $this->showPageBanner = false;
+        $this->showPageBanner = true;
         $subscriptionPlans = SubscriptionPlan::with('features')->get();
 
         return $this->view('pricing', compact('subscriptionPlans'));

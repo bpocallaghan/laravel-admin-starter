@@ -47,6 +47,7 @@ class PagesController extends WebsiteController
      */
     public function testimonials()
     {
+        $this->showPageBanner = true;
         $items = Testimonial::orderBy('list_order')->get();
 
         return $this->view('testimonials', compact('items'));

@@ -13,6 +13,7 @@ class HomeController extends WebsiteController
      */
     public function index()
     {
+        $this->showPageBanner = true;
         return $this->view('home');
     }
 }
