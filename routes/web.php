@@ -31,6 +31,8 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/testimonials', 'PagesController@testimonials');
 
     Route::get('/pricing', 'PricingController@index');
+    Route::get('/faq', 'FAQController@index');
+    Route::post('/faq/question/{faq}/{type?}', 'FAQController@incrementClick');
 });
 
 /*

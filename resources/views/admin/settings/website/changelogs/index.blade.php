@@ -17,7 +17,7 @@
 
 					@include('admin.partials.toolbar')
 
-					<table id="tbl-list" data-server="false" class="dt-table table nowrap table-striped table-bordered" cellspacing="0" width="100%">
+					<table id="tbl-list" data-order-by="0|desc" data-server="false" class="dt-table table nowrap table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th>Version</th>

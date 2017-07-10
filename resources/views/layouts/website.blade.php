@@ -22,7 +22,7 @@
 
         <title>{{ isset($HTMLTitle) ? $HTMLTitle : config('app.name') }}</title>
 
-        <link rel="stylesheet" href="/css/website.css?v=2">
+        <link rel="stylesheet" href="/css/website.css?v=3">
         @yield('styles')
     </head>
 
@@ -47,7 +47,7 @@
 
         @include('website.partials.popup')
 
-        <script type="text/javascript" charset="utf-8" src="/js/website.js?v=2"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/website.js?v=3"></script>
         <script type="text/javascript">
             $(document).ready(function ()
             {

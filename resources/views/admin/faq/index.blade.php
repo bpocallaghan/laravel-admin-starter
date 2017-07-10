@@ -23,7 +23,7 @@
                             <th>Question</th>
                             <th>Answer</th>
                             <th>Category</th>
-                            <th>Total Views</th>
+                            <th>Totals</th>
                             <th>Updated</th>
                             <th>Action</th>
 						</tr>
@@ -34,7 +34,11 @@
                                 <td>{{ $item->question }}</td>
                                 <td>{!! $item->answer_summary !!}</td>
                                 <td>{!! $item->category->name !!}</td>
-                                <td>{!! $item->views !!}</td>
+                                <td>
+                                    <span title="Total Reads" data-toggle="tooltip" class="label label-info"><i class="fa fa-eye"></i> {{ $item->total_read }}</span>
+                                    <span title="Helpful Yes" data-toggle="tooltip" class="label label-success"><i class="fa fa-thumbs-up"></i> {{ $item->helpful_yes }}</span>
+                                    <span title="Helpful No" data-toggle="tooltip" class="label label-danger"><i class="fa fa-thumbs-up"></i> {{ $item->helpful_no }}</span>
+                                </td>
                                 <td>{{ format_date($item->updated_at) }}</td>
                                 <td>{!! action_row($selectedNavigation->url, $item->id, $item->title, ['show', 'edit', 'delete']) !!}</td>
 							</tr>

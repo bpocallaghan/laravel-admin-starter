@@ -36,6 +36,7 @@ if (COMPILE == 'website' || COMPILE == 'all') {
         pathCSS + 'vendor/bootstrap.css',
         pathCSS + 'vendor/font-awesome.css',
 
+        pathCSS + 'app/faq.css',
         pathCSS + 'app/testimonials.css',
         pathCSS + 'website.css',
     ], public + '/css/website.css');
