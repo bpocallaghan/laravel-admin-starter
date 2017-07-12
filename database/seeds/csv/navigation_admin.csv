@@ -35,11 +35,11 @@ You can specify if the menu is hidden.",,,1,0,22,22,4
 32,Banners,Banners,banners,/admin/general/banners,image,,,,,,,2,0,17,17,4
 33,Subscription Plans,Subscription Plans,subscription-plans,/admin/settings/website/subscription-plans,money,,,,,,,3,0,22,22,4
 34,Roles,Roles,roles,/admin/settings/roles,universal-access,,,,,,,3,0,21,21,4
-35,Features,Features,features,/admin/settings/website/subscription-plans/features,tags,,,,,,,1,1,33,33,4
-36,Blog,Blog,blog,/admin/blog,newspaper-o,,,,,,,4,1,0,0,4
-37,Articles,Articles,articles,/admin/blog/articles,newspaper-o,,,,,,,1,1,36,36,4
-38,Categories,Categories,categories,/admin/blog/categories,cubes,,,,,,,2,1,36,36,4
+35,Features,Features,features,/admin/settings/website/subscription-plans/features,tags,,,,,,,1,0,33,33,4
+36,Blog,Blog,blog,/admin/blog,newspaper-o,,,,,,,4,0,0,0,4
+37,Articles,Articles,articles,/admin/blog/articles,newspaper-o,,,,,,,1,0,36,36,4
+38,Categories,Categories,categories,/admin/blog/categories,cubes,,,,,,,2,0,36,36,4
 39,Tags,Tags,tags,/admin/general/tags,tags,,,,,,,1,0,17,17,4
-40,FAQ,FAQ,faqs,/admin/faqs,question,,,,,,,6,1,0,0,4
-41,FAQ Questions,FAQ Questions,,/admin/faqs,question,,,,,,,2,1,40,40,4
-42,Categories,Categories,categories,/admin/faqs/categories,cubes,,,,,,,1,1,40,40,4
+40,FAQ,FAQ,faqs,/admin/faqs,question,,,,,,,6,0,0,0,4
+41,FAQ Questions,FAQ Questions,,/admin/faqs,question,,,,,,,2,0,40,40,4
+42,Categories,Categories,categories,/admin/faqs/categories,cubes,,,,,,,1,0,40,40,4
