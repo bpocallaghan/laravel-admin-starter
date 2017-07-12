@@ -8,7 +8,7 @@
             </h1>
         </div>
         <div class="col-md-4">
-            <div class="panel panel-default" style="min-height: 300px;">
+            <div class="panel panel-default" style="min-height: 250px;">
                 <div class="panel-heading">
                     <h4><i class="fa fa-fw fa-check"></i> Laravel v5.4.28</h4>
                 </div>
@@ -22,39 +22,38 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="panel panel-default" style="min-height: 300px;">
+        <div class="col-md-8">
+            <div class="panel panel-default" style="min-height: 250px;">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
+                    <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source & Many Features</h4>
                 </div>
                 <div class="panel-body">
-                    <ul>
-                        <li>Auth (Login, Register, Forgot Password)</li>
-                        <li>Roles</li>
-                        <li>Testimonials</li>
-                        <li>Changelog</li>
-                        <li>Pricing</li>
-                        <li>Banners</li>
-                        <li>Tags</li>
-                        <li>Locations</li>
-                        <li>Banners</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default" style="min-height: 300px;">
-                <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-compass"></i> Many Features</h4>
-                </div>
-                <div class="panel-body">
-                    <ul>
-                        <li>Log Activity (website and admin)</li>
-                        <li>Notifications</li>
-                        <li>Google Analytics Reports</li>
-                        <li>Manage Admins</li>
-                        <li>Manage Navigation (Website + Admin)</li>
-                    </ul>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Auth (Login, Register, Forgot Password)</li>
+                                <li>Roles</li>
+                                <li>Log Activity (website and admin)</li>
+                                <li>Notifications</li>
+                                <li>Google Analytics Reports</li>
+                                <li>Manage Navigation (Website + Admin)</li>
+                                <li>Blog (under development)</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Banners</li>
+                                <li>Testimonials</li>
+                                <li>Changelog</li>
+                                <li>Pricing</li>
+                                <li>Locations</li>
+                                <li>Tags</li>
+                                <li>FAQ</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,9 +146,7 @@
     <div class="well">
         <div class="row">
             <div class="col-md-8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita,
-                    saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias
-                    asperiores commodi.</p>
+                <p>A Laravel CMS Starter project with AdminLTE, Roles, Impersonations, Analytics, Activity, Notifications and more.</p>
             </div>
             <div class="col-md-4">
                 <a class="btn btn-lg btn-default btn-block" href="https://github.com/bpocallaghan/laravel-admin-starter">

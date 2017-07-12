@@ -1,3 +1,4 @@
+<h2 class="hidden">Banners</h2>
 <header id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
         @if(isset($banners) && count($banners) > 0)
@@ -5,7 +6,7 @@
                 <div class="item {{ $k == 0? 'active':'' }}">
                     <img src="/uploads/images/{{ $banner->image }}"/>
                     <div class="carousel-caption">
-                        <h2>{!! $banner->title !!}</h2>
+                        <h3>{!! $banner->title !!}</h3>
                         @if($banner->subtitle)
                             <p>{!! $banner->subtitle !!}</p>
                         @endif
@@ -19,14 +20,14 @@
             <div class="item active">
                 <div class="fill" style="background-image:url('http://placehold.it/1900x500');"></div>
                 <div class="carousel-caption">
-                    <h2>Title Caption 1</h2>
+                    <h3>Title Caption 1</h3>
                 </div>
             </div>
 
             <div class="item">
                 <div class="fill" style="background-image:url('http://placehold.it/1900x500');"></div>
                 <div class="carousel-caption">
-                    <h2>Title Caption 2</h2>
+                    <h3>Title Caption 2</h3>
                 </div>
             </div>
         @endif

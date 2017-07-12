@@ -27,6 +27,8 @@
     </head>
 
     <body>
+        <h1 class="hidden">{{ isset($HTMLTitle) ? $HTMLTitle : config('app.name') }}</h1>
+
         @if(config('app.env') == 'llocall')
             @include('partials.facebook')
         @endif

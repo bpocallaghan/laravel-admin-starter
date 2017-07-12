@@ -78,6 +78,14 @@
                         <a href="/admin/analytics">Google Analytics</a>.
                         Many Google Analytics Reports
                     </li>
+                    <li>
+                        <a href="/admin/faqs">FAQ</a>.
+                        Manage FAQ and display on webiste
+                    </li>
+                    <li>
+                        <a href="/admin/blog">Blog</a>.
+                        Categories and Articles (under development)
+                    </li>
                 </ul>
             </div>
         </div>
