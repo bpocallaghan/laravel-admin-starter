@@ -111,6 +111,12 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             });
         });
 
+        // reports
+        Route::group(['prefix' => 'blog', 'namespace' => 'Blog'], function () {
+            Route::resource('categories', 'CategoriesController');
+            Route::resource('articles', 'ArticlesController');
+        });
+
         // faq
         Route::resource('/faqs/categories', 'Faq\CategoriesController');
         Route::get('faqs/order', 'Faq\OrderController@index');
