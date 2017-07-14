@@ -25,6 +25,9 @@
                     <div class="panel-body">
                         <span class="price"><sup>$</sup>{{ $item->cost }}</span>
                         <span class="period">per month</span>
+                        @if($item->summary && strlen($item->summary) > 2)
+                            <p style="margin: 5px 0px 0px 0px;"><i>{{ $item->summary }}</i></p>
+                        @endif
                     </div>
                     <ul class="list-group">
                         @foreach($item->features as $feature)
