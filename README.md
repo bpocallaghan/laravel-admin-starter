@@ -46,7 +46,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - open your browser (http://laravel-admin.dev/)
 	- the home, about, contact us gets generated + the breadcrumb
 - log into the admin (http://laravel-admin.dev/admin)
-	- admin@laravel-admin.com
+	- admin@laravel-admin.dev
 	- admin
 
 ## Setup (Advanced)

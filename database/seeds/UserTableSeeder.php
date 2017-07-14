@@ -49,6 +49,25 @@ class UserTableSeeder extends Seeder
             \App\Models\Role::$DEVELOPER,
         ]);
 
+        //-------------------------------------------------
+        // Default Admin
+        //-------------------------------------------------
+        $user = User::create([
+            'firstname'    => 'Admin',
+            'lastname'     => 'Laravel Starter',
+            'cellphone'    => '123456789',
+            'email'        => 'admin@laravel-admin.dev',
+            'gender'       => 'male',
+            'password'     => bcrypt('admin'),
+            'confirmed_at' => Carbon::now()
+        ]);
+
+        $user->syncRoles([
+            \App\Models\Role::$ADMIN,
+            \App\Models\Role::$ADMIN_SUPER,
+            \App\Models\Role::$DEVELOPER,
+        ]);
+
         for ($i = 0; $i < 30; $i++) {
             $user = User::create([
                 'firstname'    => $faker->firstName,
