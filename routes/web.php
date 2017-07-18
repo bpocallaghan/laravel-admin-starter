@@ -163,9 +163,9 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             // settings / admin
             Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
                 // users
-                Route::get('users', 'AdministratorsController@index');
                 Route::get('users/invites', 'AdministratorsController@showInvites');
                 Route::post('users/invites', 'AdministratorsController@postInvite');
+                Route::resource('users', 'AdministratorsController');
 
                 // navigation
                 Route::get('navigation/order', 'NavigationOrderController@index');

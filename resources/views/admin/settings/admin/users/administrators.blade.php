@@ -17,7 +17,8 @@
 
                     <div class="well well-sm well-toolbar">
                         <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/invites' }}">
-                            <span class="btn-label"><i class="fa fa-fw fa-user-plus"></i></span>Invite Administrator
+                            <span class="btn-label"><i class="fa fa-fw fa-user-plus"></i></span>Invite
+                            Administrator
                         </a>
                     </div>
 
@@ -34,22 +35,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($items as $user)
+                        @foreach ($items as $item)
                             <tr>
-                                <td>{{ $user->fullname }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->cellphone }}</td>
-                                <td>{{ $user->gender }}</td>
-                                <td>{{ $user->roles_string }}</td>
-                                <td>{{ ($user->logged_in_at)? $user->logged_in_at->diffForHumans():'-' }}</td>
+                                <td>{{ $item->fullname }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->cellphone }}</td>
+                                <td>{{ $item->gender }}</td>
+                                <td>{{ $item->roles_string }}</td>
+                                <td>{{ ($item->logged_in_at)? $item->logged_in_at->diffForHumans():'-' }}</td>
                                 <td>
-                                    <div class="btn-group">
-                                        <form id="impersonate-login-form-{{ $user->id }}" action="{{ route('impersonate.login', $user->id) }}" method="post">
-                                            <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                            <a data-form="impersonate-login-form-{{ $user->id }}" class="btn btn-danger btn-xs btn-confirm-modal-row" data-toggle="tooltip" title="Impersonate {{ $user->fullname }}">
-                                                <i class="fa fa-user-secret"></i>
-                                            </a>
-                                        </form>
+                                    <div class="btn-toolbar">
+                                        <div class="btn-group">
+                                            <form id="impersonate-login-form-{{ $item->id }}" action="{{ route('impersonate.login', $item->id) }}" method="post">
+                                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                                <a data-form="impersonate-login-form-{{ $item->id }}" class="btn btn-warning btn-xs btn-confirm-modal-row" data-toggle="tooltip" title="Impersonate {{ $item->fullname }}">
+                                                    <i class="fa fa-user-secret"></i>
+                                                </a>
+                                            </form>
+                                        </div>
+
+                                        {!! action_row($selectedNavigation->url, $item->id, $item->fullname, ['edit', 'delete'], false) !!}
                                     </div>
                                 </td>
                             </tr>
