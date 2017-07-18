@@ -12,7 +12,7 @@ class RoleTableSeeder extends Seeder
         // basic website only role
         Role::create([
             'icon'    => 'user',
-            'title'   => 'Website',
+            'name'    => 'Website',
             'slug'    => '/',
             'keyword' => 'website',
         ]);
@@ -20,7 +20,7 @@ class RoleTableSeeder extends Seeder
         // basic admin role
         Role::create([
             'icon'    => 'user-secret',
-            'title'   => 'Basic Admin',
+            'name'    => 'Basic Admin',
             'slug'    => '/admin',
             'keyword' => 'admin',
         ]);
@@ -28,21 +28,21 @@ class RoleTableSeeder extends Seeder
         // admin and analytics
         Role::create([
             'icon'    => 'user-circle',
-            'title'   => 'Analytics',
+            'name'    => 'Analytics',
             'slug'    => '/admin',
             'keyword' => 'analytics',
         ]);
 
         Role::create([
             'icon'    => 'user-secret',
-            'title'   => 'Admin',
+            'name'    => 'Admin',
             'slug'    => '/admin',
             'keyword' => 'admin_super',
         ]);
 
         Role::create([
             'icon'    => 'universal-access',
-            'title'   => 'Developer',
+            'name'    => 'Developer',
             'slug'    => '/admin',
             'keyword' => 'developer',
         ]);

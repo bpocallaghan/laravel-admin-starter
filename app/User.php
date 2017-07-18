@@ -4,13 +4,14 @@ namespace App;
 
 use App\Models\Traits\UserAdmin;
 use App\Models\Traits\UserHelper;
+use App\Models\Traits\UserRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, UserHelper, UserAdmin;
+    use Notifiable, SoftDeletes, UserHelper, UserRoles, UserAdmin;
 
     protected $appends = ['fullname'];
 

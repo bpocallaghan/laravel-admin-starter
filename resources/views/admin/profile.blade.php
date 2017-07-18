@@ -22,25 +22,25 @@
                         <fieldset>
                             <div class="row">
                                 <div class="col col-6">
-                                    <section class="form-group {{ form_error_class('firstname', $errors) }}">
+                                    <div class="form-group {{ form_error_class('firstname', $errors) }}">
                                         <label for="firstname">Firstname</label>
                                         <div class="input-group">
                                             <input type="text" name="firstname" class="form-control" placeholder="Firstname" value="{{ ($errors->any()? old('firstname') : user()->firstname) }}">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                         </div>
                                         {!! form_error_message('firstname', $errors) !!}
-                                    </section>
+                                    </div>
                                 </div>
 
                                 <div class="col col-6">
-                                    <section class="form-group {{ form_error_class('lastname', $errors) }}">
+                                    <div class="form-group {{ form_error_class('lastname', $errors) }}">
                                         <label for="email">Lastname</label>
                                         <div class="input-group">
                                             <input type="text" name="lastname" class="form-control" placeholder="Lastname" value="{{ ($errors->any()? old('lastname') : user()->lastname) }}">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                         </div>
                                         {!! form_error_message('lastname', $errors) !!}
-                                    </section>
+                                    </div>
                                 </div>
                             </div>
 

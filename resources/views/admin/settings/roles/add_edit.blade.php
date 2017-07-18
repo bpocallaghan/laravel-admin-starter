@@ -22,10 +22,10 @@
                         <fieldset>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <section class="form-group {{ form_error_class('title', $errors) }}">
-                                        <label for="id-title">Title</label>
-                                        <input type="text" class="form-control input-generate-slug" id="id-title" name="title" placeholder="Please insert the Title" value="{{ ($errors && $errors->any()? old('title') : (isset($item)? $item->title : '')) }}">
-                                        {!! form_error_message('title', $errors) !!}
+                                    <section class="form-group {{ form_error_class('name', $errors) }}">
+                                        <label for="id-title">Name</label>
+                                        <input type="text" class="form-control input-generate-slug" id="id-name" name="name" placeholder="Please insert the Name" value="{{ ($errors && $errors->any()? old('name') : (isset($item)? $item->name : '')) }}">
+                                        {!! form_error_message('name', $errors) !!}
                                     </section>
                                 </div>
 

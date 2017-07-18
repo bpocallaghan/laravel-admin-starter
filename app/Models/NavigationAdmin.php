@@ -17,7 +17,7 @@ class NavigationAdmin extends TitanAdminNavigation
 
     public function getRolesStringAttribute()
     {
-        return implode(', ', $this->roles()->get()->pluck('title', 'id')->toArray());
+        return implode(', ', $this->roles()->get()->pluck('name', 'id')->toArray());
     }
 
     /**

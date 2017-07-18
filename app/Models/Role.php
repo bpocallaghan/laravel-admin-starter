@@ -30,17 +30,17 @@ class Role extends TitanCMSModel
      * Validation rules for this model
      */
     static public $rules = [
-        'title' => 'required|min:3:max:255',
+        'name' => 'required|min:3:max:255',
     ];
 
     public function getIconTitleAttribute()
     {
-        return '<i class="fa fa-' . $this->attributes['icon'] . '"</i> ' . $this->attributes['title'];
+        return '<i class="fa fa-' . $this->attributes['icon'] . '"</i> ' . $this->attributes['name'];
     }
 
     public function getTitleSlugAttribute()
     {
-        return $this->attributes['title'] . ' (' . $this->attributes['slug'] . ')';
+        return $this->attributes['name'] . ' (' . $this->attributes['slug'] . ')';
     }
 
     /**
@@ -50,6 +50,6 @@ class Role extends TitanCMSModel
      */
     public static function getAllLists()
     {
-        return self::orderBy('title')->get()->pluck('title', 'id')->toArray();
+        return self::orderBy('name')->get()->pluck('name', 'id')->toArray();
     }
 }

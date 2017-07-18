@@ -20,7 +20,7 @@
                     <table id="tbl-list" data-server="false" class="dt-table table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th>Title</th>
+                            <th>Name</th>
                             <th>Slug</th>
                             <th>Keyword</th>
                             <th>Action</th>
@@ -29,14 +29,14 @@
                         <tbody>
                         @foreach ($items as $item)
                             <tr>
-                                <td><i class="fa fa-{{ $item->icon }}"></i> {{ $item->title }}</td>
+                                <td><i class="fa fa-{{ $item->icon }}"></i> {{ $item->name }}</td>
                                 <td>{{ $item->slug }}</td>
                                 <td>{{ $item->keyword }}</td>
                                 <td>
                                     @if($item->id > 5)
-                                        {!! action_row($selectedNavigation->url, $item->id, $item->title, ['edit', 'delete']) !!}
+                                        {!! action_row($selectedNavigation->url, $item->id, $item->name, ['edit', 'delete']) !!}
                                     @else
-                                        <span class="label label-warning">{{ $item->title }} Role is needed</span>
+                                        <span class="label label-warning">{{ $item->name }} Role is needed</span>
                                     @endif
                                 </td>
                             </tr>
