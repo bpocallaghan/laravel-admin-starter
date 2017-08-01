@@ -10,7 +10,7 @@
         "bpocallaghan/impersonate": "^0.1.0",
         "bpocallaghan/notify": "^2.0",
         "bpocallaghan/sluggable": "^1.0",
-        "bpocallaghan/titan": "^0.2.3",
+        "bpocallaghan/titan": "^0.2.5",
         "google/recaptcha": "^1.1",
         "intervention/image": "^2.3",
         "laravel/framework": "5.4.*",
@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "bpocallaghan/generators": "^4.0",
+        "bpocallaghan/generators": "^4.1",
         "barryvdh/laravel-debugbar": "^2.4",
         "barryvdh/laravel-ide-helper": "^2.3"
     },

@@ -106,7 +106,7 @@ class AdministratorsController extends AdminController
             'telephone',
             'born_at'
         ]));
-        
+
         $user->roles()->sync(input('roles'));
 
         return redirect_to_resource();

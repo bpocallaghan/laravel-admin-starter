@@ -10,11 +10,11 @@
         <div class="col-md-4">
             <div class="panel panel-default" style="min-height: 250px;">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-check"></i> Laravel v5.4.28</h4>
+                    <h4><i class="fa fa-fw fa-check"></i> Laravel v5.4.30</h4>
                 </div>
                 <div class="panel-body">
                     <ul>
-                        <li><strong>Laravel v5.4.28</strong></li>
+                        <li><strong>Laravel v5.4.30</strong></li>
                         <li><strong>AdminLTE v2.4.0</strong></li>
                         <li><strong>Bootstrap v3.3.7</strong></li>
                         <li><strong>jQuery v3.2.1</strong></li>

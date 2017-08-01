@@ -67,6 +67,10 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
  	- ```php artisan vendor:publish --provider="Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider"```
 - have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
 
+## Admin LTE
+If you would like to change the default skin. 
+Please have a look in `webpack.mix.js` Line ~100 and uncomment the desired skin.
+
 ## Thank you
 
 - [ADMIN LTE](https://github.com/almasaeed2010/AdminLTE).

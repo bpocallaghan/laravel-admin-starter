@@ -19,7 +19,10 @@ $(function ()
         var id = $(this).attr('id');
         var ajax = $(this).attr('data-server');
         if (ajax == 'false') {
-            initDataTables('#' + id);
+            var pageLength = $(this).attr('data-page-length');
+            initDataTables('#' + id, {
+                iDisplayLength : pageLength ? 10 : pageLength
+            });
         }
     })
 

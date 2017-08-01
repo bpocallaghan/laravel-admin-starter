@@ -80,7 +80,7 @@
                     </li>
                     <li>
                         <a href="/admin/faqs">FAQ</a>.
-                        Manage FAQ and display on webiste
+                        Manage FAQ and display on website
                     </li>
                     <li>
                         <a href="/admin/blog">Blog</a>.

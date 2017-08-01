@@ -45,7 +45,8 @@ throw new Error('AdminLTE requires jQuery')
     sidebar       : '.sidebar',
     controlSidebar: '.control-sidebar',
     fixed         : '.fixed',
-    sidebarMenu   : '.sidebar-menu'
+    sidebarMenu   : '.sidebar-menu',
+    logo          : '.main-header .logo'
   }
 
   var ClassName = {
@@ -76,7 +77,13 @@ throw new Error('AdminLTE requires jQuery')
       $(window).resize(function () {
         this.fix()
         this.fixSidebar()
+
+        $(Selector.logo + ', ' + Selector.sidebar).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+          this.fix()
+          this.fixSidebar()
+        }.bind(this))
       }.bind(this))
+
       this.bindedResize = true
     }
 
@@ -101,25 +108,25 @@ throw new Error('AdminLTE requires jQuery')
     var windowHeight  = $(window).height()
     var sidebarHeight = $(Selector.sidebar).height() || 0
 
-    // Set the min-height of the content and sidebar based on the
+    // Set the min-height of the content and sidebar based on
     // the height of the document.
     if ($('body').hasClass(ClassName.fixed)) {
       $(Selector.contentWrapper).css('min-height', windowHeight - footerHeight)
     } else {
-      var postSetWidth
+      var postSetHeight
 
       if (windowHeight >= sidebarHeight) {
         $(Selector.contentWrapper).css('min-height', windowHeight - neg)
-        postSetWidth = windowHeight - neg
+        postSetHeight = windowHeight - neg
       } else {
         $(Selector.contentWrapper).css('min-height', sidebarHeight)
-        postSetWidth = sidebarHeight
+        postSetHeight = sidebarHeight
       }
 
       // Fix for the control sidebar height
       var $controlSidebar = $(Selector.controlSidebar)
       if (typeof $controlSidebar !== 'undefined') {
-        if ($controlSidebar.height() > postSetWidth)
+        if ($controlSidebar.height() > postSetHeight)
           $(Selector.contentWrapper).css('min-height', $controlSidebar.height())
       }
     }
@@ -196,7 +203,7 @@ throw new Error('AdminLTE requires jQuery')
  * Adds the push menu functionality to the sidebar.
  *
  * @usage: $('.btn').pushMenu(options)
- *          or add [data-toggle="push-menu"] to any toggle button
+ *          or add [data-toggle="push-menu"] to any button
  *          Pass any option as data-option="value"
  */
 +function ($) {
@@ -455,7 +462,7 @@ throw new Error('AdminLTE requires jQuery')
     parent.addClass(ClassName.open)
     tree.slideDown(this.options.animationSpeed, function () {
       $(this.element).trigger(expandedEvent)
-    })
+    }.bind(this))
   }
 
   Tree.prototype.collapse = function (tree, parentLi) {
@@ -466,7 +473,7 @@ throw new Error('AdminLTE requires jQuery')
     tree.slideUp(this.options.animationSpeed, function () {
       tree.find(Selector.open + ' > ' + Selector.treeview).slideUp()
       $(this.element).trigger(collapsedEvent)
-    })
+    }.bind(this))
   }
 
   // Private
@@ -475,8 +482,8 @@ throw new Error('AdminLTE requires jQuery')
     var that = this
 
     $(this.element).on('click', this.options.trigger, function (event) {
-        that.toggle($(this), event)
-      })
+      that.toggle($(this), event)
+    })
   }
 
   // Plugin Definition
@@ -661,7 +668,7 @@ throw new Error('AdminLTE requires jQuery')
  * Adds box widget functions to boxes.
  *
  * @Usage: $('.my-box').boxWidget(options)
- *         or add [data-widget="box-widget"] to the ul element
+ *         This plugin auto activates on any element using the `.box` class
  *         Pass any option as data-option="value"
  */
 +function ($) {
@@ -722,7 +729,8 @@ throw new Error('AdminLTE requires jQuery')
 
     $(this.element).removeClass(ClassName.collapsed)
 
-    $(Selector.tools)
+    $(this.element)
+      .find(Selector.tools)
       .find('.' + expandIcon)
       .removeClass(expandIcon)
       .addClass(collapseIcon)
@@ -738,7 +746,8 @@ throw new Error('AdminLTE requires jQuery')
     var collapseIcon   = this.options.collapseIcon
     var expandIcon     = this.options.expandIcon
 
-    $(Selector.tools)
+    $(this.element)
+      .find(Selector.tools)
       .find('.' + collapseIcon)
       .removeClass(collapseIcon)
       .addClass(expandIcon)
@@ -766,12 +775,12 @@ throw new Error('AdminLTE requires jQuery')
 
     $(this.element).on('click', this.options.collapseTrigger, function (event) {
       if (event) event.preventDefault()
-      that.toggle($(this))
+      that.toggle()
     })
 
     $(this.element).on('click', this.options.removeTrigger, function (event) {
       if (event) event.preventDefault()
-      that.remove($(this))
+      that.remove()
     })
   }
 

@@ -1,5 +1,5 @@
 /*!
- *   AdminLTE v2.3.12
+ *   AdminLTE v2.4.0
  *   Author: Almsaeed Studio
  *	 Website: Almsaeed Studio <https://adminlte.io>
  *   License: Open source - MIT
@@ -50,10 +50,8 @@ body {
 }
 /*
  * Content Wrapper - contains the main content
- * ```.right-side has been deprecated as of v2.0.0 in favor of .content-wrapper  ```
  */
 .content-wrapper,
-.right-side,
 .main-footer {
   -webkit-transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
   -moz-transition: -moz-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
@@ -63,27 +61,23 @@ body {
   z-index: 820;
 }
 .layout-top-nav .content-wrapper,
-.layout-top-nav .right-side,
 .layout-top-nav .main-footer {
   margin-left: 0;
 }
 @media (max-width: 767px) {
   .content-wrapper,
-  .right-side,
   .main-footer {
     margin-left: 0;
   }
 }
 @media (min-width: 768px) {
   .sidebar-collapse .content-wrapper,
-  .sidebar-collapse .right-side,
   .sidebar-collapse .main-footer {
     margin-left: 0;
   }
 }
 @media (max-width: 767px) {
   .sidebar-open .content-wrapper,
-  .sidebar-open .right-side,
   .sidebar-open .main-footer {
     -webkit-transform: translate(230px, 0);
     -ms-transform: translate(230px, 0);
@@ -91,8 +85,7 @@ body {
     transform: translate(230px, 0);
   }
 }
-.content-wrapper,
-.right-side {
+.content-wrapper {
   min-height: 100%;
   background-color: #ecf0f5;
   z-index: 800;
@@ -415,8 +408,7 @@ a:focus {
  * Component: Sidebar
  * ------------------
  */
-.main-sidebar,
-.left-side {
+.main-sidebar {
   position: absolute;
   top: 0;
   left: 0;
@@ -430,14 +422,12 @@ a:focus {
   transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 @media (max-width: 767px) {
-  .main-sidebar,
-  .left-side {
+  .main-sidebar {
     padding-top: 100px;
   }
 }
 @media (max-width: 767px) {
-  .main-sidebar,
-  .left-side {
+  .main-sidebar {
     -webkit-transform: translate(-230px, 0);
     -ms-transform: translate(-230px, 0);
     -o-transform: translate(-230px, 0);
@@ -445,8 +435,7 @@ a:focus {
   }
 }
 @media (min-width: 768px) {
-  .sidebar-collapse .main-sidebar,
-  .sidebar-collapse .left-side {
+  .sidebar-collapse .main-sidebar {
     -webkit-transform: translate(-230px, 0);
     -ms-transform: translate(-230px, 0);
     -o-transform: translate(-230px, 0);
@@ -454,8 +443,7 @@ a:focus {
   }
 }
 @media (max-width: 767px) {
-  .sidebar-open .main-sidebar,
-  .sidebar-open .left-side {
+  .sidebar-open .main-sidebar {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
@@ -4288,7 +4276,10 @@ table.text-center th {
 .select2-dropdown .select2-search__field:focus,
 .select2-search--inline .select2-search__field:focus {
   outline: none;
-  border: 1px solid #3c8dbc;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple,
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border-color: #3c8dbc !important;
 }
 .select2-container--default .select2-results__option[aria-disabled=true] {
   color: #999;
@@ -4325,6 +4316,28 @@ table.text-center th {
 }
 .select2-container .select2-selection--single .select2-selection__rendered {
   padding-right: 10px;
+}
+.box .datepicker-inline,
+.box .datepicker-inline .datepicker-days,
+.box .datepicker-inline > table,
+.box .datepicker-inline .datepicker-days > table {
+  width: 100%;
+}
+.box .datepicker-inline td:hover,
+.box .datepicker-inline .datepicker-days td:hover,
+.box .datepicker-inline > table td:hover,
+.box .datepicker-inline .datepicker-days > table td:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.box .datepicker-inline td.day.old,
+.box .datepicker-inline .datepicker-days td.day.old,
+.box .datepicker-inline > table td.day.old,
+.box .datepicker-inline .datepicker-days > table td.day.old,
+.box .datepicker-inline td.day.new,
+.box .datepicker-inline .datepicker-days td.day.new,
+.box .datepicker-inline > table td.day.new,
+.box .datepicker-inline .datepicker-days > table td.day.new {
+  color: #777;
 }
 /*
  * General: Miscellaneous

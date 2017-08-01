@@ -92,6 +92,17 @@ if (COMPILE == 'admin' || COMPILE == 'all') {
         // admin
         pathCSS + 'admin-lte.css',
         pathCSS + 'skins/skin-blue.css',
+        // pathCSS + 'skins/skin-blue-light.css',
+        // pathCSS + 'skins/skin-black.css',
+        // pathCSS + 'skins/skin-black-light.css',
+        // pathCSS + 'skins/skin-green.css',
+        // pathCSS + 'skins/skin-green-light.css',
+        // pathCSS + 'skins/skin-purple.css',
+        // pathCSS + 'skins/skin-purple-light.css',
+        // pathCSS + 'skins/skin-red.css',
+        // pathCSS + 'skins/skin-red-light.css',
+        // pathCSS + 'skins/skin-yellow.css',
+        // pathCSS + 'skins/skin-yellow-light.css',
 
         // // titan
         pathCSS + 'titan/titan.css',
