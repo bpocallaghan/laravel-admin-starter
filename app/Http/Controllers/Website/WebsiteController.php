@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use Illuminate\Http\Request;
-
+use App\Models\Banner;
 use App\Http\Requests;
 use Titan\Controllers\TitanWebsiteController;
 
@@ -19,6 +19,17 @@ class WebsiteController extends TitanWebsiteController
      */
     protected function view($view, $data = [])
     {
-        return parent::view($view, $data)->with('showPageBanner', $this->showPageBanner);
+        $banners = $this->getBanners();
+
+        return parent::view($view, $data)
+            ->with('showPageBanner', $this->showPageBanner)
+            ->with('banners', $banners);
+    }
+
+    protected function getBanners()
+    {
+        $items = Banner::active()->get();
+
+        return $items;
     }
 }
