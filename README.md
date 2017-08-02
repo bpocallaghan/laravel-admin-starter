@@ -57,6 +57,8 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - google captcha https://www.google.com/recaptcha/admin#list
 - google analytics account https://analytics.google.com/analytics/web
 - google console developer account for google maps and google analytics API
+    - https://console.developers.google.com
+    - Enable the 'google analytics' API
 	- Create api browser key for google maps
 	- Create service account key for google analytics
 		- add the email to the 'accounts' under google analytics
@@ -65,6 +67,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
  	- more info https://github.com/spatie/laravel-analytics
  	- run the below to edit the config (set the name of the .p12)
  	- ```php artisan vendor:publish --provider="Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider"```
+- get a Google Maps js API key (after you've created the project in google) https://developers.google.com/maps/documentation/javascript/get-api-key 
 - have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
 
 ## Admin LTE
