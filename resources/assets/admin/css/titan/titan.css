@@ -55,7 +55,7 @@ form hr {
 */
 .auth-page {
     margin-top: 5%;
-    background: #e0e0e0;
+    /*background: #e0e0e0;*/
 }
 
 .auth-page .logo {
@@ -70,10 +70,10 @@ form hr {
 }
 
 .auth-page .body {
+    color: #666;
     background: #fff;
     padding: 20px;
-    border-top: 0;
-    color: #666;
+    border: 1px solid #ddd;
 }
 
 /*

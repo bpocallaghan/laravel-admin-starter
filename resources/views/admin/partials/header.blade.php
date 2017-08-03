@@ -26,7 +26,7 @@
                 @endif
 
                 <li class="dropdown messages-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#modal-notifications">
+                    <a id="js-notifications" href="#" class="dropdown-toggle" data-toggle="modal" data-target="#modal-notifications">
                         <i class="fa fa-envelope-o"></i>
                         <span data-user="{{ user()->id }}" id="js-notifications-badge" class="label label-success" style="display: none;"></span>
                     </a>

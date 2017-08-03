@@ -3,8 +3,7 @@ function getHeaderNotifications()
     function getHeaderActivities()
     {
         $.cookie.json = true;
-        $('.dropdown-toggle').on('click', function ()
-        {
+        $('.dropdown-toggle').on('click', function () {
             var type = $(this).attr('data-type');
             if (type) {
                 var cookie = $.cookie(type);
@@ -20,8 +19,7 @@ function getHeaderNotifications()
             }
         });
 
-        doAjax('/api/notifications/actions/latest', null, function (response)
-        {
+        doAjax('/api/notifications/actions/latest', null, function (response) {
             renderActivities(response, 'activities');
         });
 
@@ -88,8 +86,7 @@ function getHeaderNotifications()
 
     function getUnreadNotifications(userId)
     {
-        doAjax('/api/notifications/' + userId + '/unread', null, function (response)
-        {
+        doAjax('/api/notifications/' + userId + '/unread', null, function (response) {
             renderNotificationsTable(response);
         });
     }
@@ -130,21 +127,20 @@ function getHeaderNotifications()
     function registerNotificationRead()
     {
         $('.btn-notification-read').off('click');
-        $('.btn-notification-read').on('click', function (e)
-        {
+        $('.btn-notification-read').on('click', function (e) {
             e.preventDefault();
             BUTTON.loading($(this));
 
             var userId = $(this).attr('data-user');
             var id = $(this).attr('data-id');
-            doAjax('/api/notifications/' + userId + '/read/' + id, null, function (response)
-            {
+            doAjax('/api/notifications/' + userId + '/read/' + id, null, function (response) {
                 renderNotificationsTable(response);
             });
         });
     }
 
-    getHeaderActivities();
-    getUnreadNotifications($('#js-notifications-badge').attr('data-user'));
+    if ($('#js-notifications') && $('#js-notifications').length > 0) {
+        getHeaderActivities();
+        getUnreadNotifications($('#js-notifications-badge').attr('data-user'));
+    }
 }
-
