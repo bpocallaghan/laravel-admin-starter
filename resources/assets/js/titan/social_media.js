@@ -1,8 +1,7 @@
 //-------------------------------------------------
 // SOCIAL MEDIA SHARE ACTIONS
 //-------------------------------------------------
-$(function ()
-{
+$(function () {
     $(".link-share").click(doShareClick);
 
     function doShareClick(e)
@@ -15,9 +14,9 @@ $(function ()
         // object to be send to server
         var data = {
             'type': type,
-            'title': (title)? title : getShareTitle(),
-            'description': getShareDesc(),
             'url': getShareLink(),
+            'description': getShareDescription(),
+            'title': (title) ? title : getShareTitle(),
             'image': (image) ? image : getShareImage()
         };
 
@@ -52,23 +51,14 @@ $(function ()
 
     function doFacebookShare()
     {
-        FB.ui({
-                method: 'feed',
-                name: getShareTitle(),
-                caption: $('meta[name="og:caption"]').attr('content'),
-                description: getShareDesc(),
-                link: getShareLink(),
-                picture: getShareImage()
-            },
-            function (response)
-            {
-                // if (response && response.post_id) {
-                //   alert('Post was published.');
-                // } else {
-                //   alert('Post was not published.');
-                // }
-            }
-        );
+        if (FB || $('#fb-root').length >= 1) {
+            FB.ui({
+                method: 'share',
+                display: 'popup',
+                href: $('meta[name="og:url"]').attr('content')
+            }, function (response) {
+            });
+        }
     }
 
     function doTwitterShare()
@@ -109,13 +99,20 @@ $(function ()
         return window.location.href;
         /*$("meta[name='og:url']").attr('content');*/
     }
+
     function getShareTitle()
     {
         return $("meta[name='og:title']").attr('content');
     }
-    function getShareDesc()
+
+    function getShareDescription()
     {
         return $("meta[name='og:description']").attr('content');
+    }
+
+    function getShareCaption()
+    {
+        return $('meta[name="og:caption"]').attr('content');
     }
 
     function openExternalWindow(url)

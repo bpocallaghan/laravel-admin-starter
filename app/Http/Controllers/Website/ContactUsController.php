@@ -19,18 +19,18 @@ class ContactUsController extends WebsiteController
 
     public function feedback(Request $request)
     {
-        $this->validate($request, FeedbackContactUs::$rules);
+        $attributes = request()->validate(FeedbackContactUs::$rules);
 
         // validate google captcha
-        $response = $this->validateCaptcha($request);
-        if ($response->isSuccess()) {
+        //$response = $this->validateCaptcha($request);
+        //if ($response->isSuccess()) {
 
             $row = FeedbackContactUs::create([
-                'firstname'    => input('firstname'),
-                'lastname'     => input('lastname'),
-                'phone'        => input('phone'),
-                'email'        => input('email'),
-                'content'      => input('content'),
+                'firstname'    => $attributes['firstname'],
+                'lastname'     => $attributes['lastname'],
+                'phone'        => $attributes['phone'],
+                'email'        => $attributes['email'],
+                'content'      => $attributes['content'],
                 'client_ip'    => $request->getClientIp(),
                 'client_agent' => $request->header('User-Agent'),
             ]);
@@ -38,8 +38,8 @@ class ContactUsController extends WebsiteController
             event(new ContactUsFeedback($row));
 
             return json_response('Thank you for contacting us.');
-        }
+        //}
 
-        return $this->captchaResponse($response);
+        //return $this->captchaResponse($response);
     }
 }

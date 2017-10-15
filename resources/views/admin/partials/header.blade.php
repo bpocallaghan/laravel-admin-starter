@@ -1,9 +1,12 @@
+<h2 class="hidden">Header</h2>
 <header class="main-header">
-    <a href="{{ url('/admin') }}" class="logo">
+    <h3 class="hidden">Logo</h3>
+    <a href="/" class="logo">
         <span class="logo-mini"><img src="/images/logo-mini.png" style="width: 100%;"/></span>
-        <span class="logo-lg"><img src="/images/logo.png" style="width: 80%;"/></span>
+        <span class="logo-lg"><img src="/images/logo.png" style="width: 100%;"/></span>
     </a>
 
+    <h3 class="hidden">Header Top Actions</h3>
     <nav class="navbar navbar-static-top" role="navigation">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -11,7 +14,6 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-
                 @if (impersonate()->isActive())
                     <li>
                         <a href="{{ route('impersonate.logout') }}"

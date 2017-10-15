@@ -102,12 +102,12 @@ function setDateTimePickerRange(from, to)
     });
 }
 
-function initSummerNote(selector)
+function initSummerNote(selector, height)
 {
     $(selector).summernote({
-        height: 120,
-        focus: false,
         tabsize: 2,
+        focus: false,
+        height: height ? height : 120,
         toolbar: [
             ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
             ['color', ['color']],

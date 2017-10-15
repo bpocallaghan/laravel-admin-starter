@@ -73,10 +73,19 @@
                                     {!! $item->content !!}
                                 </div>
                             </div>
+
+                            <div class="superbox">
+                                @foreach($item->photos as $photo)
+                                    <div class="superbox-list">
+                                        <a href="{{ $photo->urlForName($photo->original) }}" data-lightbox="images" data-title="{{ $photo->name }}">
+                                            <img src="{{ $photo->urlForName($photo->thumb) }}" title="{{ $photo->name }}" class="superbox-img">
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
                         </fieldset>
 
                         @include('admin.partials.form_footer', ['submit' => false])
-
                     </form>
                 </div>
             </div>

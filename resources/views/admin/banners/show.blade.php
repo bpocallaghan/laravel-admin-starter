@@ -7,7 +7,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">
                         <span><i class="fa fa-eye"></i></span>
-                        <span>Banners - {{ $item->title }}</span>
+                        <span>Banners - {{ $item->name }}</span>
                     </h3>
                 </div>
 
@@ -20,15 +20,15 @@
                             <div class="row">
                                 <section class="col col-6">
                                     <section class="form-group">
-                                        <label>Title</label>
-                                        <input type="text" class="form-control" value="{{ $item->title }}" readonly>
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" value="{{ $item->name }}" readonly>
                                     </section>
                                 </section>
 
                                 <section class="col col-6">
                                     <section class="form-group">
-                                        <label>Subtitle</label>
-                                        <input type="text" class="form-control" value="{{ $item->subtitle }}" readonly>
+                                        <label>Summary</label>
+                                        <input type="text" class="form-control" value="{{ $item->summary }}" readonly>
                                     </section>
                                 </section>
                             </div>
@@ -36,16 +36,16 @@
                             <div class="row">
                                 <div class="col col-6">
                                     <section class="form-group">
-                                        <label>Action Title</label>
-                                        <input type="text" class="form-control" value="{{ $item->action_title }}" readonly>
+                                        <label>Action Name</label>
+                                        <input type="text" class="form-control" value="{{ $item->action_name }}" readonly>
                                     </section>
                                 </div>
 
                                 <div class="col col-6">
                                     <section class="form-group">
-                                        <label>Action Link</label>
+                                        <label>Action Url</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" value="{{ $item->action_link }}" readonly>
+                                            <input type="text" class="form-control" value="{{ $item->action_url }}" readonly>
                                             <span class="input-group-addon"><i class="fa fa-link"></i></span>
                                         </div>
                                     </section>

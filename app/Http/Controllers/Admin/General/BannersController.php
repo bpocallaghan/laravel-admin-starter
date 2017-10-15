@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Image;
 use Redirect;
 use App\Http\Requests;
 use App\Models\Banner;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Admin\AdminController;
-use Titan\Controllers\Traits\UploadFile;
 
 class BannersController extends AdminController
 {
-    use UploadFile;
-
     /**
      * Display a listing of banner.
      *
@@ -32,26 +29,29 @@ class BannersController extends AdminController
      */
     public function create()
     {
-        return $this->view('banners.add_edit');
+        return $this->view('banners.create_edit');
     }
 
     /**
      * Store a newly created banner in storage.
      *
-     * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $this->validate($request, Banner::$rules, Banner::$messages);
+        $attributes = request()->validate(Banner::$rules, Banner::$messages);
 
-        $photo = $this->uploadBanner($request->file('photo'));
+        $attributes['hide_name'] = boolval(input('hide_name'));
+        $attributes['is_website'] = boolval(input('is_website'));
+
+        $photo = $this->uploadBanner($attributes['photo']);
         if ($photo) {
-            $request->merge(['image' => $photo]);
-            $banner = $this->createEntry(Banner::class, $request->except('photo'));
+            $attributes['image'] = $photo;
+            unset($attributes['photo']);
+            $banner = $this->createEntry(Banner::class, $attributes);
         }
 
-        log_activity('Banner Created', 'Banner was created ' . $banner->title);
+        log_activity('Banner Created', 'Banner was created ' . $banner->name, $banner);
 
         return redirect_to_resource();
     }
@@ -75,7 +75,7 @@ class BannersController extends AdminController
      */
     public function edit(Banner $banner)
     {
-        return $this->view('banners.add_edit')->with('item', $banner);
+        return $this->view('banners.create_edit')->with('item', $banner);
     }
 
     /**
@@ -88,18 +88,25 @@ class BannersController extends AdminController
     public function update(Banner $banner, Request $request)
     {
         if (is_null($request->file('photo'))) {
-            $this->validate($request, array_except(Banner::$rules, 'photo'), Banner::$messages);
+            $attributes = request()->validate(array_except(Banner::$rules, 'photo'),
+                Banner::$messages);
         }
         else {
-            $this->validate($request, Banner::$rules, Banner::$messages);
+            $attributes = request()->validate(Banner::$rules, Banner::$messages);
 
-            $photo = $this->uploadBanner($request->file('photo'));
-            $request->merge(['image' => $photo]);
+            $photo = $this->uploadBanner($attributes['photo']);
+            if ($photo) {
+                $attributes['image'] = $photo;
+            }
         }
 
-        $this->updateEntry($banner, $request->except('photo'));
+        unset($attributes['photo']);
+        $attributes['hide_name'] = boolval(input('hide_name'));
+        $attributes['is_website'] = boolval(input('is_website'));
 
-        log_activity('Banner Updated', 'Banner was updated. ' . $banner->title);
+        $this->updateEntry($banner, $attributes);
+
+        log_activity('Banner Updated', 'Banner was updated. ' . $banner->name, $banner);
 
         return redirect_to_resource();
     }
@@ -116,5 +123,39 @@ class BannersController extends AdminController
         $this->deleteEntry($banner, $request);
 
         return redirect_to_resource();
+    }
+
+    /**
+     * Upload the banner image, create a thumb as well
+     *
+     * @param        $file
+     * @param string $path
+     * @param array  $size
+     * @return string|void
+     */
+    public function uploadBanner(
+        $file,
+        $path = '',
+        $size = ['o' => [1900, 500], 'tn' => [570, 150]]
+    ) {
+        $name = token();
+        $extension = $file->guessClientExtension();
+
+        $filename = $name . '.' . $extension;
+        $filenameThumb = $name . '-tn.' . $extension;
+        $imageTmp = Image::make($file->getRealPath());
+
+        if (!$imageTmp) {
+            return notify()->error('Oops', 'Something went wrong', 'warning shake animated');
+        }
+
+        $path = upload_path_images($path);
+
+        // save the image
+        $image = $imageTmp->fit($size['o'][0], $size['o'][1])->save($path . $filename);
+
+        $image->fit($size['tn'][0], $size['tn'][1])->save($path . $filenameThumb);
+
+        return $filename;
     }
 }

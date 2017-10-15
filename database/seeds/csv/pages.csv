@@ -1,0 +1,29 @@
+id,name,title,description,slug,url,icon,is_header,header_order,is_footer,footer_order,is_hidden,is_featured,parent_id,url_parent_id,views,social_shares
+1,Home,Laravel Admin Starter,/,,,0,0,0,0,1,0,0,0,0,647,0
+2,Privacy Policy,Privacy Policy,Privacy Policy,privacy-policy,/privacy-policy,,0,0,0,0,0,0,0,0,2,0
+3,Terms and Conditions,Terms and Conditions,Terms and Conditions,terms-and-conditions,/terms-and-conditions,,0,0,0,0,0,0,0,0,1,0
+4,FAQs,Frequently Asked Questions,Frequently Asked Questions,faq,/faq,,0,0,0,0,0,1,0,0,7,0
+5,Contact Us,Contact Us,Contact Us,contact-us,/contact-us,,1,7,0,0,0,0,0,0,35,0
+6,About,About,About,about,/about,,1,5,0,0,0,0,0,0,1,0
+7,About Us,About Us,About Us,about-us,/about-us,,1,1,0,0,0,0,6,0,95,0
+8,Testimonials,Testimonials,Testimonials,testimonials,/testimonials,,1,4,0,0,0,0,6,0,20,0
+9,Changelog,Changelog,Changelog,changelog,/changelog,,1,3,0,0,0,0,6,0,8,0
+10,Pricing,Pricing,Pricing,pricing,/pricing,,1,2,0,0,0,0,6,0,3,0
+11,Blog,Blog,blog,blog,/blog,newspaper-o,1,2,0,0,0,1,0,0,14,0
+12,Gallery,Gallery,Gallery,gallery,/gallery,,1,3,0,0,0,1,0,0,49,0
+13,News and Events,News and Events,News and Events,news-and-events,/news-and-events,,1,4,0,0,0,1,0,0,55,0
+15,Corporate,Corporate,Corporate,corporate,/corporate,,1,6,0,0,0,0,0,0,0,0
+16,Tenders,Tenders,Tenders,tenders,/corporate/tenders,,1,1,0,0,0,0,15,15,6,0
+17,Vacancies,Vacancies,Vacancies,vacancies,/corporate/vacancies,,1,2,0,0,0,0,15,15,2,0
+18,Annual Reports,Annual Reports,Annual Reports,annual-reports,/corporate/annual-reports,,1,3,0,0,0,0,15,15,4,0
+19,Authentication,Authentication,Authentication,auth,/auth,,0,0,0,0,1,0,0,0,5,0
+20,My Account,My Account,My Account,account,/account,user-circle-o,1,8,0,0,0,0,0,0,0,0
+21,My Account,My Account,My Account,,/account,user-circle-o,1,1,0,0,0,0,20,20,3,0
+22,Profile,Profile,Profile,profile,/account/profile,id-card-o,1,2,0,0,0,0,20,20,4,0
+23,Login,Login,Login,login,/auth/login,sign-in,0,0,0,0,1,0,19,19,18,0
+24,Register,Register,Register,register,/auth/register,edit,0,0,0,0,1,0,19,19,5,0
+25,Logout,Logout,Logout,logout,/auth/logout,sign-out,1,3,0,0,0,0,20,20,5,0
+26,Pages,Pages,Pages,pages,/pages,,1,1,0,,0,0,0,0,0,0
+27,Content Only,Content Only,Content Only,content-only,/pages/content-only,,1,1,0,,0,0,26,26,2,0
+28,Content and Photo,Content and Photo,Content and Photo,content-and-photo,/pages/content-and-photo,,1,2,0,,0,0,26,26,5,0
+29,Content and Gallery,Content and Gallery,Content and Gallery,content-and-gallery,/pages/content-and-gallery,,1,3,0,,0,0,26,26,9,0

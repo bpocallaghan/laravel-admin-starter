@@ -24,11 +24,7 @@ class UserTableSeeder extends Seeder
             'confirmed_at' => Carbon::now()
         ]);
 
-        $user->syncRoles([
-            \App\Models\Role::$ADMIN,
-            \App\Models\Role::$ADMIN_SUPER,
-            \App\Models\Role::$DEVELOPER,
-        ]);
+        $this->addAllRolesToUser($user);
 
         //-------------------------------------------------
         // GitHub
@@ -43,11 +39,7 @@ class UserTableSeeder extends Seeder
             'confirmed_at' => Carbon::now()
         ]);
 
-        $user->syncRoles([
-            \App\Models\Role::$ADMIN,
-            \App\Models\Role::$ADMIN_SUPER,
-            \App\Models\Role::$DEVELOPER,
-        ]);
+        $this->addAllRolesToUser($user);
 
         //-------------------------------------------------
         // Default Admin
@@ -62,13 +54,10 @@ class UserTableSeeder extends Seeder
             'confirmed_at' => Carbon::now()
         ]);
 
-        $user->syncRoles([
-            \App\Models\Role::$ADMIN,
-            \App\Models\Role::$ADMIN_SUPER,
-            \App\Models\Role::$DEVELOPER,
-        ]);
+        $this->addAllRolesToUser($user);
 
-        for ($i = 0; $i < 30; $i++) {
+        // dummy users
+        /*for ($i = 0; $i < 5; $i++) {
             $user = User::create([
                 'firstname'    => $faker->firstName,
                 'lastname'     => $faker->lastName,
@@ -80,9 +69,18 @@ class UserTableSeeder extends Seeder
             ]);
 
             $user->syncRoles([
-                \App\Models\Role::$ADMIN,
-                \App\Models\Role::$ANALYTICS,
+                \App\Models\Role::$WEBSITE,
             ]);
-        }
+        }*/
+    }
+
+    private function addAllRolesToUser($user)
+    {
+        $user->syncRoles([
+            \App\Models\Role::$WEBSITE,
+            \App\Models\Role::$ADMIN,
+            \App\Models\Role::$ADMIN_SUPER,
+            \App\Models\Role::$DEVELOPER,
+        ]);
     }
 }

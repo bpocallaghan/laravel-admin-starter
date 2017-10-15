@@ -1,7 +1,6 @@
 {
-  "/mix.js": "/mix.js",
-  "/css/admin.css": "/css/admin.css",
-  "/js/admin.js": "/js/admin.js",
-  "/css/website.css": "/css/website.css",
-  "/js/website.js": "/js/website.js"
+    "/css/website.css": "/css/website.css",
+    "/js/website.js": "/js/website.js",
+    "/css/admin.css": "/css/admin.css",
+    "/js/admin.js": "/js/admin.js"
 }

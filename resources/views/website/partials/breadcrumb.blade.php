@@ -1,16 +1,15 @@
-@if(isset($breadcrumb))
-
-    {{-- hide on home page --}}
-    @if($selectedNavigation->id != 1)
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    {!! $selectedNavigation->title !!}
-                </h1>
-                <ol class="breadcrumb">
-                    {!! $breadcrumb !!}
-                </ol>
-            </div>
-        </div>
+@if(isset($breadcrumbItems))
+    @if($page->id != 1)
+        <ol class="breadcrumb">
+            @foreach($breadcrumbItems as $item)
+                <li>
+                    @if(!$loop->last)
+                        <a href="{{ $item->url }}">{{ $item->name }}</a>
+                    @else
+                        <span class="text-muted">{!! $item->name !!}</span>
+                    @endif
+                </li>
+            @endforeach
+        </ol>
     @endif
 @endif

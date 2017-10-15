@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Reports;
 
-use Datatables;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Models\FeedbackContactUs;
+use Yajra\DataTables\Facades\DataTables;
 use Titan\Controllers\TitanAdminController;
 use Titan\Controllers\Traits\ReportChartTable;
 
@@ -62,8 +62,10 @@ class ContactUsController extends TitanAdminController
             ->orderBy('created_at')
             ->get();
 
-        return Datatables::of($items)->addColumn('fullname', function ($row) {
+        return DataTables::of($items)->addColumn('fullname', function ($row) {
             return $row->fullname;
+        })->addColumn('date', function ($row) {
+            return $row->created_at->format('d M Y');
         })->make(true);
     }
 }

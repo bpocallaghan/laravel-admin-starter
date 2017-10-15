@@ -143,6 +143,9 @@ var FormClass = function (options)
             error: function (data)
             {
                 var errors = data.responseJSON;
+                if(errors.hasOwnProperty('errors')) {
+                    errors = errors.errors;
+                }
 
                 $(spinner).slideUp();
 
@@ -173,7 +176,7 @@ var FormClass = function (options)
     {
         FORM.activateSubmitBtn($(ele).parents('form'));
 
-        $(ele).removeClass('alert-danger alert-success alert-warning').addClass('alert-' + type);
+        $(ele).removeClass('alert-danger alert-success alert-warning hidden').addClass('alert-' + type);
         $(ele).html(content);
         $(ele).slideDown();
     }

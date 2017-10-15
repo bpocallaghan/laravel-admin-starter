@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-
     <div class="well well-sm bg-gray-light">
         <div class="row">
             <div class="col-md-6">
@@ -71,8 +70,8 @@
                         Banners, Tags, Testimonials, Changelog, Subscription Plan, Locations
                     </li>
                     <li>
-                        <a href="/admin/settings/admin/navigation">Manage Navigation</a>.
-                        Manage the website and admin navigation.
+                        <a href="/admin/pages">Page Builder</a>.
+                        Mange the website's pages and their content.
                     </li>
                     <li>
                         <a href="/admin/analytics">Google Analytics</a>.
@@ -84,7 +83,7 @@
                     </li>
                     <li>
                         <a href="/admin/blog">Blog</a>.
-                        Categories and Articles (under development)
+                        Categories and Articles
                     </li>
                 </ul>
             </div>

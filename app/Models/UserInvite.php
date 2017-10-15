@@ -11,6 +11,8 @@ class UserInvite extends Model
 
     protected $guarded = ['id'];
 
+    protected $dates = ['claimed_at'];
+
     /**
      * Hash the password attribute before insert into the database
      *
@@ -19,14 +21,6 @@ class UserInvite extends Model
     public function setInvitedByAttribute($invited_by)
     {
         $this->attributes['invited_by'] = user()->id;
-    }
-
-    /**
-     * @param $value
-     */
-    public function setUpdatedAtAttribute($value)
-    {
-        //
     }
 
     /**

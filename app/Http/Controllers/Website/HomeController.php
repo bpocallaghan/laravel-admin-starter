@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Requests;
+use App\Models\News;
 
 class HomeController extends WebsiteController
 {
@@ -13,7 +14,8 @@ class HomeController extends WebsiteController
      */
     public function index()
     {
-        $this->showPageBanner = true;
-        return $this->view('home');
+        $items = News::active()->orderBy('created_at', 'DESC')->get()->take(6);
+
+        return $this->view('home')->with('news', $items)->with('hidePageFooter', true);
     }
 }

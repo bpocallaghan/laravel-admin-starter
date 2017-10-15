@@ -10,12 +10,12 @@
         <div class="col-md-4">
             <div class="panel panel-default" style="min-height: 250px;">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-check"></i> Laravel v5.4.30</h4>
+                    <h4><i class="fa fa-fw fa-check"></i> Laravel v5.5.15</h4>
                 </div>
                 <div class="panel-body">
                     <ul>
-                        <li><strong>Laravel v5.4.30</strong></li>
-                        <li><strong>AdminLTE v2.4.0</strong></li>
+                        <li><strong>Laravel v5.5.14+</strong></li>
+                        <li><strong>AdminLTE v2.4.2</strong></li>
                         <li><strong>Bootstrap v3.3.7</strong></li>
                         <li><strong>jQuery v3.2.1</strong></li>
                     </ul>
@@ -37,8 +37,8 @@
                                 <li>Log Activity (website and admin)</li>
                                 <li>Notifications</li>
                                 <li>Google Analytics Reports</li>
-                                <li>Manage Navigation (Website + Admin)</li>
-                                <li>Blog (under development)</li>
+                                <li>Website Page Builder (3 components)</li>
+                                <li>Blog</li>
                             </ul>
                         </div>
 
@@ -49,7 +49,7 @@
                                 <li>Changelog</li>
                                 <li>Pricing</li>
                                 <li>Locations</li>
-                                <li>Tags</li>
+                                <li>Gallery</li>
                                 <li>FAQ</li>
                             </ul>
                         </div>
@@ -140,13 +140,16 @@
         </div>
     </div>
 
+    @include('website.partials.footer_newsletter')
+
     <hr>
 
     <!-- Call to Action Section -->
     <div class="well">
         <div class="row">
             <div class="col-md-8">
-                <p>A Laravel CMS Starter project with AdminLTE, Roles, Impersonations, Analytics, Activity, Notifications and more.</p>
+                <p>A Laravel CMS Starter project with AdminLTE, Roles, Impersonations, Analytics,
+                    Activity, Notifications and more.</p>
             </div>
             <div class="col-md-4">
                 <a class="btn btn-lg btn-default btn-block" href="https://github.com/bpocallaghan/laravel-admin-starter">
@@ -156,6 +159,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

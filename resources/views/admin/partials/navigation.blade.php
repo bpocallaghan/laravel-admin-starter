@@ -1,3 +1,4 @@
+<h2 class="hidden">Navigation</h2>
 <aside class="main-sidebar">
     <section class="sidebar">
         <div class="user-panel hide">

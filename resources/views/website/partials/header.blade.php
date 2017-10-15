@@ -1,36 +1,43 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">{!! config('app.name') !!}</a>
-        </div>
+<div class="container">
+    <div class="padding-bottom-10">
+        <a href="/" class="logo" title="{{ config('app.name') }}">
+            <img src="/images/logo.png">
+        </a>
 
-        <h2 class="hidden">Navigation</h2>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                @if(isset($navigation))
-                    {!! $navigation !!}
-                @else
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                @endif
-                <li>
-                    <a href="/admin">
-                        @if(Auth::check())
-                            {!! user()->fullname !!}
-                        @else
-                            <i class="fa fa-user-secret"></i>
-                            Admin
-                        @endif
+        <div class="text-center pull-right">
+            <div>
+                @if(!\Auth::check())
+                    <a href="#" class="" data-icon="fa-sign-in" data-toggle="modal" data-target="#modal-login">
+                        <i class="fa fa-sign-in"></i>
+                        Login
                     </a>
-                </li>
-            </ul>
+                    or
+                    <a href="/auth/register" class="" data-icon="fa-edit">
+                        Register
+                    </a>
+                @else
+                    <br/>
+                @endif
+            </div>
+
+            <div class="btn-group" role="group" aria-label="...">
+                @foreach($navigationFeatured as $item)
+                    <a class="btn btn-default" href="{{ $item->url }}">{!! $item->name !!}</a>
+                @endforeach
+            </div>
         </div>
     </div>
-</nav>
+</div>
+
+@section('scripts')
+    @parent
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            $('#form-search').on('submit', function () {
+                var search = $("#form-search input[name='search']").val();
+                window.location.href = "https://www.google.com.na/search?q={{ config('app.url') }}+" + encodeURI(search);
+                return false;
+            });
+        })
+    </script>
+@endsection

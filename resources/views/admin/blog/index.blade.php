@@ -25,6 +25,7 @@
                             <th>Category</th>
                             <th>Active From</th>
                             <th>Active To</th>
+                            <th>Cover Photo</th>
                             <th>Action</th>
 						</tr>
 						</thead>
@@ -36,7 +37,14 @@
                                 <td>{{ ($item->category)? $item->category->name:'-' }}</td>
                                 <td>{{ format_date($item->active_from) }}</td>
                                 <td>{{ isset($item->active_to)? format_date($item->active_to):'-' }}</td>
-                                <td>{!! action_row($selectedNavigation->url, $item->id, $item->title, [/*['image' => 'admin/images/articles/'.$item->id], */'show', 'edit', 'delete']) !!}</td>
+                                <td>
+                                    @if($item->cover_photo)
+                                        <a target="_blank" href="{{ $item->cover_photo->url }}">
+                                            <img style="height: 50px;" src="{{ $item->cover_photo->urlForName($item->cover_photo->thumb) }}" title="{{ $item->cover_photo->name }}">
+                                        </a>
+                                    @endif
+                                </td>
+                                <td>{!! action_row($selectedNavigation->url, $item->id, $item->title, [['image' => '/admin/photos/articles/'.$item->id], 'show', 'edit', 'delete']) !!}</td>
 							</tr>
 						@endforeach
 						</tbody>

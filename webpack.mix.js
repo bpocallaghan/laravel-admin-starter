@@ -1,4 +1,4 @@
-const {mix} = require('laravel-mix');
+let mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -33,26 +33,40 @@ if (COMPILE == 'website' || COMPILE == 'all') {
     var pathJS = path + '/js/';
 
     mix.styles([
+        pathCSS + 'vendor/animate.css',
+        pathCSS + 'vendor/fancybox.css',
         pathCSS + 'vendor/bootstrap.css',
         pathCSS + 'vendor/font-awesome.css',
+        pathCSS + 'vendor/jquery.fancybox.css',
 
         pathCSS + 'app/faq.css',
+        pathCSS + 'app/colors.css',
+        pathCSS + 'app/pricing.css',
+        pathCSS + 'app/utilities.css',
         pathCSS + 'app/testimonials.css',
+
         pathCSS + 'website.css',
+        pathCSS + 'overrides.css',
     ], public + '/css/website.css');
 
     // admin javascripts
     mix.scripts([
         // jquery
         pathJS + 'vendor/jquery-3.2.1.js',
+        // pathJS + 'vendor/jquery-2.2.2.js',
         // bootstrap
         pathJS + 'vendor/bootstrap.js',
+
+        pathJS + 'vendor/jquery.fancybox.min.js',
+        pathJS + 'vendor/lazysizes.min.js',
+        pathJS + 'vendor/owl.carousel.min.js',
 
         pathJS + 'titan/alerts.js',
         pathJS + 'titan/buttons.js',
         pathJS + 'titan/forms.js',
         pathJS + 'titan/google_maps.js',
         pathJS + 'titan/social_media.js',
+        pathJS + 'titan/pagination.js',
         pathJS + 'titan/utils.js',
 
         pathJS + 'website.js',

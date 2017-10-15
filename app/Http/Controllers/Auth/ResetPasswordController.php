@@ -2,40 +2,27 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\LogLogin;
 use Password;
 use Carbon\Carbon;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use Titan\Controllers\TitanController;
 use App\Http\Controllers\WebsiteController;
 
-class ResetPasswordController extends TitanController
+class ResetPasswordController extends AuthController
 {
-    /**
-     * Create a new controller instance.
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
     /**
      * Display the password reset view for the given token.
      *
      * If no token is present, display the link request form.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  string|null              $token
+     * @param  string|null $token
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showResetForm(Request $request, $token = null)
+    public function showResetForm($token = null)
     {
-        $this->title = 'Reset Password';
+        $email = request('email');
 
-        $email = $request->input('email');
-
-        return $this->view('auth.passwords.reset', compact('token', 'email'));
+        return $this->view('reset_password', compact('token', 'email'));
     }
 
     /**
@@ -66,7 +53,7 @@ class ResetPasswordController extends TitanController
                 alert()->success('Success',
                     'Congratulations, try signing in with your new password');
 
-                $this->logAuth($request, 'password-reset');
+                $this->logLogin($request, 'password-reset');
 
                 return redirect(route('login'));
 
@@ -76,20 +63,5 @@ class ResetPasswordController extends TitanController
                     ->withInput($request->only('email'))
                     ->withErrors(['email' => trans($response)]);
         }
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param string                   $status
-     */
-    private function logAuth(Request $request, $status = '')
-    {
-        LogLogin::create([
-            'username'     => $request->get('email'),
-            'status'       => $status,
-            'role'         => 'admin',
-            'client_ip'    => $request->getClientIp(),
-            'client_agent' => $_SERVER['HTTP_USER_AGENT'],
-        ]);
     }
 }
