@@ -195,10 +195,10 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
 
             // photoables
             Route::get('/news/{news}', 'PhotosController@showNewsPhotos');
-            Route::get('/albums/{album}', 'PhotosController@showAlbumPhotos');
             Route::get('/articles/{article}', 'PhotosController@showArticlePhotos');
 
             Route::resource('/albums', 'AlbumsController', ['except' => 'show']);
+            Route::get('/albums/{album}', 'PhotosController@showAlbumPhotos');
         });
 
         // faq

@@ -46,8 +46,6 @@ class AlbumsController extends AdminController
 
         $album = $this->createEntry(PhotoAlbum::class, $attributes);
 
-        log_activity('PhotoAlbum Created', 'A PhotoAlbum was successfully created', $album);
-
         return redirect_to_resource();
     }
 
@@ -75,8 +73,6 @@ class AlbumsController extends AdminController
 
         $album = $this->updateEntry($album, $attributes);
 
-        log_activity('PhotoAlbum Updated', 'A PhotoAlbum was successfully updated', $album);
-
         return redirect_to_resource();
     }
 
@@ -90,8 +86,6 @@ class AlbumsController extends AdminController
     public function destroy(PhotoAlbum $album, Request $request)
     {
         $this->deleteEntry($album, $request);
-
-        log_activity('PhotoAlbum Deleted', 'A PhotoAlbum was successfully deleted', $album);
 
         return redirect_to_resource();
     }
