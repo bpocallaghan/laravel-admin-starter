@@ -44,8 +44,18 @@
             </div>
 
             <footer class="main-footer">
-                <div class="text-right">
-                    &copy; {{ date('Y') }} <strong>{!! config('app.name') !!}</strong>
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <small>Copyright &copy;
+                            <strong>{{config('app.name') . ' ' . date('Y')}}</strong>
+                        </small>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <small>
+                            Developed by
+                            <a href="https://github.com/bpocallaghan" target="_blank">{!! config('app.author') !!}</a>
+                        </small>
+                    </div>
                 </div>
             </footer>
         </div>
