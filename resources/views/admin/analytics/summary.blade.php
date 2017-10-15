@@ -9,9 +9,12 @@
         </div>
     </div>
 
-    {{-- devices + browsers --}}
+    {{-- locations + devices_category --}}
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
+            @include('admin.partials.analytics.locations')
+        </div>
+        <div class="col-md-5">
             @include('admin.partials.analytics.devices_category')
         </div>
     </div>

@@ -98,14 +98,14 @@
         </div>
     </div>
 
-    {{-- devices + browsers --}}
+    {{-- locations + most visited pages --}}
     <div class="row">
-        <div class="col-md-6">
-            @include('admin.partials.analytics.devices_category')
+        <div class="col-md-5">
+            @include('admin.partials.analytics.visited_pages')
         </div>
 
-        <div class="col-md-6">
-            @include('admin.partials.analytics.browsers')
+        <div class="col-md-7">
+            @include('admin.partials.analytics.locations')
         </div>
     </div>
 
@@ -114,7 +114,7 @@
             @include('admin.partials.analytics.devices')
         </div>
         <div class="col-sm-6">
-            @include('admin.partials.analytics.visited_pages')
+            @include('admin.partials.analytics.browsers')
         </div>
     </div>
 @endsection
