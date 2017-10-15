@@ -62,10 +62,10 @@ class User extends Authenticatable
     static public $rules = [
         'firstname' => 'required',
         'lastname'  => 'required',
-        'gender'    => 'required|in:male,female',
+        //'gender'    => 'required|in:male,female',
         'email'     => 'required|email|unique:users',
         'password'  => 'required|min:4|confirmed',
-        'token'     => 'required|exists:user_invites,token',
+        //'token'     => 'required|exists:user_invites,token',
 
         //'cellphone' => 'required|min:3:max:255',
         //'photo'     => 'required|image|max:6000|mimes:jpg,jpeg,png,bmp',

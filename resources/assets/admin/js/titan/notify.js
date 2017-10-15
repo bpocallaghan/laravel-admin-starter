@@ -1,5 +1,4 @@
-$(function ()
-{
+$(function () {
     $("body").append("<div id='notify-container'></div>");
     $("body").append("<audio id='notify-sound-info' src='/sounds/info.mp3'></audio>");
     $("body").append("<audio id='notify-sound-danger' src='/sounds/danger.mp3'></audio>");
@@ -11,14 +10,15 @@ $(function ()
  * @param content
  * @param level
  */
-function notify(title, content, level)
+function notify(title, content, level, icon, timeout)
 {
     $.notify({
         title: title,
         content: content,
         level: level ? level : 'success',
-        icon: "fa fa-thumbs-o-up bounce animated",
-        iconSmall: "fa fa-thumbs-o-up bounce animated",
+        icon: icon ? icon : "fa fa-thumbs-o-up bounce animated",
+        iconSmall: icon ? icon : "fa fa-thumbs-o-up bounce animated",
+        timeout: timeout ? timeout : undefined,
     });
 }
 
@@ -41,8 +41,7 @@ function notifyError(title, content)
 var notifyCount = 0;
 var notifyHeight = 0;
 
-$.notify = function (settings)
-{
+$.notify = function (settings) {
     settings = $.extend({
         title: "",
         content: "",
@@ -86,7 +85,7 @@ $.notify = function (settings)
 
     // append html markup to container
     $("#notify-container").append(html);
-    if (notifyCount == 1 || $(".notify").size() <= 0) {
+    if (notifyCount == 1 || $(".notify").length <= 0) {
         notifyHeight = $("#" + notifyId).height() + 40;
     } else {
         $("#" + notifyId).css("top", notifyHeight);
@@ -97,15 +96,13 @@ $.notify = function (settings)
 
     // remove on timeout
     if (settings.timeout != undefined) {
-        setTimeout(function ()
-        {
+        setTimeout(function () {
             removeNotify($("#" + notifyId));
         }, settings.timeout);
     }
 
     // remove on click
-    $("#notify" + notifyCount).bind('click', function ()
-    {
+    $("#notify" + notifyCount).bind('click', function () {
         removeNotify($(this));
     });
 
@@ -119,8 +116,7 @@ $.notify = function (settings)
         ele.removeClass('fadeInRight').addClass('fadeOutRight');
 
         // after animation - remove and update other
-        setTimeout(function ()
-        {
+        setTimeout(function () {
             ele.remove();
             updateNotifyPositions(300)
         }, 400);
@@ -133,8 +129,7 @@ $.notify = function (settings)
      */
     function updateNotifyPositions(delay)
     {
-        $(".notify").each(function (index)
-        {
+        $(".notify").each(function (index) {
             if (index == 0) {
                 $(this).animate({top: 20}, delay);
                 notifyHeight = $(this).height() + 40;

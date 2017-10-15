@@ -10,7 +10,7 @@ class Role extends TitanCMSModel
     use SoftDeletes;
 
     // basic website
-    public static $BASIC = 'website'; // 1
+    public static $WEBSITE = 'website'; // 1
 
     // basic admin
     public static $ADMIN = 'admin'; // 2

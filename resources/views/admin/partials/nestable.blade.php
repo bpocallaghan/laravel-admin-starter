@@ -29,7 +29,7 @@
                 $.post(path, {'list': nestableString}, function (data)
                 {
                     if (data && data.result == 'success') {
-                        notify('Successfully', 'The Order has been updated');
+                        notify('Successfully', 'The Order has been updated', null, null, 5000);
                     }
                     else {
                         notifyError();

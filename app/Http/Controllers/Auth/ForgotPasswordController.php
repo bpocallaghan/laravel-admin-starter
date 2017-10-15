@@ -2,22 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\LogLogin;
 use Password;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use Titan\Controllers\TitanController;
 
-class ForgotPasswordController extends TitanController
+class ForgotPasswordController extends AuthController
 {
-    /**
-     * Create a new controller instance.
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
     /**
      * Display the form to request a password reset link.
      *
@@ -25,9 +15,7 @@ class ForgotPasswordController extends TitanController
      */
     public function showLinkRequestForm()
     {
-        $this->title = 'Forgot Password';
-
-        return $this->view('auth.passwords.email');
+        return $this->view('forgot_password');
     }
 
     /**
@@ -50,7 +38,7 @@ class ForgotPasswordController extends TitanController
                 alert()->success('Success!',
                     'Please check your inbox for the email with instructions');
 
-                $this->logAuth($request, 'password-forgot');
+                $this->logLogin($request, 'password-forgot');
 
                 return redirect(route('login'));
 
@@ -60,20 +48,5 @@ class ForgotPasswordController extends TitanController
                     ->withInput($request->only('email'))
                     ->withErrors(['email' => trans($response)]);
         }
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param string                   $status
-     */
-    private function logAuth(Request $request, $status = '')
-    {
-        LogLogin::create([
-            'username'     => $request->get('email'),
-            'status'       => $status,
-            'role'         => 'admin',
-            'client_ip'    => $request->getClientIp(),
-            'client_agent' => $_SERVER['HTTP_USER_AGENT'],
-        ]);
     }
 }

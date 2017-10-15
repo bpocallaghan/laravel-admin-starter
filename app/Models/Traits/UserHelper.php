@@ -51,7 +51,13 @@ trait UserHelper
      */
     public function setConfirmationTokenAttribute($value)
     {
-        $this->attributes['confirmation_token'] = $this->getUniqueConfirmationToken();
+        // if null - dont generate and set null in table
+        if (is_null($value)) {
+            $this->attributes['confirmation_token'] = null;
+        }
+        else {
+            $this->attributes['confirmation_token'] = $this->getUniqueConfirmationToken();
+        }
     }
 
     private function getUniqueConfirmationToken()

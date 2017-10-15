@@ -16,5 +16,7 @@ class ContactUsFeedback extends BaseEvent
     {
         $row->type = 'Contact Us';
         $this->eloquent = $row;
+
+        log_activity('Contact Us', "{$row->fullname} submitted a contact us.", $row);
     }
 }

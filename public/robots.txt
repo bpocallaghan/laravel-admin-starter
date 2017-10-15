@@ -1,2 +1,5 @@
 User-agent: *
 Disallow:
+Disallow: /admin
+Disallow: /auth
+Disallow: /_hidden_

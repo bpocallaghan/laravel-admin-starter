@@ -20,4 +20,12 @@ class Tag extends TitanCMSModel
     static public $rules = [
         'name' => 'required|min:2:max:255',
     ];
+
+	/**
+	 * Get the Photo many to many
+	 */
+	public function photos()
+	{
+		return $this->belongsToMany(Photo::class);
+	}
 }

@@ -6,56 +6,60 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="{{ config('app.author') }}">
         <meta name="keywords" content="{{ config('app.keywords') }}">
-        <meta name="description" content="{{ isset($HTMLDescription) ? $HTMLDescription : config('app.description') }}"/>
+        <meta name="description" content="{{ isset($description) ? $description : config('app.description') }}"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta property="og:type" name="og:type" content="website"/>
         <meta property="og:site_name" content="{{ config('app.name') }}"/>
-        <meta property="og:url" name="og:url" content="{{ Request::url() }}"/>
+        <meta property="og:url" name="og:url" content="{{ request()->url() }}"/>
         <meta property="og:caption" name="og:caption" content="{{ config('app.url') }}"/>
         <meta property="fb:app_id" name="fb:app_id" content="{{ config('app.facebook_id') }}"/>
-        <meta property="og:title" name="og:title" content="{{ isset($HTMLTitle) ? $HTMLTitle : config('app.title') }}">
-        <meta property="og:description" name="og:description" content="{{ isset($HTMLDescription) ? $HTMLDescription : config('app.description') }}">
-        <meta property="og:image" name="og:image" content="{{ config('app.url') }}{{ isset($HTMLImage) ? $HTMLImage : 'images/logo.png' }}">
+        <meta property="og:title" name="og:title" content="{{ isset($title) ? $title : config('app.title') }}">
+        <meta property="og:description" name="og:description" content="{{ isset($description) ? $description : config('app.description') }}">
+        <meta property="og:image" name="og:image" content="{{ config('app.url') }}{{ isset($image) ? $image : '/images/logo.png' }}">
 
         @include ('partials.favicons')
 
-        <title>{{ isset($HTMLTitle) ? $HTMLTitle : config('app.name') }}</title>
+        <title>{{ isset($title) ? $title : config('app.name') }}</title>
 
-        <link rel="stylesheet" href="/css/website.css?v=3">
+        @if(config('app.debug') != 'local')
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        @endif
+
+        <link rel="stylesheet" href="/css/website.css?v=1">
+
         @yield('styles')
     </head>
 
-    <body>
-        <h1 class="hidden">{{ isset($HTMLTitle) ? $HTMLTitle : config('app.name') }}</h1>
+    <body id="top">
+        <h1 class="hidden">{{ isset($title) ? $title : config('app.name') }}</h1>
 
-        @if(config('app.env') == 'llocall')
+        @if(config('app.env') != 'local')
             @include('partials.facebook')
         @endif
+
+        @include('website.partials.navigation')
 
         @include('website.partials.header')
 
         @if(isset($showPageBanner) && $showPageBanner == true || !isset($showPageBanner))
-            @include('website.partials.slider')
+            @include('website.partials.banner')
         @endif
 
         <div class="container">
-            @include('website.partials.breadcrumb')
-
             @yield('content')
         </div>
 
         @include('website.partials.footer')
 
-        @include('website.partials.popup')
+        @include('website.partials.popups')
+
+        {{-- back to top --}}
+        <a href="#top" class="back-to-top jumper btn btn-primary">
+            <i class="fa fa-angle-up"></i>
+        </a>
 
         <script type="text/javascript" charset="utf-8" src="/js/website.js?v=3"></script>
-        <script type="text/javascript">
-            $(document).ready(function ()
-            {
-                initWebsite();
-            });
-        </script>
 
         @yield('scripts')
 

@@ -5,28 +5,34 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
-        "bpocallaghan/alert": "^1.0",
-        "bpocallaghan/impersonate": "^0.1.0",
-        "bpocallaghan/notify": "^2.0",
-        "bpocallaghan/sluggable": "^1.0",
-        "bpocallaghan/titan": "^0.2.6",
-        "google/recaptcha": "^1.1",
-        "intervention/image": "^2.3",
-        "laravel/framework": "5.4.*",
+        "php": ">=7.0.0",
         "laravel/tinker": "~1.0",
+        "fideloper/proxy": "~3.3",
+        "google/recaptcha": "^1.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "laravel/framework": "5.5.*",
+        "bpocallaghan/alert": "^1.1",
+        "intervention/image": "^2.4",
+        "bpocallaghan/notify": "^2.1",
+        "bpocallaghan/titan": "^0.2.6",
+        "bpocallaghan/sluggable": "^1.0",
+        "bpocallaghan/impersonate": "^1.0",
         "spatie/laravel-analytics": "1.4.1",
-        "yajra/laravel-datatables-oracle": "^7.7"
+        "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {
+        "filp/whoops": "~2.0",
+        "phpunit/phpunit": "~6.0",
+        "mockery/mockery": "0.9.*",
         "fzaninotto/faker": "~1.4",
-        "bpocallaghan/generators": "^4.1",
-        "barryvdh/laravel-debugbar": "^2.4",
-        "barryvdh/laravel-ide-helper": "^2.3"
+        "bpocallaghan/generators": "^5.0",
+        "barryvdh/laravel-debugbar": "^3.1",
+        "barryvdh/laravel-ide-helper": "^2.4"
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database/seeds",
+            "database/factories"
         ],
         "psr-4": {
             "App\\": "app/"
@@ -37,23 +43,23 @@
             "Tests\\": "tests/"
         }
     },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "barryvdh/laravel-debugbar"
+            ]
+        }
+    },
     "scripts": {
         "post-root-package-install": [
-            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "php artisan key:generate"
+            "@php artisan key:generate"
         ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan clear-compiled",
-            "php artisan ide-helper:generate",
-            "php artisan ide-helper:meta",
-            "php artisan optimize"
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
         ]
     },
     "config": {

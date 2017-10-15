@@ -54,4 +54,6 @@ Route::group(['namespace' => 'Api'], function () { // 'middleware' => ['auth:api
         Route::post('/interests-market', 'AnalyticsController@getInterestsMarket');
         Route::post('/interests-other', 'AnalyticsController@getInterestsOther');
     });
+
+    Route::post('/newsletter/subscribe', 'NewsletterController@subscribe');
 });

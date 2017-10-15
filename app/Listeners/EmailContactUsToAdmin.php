@@ -4,10 +4,8 @@ namespace App\Listeners;
 
 use App\Events\ContactUsFeedback;
 use App\Notifications\ContactUsSubmitted;
-use App\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Mail;
 
 class EmailContactUsToAdmin
 {
@@ -21,15 +19,8 @@ class EmailContactUsToAdmin
     {
         $data = $event->eloquent;
 
-        $users = User::all();
-        foreach ($users as $k => $user) {
-            $user->notify(new ContactUsSubmitted($data));
-        }
+        notify_admins(ContactUsSubmitted::class, $data);
 
         log_activity('Contact Us', $data->fullname . ' submitted Contact Us.', $data);
-        //Mail::send('emails.contactus_admin', ['obj' => $data], function ($message) use ($data) {
-        //    $message = mail_to_admins($message);
-        //    $message->subject($data->type . ' - ' . env('app.name'));
-        //});
     }
 }

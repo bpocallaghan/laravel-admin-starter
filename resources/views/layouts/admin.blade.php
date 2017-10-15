@@ -22,6 +22,7 @@
     </head>
 
     <body class="hold-transition skin-blue sidebar-mini">
+        <h1 class="hidden">{{ isset($HTMLTitle) ? $HTMLTitle : config('app.name') }}</h1>
 
         <div class="wrapper">
             @include('admin.partials.header')
@@ -29,6 +30,7 @@
             @include('admin.partials.navigation')
 
             <div class="content-wrapper">
+                <h2 class="hidden">Breadcrumb</h2>
                 <section class="content-header">
                     {!! $pagecrumb !!}
 
@@ -36,6 +38,7 @@
                 </section>
 
                 <section class="content">
+                    <h2 class="hidden">Page</h2>
                     @yield('content')
                 </section>
             </div>
@@ -52,16 +55,11 @@
 
         <script type="text/javascript" charset="utf-8" src="/js/admin.js?v=1"></script>
         <script type="text/javascript" charset="utf-8">
-            $(document).ready(function ()
-            {
+            $(document).ready(function () {
                 initAdmin();
             });
         </script>
 
         @yield('scripts')
-
-        @if(config('app.env') != 'local')
-            @include('partials.analytics')
-        @endif
     </body>
 </html>

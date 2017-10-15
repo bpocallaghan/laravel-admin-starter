@@ -24,5 +24,6 @@ class FeedbackContactUs extends Model
         'lastname'  => 'required|min:2:max:255',
         'email'     => 'required|min:2:max:255|email',
         'content'   => 'required|min:2:max:1000',
+        'phone'   => 'nullable|max:20',
     ];
 }

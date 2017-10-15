@@ -12,42 +12,6 @@ function hideSpinner()
     }, 300);
 }
 
-function activateShowNotes()
-{
-    $(".show-note").off('click');
-    $('.show-note').on('click', function (e)
-    {
-        e.preventDefault();
-        var hidden = $(this).parents('section').find('.note.alert');
-        hidden.slideDown(300);
-
-        setTimeout(function ()
-        {
-            hidden.slideUp(300);
-        }, 4000);
-        return false;
-    });
-}
-
-/**
- * Get the user available credit
- * @param callback
- */
-function getUserAvailableCredit(callback)
-{
-    showCreditSpinner();
-    doAjax('dashboard/balance/summary', null, function (response)
-    {
-        if (response.data) {
-            updateUserCredit(response);
-
-            if (typeof callback == 'function') {
-                callback(response);
-            }
-        }
-    }, false);
-}
-
 function log(value)
 {
     console.log(value);
@@ -59,7 +23,7 @@ function doAjax(url, data, callback, loader)
         showSpinner();
     }
 
-    var urlFull = BASE_URL.replace(/\/$/, '') + '/' + url;
+    var urlFull = url; // BASE_URL.replace(/\/$/, '') + '/' +
     if (url.search('http://') >= 0 || url.search('https://') >= 0) {
         urlFull = url;
     }
@@ -67,7 +31,7 @@ function doAjax(url, data, callback, loader)
     if (data == undefined) {
         data = {};
     }
-    data['api_token'] = API_TOKEN;
+    // data['api_token'] = API_TOKEN;
 
     $.ajax({
         type: 'POST',
@@ -154,10 +118,10 @@ function setDateTimePickerRange(from, to)
     });
 }
 
-function initSummerNote(selector)
+function initSummerNote(selector, height)
 {
     $(selector).summernote({
-        height: 120,
+        height: height ? height : 120,
         focus: false,
         tabsize: 2,
         toolbar: [

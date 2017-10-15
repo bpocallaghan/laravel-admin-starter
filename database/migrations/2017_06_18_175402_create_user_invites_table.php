@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -17,7 +18,7 @@ class CreateUserInvitesTable extends Migration
             $table->string('email')->unique()->index();
             $table->string('token', '50');
             $table->integer('invited_by')->unsigned();
-            $table->timestamps('created_at');
+            $table->timestamps();
             $table->timestamp('claimed_at')->nullable();
         });
     }

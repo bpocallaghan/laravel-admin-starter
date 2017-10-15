@@ -1,37 +1,32 @@
 # Laravel CMS Starter Project
 
 A Laravel CMS Starter project with AdminLTE theme and core features.
-- Laravel 5.4
+- Laravel 5.5
+- Laravel 5.4 (Branch Laravel 5.4)
 - Laravel 5.2 (Branch Laravel 5.2)
 
-[Preview project here](http://bpocallaghan.co.za/admin)
+[Preview project here](http://bpocallaghan.co.za)
 - User: github@bpocallaghan.co.za
 - Password: github
 
 ### What is New?
-- [Impersonation](https://github.com/bpocallaghan/impersonate) When logged in, [go here](http://bpocallaghan.co.za/admin/settings/admin/users) and click on the 'impersonate user' action.
-- Roles (Assign a role to user and assign role to navigation. Can only see navigation for given role)
+- Upgraded to Laravel 5.5 and added many new 'components (blog, news, banners, etc)'
+- Page Builder (CRUD website pages with 3 different components)
 
 ## Features / What it includes
 - Admin LTE admin theme
-- Authorization
-	- login / forgot password
-	- register via authorization (admin invite user)
+- Members (website and admin users)
 - Google Analytics Reports (with charts)
-	- visitors
-	- devices
-	- keywords
-	- pages
-- Admin Navigation
-- Website Navigation
+- Website Page Builder
 - Log Website Activities (if contact us was submitted, etc)
-- Notifications (Laravel 5.4 notifications)
+- Notifications (Laravel notifications)
 - Log Admin Activities (when admin create,edit,delete a resource)
 - Bootstrap Alerts and Form Error messages. package; bpocallaghan/alert
 - Flash a Notification after a CRUD resource action. package; bpocallaghan/notify
 - Generate crud resource, individual files. package; bpocallaghan/generators
 - Impersonate any of your customers
 - Roles, Assign roles to the user and navigation to exlude navigation for a user.
+- Manage Blog, Banners, FAQ, Photos and many more.
 
 ## Setup (Basic)
 - download zip
@@ -42,12 +37,9 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - create your database and set db name in .env
 - ```php artisan migrate```
 - ```php artisan db:seed```
-	- open database\seeds\UserTableSeeder.php to create a different admin
-- open your browser (http://laravel-admin.dev/)
-	- the home, about, contact us gets generated + the breadcrumb
-- log into the admin (http://laravel-admin.dev/admin)
-	- admin@laravel-admin.dev
-	- admin
+	- open database\seeds\UserTableSeeder.php to enter your admin user
+- open your browser (http://laravel-admin.dev)
+- log into the admin (http://laravel-admin.dev/admin) with your admin user
 
 ## Setup (Advanced)
 - complete 'basic' setup
@@ -72,7 +64,15 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 
 ## Admin LTE
 If you would like to change the default skin. 
-Please have a look in `webpack.mix.js` Line ~100 and uncomment the desired skin.
+Please have a look in `webpack.mix.js` Line ~110 and uncomment the desired skin.
+Please also remember to update the skin's name in `'views\layouts\admin.blade.php'` - `<body class="skin-blue">`
+
+## TODO
+- Move the 'core' files to the titan package
+- Move the admin 'components' to packages (The idea is to have Banners, Testimonials, Blog, etc in seperate packages to include when needed)
+- Update website style
+- Unit Testing
+- Vuejs
 
 ## Thank you
 
@@ -83,7 +83,7 @@ Please have a look in `webpack.mix.js` Line ~100 and uncomment the desired skin.
 ## Note
 
 Please keep in mind this is for my personal workflow and might not fit your need.
-This is my starter project for most small crud admin portals.
+This is my starter project for most crud admin portals.
 I try to keep it clean, flexibly and friendly to use. This is not a complete project or best practises, just trying to help the community :).
 Please let me know about any issues or if you have any suggestions.
 

@@ -22,8 +22,13 @@ class Banner extends TitanCMSModel
      * Validation rules for this model
      */
     static public $rules = [
-        'title' => 'required|min:3:max:255',
-        'photo' => 'required|image|max:6000|mimes:jpg,jpeg,png,bmp',
+        'name'        => 'required|min:3:max:255',
+        'summary'     => 'nullable|max:500',
+        'action_name' => 'nullable|max:500',
+        'action_url'  => 'nullable|max:500',
+        'active_from' => 'nullable|date',
+        'active_to'   => 'nullable|date',
+        'photo'       => 'required|image|max:6000|mimes:jpg,jpeg,png,bmp',
     ];
 
     /**
@@ -31,8 +36,16 @@ class Banner extends TitanCMSModel
      *
      * @return array
      */
-    public static function getAllLists()
+    public static function getAllList()
     {
-        return self::orderBy('title')->get()->pluck('title', 'id')->toArray();
+        return self::active()->orderBy('name')->get()->pluck('name', 'id')->toArray();
     }
+
+	/**
+	 * Get the Page many to many
+	 */
+	public function pages()
+	{
+		return $this->belongsToMany(Page::class);
+	}
 }
