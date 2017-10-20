@@ -4,11 +4,11 @@
     {{-- demographics --}}
     <div class="row">
         <div class="col-md-6">
-            @include('admin.partials.analytics.gender')
+            @include('admin.analytics.partials.gender')
         </div>
 
         <div class="col-md-6">
-            @include('admin.partials.analytics.age')
+            @include('admin.analytics.partials.age')
         </div>
     </div>
 @endsection

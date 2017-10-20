@@ -59,7 +59,7 @@
                 $('#box-geo-visitors .loading-widget').slideUp();
 
                 var items = response.data;
-                items.unshift(['Country', 'Views']);
+                items.unshift(['Country', 'Sessions']);
 
                 var data = google.visualization.arrayToDataTable(items);
                 chart = new google.visualization.GeoChart(document.getElementById('js-geo-visitors-chart'));

@@ -4,17 +4,17 @@
     {{-- most visited and referrers --}}
     <div class="row">
         <div class="col-md-6">
-            @include('admin.partials.analytics.visited_pages')
+            @include('admin.analytics.partials.visited_pages')
         </div>
 
         <div class="col-md-6">
-            @include('admin.partials.analytics.referrers')
+            @include('admin.analytics.partials.referrers')
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6">
-            @include('admin.partials.analytics.keywords')
+            @include('admin.analytics.partials.keywords')
         </div>
         <div class="col-sm-6">
 

@@ -90,31 +90,31 @@
         </div>
     </div>
 
-    @include('admin.partials.analytics.analytics_header')
+    @include('admin.analytics.partials.analytics_header')
 
     <div class="row">
         <div class="col-sm-12">
-            @include('admin.partials.analytics.visitors_views')
+            @include('admin.analytics.partials.visitors_views')
         </div>
     </div>
 
     {{-- locations + most visited pages --}}
     <div class="row">
         <div class="col-md-5">
-            @include('admin.partials.analytics.visited_pages')
+            @include('admin.analytics.partials.visited_pages')
         </div>
 
         <div class="col-md-7">
-            @include('admin.partials.analytics.locations')
+            @include('admin.analytics.partials.locations')
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6">
-            @include('admin.partials.analytics.devices')
+            @include('admin.analytics.partials.devices')
         </div>
         <div class="col-sm-6">
-            @include('admin.partials.analytics.browsers')
+            @include('admin.analytics.partials.browsers')
         </div>
     </div>
 @endsection
