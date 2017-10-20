@@ -71,5 +71,9 @@
         </script>
 
         @yield('scripts')
+
+        @if(config('app.env') != 'local')
+            @include('partials.analytics')
+        @endif
     </body>
 </html>

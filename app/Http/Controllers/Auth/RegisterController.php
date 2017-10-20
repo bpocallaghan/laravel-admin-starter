@@ -52,6 +52,8 @@ class RegisterController extends AuthController
         alert()->success('Thank you,',
             'your account has been created, please check your inbox for further instructions.');
 
+        log_activity('Register', $user->fullname . ' registered.');
+
         return redirect(route('login'));
     }
 
