@@ -1,4 +1,5 @@
 var BUTTON;
+
 function initTitan()
 {
     BUTTON = new ButtonClass();
@@ -9,15 +10,13 @@ function initTitan()
         }
     });
 
-    $('.input-generate-slug').change(function ()
-    {
+    $('.input-generate-slug').change(function () {
         var v = convertStringToSlug($(this).val());
         $("form input[name='slug']").val(v);
     })
 
     $('.btn-submit').attr('data-loading-text', "<i class='fa fa-spin fa-refresh'></i>");
-    $('.btn-submit').on('click', function ()
-    {
+    $('.btn-submit').on('click', function () {
         $(this).button('loading');
     });
 
@@ -44,11 +43,9 @@ function doAjax(url, data, callback)
         data: data,
         dataType: "json",
         timeout: 30000,
-        error: function (x, t, m)
-        {
+        error: function (x, t, m) {
         },
-        success: function (response)
-        {
+        success: function (response) {
             if (typeof callback == 'function') {
                 callback(response);
             }
@@ -77,7 +74,7 @@ function initToolbarDateRange(selector, callback)
         endDate: moment()
     }, function (start, end) {
         //window.alert("You chose: " + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        if(typeof callback === 'function') {
+        if (typeof callback === 'function') {
             callback(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'));
         }
     });
@@ -92,12 +89,10 @@ function setDateTimePickerRange(from, to)
     $(from).datetimepicker();
     $(to).datetimepicker({useCurrent: false});
 
-    $(from).on("dp.change", function (e)
-    {
+    $(from).on("dp.change", function (e) {
         $(to).data("DateTimePicker").minDate(e.date);
     });
-    $(to).on("dp.change", function (e)
-    {
+    $(to).on("dp.change", function (e) {
         $(from).data("DateTimePicker").maxDate(e.date);
     });
 }
@@ -112,13 +107,23 @@ function initSummerNote(selector, height)
             ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
             ['color', ['color']],
             ['layout', ['ul', 'ol', 'paragraph']],
-            ['insert', [/*'link', 'picture', 'video',*/ 'hr']],
+            ['insert', ['table', 'link', /*'picture', 'video',*/ 'hr']],
             ['misc', ['fullscreen', 'codeview', 'undo']]
         ]
     });
 }
 
-function isFunction(variable) {
+function addLinkToSummernote(selector, name, url, isNewWindow)
+{
+    $(selector).summernote('createLink', {
+        text: name,
+        url: url,
+        isNewWindow: isNewWindow
+    });
+}
+
+function isFunction(variable)
+{
     var getType = {};
     return variable && getType.toString.call(variable) === '[object Function]';
 }

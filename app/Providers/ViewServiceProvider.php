@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Document;
 use App\Models\News;
 use App\Models\Page;
 use Illuminate\Support\Facades\View;
@@ -16,11 +17,22 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Using Closure based composers...
+        // include the news for the website 'side news' panel
         View::composer('website.partials.side_news', function ($view) {
             $items = News::active()->orderBy('created_at', 'DESC')->get()->take(5);
 
             $view->with('news', $items);
+        });
+
+        // include the documents for the summernote modal
+        View::composer('admin.partials.summernote.document', function ($view) {
+            $items = Document::with('documentable')
+                ->orderBy('name')
+                ->get()
+                ->pluck('name', 'url')
+                ->toArray();
+
+            $view->with('documents', $items);
         });
     }
 

@@ -13,3 +13,8 @@
     background: #333333;
     background-color: #333333;
 }
+
+/* summernote checkbox */
+#sn-checkbox-open-in-new-window {
+    left: initial !important;
+}
