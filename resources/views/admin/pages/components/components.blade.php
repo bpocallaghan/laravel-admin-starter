@@ -28,6 +28,11 @@
                             <span class="btn-label"><i class="fa fa-fw fa-chevron-left"></i></span>Back
                         </a>
 
+                        <a class="btn btn-labeled btn-info" href="{{ $page->url }}" target="_blank">
+                            <span class="btn-label"><i class="fa fa-fw fa-eye"></i></span>
+                            View Page
+                        </a>
+
                         <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/content/create' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-align-justify"></i></span>
                             Create Content

@@ -14,7 +14,7 @@ class CorporateController extends WebsiteController
 {
     public function tenders()
     {
-        $items = Tender::active()->orderBy('active_to')->get();
+        $items = Tender::active()->orderBy('active_from', 'DESC')->get();
 
         return $this->view('corporate.tenders')->with('items', $items);
     }
@@ -28,7 +28,7 @@ class CorporateController extends WebsiteController
 
     public function vacancies()
     {
-        $items = Vacancy::active()->orderBy('active_to')->get();
+        $items = Vacancy::active()->orderBy('active_from', 'DESC')->get();
 
         return $this->view('corporate.vacancies')->with('items', $items);
     }
@@ -42,7 +42,7 @@ class CorporateController extends WebsiteController
 
     public function annualReports()
     {
-        $items = AnnualReport::active()->orderBy('active_to')->get();
+        $items = AnnualReport::active()->orderBy('active_from', 'DESC')->get();
 
         return $this->view('corporate.annual_reports')->with('items', $items);
     }

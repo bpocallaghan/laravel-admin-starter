@@ -46,8 +46,8 @@
             <footer class="main-footer">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                        <small>Copyright &copy;
-                            <strong>{{config('app.name') . ' ' . date('Y')}}</strong>
+                        <small>Copyright &copy; {{ date('Y') }}
+                            <strong>{{ config('app.name') }}</strong>
                         </small>
                     </div>
                     <div class="col-sm-6 text-right">

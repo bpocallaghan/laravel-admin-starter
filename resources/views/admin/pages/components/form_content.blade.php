@@ -12,7 +12,23 @@
     @parent
     <script type="text/javascript" charset="utf-8">
         $(function () {
-            initSummerNote('.summernote', {{ $height or '250' }});
+            pageSummerNote('.summernote', {{ $height or '300' }});
+
+            function pageSummerNote(selector, height)
+            {
+                $(selector).summernote({
+                    height: height ? height : 120,
+                    focus: false,
+                    tabsize: 2,
+                    toolbar: [
+                        ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
+                        ['color', ['color']],
+                        ['layout', ['ul', 'ol', 'paragraph']],
+                        ['insert', ['table', /*'link', 'picture', 'video',*/ 'hr']],
+                        ['misc', ['fullscreen', 'codeview', 'undo']]
+                    ]
+                });
+            }
         })
     </script>
 @endsection
