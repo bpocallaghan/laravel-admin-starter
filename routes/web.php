@@ -212,6 +212,21 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('subscribers', 'SubscribersController');
         });
 
+        // documents
+        Route::group(['prefix' => 'documents', 'namespace' => 'Documents'], function () {
+            // documents
+            Route::get('/', 'DocumentsController@index');
+            Route::delete('/{document}', 'DocumentsController@destroy');
+            Route::post('/upload', 'DocumentsController@upload');
+            Route::post('/{document}/edit/name', 'DocumentsController@updateName');
+
+            // documentable
+            Route::get('/category/{category}', 'DocumentsController@showCategory');
+
+            // categories
+            Route::resource('/categories', 'CategoriesController');
+        });
+
         // reports
         Route::group(['prefix' => 'reports', 'namespace' => 'Reports'], function () {
             Route::get('summary', 'SummaryController@index');
