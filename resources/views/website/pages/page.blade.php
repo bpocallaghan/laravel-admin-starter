@@ -17,6 +17,8 @@
                         @include('website.pages.page_media')
                     @elseif($content->type == 'gallery')
                         @include('website.pages.page_gallery')
+                    @elseif($content->type == 'document')
+                        @include('website.pages.page_documents')
                     @endif
                 @endforeach
             </div>

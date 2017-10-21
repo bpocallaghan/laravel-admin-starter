@@ -21,6 +21,8 @@ class PageSection extends Model
 
     static public $TYPE_GALLERY = 'gallery';
 
+    static public $TYPE_DOCUMENT = 'document';
+
     /**
      * Get the page
      */

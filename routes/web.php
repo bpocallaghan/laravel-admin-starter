@@ -160,6 +160,7 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('/{page}/sections/content', 'PageContentController');
             Route::resource('/{page}/sections/media', 'PageMediaController');
             Route::resource('/{page}/sections/gallery', 'PageGalleryController');
+            Route::resource('/{page}/sections/document', 'PageDocumentsController');
         });
         Route::resource('pages', 'Pages\PagesController');
 

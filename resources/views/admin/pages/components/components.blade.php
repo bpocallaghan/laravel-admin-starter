@@ -47,6 +47,11 @@
                             <span class="btn-label"><i class="fa fa-fw fa-image"></i></span>
                             Create Gallery Component
                         </a>
+
+                        <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/document/create' }}">
+                            <span class="btn-label"><i class="fa fa-fw fa-files-o"></i></span>
+                            Create Documents Component
+                        </a>
                     </div>
 
                     <div class="row">
@@ -78,7 +83,8 @@
                                                     <span class="text-bold" style="font-size: larger;">
                                                         {{ $item->component->heading }}
                                                         <span class="text-muted">
-                                                            ({{ $item->component->heading_element }})
+                                                            ({{ $item->component->heading_element }}
+                                                            )
                                                             <em><small>{{ $item->type }}</small></em>
                                                         </span>
                                                     </span>
@@ -100,6 +106,10 @@
                                                     @elseif($item->type == 'gallery')
                                                         @foreach($item->component->photos as $photo)
                                                             <img class=img-responsive" src="{{ $photo->thumb_url }}" style="height: 30px;">
+                                                        @endforeach
+                                                    @elseif($item->type == 'document')
+                                                        @foreach($item->component->documents as $document)
+                                                            <a href="{{ $document->url }}">{{ $document->name }}</a>{{ $loop->last?'':' | ' }}
                                                         @endforeach
                                                     @endif
                                                 </div>

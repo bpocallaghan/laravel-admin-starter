@@ -8,11 +8,13 @@
     </div>
 </div>
 
+@include('admin.partials.summernote.document', ['summernote' => '#content-content'])
+
 @section('scripts')
     @parent
     <script type="text/javascript" charset="utf-8">
         $(function () {
-            pageSummerNote('.summernote', {{ $height or '300' }});
+            pageSummerNote('#content-content', {{ $height or '300' }});
 
             function pageSummerNote(selector, height)
             {
@@ -24,9 +26,12 @@
                         ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
                         ['color', ['color']],
                         ['layout', ['ul', 'ol', 'paragraph']],
-                        ['insert', ['table', /*'link', 'picture', 'video',*/ 'hr']],
+                        ['insert', ['table', 'link', 'document', /*, 'picture', 'video',*/ 'hr']],
                         ['misc', ['fullscreen', 'codeview', 'undo']]
-                    ]
+                    ],
+                    buttons: {
+                        document: DocumentButton
+                    }
                 });
             }
         })
