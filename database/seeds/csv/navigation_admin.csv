@@ -1,55 +1,58 @@
-id,title,description,slug,url,icon,help_index_title,help_index_content,help_create_title,help_create_content,help_edit_title,help_edit_content,list_order,is_hidden,parent_id,url_parent_id,roles
-1,Dashboard,Dashboard,/,/admin,dashboard,,,,,,,1,0,0,0,2
-2,Analytics,Google Analytics,analytics,/admin/analytics,line-chart,,,,,,,11,0,0,0,"3,4"
-3,Summary,,,/admin/analytics,star-half-o,,,,,,,2,0,2,2,"3,4"
-4,Devices,,devices,/admin/analytics/devices,tablet,,,,,,,1,0,2,2,"3,4"
-5,Demographics,,demographics,/admin/analytics/demographics,female,,,,,,,4,0,2,2,"3,4"
-6,Visits and Referrals,,visits-and-referrals,/admin/analytics/visits-and-referrals,cloud,,,,,,,5,0,2,2,"3,4"
-7,Interests,,interests,/admin/analytics/interests,heart,,,,,,,3,0,2,2,"3,4"
-8,Latest Activity,Latest Activity,latest-activity,/admin/latest-activity,history,,,,,,,2,0,0,0,4
-9,Website,,website,/admin/latest-activity/website,home,,,,,,,1,0,8,8,4
-10,Admin,Admin,admin,/admin/latest-activity/admin,lock,,,,,,,2,0,8,8,4
-11,Testimonials,Testimonials,testimonials,/admin/general/testimonials,commenting-o,Info,List of all the testimonials on the website,How,Please complete the form to create the testimonial,How,Please complete the form to edit the selected testimonial,3,0,17,17,4
-12,Locations,,locations,/admin/general/locations,globe,,,,,,,6,0,17,17,4
-13,Countries,Countries,countries,/admin/general/locations/countries,map-marker,,,,,,,4,0,12,12,4
-14,Provinces,Provinces,provinces,/admin/general/locations/provinces,map-marker,,,,,,,3,0,12,12,4
-15,Cities,,cities,/admin/general/locations/cities,map-marker,,,,,,,2,0,12,12,4
-16,Suburbs,,suburbs,/admin/general/locations/suburbs,map-marker,,,,,,,1,0,12,12,4
-17,General,General Website,general,/admin/general,cubes,,,,,,,3,0,0,0,4
-18,Reports,,reports,/admin/reports,bar-chart,,,,,,,12,0,0,0,4
-19,Summary,,summary,/admin/reports/summary,align-left,,,,,,,1,0,18,18,4
-20,Contact Us,,contact-us,/admin/reports/contact-us,comments-o,,,,,,,2,0,18,18,4
-21,Settings,,settings,/admin/settings,cogs,,,,,,,13,0,0,0,4
-22,Subscription Plans,Subscription Plans,subscription-plans,/admin/settings/subscription-plans,money,,,,,,,3,0,21,21,4
-23,Features,Features,features,/admin/settings/subscription-plans/features,tags,,,,,,,4,1,22,22,4
-24,Pages,Pages,pages,/admin/pages,navicon,Help,All the menu items for the website.,Help,You can set the HTML Title and HTML Description.<br/>You can select the parent (under which navigation is this item).<br/>You can specify if the menu is hidden.,,,4,0,0,0,4
-25,Changelogs,,changelogs,/admin/settings/changelogs,file-text-o,,,,,,,2,0,21,21,4
-26,Navigation,,navigation,/admin/settings/navigation,align-center,Help,Helpfull text here - explaining what u can do here...,Information,Please complete the form to create the navigation,,,6,0,21,21,4
-27,Administrators,,administrators,/admin/settings/administrators,users,,,,,,,7,0,21,21,4
-28,Admin Invites,,invites,/admin/settings/administrators/invites,,,,,,,,1,1,27,27,4
-29,Profile,,profile,/admin/profile,user,,,,,,,14,1,0,0,4
-30,Navigation Order,Navigation Order,order,/admin/settings/navigation/order,list-ol,,,,,,,1,1,26,26,4
-31,Navigation Order,Navigation Order,order,/admin/pages/order,list-ol,,,,,,,1,1,24,24,4
-32,Banners,Banners,banners,/admin/general/banners,image,,,,,,,2,0,17,17,4
-33,Corporate,Corporate,corporate,/admin/corporate,bank,,,,,,,8,0,0,0,4
-34,Roles,Roles,roles,/admin/settings/roles,universal-access,,,,,,,1,0,21,21,4
-35,Tenders,Tenders,tenders,/admin/corporate/tenders,tags,,,,,,,1,0,33,33,4
-36,Blog,Blog,blog,/admin/blog,newspaper-o,,,,,,,6,0,0,0,4
-37,Articles,Articles,articles,/admin/blog/articles,newspaper-o,,,,,,,1,0,36,36,4
-38,Categories,Categories,categories,/admin/blog/categories,cubes,,,,,,,2,0,36,36,4
-39,Tags,Tags,tags,/admin/general/tags,tags,,,,,,,1,0,17,17,4
-40,FAQ,FAQ,faqs,/admin/faqs,question,,,,,,,9,0,0,0,4
-41,FAQ Questions,FAQ Questions,,/admin/faqs,question,,,,,,,2,0,40,40,4
-42,Categories,Categories,categories,/admin/faqs/categories,cubes,,,,,,,1,0,40,40,4
-43,Vacancies,Vacancies,vacancies,/admin/corporate/vacancies,vcard-o,,,,,,,2,0,33,33,4
-44,Annual Reports,Annual Reports,annual-reports,/admin/corporate/annual-reports,files-o,,,,,,,3,0,33,33,4
-45,News and Events,News and Events,news-and-events,/admin/news-and-events,newspaper-o,,,,,,,7,0,0,0,4
-46,News and Events,News and Events,news,/admin/news-and-events/news,newspaper-o,,,,,,,2,0,45,45,4
-47,Categories,Categories,categories,/admin/news-and-events/categories,cubes,,,,,,,1,0,45,45,4
-48,Gallery,Images,photos,/admin/photos,image,,,,,,,5,0,0,0,4
-49,Photos,Photos,,/admin/photos,image,,,,,,,2,0,48,48,4
-50,Albums,Albums,albums,/admin/photos/albums,cubes,,,,,,,1,0,48,48,4
-51,Settings,Settings,settings,/admin/settings/settings,cog,,,,,,,5,0,21,21,4
-52,Newsletter,Newsletter,newsletter,/admin/newsletter,newspaper-o,,,,,,,10,0,0,0,4
-53,Subscribers,Newsletter Subscribers,subscribers,/admin/newsletter/subscribers,users,,,,,,,1,0,52,525,4
-54,Clients,Clients,clients,/admin/general/clients,users,,,,,,,5,0,17,17,4
+id,title,description,slug,url,icon,help_index_title,help_index_content,help_create_title,help_create_content,help_edit_title,help_edit_content,list_order,is_hidden,parent_id,url_parent_id,roles,
+1,Dashboard,Dashboard,/,/admin,dashboard,,,,,,,1,0,0,0,2,
+2,Analytics,Google Analytics,analytics,/admin/analytics,line-chart,,,,,,,11,0,0,0,"3,4",
+3,Summary,,,/admin/analytics,star-half-o,,,,,,,2,0,2,2,"3,4",
+4,Devices,,devices,/admin/analytics/devices,tablet,,,,,,,1,0,2,2,"3,4",
+5,Demographics,,demographics,/admin/analytics/demographics,female,,,,,,,4,0,2,2,"3,4",
+6,Visits and Referrals,,visits-and-referrals,/admin/analytics/visits-and-referrals,cloud,,,,,,,5,0,2,2,"3,4",
+7,Interests,,interests,/admin/analytics/interests,heart,,,,,,,3,0,2,2,"3,4",
+8,Latest Activity,Latest Activity,latest-activity,/admin/latest-activity,history,,,,,,,2,0,0,0,4,
+9,Website,,website,/admin/latest-activity/website,home,,,,,,,1,0,8,8,4,
+10,Admin,Admin,admin,/admin/latest-activity/admin,lock,,,,,,,2,0,8,8,4,
+11,Testimonials,Testimonials,testimonials,/admin/general/testimonials,commenting-o,Info,List of all the testimonials on the website,How,Please complete the form to create the testimonial,How,Please complete the form to edit the selected testimonial,3,0,17,17,4,
+12,Locations,,locations,/admin/general/locations,globe,,,,,,,6,0,17,17,4,
+13,Countries,Countries,countries,/admin/general/locations/countries,map-marker,,,,,,,4,0,12,12,4,
+14,Provinces,Provinces,provinces,/admin/general/locations/provinces,map-marker,,,,,,,3,0,12,12,4,
+15,Cities,,cities,/admin/general/locations/cities,map-marker,,,,,,,2,0,12,12,4,
+16,Suburbs,,suburbs,/admin/general/locations/suburbs,map-marker,,,,,,,1,0,12,12,4,
+17,General,General Website,general,/admin/general,cubes,,,,,,,3,0,0,0,4,
+18,Reports,,reports,/admin/reports,bar-chart,,,,,,,12,0,0,0,4,
+19,Summary,,summary,/admin/reports/summary,align-left,,,,,,,1,0,18,18,4,
+20,Contact Us,,contact-us,/admin/reports/contact-us,comments-o,,,,,,,2,0,18,18,4,
+21,Settings,,settings,/admin/settings,cogs,,,,,,,13,0,0,0,4,
+22,Subscription Plans,Subscription Plans,subscription-plans,/admin/settings/subscription-plans,money,,,,,,,3,0,21,21,4,
+23,Features,Features,features,/admin/settings/subscription-plans/features,tags,,,,,,,4,1,22,22,4,
+24,Pages,Pages,pages,/admin/pages,navicon,Help,All the menu items for the website.,Help,You can set the HTML Title and HTML Description.<br/>You can select the parent (under which navigation is this item).<br/>You can specify if the menu is hidden.,,,4,0,0,0,4,
+25,Changelogs,,changelogs,/admin/settings/changelogs,file-text-o,,,,,,,2,0,21,21,4,
+26,Navigation,,navigation,/admin/settings/navigation,align-center,Help,Helpfull text here - explaining what u can do here...,Information,Please complete the form to create the navigation,,,6,0,21,21,4,
+27,Administrators,,administrators,/admin/settings/administrators,users,,,,,,,7,0,21,21,4,
+28,Admin Invites,,invites,/admin/settings/administrators/invites,,,,,,,,1,1,27,27,4,
+29,Profile,,profile,/admin/profile,user,,,,,,,14,1,0,0,4,
+30,Navigation Order,Navigation Order,order,/admin/settings/navigation/order,list-ol,,,,,,,1,1,26,26,4,
+31,Navigation Order,Navigation Order,order,/admin/pages/order,list-ol,,,,,,,1,1,24,24,4,
+32,Banners,Banners,banners,/admin/general/banners,image,,,,,,,2,0,17,17,4,
+33,Corporate,Corporate,corporate,/admin/corporate,bank,,,,,,,8,0,0,0,4,
+34,Roles,Roles,roles,/admin/settings/roles,universal-access,,,,,,,1,0,21,21,4,
+35,Tenders,Tenders,tenders,/admin/corporate/tenders,tags,,,,,,,1,0,33,33,4,
+36,Blog,Blog,blog,/admin/blog,newspaper-o,,,,,,,6,0,0,0,4,
+37,Articles,Articles,articles,/admin/blog/articles,newspaper-o,,,,,,,1,0,36,36,4,
+38,Categories,Categories,categories,/admin/blog/categories,cubes,,,,,,,2,0,36,36,4,
+39,Tags,Tags,tags,/admin/general/tags,tags,,,,,,,1,0,17,17,4,
+40,FAQ,FAQ,faqs,/admin/faqs,question,,,,,,,9,0,0,0,4,
+41,FAQ Questions,FAQ Questions,,/admin/faqs,question,,,,,,,2,0,40,40,4,
+42,Categories,Categories,categories,/admin/faqs/categories,cubes,,,,,,,1,0,40,40,4,
+43,Vacancies,Vacancies,vacancies,/admin/corporate/vacancies,vcard-o,,,,,,,2,0,33,33,4,
+44,Annual Reports,Annual Reports,annual-reports,/admin/corporate/annual-reports,files-o,,,,,,,3,0,33,33,4,
+45,News and Events,News and Events,news-and-events,/admin/news-and-events,newspaper-o,,,,,,,7,0,0,0,4,
+46,News and Events,News and Events,news,/admin/news-and-events/news,newspaper-o,,,,,,,2,0,45,45,4,
+47,Categories,Categories,categories,/admin/news-and-events/categories,cubes,,,,,,,1,0,45,45,4,
+48,Gallery,Images,photos,/admin/photos,image,,,,,,,5,0,0,0,4,
+49,Photos,Photos,,/admin/photos,image,,,,,,,2,0,48,48,4,
+50,Albums,Albums,albums,/admin/photos/albums,cubes,,,,,,,1,0,48,48,4,
+51,Settings,Settings,settings,/admin/settings/settings,cog,,,,,,,5,0,21,21,4,
+52,Newsletter,Newsletter,newsletter,/admin/newsletter,newspaper-o,,,,,,,10,0,0,0,4,
+53,Subscribers,Newsletter Subscribers,subscribers,/admin/newsletter/subscribers,users,,,,,,,1,0,52,525,4,
+54,Clients,Clients,clients,/admin/general/clients,users,,,,,,,5,0,17,17,4,
+55,Documents,Documents,documents,/admin/documents,files-o,,,,,,,10,0,0,0,4,
+56,Categories,Categories,categories,/admin/documents/categories,cubes,,,,,,,1,0,55,55,4,
+57,Documents,Documents,,/admin/documents,file-o,,,,,,,2,0,55,55,4,
