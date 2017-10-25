@@ -1,4 +1,4 @@
-{!! $content->component->content !!}
+@include('website.pages.page_content')
 
 <div class="gallery">
     <div class="row">

@@ -1,3 +1,5 @@
-<{{$content->component->heading_element}}>
+@if($content->component->heading)
+    <{{$content->component->heading_element}}>
     {!! $content->component->heading !!}
-</{{$content->component->heading_element}}>
+    </{{$content->component->heading_element}}>
+@endif

@@ -35,7 +35,7 @@ class PageMedia extends TitanCMSModel
     static public $rules = [
         'heading'         => 'required|min:3:max:255',
         'heading_element' => 'required|max:2',
-        'content'         => 'required|max:3000',
+        'content'         => 'required|max:5000',
         'page_id'         => 'required|exists:pages,id',
         'caption'         => 'nullable|max:240',
         'media'           => 'required|image|max:3000|mimes:jpg,jpeg,png,bmp',

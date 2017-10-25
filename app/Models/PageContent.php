@@ -24,7 +24,7 @@ class PageContent extends TitanCMSModel
     static public $rules = [
         'heading'         => 'required|min:3:max:255',
         'heading_element' => 'required|max:2',
-        'content'         => 'required|max:3000',
+        'content'         => 'required|max:8000',
         'page_id'         => 'required|exists:pages,id',
     ];
 

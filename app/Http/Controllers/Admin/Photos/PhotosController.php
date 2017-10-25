@@ -12,6 +12,7 @@ use App\Http\Requests;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\AdminController;
+use Titan\Models\Traits\ImageThumb;
 
 class PhotosController extends AdminController
 {
