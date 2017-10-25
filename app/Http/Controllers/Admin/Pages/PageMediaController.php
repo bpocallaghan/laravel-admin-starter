@@ -96,7 +96,7 @@ class PageMediaController extends AdminController
      */
     private function moveAndCreatePhoto(
         UploadedFile $file,
-        $size = ['l' => [800, 800], 's' => [300, 300]]
+        $size = ['l' => [1000, 1000], 's' => [300, 300]]
     ) {
         $extension = '.' . $file->extension();
 
@@ -118,19 +118,6 @@ class PageMediaController extends AdminController
 
         // if width is the biggest - resize on max width
         if ($imageTmp->width() > $imageTmp->height()) {
-
-            // resize the image to the large width and constrain aspect ratio (auto height)
-            $imageTmp->resize($largeSize[0], null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($path . $filename);
-
-            // resize the image to the thumb width and constrain aspect ratio (auto width)
-            $imageTmp->resize($thumbSize[0], null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($path . $name . ImageThumb::$thumbAppend . $extension);
-        }
-        else {
-
             // resize the image to the large height and constrain aspect ratio (auto width)
             $imageTmp->resize(null, $largeSize[1], function ($constraint) {
                 $constraint->aspectRatio();
@@ -138,6 +125,17 @@ class PageMediaController extends AdminController
 
             // resize the image to the thumb height and constrain aspect ratio (auto width)
             $imageTmp->resize(null, $thumbSize[1], function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($path . $name . ImageThumb::$thumbAppend . $extension);
+        }
+        else {
+            // resize the image to the large width and constrain aspect ratio (auto height)
+            $imageTmp->resize($largeSize[0], null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($path . $filename);
+
+            // resize the image to the thumb width and constrain aspect ratio (auto width)
+            $imageTmp->resize($thumbSize[0], null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($path . $name . ImageThumb::$thumbAppend . $extension);
         }

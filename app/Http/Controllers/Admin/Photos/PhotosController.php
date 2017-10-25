@@ -52,9 +52,7 @@ class PhotosController extends AdminController
      */
     public function showNewsPhotos(News $news)
     {
-        $photos = $news->photos;
-
-        return $this->showPhotoable($news, $photos);
+        return $this->showPhotoable($news, $news->photos);
     }
 
     /**
@@ -64,9 +62,7 @@ class PhotosController extends AdminController
      */
     public function showAlbumPhotos(PhotoAlbum $album)
     {
-        $photos = $album->photos;
-
-        return $this->showPhotoable($album, $photos);
+        return $this->showPhotoable($album, $album->photos);
     }
 
     /**
@@ -76,9 +72,7 @@ class PhotosController extends AdminController
      */
     public function showArticlePhotos(Article $article)
     {
-        $photos = $article->photos;
-
-        return $this->showPhotoable($article, $photos);
+        return $this->showPhotoable($article, $article->photos);
     }
 
     /**
@@ -165,7 +159,7 @@ class PhotosController extends AdminController
     private function moveAndCreatePhoto(
         UploadedFile $file,
         $photoable,
-        $size = ['l' => [800, 800], 's' => [200, 200]]
+        $size = ['l' => [1000, 1000], 's' => [300, 300]]
     ) {
         $extension = '.' . $file->extension();
 
@@ -197,12 +191,37 @@ class PhotosController extends AdminController
         // save original
         $imageTmp->save($path . $name . Photo::$originalAppend . $extension);
 
-        // save large
+        /*// save large
         $imageTmp->fit($largeSize[0], $largeSize[1])->save($path . $filename);
 
         // save thumbnail from the original image
         $imageTmp->fit($thumbSize[0], $thumbSize[1])
-            ->save($path . $name . Photo::$thumbAppend . $extension);
+            ->save($path . $name . Photo::$thumbAppend . $extension);*/
+
+        // if width is the biggest - resize on max width
+        if ($imageTmp->width() > $imageTmp->height()) {
+
+            // resize the image to the large height and constrain aspect ratio (auto width)
+            $imageTmp->resize(null, $largeSize[1], function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($path . $filename);
+
+            // resize the image to the thumb height and constrain aspect ratio (auto width)
+            $imageTmp->resize(null, $thumbSize[1], function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($path . $name . ImageThumb::$thumbAppend . $extension);
+        }
+        else {
+            // resize the image to the large width and constrain aspect ratio (auto height)
+            $imageTmp->resize($largeSize[0], null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($path . $filename);
+
+            // resize the image to the thumb width and constrain aspect ratio (auto width)
+            $imageTmp->resize($thumbSize[0], null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($path . $name . ImageThumb::$thumbAppend . $extension);
+        }
 
         $originalName = $file->getClientOriginalName();
         $originalName = substr($originalName, 0, strpos($originalName, $extension));

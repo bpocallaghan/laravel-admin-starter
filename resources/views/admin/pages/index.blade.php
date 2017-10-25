@@ -35,14 +35,13 @@
                         </a>
                     </div>
 
-                    <table id="tbl-list" data-server="false" class="dt-table table table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="tbl-list" data-server="false" data-page-length="25" class="dt-table table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th>Page</th>
                             <th>Description</th>
                             <th>Url</th>
                             <th>Parent</th>
-                            <th>Views</th>
                             <th style="min-width: 100px;">Action</th>
                         </tr>
                         </thead>
@@ -53,7 +52,6 @@
                                 <td>{!! $item->description !!}</td>
                                 <td>{!! $item->url !!}</td>
                                 <td>{{ ($item->parent)? $item->parent->title : '-' }}</td>
-                                <td>{!! $item->views !!}</td>
                                 <td>
                                     <div class="btn-toolbar">
                                         <div class="btn-group">

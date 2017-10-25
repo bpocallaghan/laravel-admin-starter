@@ -91,7 +91,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group {{ form_error_class('banners', $errors) }}">
-                                        <label for="banners">Banners (leave empty to use the default banners)</label>
+                                        <label for="banners">Banners (leave empty to use the default
+                                            banners)</label>
                                         {!! form_select('banners[]', $banners, ($errors && $errors->any()? old('banners') : (isset($item)? $item->banners->pluck('id')->all() : '')), ['class' => 'select2 form-control', 'multiple']) !!}
                                         {!! form_error_message('banners', $errors) !!}
                                     </div>
@@ -141,4 +142,8 @@
             </div>
         </div>
     </div>
+
+    @if(isset($item))
+        @include('admin.pages.components.components', ['page' => $item, 'url' => "/admin/pages/{$item->id}/sections"])
+    @endif
 @endsection

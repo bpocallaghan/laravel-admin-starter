@@ -22,7 +22,7 @@ class SectionsController extends AdminController
 
         $page->load('sections.component');
 
-        return $this->view('pages.components.components')->with('page', $page);
+        return $this->view('pages.components.page_components')->with('page', $page);
     }
 
     /**

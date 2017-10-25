@@ -7,7 +7,6 @@ use App\Models\Page;
 use App\Http\Requests;
 use App\Models\Content;
 use App\Models\PageContent;
-use App\Models\PageSection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\AdminController;
 
