@@ -16,22 +16,22 @@ class LocationTableSeeder extends Seeder
         Country::truncate();
         Province::truncate();
 
-        $csvPath = base_path() . '/database/seeds/csv/' . 'countries.csv';
+        $csvPath = database_path() . '\seeds\csv\\' . 'countries.csv';
         $items = csv_to_array($csvPath);
         foreach ($items as $key => $item) {
             Country::create([
-                'title'      => $item['title'],
+                'title'      => trim($item['title']),
                 'zoom_level' => $item['zoom_level'],
                 'latitude'   => $item['latitude'],
                 'longitude'  => $item['longitude'],
             ]);
         }
 
-        $csvPath = base_path() . '/database/seeds/csv/' . 'provinces.csv';
+        $csvPath = database_path() . '\seeds\csv\\' . 'provinces.csv';
         $items = csv_to_array($csvPath);
         foreach ($items as $key => $item) {
             Province::create([
-                'title'      => $item['title'],
+                'title'      => trim($item['title']),
                 'zoom_level' => $item['zoom_level'],
                 'latitude'   => $item['latitude'],
                 'longitude'  => $item['longitude'],
@@ -39,23 +39,23 @@ class LocationTableSeeder extends Seeder
             ]);
         }
 
-        $csvPath = base_path() . '/database/seeds/csv/' . 'cities.csv';
+        $csvPath = database_path() . '\seeds\csv\\' . 'cities.csv';
         $items = csv_to_array($csvPath);
         foreach ($items as $key => $item) {
             City::create([
-                'title'       => $item['title'],
+                'title'       => trim($item['title']),
                 'zoom_level'  => $item['zoom_level'],
                 'latitude'    => $item['latitude'],
                 'longitude'   => $item['longitude'],
-                'province_id' => $item['region_id'],
+                'province_id' => $item['province_id'],
             ]);
         }
 
-        $csvPath = base_path() . '/database/seeds/csv/' . 'suburbs.csv';
+        $csvPath = database_path() . '\seeds\csv\\' . 'suburbs.csv';
         $items = csv_to_array($csvPath);
         foreach ($items as $key => $item) {
             Suburb::create([
-                'title'      => $item['title'],
+                'title'      => trim($item['title']),
                 'zoom_level' => $item['zoom_level'],
                 'latitude'   => $item['latitude'],
                 'longitude'  => $item['longitude'],
