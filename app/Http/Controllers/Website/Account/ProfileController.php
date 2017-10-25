@@ -27,6 +27,7 @@ class ProfileController extends WebsiteController
             'lastname'  => 'required',
             'email'     => 'required|email|' . Rule::unique('users')->ignore(user()->id),
             'password'  => 'nullable|min:4|confirmed',
+            'cellphone' => 'nullable',
         ]);
 
         // update user
@@ -34,6 +35,7 @@ class ProfileController extends WebsiteController
             'firstname' => $attributes['firstname'],
             'lastname'  => $attributes['lastname'],
             'email'     => $attributes['email'],
+            'cellphone' => $attributes['cellphone'],
         ]);
 
         // only update when a new password was entered

@@ -19,7 +19,11 @@ class ViewServiceProvider extends ServiceProvider
     {
         // include the news for the website 'side news' panel
         View::composer('website.partials.side_news', function ($view) {
-            $items = News::active()->orderBy('created_at', 'DESC')->get()->take(5);
+            $items = News::whereHas('photos')
+                ->active()
+                ->orderBy('created_at', 'DESC')
+                ->get()
+                ->take(5);
 
             $view->with('news', $items);
         });

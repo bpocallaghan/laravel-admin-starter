@@ -34,6 +34,15 @@
                                 </div>
                             </div>
 
+                            <div class="form-group {{ form_error_class('cellphone', $errors) }}">
+                                <label for="cellphone">Cellphone</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="cellphone" name="cellphone" placeholder="Please insert the Cellphone" value="{{ ($errors->any()? old('cellphone') : $user->cellphone) }}">
+                                    <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                                </div>
+                                {!! form_error_message('cellphone', $errors) !!}
+                            </div>
+
                             <div class="form-group {{ form_error_class('email', $errors) }}">
                                 <label>Email Address</label>
                                 <div class="input-group">

@@ -1,7 +1,7 @@
 @extends('layouts.website')
 
 @section('content')
-    <section class="content bg-default padding padding-top padding-bottom">
+    <section class="content">
         @include('website.partials.page_header'/*, ['pageTitle' => $news->title]*/)
 
         <div class="row">
@@ -23,20 +23,29 @@
                     {!! $news->content !!}
                 </div>
 
-                <div class="gallery">
-                    <div class="row">
-                        @foreach($news->photos as $item)
-                            <div class="col-xs-6 col-md-4">
-                                <figure>
-                                    <a href="{{ $item->url }}" rel="group" title="{{ $item->name }}" data-fancybox="gallery" data-caption="{{ $item->name }}">
-                                        <img src="{{ $item->thumbUrl }}" alt="{{ $item->name }}">
-                                    </a>
-                                    <figcaption>{!! $item->name !!}</figcaption>
-                                </figure>
-                            </div>
-                        @endforeach
+                @if($news->photos && $news->photos->count() > 1)
+                    <div class="gallery">
+                        <div class="row">
+                            @foreach($news->photos as $item)
+                                <div class="col-xs-6 col-sm-4 col-lg-3">
+                                    <figure>
+                                        <a href="{{ $item->url }}" rel="group" title="{{ $item->name }}" data-fancybox="gallery" class="cover" style="background-image:url('{{ $item->thumbUrl }}')">
+                                            <img src="{{ $item->thumbUrl }}">
+                                        </a>
+                                        <figcaption>{!! $item->name !!}</figcaption>
+                                    </figure>
+                                    {{--<div class="swipe-item news">
+                                        <figure>
+                                            <a>
+                                                <img src="{{ $item->thumbUrl }}" class="display-block">
+                                            </a>
+                                        </figure>
+                                    </div>--}}
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
 
             @include('website.partials.page_side')

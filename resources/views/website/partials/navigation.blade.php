@@ -17,7 +17,7 @@
                     @include ('website.partials.navigation_list', ['collection' => $navigation['root'], 'navigation' => $navigation])
                 @endif
                 @if(\Auth::check() && user()->hasRole('admin'))
-                    <li><a href="/admin" data-icon="fa-user-secret">Admin</a></li>
+                    <li><a href="/admin"><i class="fa fa-user-secret"></i></a></li>
                 @endif
             </ul>
         </div>

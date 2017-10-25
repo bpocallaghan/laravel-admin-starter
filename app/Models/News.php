@@ -35,6 +35,8 @@ class News extends TitanCMSModel
         'title'       => 'required|min:3:max:255',
         'content'     => 'required|min:5:max:2000',
         'category_id' => 'required|exists:news_categories,id',
+        'active_from' => 'nullable|date',
+        'active_to'   => 'nullable|date',
     ];
 
     /**

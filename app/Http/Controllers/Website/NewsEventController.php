@@ -34,6 +34,11 @@ class NewsEventController extends WebsiteController
         return $this->view('news_events.news_events')->with('paginator', $paginator);
     }
 
+    /**
+     * Show News and Events
+     * @param $newsSlug
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function show($newsSlug)
     {
         $item = News::with('photos')->where('slug', $newsSlug)->first();
