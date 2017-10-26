@@ -185,7 +185,7 @@ trait PageHelper
     {
         $builder = self::where('is_hidden', 0);
         $builder->where('is_header', 1);
-        if(!\Auth::check()) {
+        if (!\Auth::check()) {
             $builder->where('name', '!=', 'My Account');
         }
         $items = $builder->orderBy('header_order')
@@ -214,7 +214,7 @@ trait PageHelper
     public static function getHeaderNavigationRight()
     {
         $filter = ['NamPost', 'Contact Us'];
-        if(\Auth::check()) {
+        if (\Auth::check()) {
             $filter[] = 'My Account';
         }
         $items = Page::getHeaderNavigation();
@@ -233,6 +233,7 @@ trait PageHelper
     {
         // about
         $items = Page::with('parent')
+            ->where('is_hidden', 0)
             ->whereIn('parent_id', [6, 43, 8, 62, 53, 9])
             ->orderBy('header_order')
             ->select('id', 'icon', 'name', 'title', 'description', 'slug', 'url', 'parent_id')
@@ -251,10 +252,30 @@ trait PageHelper
         return $items;
     }
 
+    /**
+     * Get the popular pages
+     * @return static
+     */
     public static function getPopularPages()
     {
-        // skip home
-        $items = Page::where('slug', '!=', '/')->orderBy('views', 'DESC')->get()->take(5);
+        // exclude pages
+        $ids = Page::where('slug', '/')
+            ->orWhere('url', '=', '')
+            ->orWhere('url', 'LIKE', '/auth%')
+            ->orWhere('url', 'LIKE', '/account%')
+            ->get()
+            ->pluck('id', 'id')
+            ->values()
+            ->toArray();
+
+        // get the popular pages
+        $items = Page::where('is_hidden', 0)
+            ->whereNotIn('id', $ids)
+            ->orderBy('views', 'DESC')
+            ->get()
+            ->take(5);
+
+        return $items;
 
         return $items;
     }

@@ -16,7 +16,7 @@ class NewsEventController extends WebsiteController
         $perPage = 6;
         $page = input('page', 1);
         $baseUrl = config('app.url') . '/news-and-events';
-        $items = News::with('photos')->active()->orderBy('active_from', 'DESC')->get();
+        $items = News::whereHas('photos')->with('photos')->active()->orderBy('active_from', 'DESC')->get();
 
         $total = $items->count();
 

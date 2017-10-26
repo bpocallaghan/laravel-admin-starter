@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin\Photos;
 
-use App\Models\Article;
-use App\Models\News;
-use App\Models\PhotoAlbum;
-use Illuminate\Http\UploadedFile;
 use Image;
 use Redirect;
-use App\Http\Requests;
+use App\Models\News;
 use App\Models\Photo;
+use App\Http\Requests;
+use App\Models\Article;
+use App\Models\PhotoAlbum;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Admin\AdminController;
+use Illuminate\Http\UploadedFile;
 use Titan\Models\Traits\ImageThumb;
+use App\Http\Controllers\Admin\AdminController;
 
 class PhotosController extends AdminController
 {
