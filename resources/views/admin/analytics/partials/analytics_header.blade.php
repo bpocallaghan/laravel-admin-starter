@@ -56,68 +56,61 @@
         </div>
     </div>
 
-    @if(isset($pageLoad))
-        <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-green">
-                <div class="inner">
-                    <h3 id="page-load">&nbsp;</h3>
-                    <p>Avg Page Load</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-speedometer"></i>
-                </div>
-            </div>
-        </div>
-    @endif
-
     <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-aqua">
+        <div class="small-box bg-green">
             <div class="inner">
-                <h3 id="page-active-visitors">&nbsp;</h3>
-                <p>Current Active Visitors</p>
+                <h3 id="page-load">&nbsp;</h3>
+                <p>Avg Page Load</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person"></i>
+                <i class="ion ion-speedometer"></i>
             </div>
         </div>
     </div>
 
+    @if(isset($activeUsers))
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3 id="page-active-visitors">&nbsp;</h3>
+                    <p>Current Active Visitors</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person"></i>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>
 
 @section('scripts')
     @parent
     <script type="text/javascript" charset="utf-8">
-        $(function ()
-        {
+        $(function () {
             function getMonthlySummary()
             {
-                doAjax('/api/analytics/visitors', null, function (response)
-                {
+                doAjax('/api/analytics/visitors', null, function (response) {
                     $('#visitors').html(response.data['month']['value']);
                     doughnutChart('chart-visitors', response.data);
                 });
 
-                doAjax('/api/analytics/unique-visitors', null, function (response)
-                {
+                doAjax('/api/analytics/unique-visitors', null, function (response) {
                     $('#unique-visitors').html(response.data['month']['value']);
                     doughnutChart('chart-unique-visitors', response.data);
                 });
 
-                doAjax('/api/analytics/bounce-rate', null, function (response)
-                {
+                doAjax('/api/analytics/bounce-rate', null, function (response) {
                     response.data['month']['value'] = parseFloat(response.data['month']['value']).toFixed(2);
                     response.data['last_month']['value'] = parseFloat(response.data['last_month']['value']).toFixed(2);
                     $('#bounce-rate').html(response.data['month']['value'] + '<sup style="font-size: 20px">%</sup>');
                     doughnutChart('chart-bounce-rate', response.data);
                 });
 
-                doAjax('/api/analytics/page-load', null, function (response)
-                {
+                doAjax('/api/analytics/page-load', null, function (response) {
                     $('#page-load').html(parseFloat(response.data).toFixed(0) + '<sup style="font-size: 20px">sec</sup>');
                 });
 
-                doAjax('/api/analytics/active-visitors', null, function (response)
-                {
+                doAjax('/api/analytics/active-visitors', null, function (response) {
                     $('#page-active-visitors').html(parseFloat(response.data).toFixed(0));
                 });
             }

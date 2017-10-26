@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    @include('admin.analytics.partials.analytics_header', ['pageLoad' => true])
+    @include('admin.analytics.partials.analytics_header', ['activeUsers' => true])
 
     <div class="row">
         <div class="col-sm-12">

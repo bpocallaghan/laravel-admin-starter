@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use LaravelAnalytics;
+use Analytics;
 use App\Http\Requests;
-use Titan\Controllers\Traits\AnalyticsHelper;
+use Titan\Controllers\Traits\GoogleAnalyticsHelper;
 
 class AnalyticsController extends ApiController
 {
-    use AnalyticsHelper;
+    use GoogleAnalyticsHelper;
 
     /**
      * Get the sessions grouped by country
@@ -16,9 +16,9 @@ class AnalyticsController extends ApiController
      */
     public function getVisitorsLocations()
     {
-        $dates = $this->getStartEndDate();
+        $period = $this->analyticsDuration();
 
-        $data = LaravelAnalytics::performQuery($dates['start'], $dates['end'], 'ga:sessions', [
+        $data = Analytics::performQuery($period, 'ga:sessions', [
             'dimensions'  => 'ga:country',
             'sort'        => '-ga:sessions',
             'max-results' => 50
