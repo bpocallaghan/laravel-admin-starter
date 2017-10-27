@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,6 +49,20 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if (config('app.env') != 'local') {
+            if ($exception instanceof TokenMismatchException) {
+
+                if ($request->ajax()) {
+
+                    return json_response_error('You session expired. Please refresh your page and try again.');
+                }
+
+                alert()->warning('Whoops', 'You session expired. Please try again.');
+
+                return redirect()->back();
+            }
+        }
+
         return parent::render($request, $exception);
     }
 }
