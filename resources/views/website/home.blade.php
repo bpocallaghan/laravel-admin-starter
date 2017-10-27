@@ -7,7 +7,7 @@
                 Welcome to {!! config('app.name') !!}
             </h1>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="panel panel-default" style="min-height: 250px;">
                 <div class="panel-heading">
                     <h4><i class="fa fa-fw fa-check"></i> Laravel v5.5.18</h4>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="panel panel-default" style="min-height: 250px;">
                 <div class="panel-heading">
                     <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source & Many Features</h4>
@@ -30,7 +30,7 @@
                 <div class="panel-body">
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <ul>
                                 <li>Auth (Login, Register, Forgot Password)</li>
                                 <li>Roles</li>
@@ -38,15 +38,14 @@
                                 <li>Notifications</li>
                                 <li>Google Analytics Reports</li>
                                 <li>Website Page Builder (3 components)</li>
-                                <li>Blog</li>
                             </ul>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <ul>
+                                <li>Blog</li>
                                 <li>Banners</li>
                                 <li>Testimonials</li>
-                                <li>Changelog</li>
                                 <li>Pricing</li>
                                 <li>Locations</li>
                                 <li>Gallery</li>
@@ -57,11 +56,25 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="panel panel-default" style="min-height: 250px;">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-cubes"></i> Add On Packages</h4>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/bpocallaghan/changelogs" target="_blank">Changelogs</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row packages">
         <div class="col-lg-12">
-            <h2 class="page-header">Personal Packages Included</h2>
+            <h2 class="page-header">Core Packages Included</h2>
         </div>
         <div class="col-md-4 col-sm-6">
             <a target="_blank" href="https://github.com/bpocallaghan/generators">

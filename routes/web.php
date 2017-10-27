@@ -29,7 +29,7 @@ Route::group(['namespace' => 'Website'], function () {
     Route::post('/faq/question/{faq}/{type?}', 'FAQController@incrementClick');
 
     // content
-    Route::get('/changelog', 'PagesController@changelog');
+    //Route::get('/changelog', 'ChangelogsController@index');
     Route::get('/testimonials', 'PagesController@testimonials');
     Route::get('/pricing', 'PricingController@index');
 
@@ -242,7 +242,7 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('roles', 'RolesController');
 
             // changelogs
-            Route::resource('changelogs', 'ChangelogsController');
+            //Route::resource('changelogs', 'ChangelogsController');
 
             // settings
             Route::resource('settings', 'SettingsController');
@@ -267,6 +267,7 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('navigation', 'NavigationController');
         });
     });
+
 
 /*
 |--------------------------------------------------------------------------

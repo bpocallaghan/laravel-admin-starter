@@ -1,7 +1,17 @@
 {
     "name": "bpocallaghan/laravel-admin-starter",
     "description": "A Laravel CMS Starter project with AdminLTE, Roles, Impersonations, Analytics, Activity, Notifications and more.",
-    "keywords": ["framework", "laravel", "adminlte", "roles", "impersonate", "navigation", "analytics", "cms", "admin"],
+    "keywords": [
+        "framework",
+        "laravel",
+        "adminlte",
+        "roles",
+        "impersonate",
+        "navigation",
+        "analytics",
+        "cms",
+        "admin"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -10,13 +20,14 @@
         "fideloper/proxy": "~3.3",
         "google/recaptcha": "^1.1",
         "guzzlehttp/guzzle": "^6.3",
+        "intervention/image": "^2.4",
         "laravel/framework": "5.5.*",
         "bpocallaghan/alert": "^1.1",
-        "intervention/image": "^2.4",
         "bpocallaghan/notify": "^2.1",
         "bpocallaghan/titan": "^0.2.9",
         "bpocallaghan/sluggable": "^1.0",
         "bpocallaghan/impersonate": "^1.0",
+        "bpocallaghan/changelogs": "^0.0.2",
         "spatie/laravel-analytics": "^3.1",
         "yajra/laravel-datatables-oracle": "^8.0"
     },

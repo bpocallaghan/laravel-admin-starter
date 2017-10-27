@@ -176,6 +176,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Bpocallaghan\Changelogs\ChangelogsServiceProvider::class,
 
         /*
          * Application Service Providers...

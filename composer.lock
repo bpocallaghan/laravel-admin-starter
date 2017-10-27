@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3bce44e5861f88eec65f3a49e5a4a76",
+    "content-hash": "ccc6e509a97cf6b0afe41d78834d3c70",
     "packages": [
         {
             "name": "bpocallaghan/alert",
@@ -61,6 +61,53 @@
                 "notification"
             ],
             "time": "2017-10-08T08:43:02+00:00"
+        },
+        {
+            "name": "bpocallaghan/changelogs",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpocallaghan/changelogs.git",
+                "reference": "9316d563ea4fb7c4f7c9a0c66f55604f5a0f4bcd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpocallaghan/changelogs/zipball/9316d563ea4fb7c4f7c9a0c66f55604f5a0f4bcd",
+                "reference": "9316d563ea4fb7c4f7c9a0c66f55604f5a0f4bcd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bpocallaghan\\Changelogs\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben-Piet O'Callaghan",
+                    "email": "bpocallaghan@gmail.com"
+                }
+            ],
+            "description": "Add changelogs to your laravel admin project - https://github.com/bpocallaghan/laravel-admin-starter",
+            "keywords": [
+                "admin",
+                "changelogs",
+                "cms",
+                "laravel"
+            ],
+            "time": "2017-10-27T14:02:05+00:00"
         },
         {
             "name": "bpocallaghan/impersonate",
@@ -3201,16 +3248,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v8.2.0",
+            "version": "v8.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "9bb45b445d3a9deb6a62e6974d2651bf15180d2f"
+                "reference": "b5ecb425414b1baf2ce2f82fe2849e77e51230e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/9bb45b445d3a9deb6a62e6974d2651bf15180d2f",
-                "reference": "9bb45b445d3a9deb6a62e6974d2651bf15180d2f",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/b5ecb425414b1baf2ce2f82fe2849e77e51230e0",
+                "reference": "b5ecb425414b1baf2ce2f82fe2849e77e51230e0",
                 "shasum": ""
             },
             "require": {
@@ -3267,7 +3314,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2017-10-25T01:24:37+00:00"
+            "time": "2017-10-27T06:13:31+00:00"
         }
     ],
     "packages-dev": [
