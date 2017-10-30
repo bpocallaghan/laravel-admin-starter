@@ -26,9 +26,10 @@
         "bpocallaghan/notify": "^2.1",
         "bpocallaghan/titan": "^0.2.9",
         "bpocallaghan/sluggable": "^1.0",
-        "bpocallaghan/impersonate": "^1.0",
-        "bpocallaghan/changelogs": "^0.0.2",
         "spatie/laravel-analytics": "^3.1",
+        "bpocallaghan/impersonate": "^1.0",
+        "bpocallaghan/corporate": "^0.0.1",
+        "bpocallaghan/changelogs": "^0.0.3",
         "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {

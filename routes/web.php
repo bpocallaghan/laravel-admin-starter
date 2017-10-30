@@ -29,7 +29,6 @@ Route::group(['namespace' => 'Website'], function () {
     Route::post('/faq/question/{faq}/{type?}', 'FAQController@incrementClick');
 
     // content
-    //Route::get('/changelog', 'ChangelogsController@index');
     Route::get('/testimonials', 'PagesController@testimonials');
     Route::get('/pricing', 'PricingController@index');
 
@@ -43,15 +42,6 @@ Route::group(['namespace' => 'Website'], function () {
     // news and events
     Route::get('/news-and-events', 'NewsEventController@index');
     Route::get('/news-and-events/{newsSlug}', 'NewsEventController@show');
-
-    // corporate
-    Route::get('/corporate/tenders', 'CorporateController@tenders');
-    Route::get('/corporate/vacancies', 'CorporateController@vacancies');
-    Route::get('/corporate/annual-reports', 'CorporateController@annualReports');
-    Route::post('/corporate/tenders/{tender}/download', 'CorporateController@downloadTender');
-    Route::post('/corporate/vacancies/{vacancy}/download', 'CorporateController@downloadVacancy');
-    Route::post('/corporate/annual-reports/{annual_report}/download',
-        'CorporateController@downloadAnnualReport');
 });
 
 /*
@@ -179,13 +169,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('categories', 'CategoriesController');
         });
 
-        // corporate
-        Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate'], function () {
-            Route::resource('tenders', 'TendersController');
-            Route::resource('vacancies', 'VacanciesController');
-            Route::resource('annual-reports', 'AnnualReportsController');
-        });
-
         // gallery / photos
         Route::group(['prefix' => 'photos', 'namespace' => 'Photos'], function () {
             Route::get('/', 'PhotosController@index');
@@ -240,9 +223,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
 
         Route::group(['prefix' => 'settings', 'namespace' => 'Settings'], function () {
             Route::resource('roles', 'RolesController');
-
-            // changelogs
-            //Route::resource('changelogs', 'ChangelogsController');
 
             // settings
             Route::resource('settings', 'SettingsController');

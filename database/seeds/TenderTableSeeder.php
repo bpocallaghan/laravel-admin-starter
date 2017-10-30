@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Tender;
+use Bpocallaghan\Corporate\Models\Tender;
 
 class TenderTableSeeder extends Seeder
 {

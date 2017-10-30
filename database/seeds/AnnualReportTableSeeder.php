@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\AnnualReport;
+use Bpocallaghan\Corporate\Models\AnnualReport;
 
 class AnnualReportTableSeeder extends Seeder
 {

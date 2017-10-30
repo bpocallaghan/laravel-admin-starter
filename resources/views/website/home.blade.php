@@ -10,11 +10,11 @@
         <div class="col-md-3">
             <div class="panel panel-default" style="min-height: 250px;">
                 <div class="panel-heading">
-                    <h4><i class="fa fa-fw fa-check"></i> Laravel v5.5.18</h4>
+                    <h4><i class="fa fa-fw fa-check"></i> Laravel v5.5.19</h4>
                 </div>
                 <div class="panel-body">
                     <ul>
-                        <li><strong>Laravel v5.5.18+</strong></li>
+                        <li><strong>Laravel v5.5.19+</strong></li>
                         <li><strong>AdminLTE v2.4.2</strong></li>
                         <li><strong>Bootstrap v3.3.7</strong></li>
                         <li><strong>jQuery v3.2.1</strong></li>
@@ -37,19 +37,19 @@
                                 <li>Log Activity (website and admin)</li>
                                 <li>Notifications</li>
                                 <li>Google Analytics Reports</li>
-                                <li>Website Page Builder (3 components)</li>
+                                <li>Website Page Builder (4 components)</li>
                             </ul>
                         </div>
 
                         <div class="col-md-4">
                             <ul>
-                                <li>Blog</li>
-                                <li>Banners</li>
-                                <li>Testimonials</li>
-                                <li>Pricing</li>
-                                <li>Locations</li>
-                                <li>Gallery</li>
                                 <li>FAQ</li>
+                                <li>Blog</li>
+                                <li>Pricing</li>
+                                <li>Banners</li>
+                                <li>Gallery</li>
+                                <li>Locations</li>
+                                <li>Testimonials</li>
                             </ul>
                         </div>
                     </div>
@@ -65,6 +65,7 @@
                     <ul>
                         <li>
                             <a href="https://github.com/bpocallaghan/changelogs" target="_blank">Changelogs</a>
+                            <a href="https://github.com/bpocallaghan/corporate" target="_blank">Corporate</a>
                         </li>
                     </ul>
                 </div>

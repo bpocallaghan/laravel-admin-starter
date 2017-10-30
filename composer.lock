@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccc6e509a97cf6b0afe41d78834d3c70",
+    "content-hash": "5c8d31d2a51a7582692651001e53cf88",
     "packages": [
         {
             "name": "bpocallaghan/alert",
@@ -64,16 +64,16 @@
         },
         {
             "name": "bpocallaghan/changelogs",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bpocallaghan/changelogs.git",
-                "reference": "9316d563ea4fb7c4f7c9a0c66f55604f5a0f4bcd"
+                "reference": "89ab4ddc8c9c1bee027f146ff17bd70c36d3fc82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bpocallaghan/changelogs/zipball/9316d563ea4fb7c4f7c9a0c66f55604f5a0f4bcd",
-                "reference": "9316d563ea4fb7c4f7c9a0c66f55604f5a0f4bcd",
+                "url": "https://api.github.com/repos/bpocallaghan/changelogs/zipball/89ab4ddc8c9c1bee027f146ff17bd70c36d3fc82",
+                "reference": "89ab4ddc8c9c1bee027f146ff17bd70c36d3fc82",
                 "shasum": ""
             },
             "require": {
@@ -82,7 +82,9 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": []
+                    "providers": [
+                        "Bpocallaghan\\Changelogs\\ChangelogsServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -107,7 +109,59 @@
                 "cms",
                 "laravel"
             ],
-            "time": "2017-10-27T14:02:05+00:00"
+            "time": "2017-10-29T11:11:24+00:00"
+        },
+        {
+            "name": "bpocallaghan/corporate",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpocallaghan/corporate.git",
+                "reference": "ec1aeaa8f5838421108782a3e14d410160f61336"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpocallaghan/corporate/zipball/ec1aeaa8f5838421108782a3e14d410160f61336",
+                "reference": "ec1aeaa8f5838421108782a3e14d410160f61336",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bpocallaghan\\Corporate\\CorporateServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bpocallaghan\\Corporate\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben-Piet O'Callaghan",
+                    "email": "bpocallaghan@gmail.com"
+                }
+            ],
+            "description": "Add annual reports, tenders and vacancies to your laravel admin project - https://github.com/bpocallaghan/laravel-admin-starter",
+            "keywords": [
+                "admin",
+                "annual reports",
+                "cms",
+                "corporate",
+                "laravel",
+                "tenders",
+                "vacancies"
+            ],
+            "time": "2017-10-29T12:39:06+00:00"
         },
         {
             "name": "bpocallaghan/impersonate",
@@ -731,16 +785,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.31",
+            "version": "v0.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client-services.git",
-                "reference": "81eded7af428ae49e1ba8ddb44689fa5995d9bb5"
+                "reference": "297db7f5557dc8beba00a4e824abcaa595382269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/81eded7af428ae49e1ba8ddb44689fa5995d9bb5",
-                "reference": "81eded7af428ae49e1ba8ddb44689fa5995d9bb5",
+                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/297db7f5557dc8beba00a4e824abcaa595382269",
+                "reference": "297db7f5557dc8beba00a4e824abcaa595382269",
                 "shasum": ""
             },
             "require": {
@@ -764,7 +818,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2017-10-21T00:23:31+00:00"
+            "time": "2017-10-28T00:23:44+00:00"
         },
         {
             "name": "google/auth",

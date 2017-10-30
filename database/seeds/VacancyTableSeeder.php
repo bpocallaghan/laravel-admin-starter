@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Vacancy;
+use Bpocallaghan\Corporate\Models\Vacancy;
 
 class VacancyTableSeeder extends Seeder
 {
