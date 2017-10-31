@@ -17,18 +17,26 @@
 | WEBSITE
 |--------------------------------------------------------------------------
 */
+// faq
+Route::group(['prefix' => 'faq', 'namespace' => 'FAQ\Controllers\Website'], function () {
+    Route::get('', 'FAQController@index');
+    Route::post('/question/{faq}/{type?}', 'FAQController@incrementClick');
+});
+
 // changelogs
 Route::resource('changelog', 'Changelogs\Controllers\Website\ChangelogsController');
 
 // corporate
-Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Website'], function () {
-    Route::get('/tenders', 'CorporateController@tenders');
-    Route::get('/vacancies', 'CorporateController@vacancies');
-    Route::get('/annual-reports', 'CorporateController@annualReports');
-    Route::post('/tenders/{tender}/download', 'CorporateController@downloadTender');
-    Route::post('/vacancies/{vacancy}/download', 'CorporateController@downloadVacancy');
-    Route::post('/annual-reports/{annual_report}/download', 'CorporateController@downloadAnnualReport');
-});
+Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Website'],
+    function () {
+        Route::get('/tenders', 'CorporateController@tenders');
+        Route::get('/vacancies', 'CorporateController@vacancies');
+        Route::get('/annual-reports', 'CorporateController@annualReports');
+        Route::post('/tenders/{tender}/download', 'CorporateController@downloadTender');
+        Route::post('/vacancies/{vacancy}/download', 'CorporateController@downloadVacancy');
+        Route::post('/annual-reports/{annual_report}/download',
+            'CorporateController@downloadAnnualReport');
+    });
 
 /*
 |--------------------------------------------------------------------------
@@ -40,13 +48,22 @@ Route::group([
     'middleware' => ['auth', 'auth.admin']
 ], function () {
 
+    // faq
+    Route::group(['namespace' => 'FAQ\Controllers\Admin'], function () {
+        Route::resource('/faqs/categories', 'CategoriesController');
+        Route::get('faqs/order', 'OrderController@index');
+        Route::post('faqs/order', 'OrderController@updateOrder');
+        Route::resource('/faqs', 'FAQsController');
+    });
+
     // changelogs
     Route::resource('settings/changelogs', 'Changelogs\Controllers\Admin\ChangelogsController');
 
     // corporate
-    Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Admin'], function () {
-        Route::resource('tenders', 'TendersController');
-        Route::resource('vacancies', 'VacanciesController');
-        Route::resource('annual-reports', 'AnnualReportsController');
-    });
+    Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Admin'],
+        function () {
+            Route::resource('tenders', 'TendersController');
+            Route::resource('vacancies', 'VacanciesController');
+            Route::resource('annual-reports', 'AnnualReportsController');
+        });
 });

@@ -43,7 +43,6 @@
 
                         <div class="col-md-4">
                             <ul>
-                                <li>FAQ</li>
                                 <li>Blog</li>
                                 <li>Pricing</li>
                                 <li>Banners</li>
@@ -65,7 +64,12 @@
                     <ul>
                         <li>
                             <a href="https://github.com/bpocallaghan/changelogs" target="_blank">Changelogs</a>
+                        </li>
+                        <li>
                             <a href="https://github.com/bpocallaghan/corporate" target="_blank">Corporate</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/bpocallaghan/faq" target="_blank">Frequently Asked Questions</a>
                         </li>
                     </ul>
                 </div>

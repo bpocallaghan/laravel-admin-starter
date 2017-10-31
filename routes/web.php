@@ -19,14 +19,9 @@
 Route::redirect('/home', '/');
 Route::group(['namespace' => 'Website'], function () {
     Route::get('/', 'HomeController@index');
-    //Route::get('/about', 'AboutController@index');
     Route::get('/contact-us', 'ContactUsController@index');
     Route::post('/contact-us/submit', 'ContactUsController@feedback');
     Route::get('/contact-us/post-offices', 'PostOfficesController@index');
-
-    // faq
-    Route::get('/faq', 'FAQController@index');
-    Route::post('/faq/question/{faq}/{type?}', 'FAQController@incrementClick');
 
     // content
     Route::get('/testimonials', 'PagesController@testimonials');
@@ -184,12 +179,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('/albums', 'AlbumsController', ['except' => 'show']);
             Route::get('/albums/{album}', 'PhotosController@showAlbumPhotos');
         });
-
-        // faq
-        Route::resource('/faqs/categories', 'Faq\CategoriesController');
-        Route::get('faqs/order', 'Faq\OrderController@index');
-        Route::post('faqs/order', 'Faq\OrderController@updateOrder');
-        Route::resource('/faqs', 'Faq\FaqsController');
 
         // corporate
         Route::group(['prefix' => 'newsletter', 'namespace' => 'Newsletter'], function () {

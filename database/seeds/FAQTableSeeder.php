@@ -1,12 +1,12 @@
 <?php
 
-use App\Models\FaqCategory;
 use Illuminate\Database\Seeder;
-use App\Models\FAQ;
+use Bpocallaghan\FAQ\Models\FAQ;
+use Bpocallaghan\FAQ\Models\FaqCategory;
 
 class FAQTableSeeder extends Seeder
 {
-    public function run(Faker\Generator $faker)
+    public function run(\Faker\Generator $faker)
     {
         FAQ::truncate();
         FaqCategory::truncate();

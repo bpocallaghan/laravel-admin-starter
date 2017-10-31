@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c8d31d2a51a7582692651001e53cf88",
+    "content-hash": "01e4fb6d84c19cfcbdfc7f6ba26daae3",
     "packages": [
         {
             "name": "bpocallaghan/alert",
@@ -162,6 +162,56 @@
                 "vacancies"
             ],
             "time": "2017-10-29T12:39:06+00:00"
+        },
+        {
+            "name": "bpocallaghan/faq",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpocallaghan/faq.git",
+                "reference": "4bbffdc95a645f3224a9519fb911be7a38b585fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpocallaghan/faq/zipball/4bbffdc95a645f3224a9519fb911be7a38b585fc",
+                "reference": "4bbffdc95a645f3224a9519fb911be7a38b585fc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bpocallaghan\\FAQ\\FAQServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bpocallaghan\\FAQ\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben-Piet O'Callaghan",
+                    "email": "bpocallaghan@gmail.com"
+                }
+            ],
+            "description": "Add Frequently Asked Questions to your laravel admin project - https://github.com/bpocallaghan/laravel-admin-starter",
+            "keywords": [
+                "FAQ",
+                "admin",
+                "cms",
+                "frequently asked questions",
+                "laravel"
+            ],
+            "time": "2017-10-31T12:09:59+00:00"
         },
         {
             "name": "bpocallaghan/impersonate",
@@ -2336,16 +2386,16 @@
         },
         {
             "name": "spatie/laravel-analytics",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-analytics.git",
-                "reference": "274610724df301f4a1636281e16a5dc8f06bbb00"
+                "reference": "e1c517041a103f065b1406a80964fa2482b11395"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-analytics/zipball/274610724df301f4a1636281e16a5dc8f06bbb00",
-                "reference": "274610724df301f4a1636281e16a5dc8f06bbb00",
+                "url": "https://api.github.com/repos/spatie/laravel-analytics/zipball/e1c517041a103f065b1406a80964fa2482b11395",
+                "reference": "e1c517041a103f065b1406a80964fa2482b11395",
                 "shasum": ""
             },
             "require": {
@@ -2399,7 +2449,7 @@
                 "retrieve",
                 "spatie"
             ],
-            "time": "2017-08-30T23:45:36+00:00"
+            "time": "2017-10-30T19:26:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
