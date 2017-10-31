@@ -71,6 +71,9 @@
                         <li>
                             <a href="https://github.com/bpocallaghan/faq" target="_blank">Frequently Asked Questions</a>
                         </li>
+                        <li>
+                            <a href="https://github.com/bpocallaghan/testimonials" target="_blank">Testimonials</a>
+                        </li>
                     </ul>
                 </div>
             </div>

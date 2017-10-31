@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "01e4fb6d84c19cfcbdfc7f6ba26daae3",
+    "content-hash": "b6d12b22bc74ffe79dccb2408d787ac7",
     "packages": [
         {
             "name": "bpocallaghan/alert",
@@ -367,6 +367,55 @@
                 "unique"
             ],
             "time": "2017-07-07T13:34:31+00:00"
+        },
+        {
+            "name": "bpocallaghan/testimonials",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpocallaghan/testimonials.git",
+                "reference": "25b651b4e3e9327a9b51ba75a085a21c767c0156"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpocallaghan/testimonials/zipball/25b651b4e3e9327a9b51ba75a085a21c767c0156",
+                "reference": "25b651b4e3e9327a9b51ba75a085a21c767c0156",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bpocallaghan\\Testimonials\\TestimonialsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bpocallaghan\\Testimonials\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben-Piet O'Callaghan",
+                    "email": "bpocallaghan@gmail.com"
+                }
+            ],
+            "description": "Add Testimonials to your laravel admin project - https://github.com/bpocallaghan/laravel-admin-starter",
+            "keywords": [
+                "admin",
+                "cms",
+                "laravel",
+                "testimonials"
+            ],
+            "time": "2017-10-31T13:48:58+00:00"
         },
         {
             "name": "bpocallaghan/titan",

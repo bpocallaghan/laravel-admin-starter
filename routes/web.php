@@ -24,7 +24,6 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/contact-us/post-offices', 'PostOfficesController@index');
 
     // content
-    Route::get('/testimonials', 'PagesController@testimonials');
     Route::get('/pricing', 'PricingController@index');
 
     // gallery
@@ -114,11 +113,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('tags', 'TagsController');
 
             Route::resource('banners', 'BannersController');
-
-            // testimonials
-            Route::get('testimonials/order', 'TestimonialsOrderController@index');
-            Route::post('testimonials/order', 'TestimonialsOrderController@updateOrder');
-            Route::resource('testimonials', 'TestimonialsController');
 
             // locations
             Route::group(['prefix' => 'locations', 'namespace' => 'Locations'], function () {

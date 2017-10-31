@@ -26,6 +26,9 @@ Route::group(['prefix' => 'faq', 'namespace' => 'FAQ\Controllers\Website'], func
 // changelogs
 Route::resource('changelog', 'Changelogs\Controllers\Website\ChangelogsController');
 
+// testimonials
+Route::resource('testimonials', 'Testimonials\Controllers\Website\TestimonialsController');
+
 // corporate
 Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Website'],
     function () {
@@ -58,6 +61,13 @@ Route::group([
 
     // changelogs
     Route::resource('settings/changelogs', 'Changelogs\Controllers\Admin\ChangelogsController');
+
+    // testimonials
+    Route::group(['prefix' => 'general', 'namespace' => 'Testimonials\Controllers\Admin'], function () {
+        Route::get('testimonials/order', 'OrderController@index');
+        Route::post('testimonials/order', 'OrderController@updateOrder');
+        Route::resource('testimonials', 'TestimonialsController');
+    });
 
     // corporate
     Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Admin'],

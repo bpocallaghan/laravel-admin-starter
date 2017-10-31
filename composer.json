@@ -31,6 +31,7 @@
         "bpocallaghan/impersonate": "^1.0",
         "bpocallaghan/corporate": "^0.0.1",
         "bpocallaghan/changelogs": "^0.0.3",
+        "bpocallaghan/testimonials": "^0.0.2",
         "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {

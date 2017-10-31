@@ -32,29 +32,4 @@ class PagesController extends WebsiteController
 
         return $this->view('pages.page')->with('activePage', $page);
     }
-
-    /**
-     * Show the changelog page
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function changelog()
-    {
-        $items = Changelog::orderBy('version', 'DESC')->get();
-
-        return $this->view('changelog', compact('items'));
-    }
-
-    /**
-     * Show the changelog page
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function testimonials()
-    {
-        $this->showPageBanner = true;
-        $items = Testimonial::orderBy('list_order')->get();
-
-        return $this->view('testimonials', compact('items'));
-    }
 }
