@@ -21,7 +21,6 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/contact-us', 'ContactUsController@index');
     Route::post('/contact-us/submit', 'ContactUsController@feedback');
-    Route::get('/contact-us/post-offices', 'PostOfficesController@index');
 
     // content
     Route::get('/pricing', 'PricingController@index');
