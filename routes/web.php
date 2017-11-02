@@ -22,9 +22,6 @@ Route::group(['namespace' => 'Website'], function () {
     Route::get('/contact-us', 'ContactUsController@index');
     Route::post('/contact-us/submit', 'ContactUsController@feedback');
 
-    // content
-    Route::get('/pricing', 'PricingController@index');
-
     // gallery
     Route::get('/gallery', 'GalleryController@index');
     Route::get('/gallery/{albumSlug}', 'GalleryController@showAlbum');
@@ -201,14 +198,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             // settings
             Route::resource('settings', 'SettingsController');
 
-            // subscription plans
-            Route::resource('subscription-plans/features', 'FeaturesController');
-            Route::resource('subscription-plans', 'SubscriptionPlansController');
-            Route::get('subscription-plans/{subscription_plan}/features/order',
-                'SubscriptionPlansController@showFeaturesOrder');
-            Route::post('subscription-plans/{subscription_plan}/features/order',
-                'SubscriptionPlansController@updateFeaturesOrder');
-
             // users
             Route::get('administrators/invites', 'AdministratorsController@showInvites');
             Route::post('administrators/invites', 'AdministratorsController@postInvite');
@@ -221,7 +210,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('navigation', 'NavigationController');
         });
     });
-
 
 /*
 |--------------------------------------------------------------------------

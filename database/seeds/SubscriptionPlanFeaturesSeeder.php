@@ -1,7 +1,9 @@
 <?php
 
-use App\Models\SubscriptionPlanFeature;
+
+
 use Illuminate\Database\Seeder;
+use Bpocallaghan\Subscriptions\Models\SubscriptionPlanFeature;
 
 class SubscriptionPlanFeaturesSeeder extends Seeder
 {

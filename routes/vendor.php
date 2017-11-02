@@ -41,6 +41,9 @@ Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Web
             'CorporateController@downloadAnnualReport');
     });
 
+// subscriptions
+Route::resource('pricing', 'Subscriptions\Controllers\Website\SubscriptionsController');
+
 /*
 |--------------------------------------------------------------------------
 | ADMIN
@@ -63,19 +66,21 @@ Route::group([
     Route::resource('settings/changelogs', 'Changelogs\Controllers\Admin\ChangelogsController');
 
     // testimonials
-    Route::group(['prefix' => 'general', 'namespace' => 'Testimonials\Controllers\Admin'], function () {
-        Route::get('testimonials/order', 'OrderController@index');
-        Route::post('testimonials/order', 'OrderController@updateOrder');
-        Route::resource('testimonials', 'TestimonialsController');
-    });
+    Route::group(['prefix' => 'general', 'namespace' => 'Testimonials\Controllers\Admin'],
+        function () {
+            Route::get('testimonials/order', 'OrderController@index');
+            Route::post('testimonials/order', 'OrderController@updateOrder');
+            Route::resource('testimonials', 'TestimonialsController');
+        });
 
     // locations
-    Route::group(['prefix' => 'general/locations', 'namespace' => 'Locations\Controllers\Admin'], function () {
-        Route::resource('suburbs', 'SuburbsController');
-        Route::resource('cities', 'CitiesController');
-        Route::resource('provinces', 'ProvincesController');
-        Route::resource('countries', 'CountriesController');
-    });
+    Route::group(['prefix' => 'general/locations', 'namespace' => 'Locations\Controllers\Admin'],
+        function () {
+            Route::resource('suburbs', 'SuburbsController');
+            Route::resource('cities', 'CitiesController');
+            Route::resource('provinces', 'ProvincesController');
+            Route::resource('countries', 'CountriesController');
+        });
 
     // corporate
     Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Admin'],
@@ -83,5 +88,16 @@ Route::group([
             Route::resource('tenders', 'TendersController');
             Route::resource('vacancies', 'VacanciesController');
             Route::resource('annual-reports', 'AnnualReportsController');
+        });
+
+    // subscription plans
+    Route::group(['prefix' => 'settings', 'namespace' => 'Subscriptions\Controllers\Admin'],
+        function () {
+            Route::resource('subscription-plans/features', 'FeaturesController');
+            Route::resource('subscription-plans', 'SubscriptionPlansController');
+            Route::get('subscription-plans/{subscription_plan}/features/order',
+                'SubscriptionPlansController@showFeaturesOrder');
+            Route::post('subscription-plans/{subscription_plan}/features/order',
+                'SubscriptionPlansController@updateFeaturesOrder');
         });
 });

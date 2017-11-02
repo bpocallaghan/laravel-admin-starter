@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "22b2307452dcf2871b75993a8d1dd0da",
+    "content-hash": "b3de4f45ae1bbc2e786e78881b119e43",
     "packages": [
         {
             "name": "bpocallaghan/alert",
@@ -420,6 +420,58 @@
                 "unique"
             ],
             "time": "2017-07-07T13:34:31+00:00"
+        },
+        {
+            "name": "bpocallaghan/subscriptions",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpocallaghan/subscriptions.git",
+                "reference": "afbb0f70de89ee451852f6233198c63832b583ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpocallaghan/subscriptions/zipball/afbb0f70de89ee451852f6233198c63832b583ea",
+                "reference": "afbb0f70de89ee451852f6233198c63832b583ea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bpocallaghan\\Subscriptions\\SubscriptionsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bpocallaghan\\Subscriptions\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben-Piet O'Callaghan",
+                    "email": "bpocallaghan@gmail.com"
+                }
+            ],
+            "description": "Add Subscription Plans to your laravel admin project - https://github.com/bpocallaghan/laravel-admin-starter",
+            "keywords": [
+                "admin",
+                "billing",
+                "cms",
+                "laravel",
+                "plans",
+                "subscription",
+                "subscriptions"
+            ],
+            "time": "2017-11-02T12:31:06+00:00"
         },
         {
             "name": "bpocallaghan/testimonials",

@@ -1,7 +1,10 @@
 <?php
 
+
+
 use Illuminate\Database\Seeder;
-use App\Models\SubscriptionPlan;
+use Bpocallaghan\Subscriptions\Models\SubscriptionPlan;
+use Bpocallaghan\Subscriptions\Models\SubscriptionPlanFeature;
 
 class SubscriptionPlanTableSeeder extends Seeder
 {
@@ -25,7 +28,7 @@ class SubscriptionPlanTableSeeder extends Seeder
             ]);
 
             // get 5 features for each and set list order
-            $featureRows = \App\Models\SubscriptionPlanFeature::where('id', '>=', ($key * 5))
+            $featureRows = SubscriptionPlanFeature::where('id', '>=', ($key * 5))
                 ->where('id', '<=', ($key * 5 + 5))
                 ->get();
 
