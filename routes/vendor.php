@@ -69,6 +69,14 @@ Route::group([
         Route::resource('testimonials', 'TestimonialsController');
     });
 
+    // locations
+    Route::group(['prefix' => 'general/locations', 'namespace' => 'Locations\Controllers\Admin'], function () {
+        Route::resource('suburbs', 'SuburbsController');
+        Route::resource('cities', 'CitiesController');
+        Route::resource('provinces', 'ProvincesController');
+        Route::resource('countries', 'CountriesController');
+    });
+
     // corporate
     Route::group(['prefix' => 'corporate', 'namespace' => 'Corporate\Controllers\Admin'],
         function () {

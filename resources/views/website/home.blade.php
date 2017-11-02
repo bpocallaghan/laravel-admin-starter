@@ -43,12 +43,13 @@
 
                         <div class="col-md-4">
                             <ul>
+                                <li>Banners</li>
+                                <li>Page Builder</li>
+                                <li>Photos</li>
+                                <li>Documents</li>
                                 <li>Blog</li>
                                 <li>Pricing</li>
-                                <li>Banners</li>
-                                <li>Gallery</li>
-                                <li>Locations</li>
-                                <li>Testimonials</li>
+                                <li>News and Events</li>
                             </ul>
                         </div>
                     </div>
@@ -73,6 +74,9 @@
                         </li>
                         <li>
                             <a href="https://github.com/bpocallaghan/testimonials" target="_blank">Testimonials</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/bpocallaghan/locations" target="_blank">Locations</a>
                         </li>
                     </ul>
                 </div>

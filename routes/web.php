@@ -113,14 +113,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
 
             Route::resource('banners', 'BannersController');
 
-            // locations
-            Route::group(['prefix' => 'locations', 'namespace' => 'Locations'], function () {
-                Route::resource('suburbs', 'SuburbsController');
-                Route::resource('cities', 'CitiesController');
-                Route::resource('provinces', 'ProvincesController');
-                Route::resource('countries', 'CountriesController');
-            });
-
             Route::resource('clients', 'ClientsController');
         });
 

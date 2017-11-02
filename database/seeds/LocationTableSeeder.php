@@ -1,15 +1,16 @@
 <?php
 
-use App\Models\City;
-use App\Models\Country;
-use App\Models\Province;
-use App\Models\Suburb;
+
+
+use Bpocallaghan\Locations\Models\City;
+use Bpocallaghan\Locations\Models\Country;
+use Bpocallaghan\Locations\Models\Province;
+use Bpocallaghan\Locations\Models\Suburb;
 use Illuminate\Database\Seeder;
-use App\Models\Location;
 
 class LocationTableSeeder extends Seeder
 {
-    public function run(Faker\Generator $faker)
+    public function run(\Faker\Generator $faker)
     {
         City::truncate();
         Suburb::truncate();

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6d12b22bc74ffe79dccb2408d787ac7",
+    "content-hash": "22b2307452dcf2871b75993a8d1dd0da",
     "packages": [
         {
             "name": "bpocallaghan/alert",
@@ -266,6 +266,59 @@
                 "login as"
             ],
             "time": "2017-09-20T07:35:08+00:00"
+        },
+        {
+            "name": "bpocallaghan/locations",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpocallaghan/locations.git",
+                "reference": "2e0354952302ab5030fdd8c32b5146e6acbaf2b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpocallaghan/locations/zipball/2e0354952302ab5030fdd8c32b5146e6acbaf2b4",
+                "reference": "2e0354952302ab5030fdd8c32b5146e6acbaf2b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bpocallaghan\\Locations\\LocationsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bpocallaghan\\Locations\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben-Piet O'Callaghan",
+                    "email": "bpocallaghan@gmail.com"
+                }
+            ],
+            "description": "Add countries, provinces, cities and suburbs to your laravel admin project - https://github.com/bpocallaghan/laravel-admin-starter",
+            "keywords": [
+                "admin",
+                "cities",
+                "cms",
+                "countries",
+                "laravel",
+                "locations",
+                "provinces",
+                "suburbs"
+            ],
+            "time": "2017-11-02T09:11:28+00:00"
         },
         {
             "name": "bpocallaghan/notify",
@@ -1752,7 +1805,7 @@
         },
         {
             "name": "mtdowling/cron-expression",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtdowling/cron-expression.git",
@@ -3401,16 +3454,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v8.3.1",
+            "version": "v8.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "b5ecb425414b1baf2ce2f82fe2849e77e51230e0"
+                "reference": "8c3490d7a810824da147161033d6ef272d7c8726"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/b5ecb425414b1baf2ce2f82fe2849e77e51230e0",
-                "reference": "b5ecb425414b1baf2ce2f82fe2849e77e51230e0",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/8c3490d7a810824da147161033d6ef272d7c8726",
+                "reference": "8c3490d7a810824da147161033d6ef272d7c8726",
                 "shasum": ""
             },
             "require": {
@@ -3467,7 +3520,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2017-10-27T06:13:31+00:00"
+            "time": "2017-11-02T02:30:46+00:00"
         }
     ],
     "packages-dev": [
@@ -3924,16 +3977,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.14.0",
+            "version": "v1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "e23a98f2d65607d8aa6c7b409a513f8fdf4acdde"
+                "reference": "64251a392344e3d22f3d21c3b7c531ba96eb01d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/e23a98f2d65607d8aa6c7b409a513f8fdf4acdde",
-                "reference": "e23a98f2d65607d8aa6c7b409a513f8fdf4acdde",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/64251a392344e3d22f3d21c3b7c531ba96eb01d2",
+                "reference": "64251a392344e3d22f3d21c3b7c531ba96eb01d2",
                 "shasum": ""
             },
             "require": {
@@ -3981,7 +4034,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2017-08-17T07:17:00+00:00"
+            "time": "2017-09-13T12:19:36+00:00"
         },
         {
             "name": "mockery/mockery",
