@@ -32,10 +32,13 @@ if (COMPILE == 'website' || COMPILE == 'all') {
     var pathCSS = path + '/css/';
     var pathJS = path + '/js/';
 
+    mix.sass('resources/assets/sass/vendor.scss', pathCSS )
+        .setPublicPath('resources');
+
     mix.styles([
+        pathCSS + 'vendor.css',
         pathCSS + 'vendor/animate.css',
         pathCSS + 'vendor/fancybox.css',
-        pathCSS + 'vendor/bootstrap.css',
         pathCSS + 'vendor/font-awesome.css',
         pathCSS + 'vendor/jquery.fancybox.css',
 
@@ -49,17 +52,15 @@ if (COMPILE == 'website' || COMPILE == 'all') {
         pathCSS + 'overrides.css',
     ], public + '/css/website.css');
 
-    // admin javascripts
+    // website javascripts
     mix.scripts([
-        // jquery
         pathJS + 'vendor/jquery-3.2.1.js',
-        // pathJS + 'vendor/jquery-2.2.2.js',
-        // bootstrap
+        pathJS + 'vendor/popper.js', // bootstrap dependency
         pathJS + 'vendor/bootstrap.js',
 
         pathJS + 'vendor/jquery.fancybox.min.js',
         pathJS + 'vendor/lazysizes.min.js',
-        pathJS + 'vendor/owl.carousel.min.js',
+        //pathJS + 'vendor/owl.carousel.min.js',
 
         pathJS + 'titan/alerts.js',
         pathJS + 'titan/buttons.js',

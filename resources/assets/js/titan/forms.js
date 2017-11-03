@@ -113,6 +113,7 @@ var FormClass = function (options)
                 // when custom ajax error
                 if (response['success'] == 0 && response['error']) {
                     root.showAlert(alert, 'danger', response['error']['title']);
+                    BTN.reset(form.find('[type="submit"]')); // reset button
                     return false;
                 }
 
@@ -147,8 +148,6 @@ var FormClass = function (options)
                     errors = errors.errors;
                 }
 
-                $(spinner).slideUp();
-
                 var messages = '';
                 for (var key in errors) {
                     if (errors.hasOwnProperty(key)) {
@@ -161,6 +160,8 @@ var FormClass = function (options)
                     }
                 }
 
+                $(spinner).slideUp();
+                BTN.reset(form.find('[type="submit"]'));
                 root.showAlert(alert, 'danger', messages);
             }
         });

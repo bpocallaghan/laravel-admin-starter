@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3de4f45ae1bbc2e786e78881b119e43",
+    "content-hash": "853bfbb6ee9f0aa3cef1dd6a925cd73f",
     "packages": [
         {
             "name": "bpocallaghan/alert",
@@ -165,16 +165,16 @@
         },
         {
             "name": "bpocallaghan/faq",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bpocallaghan/faq.git",
-                "reference": "4bbffdc95a645f3224a9519fb911be7a38b585fc"
+                "reference": "7dd84fdec814e2aff4db6225ab6afcc847f3d39b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bpocallaghan/faq/zipball/4bbffdc95a645f3224a9519fb911be7a38b585fc",
-                "reference": "4bbffdc95a645f3224a9519fb911be7a38b585fc",
+                "url": "https://api.github.com/repos/bpocallaghan/faq/zipball/7dd84fdec814e2aff4db6225ab6afcc847f3d39b",
+                "reference": "7dd84fdec814e2aff4db6225ab6afcc847f3d39b",
                 "shasum": ""
             },
             "require": {
@@ -211,7 +211,7 @@
                 "frequently asked questions",
                 "laravel"
             ],
-            "time": "2017-10-31T12:09:59+00:00"
+            "time": "2017-11-02T14:50:30+00:00"
         },
         {
             "name": "bpocallaghan/impersonate",
@@ -423,16 +423,16 @@
         },
         {
             "name": "bpocallaghan/subscriptions",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bpocallaghan/subscriptions.git",
-                "reference": "afbb0f70de89ee451852f6233198c63832b583ea"
+                "reference": "7c6527e451067db8cba0a86268ae46b5cbbd2862"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bpocallaghan/subscriptions/zipball/afbb0f70de89ee451852f6233198c63832b583ea",
-                "reference": "afbb0f70de89ee451852f6233198c63832b583ea",
+                "url": "https://api.github.com/repos/bpocallaghan/subscriptions/zipball/7c6527e451067db8cba0a86268ae46b5cbbd2862",
+                "reference": "7c6527e451067db8cba0a86268ae46b5cbbd2862",
                 "shasum": ""
             },
             "require": {
@@ -471,20 +471,20 @@
                 "subscription",
                 "subscriptions"
             ],
-            "time": "2017-11-02T12:31:06+00:00"
+            "time": "2017-11-03T13:11:44+00:00"
         },
         {
             "name": "bpocallaghan/testimonials",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bpocallaghan/testimonials.git",
-                "reference": "25b651b4e3e9327a9b51ba75a085a21c767c0156"
+                "reference": "1e7f5f4cce42fbe39beb7c1619a4a260b65cfa5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bpocallaghan/testimonials/zipball/25b651b4e3e9327a9b51ba75a085a21c767c0156",
-                "reference": "25b651b4e3e9327a9b51ba75a085a21c767c0156",
+                "url": "https://api.github.com/repos/bpocallaghan/testimonials/zipball/1e7f5f4cce42fbe39beb7c1619a4a260b65cfa5e",
+                "reference": "1e7f5f4cce42fbe39beb7c1619a4a260b65cfa5e",
                 "shasum": ""
             },
             "require": {
@@ -520,7 +520,7 @@
                 "laravel",
                 "testimonials"
             ],
-            "time": "2017-10-31T13:48:58+00:00"
+            "time": "2017-11-03T13:01:04+00:00"
         },
         {
             "name": "bpocallaghan/titan",
@@ -930,16 +930,16 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "f3fadd538315d62ebd1191d89ac791468c617260"
+                "reference": "b69b8ac4bf6501793c389d4e013a79d09c85c5f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/f3fadd538315d62ebd1191d89ac791468c617260",
-                "reference": "f3fadd538315d62ebd1191d89ac791468c617260",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/b69b8ac4bf6501793c389d4e013a79d09c85c5f2",
+                "reference": "b69b8ac4bf6501793c389d4e013a79d09c85c5f2",
                 "shasum": ""
             },
             "require": {
@@ -985,7 +985,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2017-07-10T15:34:54+00:00"
+            "time": "2017-11-03T01:19:53+00:00"
         },
         {
             "name": "google/apiclient-services",
@@ -2540,16 +2540,16 @@
         },
         {
             "name": "spatie/laravel-analytics",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-analytics.git",
-                "reference": "e1c517041a103f065b1406a80964fa2482b11395"
+                "reference": "85c2198131bf3822f3fc270e362223ee6406a436"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-analytics/zipball/e1c517041a103f065b1406a80964fa2482b11395",
-                "reference": "e1c517041a103f065b1406a80964fa2482b11395",
+                "url": "https://api.github.com/repos/spatie/laravel-analytics/zipball/85c2198131bf3822f3fc270e362223ee6406a436",
+                "reference": "85c2198131bf3822f3fc270e362223ee6406a436",
                 "shasum": ""
             },
             "require": {
@@ -2603,7 +2603,7 @@
                 "retrieve",
                 "spatie"
             ],
-            "time": "2017-10-30T19:26:50+00:00"
+            "time": "2017-11-03T08:54:13+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4949,30 +4949,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a"
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
                 "sebastian/diff": "^2.0",
-                "sebastian/exporter": "^3.0"
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -5003,13 +5003,13 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-03T07:14:59+00:00"
+            "time": "2017-11-03T07:16:52+00:00"
         },
         {
             "name": "sebastian/diff",

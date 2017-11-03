@@ -1,31 +1,33 @@
 /* Testimonial Carousel */
 #testimonial-carousel {
-    padding: 0 10px 30px 10px;
+    padding: 0 10px 45px 10px;
     margin-top: 30px;
 }
 
-#testimonial-carousel .carousel-control {
+#testimonial-carousel .carousel-control-prev, #testimonial-carousel .carousel-control-next {
     background: none;
     color: #CACACA;
-    font-size: 2.3em;
     text-shadow: none;
     margin-top: 30px;
 }
 
-#testimonial-carousel .carousel-control.left {
+#testimonial-carousel .carousel-control-prev {
     left: -20px;
 }
 
-#testimonial-carousel .carousel-control.right {
+#testimonial-carousel .carousel-control-next {
     right: -20px;
 }
-
-#testimonial-carousel .carousel-indicators {
-    right: 50%;
-    top: auto;
-    bottom: 0px;
-    margin-right: -19px;
+#testimonial-carousel .carousel-control-prev, #testimonial-carousel .carousel-control-next {
+    color:  #255d78;
 }
+
+/*#testimonial-carousel .carousel-indicators {*/
+    /*right: 50%;*/
+    /*top: auto;*/
+    /*bottom: 0px;*/
+    /*margin-right: -19px;*/
+/*}*/
 
 #testimonial-carousel .carousel-indicators li {
     width: 20px;
@@ -40,7 +42,7 @@
 }
 
 #testimonial-carousel .carousel-indicators .active {
-    background: #337ab7;
+    background: #255d78;
     width: 20px;
     height: 20px;
     border-radius: 100px;

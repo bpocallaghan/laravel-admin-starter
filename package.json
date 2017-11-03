@@ -11,7 +11,8 @@
     },
     "devDependencies": {
         "cross-env": "^5.0.5",
-        "laravel-mix": "^1.4.5"
+        "laravel-mix": "^1.4.5",
+        "bootstrap": "^4.0.0-beta"
     },
     "dependencies": {}
 }

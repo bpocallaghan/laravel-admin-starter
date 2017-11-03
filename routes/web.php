@@ -29,6 +29,7 @@ Route::group(['namespace' => 'Website'], function () {
     // blog / articles
     Route::get('/blog', 'BlogController@index');
     Route::get('/blog/{articleSlug}', 'BlogController@show');
+
     // news and events
     Route::get('/news-and-events', 'NewsEventController@index');
     Route::get('/news-and-events/{newsSlug}', 'NewsEventController@show');

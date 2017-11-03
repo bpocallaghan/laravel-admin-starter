@@ -1,10 +1,10 @@
 @if(isset($breadcrumbItems))
     @if($page->id != 1)
-        <ol class="breadcrumb">
+        <ol class="breadcrumb bg-light">
             @foreach($breadcrumbItems as $item)
-                <li>
+                <li class="breadcrumb-item">
                     @if(!$loop->last)
-                        <a href="{{ $item->url }}">{{ $item->name }}</a>
+                        <a class="text-secondary" href="{{ $item->url }}">{{ $item->name }}</a>
                     @else
                         <span class="text-muted">{!! $item->name !!}</span>
                     @endif

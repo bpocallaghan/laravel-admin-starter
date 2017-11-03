@@ -20,3 +20,5 @@ resources/assets/images/home/
 resources/assets/images/fancy/
 resources/assets/js/vendor/jquery-2.2.2.js
 storage/google-analytics.p12
+resources/mix-manifest.json
+resources/assets/css/vendor.css

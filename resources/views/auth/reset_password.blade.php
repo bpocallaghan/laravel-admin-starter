@@ -1,13 +1,13 @@
-@extends('layouts.auth')
+@extends('layouts.website')
 
 @section('content')
-    <div class="row body">
-        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="row mt-4 body">
+        <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 col-sm-offset-2">
             <div class="margin-top-20">
                 @include('alert::alert')
             </div>
 
-            <h2 class="page-header">Reset Password</h2>
+            <h2 class="page-header mb-4">Reset Password</h2>
 
             <form action="/auth/password/reset" accept-charset="UTF-8" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>

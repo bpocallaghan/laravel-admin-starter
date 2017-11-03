@@ -1,31 +1,28 @@
 <div class="container">
-    <div class="padding-bottom-10">
+    <div class="row p-3 d-flex align-items-center">
         <a href="/" class="logo" title="{{ config('app.name') }}">
             <img src="/images/logo.png">
         </a>
+        <div class="ml-auto" role="group" aria-label="...">
+            {{--@foreach($navigationFeatured as $item)--}}
+                {{--<a class="btn btn-link" href="{{ $item->url }}">{!! $item->name !!}</a>--}}
+            {{--@endforeach--}}
 
-        <div class="text-center pull-right">
-            <div>
-                @if(!\Auth::check())
-                    <a href="#" class="" data-icon="fa-sign-in" data-toggle="modal" data-target="#modal-login">
-                        <i class="fa fa-sign-in"></i>
-                        Login
-                    </a>
-                    or
-                    <a href="/auth/register" class="" data-icon="fa-edit">
-                        Register
-                    </a>
-                @else
-                    <br/>
+            @if(!\Auth::check())
+                <a href="#" class="btn btn-outline-primary" data-icon="fa-sign-in" data-toggle="modal" data-target="#modal-login">
+                    <i class="fa fa-sign-in"></i>
+                    Login
+                </a>
+                <a href="/auth/register" class="btn btn-outline-secondary" data-icon="fa-edit">
+                    Register
+                </a>
+            @else
+                @if(\Auth::check() && user()->hasRole('admin'))
+                   <a href="/admin" class="btn btn-link"><i class="fa fa-user-secret"></i> Admin</a>
                 @endif
-            </div>
-
-            <div class="btn-group" role="group" aria-label="...">
-                @foreach($navigationFeatured as $item)
-                    <a class="btn btn-default" href="{{ $item->url }}">{!! $item->name !!}</a>
-                @endforeach
-            </div>
+            @endif
         </div>
+
     </div>
 </div>
 

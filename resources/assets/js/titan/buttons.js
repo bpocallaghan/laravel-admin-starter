@@ -1,19 +1,14 @@
 /*
  * Button Class
  */
-var ButtonClass = function (options)
+var ButtonClass = function ()
 {
-    /*
-     * Can access this.method
-     * inside other methods using
-     * root.method()
-     */
     var root = this;
 
     /*
      * Constructor
      */
-    this.construct = function (options)
+    this.construct = function ()
     {
         root.activate();
     };
@@ -24,11 +19,12 @@ var ButtonClass = function (options)
      */
     this.loading = function (btn)
     {
-        $(btn).attr('data-loading-text', "<i class='fa fa-spin fa-refresh'></i>");
+        $(btn).attr('data-reset', $(btn).html());
+        $(btn).attr('data-loading', "<i class='fa fa-spin fa-refresh'></i>");
         $(btn).each(function ()
         {
-            $(this).attr('data-loading-text', "<i class='fa fa-spin fa-refresh'></i>");
-            $(this).button('loading');
+            console.log('loading loading');
+            buttonDisable($(this));
         })
     }
 
@@ -40,27 +36,31 @@ var ButtonClass = function (options)
     {
         $(btn).each(function ()
         {
-            $(this).button('reset');
+            buttonEnable(btn);
+            //$(this).button('reset');
         })
     }
 
     // enable all buttons
     this.activate = function ()
     {
-        $('.btn-ajax-submit').attr('data-loading-text', "<i class='fa fa-spin fa-refresh'></i>");
         $('.btn-ajax-submit').each(function ()
         {
             buttonEnable($(this));
         });
 
+        // when button gets the disabled attribute
+        // the ajax form does not get triggered
+        return false;
+
         $('.btn-ajax-submit').off('click');
-        $('.btn-ajax-submit').on('click', function ()
+        $('.btn-ajax-submit').on('click', function (e)
         {
-            // buttonDisable($(this));
-            buttonDisable($(this));
+            console.log('clickckkkkkk');
+            root.loading($(this));
         });
 
-        $('.btn-submit').attr('data-loading-text', "<i class='fa fa-spin fa-refresh'></i>");
+        $('.btn-submit').attr('data-loading', "<i class='fa fa-spin fa-refresh'></i>");
         $('.btn-submit').on('click', function ()
         {
             $(this).button('loading');
@@ -72,10 +72,14 @@ var ButtonClass = function (options)
     {
         btn.each(function ()
         {
-            // $(this).prop('disabled', false);
-            // $(this).html($(this).attr('data-text'));
+            //$(this).button('reset');
 
-            $(this).button('reset');
+            console.log('buttonEnable buttonEnable buttonEnable');
+
+            $(this).prop('disabled', false);
+            $(this).html($(this).attr('data-reset'));
+
+            $(this).attr('data-is-loading', false);
         })
     }
 
@@ -84,17 +88,19 @@ var ButtonClass = function (options)
     {
         btn.each(function ()
         {
-            // reset the text (some buttons change their text)
-            $(this).attr('data-text', $(this).html());
+            console.log('buttonDisable buttonDisable');
+            //$(this).button('loading');
+
+            $(this).prop('disabled', true);
+            $(this).attr('data-is-loading', true);
+            $(this).html($(this).attr('data-loading'));
 
             // disable (chrome messes this up)
             // form does not get submitted on chrome
             // $(this).prop('disabled', true);
 
             // show loading
-            // $(this).html('loading...');
-
-            $(this).button('loading');
+            //$(this).button('loading');
         })
     }
 

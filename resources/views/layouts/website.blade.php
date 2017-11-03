@@ -31,22 +31,22 @@
         @yield('styles')
     </head>
 
-    <body id="top">
-        <h1 class="hidden">{{ isset($title) ? $title : config('app.name') }}</h1>
+    <body id="top" class="d-flex flex-column align-items-end">
+        <h1 class="d-none">{{ isset($title) ? $title : config('app.name') }}</h1>
 
         @if(config('app.env') != 'local')
             @include('partials.facebook')
         @endif
 
-        @include('website.partials.navigation')
-
         @include('website.partials.header')
+
+        @include('website.partials.navigation')
 
         @if(isset($showPageBanner) && $showPageBanner == true || !isset($showPageBanner))
             @include('website.partials.banner')
         @endif
 
-        <div class="container">
+        <div class="container mb-5">
             @yield('content')
         </div>
 
@@ -55,11 +55,11 @@
         @include('website.partials.popups')
 
         {{-- back to top --}}
-        <a href="#top" class="back-to-top jumper btn btn-primary">
+        <a href="#top" class="back-to-top jumper btn btn-secondary">
             <i class="fa fa-angle-up"></i>
         </a>
 
-        <script type="text/javascript" charset="utf-8" src="/js/website.js?v=3"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/website.js?v=1"></script>
 
         @yield('scripts')
 

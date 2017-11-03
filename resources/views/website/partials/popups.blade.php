@@ -53,24 +53,24 @@
     <div class="modal fade" tabindex="-1" role="dialog" id="modal-login">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" data-icon="fa-sign-in">Login</h4>
-                </div>
-                <div class="modal-body">
-                    <p class="text-center">To access your account you will need to Login.</p>
-                    <form id="form-login" method="POST" action="/auth/login" class="form-horizontal">
-                        {!! csrf_field() !!}
+                <form id="form-login" method="POST" action="/auth/login">
+                    {!! csrf_field() !!}
 
-                        <div class="form-group">
+                    <div class="modal-header">
+                        <h4 class="modal-title" data-icon="fa-sign-in">Login</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>To access your account you will need to Login.</p>
+                        <div class="row form-group">
                             <label for="email" class="col-sm-4 control-label">Email Address:</label>
                             <div class="col-sm-8">
                                 <input name="email" class="form-control" type="email" placeholder="Email Address">
                                 {!! form_error_message('email', $errors) !!}
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="row form-group">
                             <label for="password" class="col-sm-4 control-label">Password:</label>
                             <div class="col-sm-8">
                                 <input name="password" class="form-control" type="password" placeholder="Password">
@@ -78,8 +78,8 @@
                                 <a href="{{ route('forgot-password') }}">Forgot your Password?</a>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-8">
+                        <div class="row form-group ">
+                            <div class="offset-sm-4 col-sm-8">
                                 <div class="checkbox">
                                     <label><input type="checkbox" name="remember" checked="checked">
                                         Keep me signed in
@@ -87,7 +87,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-feedback">
@@ -97,27 +96,24 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-8">
+                    </div>
+                    <div class="modal-footer d-block">
+                        <div class="row">
+                            <div class="col-sm-7">New to {{ config('app.name') }}?
+                                <a href="/auth/register">
+                                    Register here
+                                </a>
+                            </div>
+                            <div class="col-sm-5 text-right">
+                                <button type="button" class="btn btn-grey" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-info btn-ajax-submit" data-icon="fa-sign-in">
                                     Login
                                 </button>
                             </div>
                         </div>
-                    </form>
-                    <div class="row">
-                        <div class="col-sm-offset-4 col-sm-8">New to {{ config('app.name') }}?
-                            <a href="/auth/register">
-                                Register here
-                            </a>
-                        </div>
+
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close
-                    </button>
-                </div>
+                </form>
             </div>
         </div>
     </div>

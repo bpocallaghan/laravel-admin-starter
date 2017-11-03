@@ -1,7 +1,7 @@
 @extends('layouts.website')
 
 @section('content')
-    <section class="content bg-default padding padding-top padding-bottom">
+    <section class="content p-3">
         @include('website.partials.page_header'/*, ['pageTitle' => $article->title]*/)
 
         <div class="row">
@@ -26,7 +26,7 @@
                 <div class="gallery">
                     <div class="row">
                         @foreach($article->photos as $item)
-                            <div class="col-xs-6 col-md-4">
+                            <div class="col-sm-6 col-md-4">
                                 <figure>
                                     <a href="{{ $item->url }}" rel="group" title="{{ $item->name }}" data-fancybox="gallery" data-caption="{{ $item->name }}">
                                         <img src="{{ $item->thumbUrl }}" alt="{{ $item->name }}">

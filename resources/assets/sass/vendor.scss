@@ -1,0 +1,13 @@
+$theme-colors: (
+        "primary": #255d78,
+        "light": #f7f7f7,
+        "secondary": #82427a,
+        "dark": #222,
+        "grey": #adb5bd,
+);
+$colors: (
+        "purple": #82427a
+);
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+

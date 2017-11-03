@@ -22,7 +22,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.4",
         "laravel/framework": "5.5.*",
-        "bpocallaghan/faq": "^0.0.1",
+        "bpocallaghan/faq": "^0.0.2",
         "bpocallaghan/alert": "^1.1",
         "bpocallaghan/notify": "^2.1",
         "bpocallaghan/titan": "^0.2.9",
@@ -32,8 +32,8 @@
         "bpocallaghan/corporate": "^0.0.1",
         "bpocallaghan/locations": "^0.0.1",
         "bpocallaghan/changelogs": "^0.0.3",
-        "bpocallaghan/testimonials": "^0.0.2",
-        "bpocallaghan/subscriptions": "^0.0.1",
+        "bpocallaghan/testimonials": "^0.0.3",
+        "bpocallaghan/subscriptions": "^0.0.2",
         "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {

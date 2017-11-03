@@ -1,7 +1,7 @@
 @if($paginator->total() > 0)
     <div class="row paginator-footer">
-        <div class="col-md-6">
-            <p class="info-display">
+        <div class="col-md-12 col-lg-6 text-center text-lg-left text-xl-left align-self-center">
+            <p class="info-display mb-lg-0 mb-2">
                 Showing
                 <strong>{{ (($paginator->currentPage() - 1) * $paginator->perPage()) + 1 }}</strong>
                 to
@@ -19,8 +19,8 @@
             </p>
         </div>
 
-        <div class="col-md-6 text-right">
-            {{ $paginator->links() }}
+        <div class="col-md-12 col-lg-6 d-flex justify-content-center justify-content-lg-end">
+            {{ $paginator->links('pagination::bootstrap-4') }}
         </div>
     </div>
 @endif

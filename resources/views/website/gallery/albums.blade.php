@@ -1,7 +1,7 @@
 @extends('layouts.website')
 
 @section('content')
-    <section class="content">
+    <section class="content p-3">
         @include('website.partials.page_header')
 
         <div class="row">
