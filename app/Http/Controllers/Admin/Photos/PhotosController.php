@@ -160,7 +160,7 @@ class PhotosController extends AdminController
     private function moveAndCreatePhoto(
         UploadedFile $file,
         $photoable,
-        $size = ['l' => [1000, 1000], 's' => [300, 300]]
+        $size = ['l' => [1024, 800], 's' => [250, 195]]
     ) {
         $extension = '.' . $file->extension();
 

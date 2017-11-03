@@ -44,7 +44,7 @@
                                     <label for="name">Add to All Pages?</label>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" id="is_website" name="is_website" {{ ($errors && $errors->any()? (old('is_website')? 'checked="checked"':'') :  (isset($item) && $item->is_website? 'checked="checked"':'')) }}>
+                                            <input type="checkbox" id="is_website" name="is_website" {{ ($errors && $errors->any()? (old('is_website')? 'checked="checked"':'') :  (!isset($item) ? 'checked="checked"': $item->is_website? 'checked="checked"':'')) }}>
                                             <i></i> Is Website Visibility
                                         </label>
                                         {!! form_error_message('is_website', $errors) !!}
@@ -118,7 +118,7 @@
 
                             @if(isset($item) && $item && $item->image)
                                 <section>
-                                    <img src="{{ uploaded_images_url($item->image) }}" style="max-height: 300px;">
+                                    <img src="{{ uploaded_images_url($item->image) }}" style="max-width: 100%; max-height: 300px;">
                                     <input type="hidden" name="image" value="{{ $item->image }}">
                                 </section>
                             @endif

@@ -234,7 +234,7 @@ trait PageHelper
         // about
         $items = Page::with('parent')
             ->where('is_hidden', 0)
-            ->whereIn('parent_id', [6, 43, 8, 62, 53, 9])
+            ->whereIn('parent_id', [15, 26, 6])
             ->orderBy('header_order')
             ->select('id', 'icon', 'name', 'title', 'description', 'slug', 'url', 'parent_id')
             ->get();
@@ -244,10 +244,10 @@ trait PageHelper
         });
 
         // rename
-        if ($items['About Us']) {
-            $items['NamPost'] = $items['About Us'];
-            unset($items['About Us']);
-        }
+        //if ($items['About Us']) {
+        //    $items['NamPost'] = $items['About Us'];
+        //    unset($items['About Us']);
+        //}
 
         return $items;
     }

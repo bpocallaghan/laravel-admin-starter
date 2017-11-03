@@ -11,7 +11,7 @@ use Titan\Controllers\TitanWebsiteController;
 
 class WebsiteController extends BaseWebsiteController
 {
-    protected $showPageBanner = false;
+    protected $showPageBanner = true;
 
     protected $navigationLeft = [];
 
@@ -34,7 +34,7 @@ class WebsiteController extends BaseWebsiteController
             $this->navigationFeatured = Page::getFeatured();
             //$this->navigationLeft = Page::getHeaderNavigationLeft();
             //$this->navigationRight = Page::getHeaderNavigationRight();
-            //$this->footerNavigation = Page::getFooterNavigationRight();
+            $this->footerNavigation = Page::getFooterNavigationRight();
             $this->popularPages = Page::getPopularPages();
             $this->activePageTiers = $this->findActivePageTiers();
 
@@ -52,11 +52,12 @@ class WebsiteController extends BaseWebsiteController
     {
         return parent::view($view, $data)//->with('navigationLeft', $this->navigationLeft)
             //->with('navigationRight', $this->navigationRight)
-            //->with('footerNavigation', $this->footerNavigation)
+            ->with('footerNavigation', $this->footerNavigation)
             ->with('navigationFeatured', $this->navigationFeatured)
             ->with('popularPages', $this->popularPages)
             ->with('activePageTiers', $this->activePageTiers)
-            ->with('banners', $this->getBanners());
+            ->with('banners', $this->getBanners())
+            ->with('showPageBanner', $this->showPageBanner);
     }
 
     protected function getBanners()

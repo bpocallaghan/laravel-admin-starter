@@ -51,8 +51,6 @@ class BannersController extends AdminController
             $banner = $this->createEntry(Banner::class, $attributes);
         }
 
-        log_activity('Banner Created', 'Banner was created ' . $banner->name, $banner);
-
         return redirect_to_resource();
     }
 
@@ -106,8 +104,6 @@ class BannersController extends AdminController
 
         $this->updateEntry($banner, $attributes);
 
-        log_activity('Banner Updated', 'Banner was updated. ' . $banner->name, $banner);
-
         return redirect_to_resource();
     }
 
@@ -136,7 +132,7 @@ class BannersController extends AdminController
     public function uploadBanner(
         $file,
         $path = '',
-        $size = ['o' => [1900, 500], 'tn' => [570, 150]]
+        $size = ['o' => [1920, 500], 'tn' => [576, 150]]
     ) {
         $name = token();
         $extension = $file->guessClientExtension();

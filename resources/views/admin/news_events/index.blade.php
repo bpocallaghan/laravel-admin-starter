@@ -26,7 +26,7 @@
                             <th>Active From</th>
                             <th>Active To</th>
                             <th>Cover Photo</th>
-                            <th>Action</th>
+                            <th style="min-width: 100px;">Action</th>
                         </tr>
                         </thead>
                         <tbody>

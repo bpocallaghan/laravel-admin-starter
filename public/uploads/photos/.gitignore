@@ -1,0 +1,6 @@
+*
+!.gitignore
+!gallery-*.jpg
+!gallery-*.png
+!news-*.jpg
+!news-*.png

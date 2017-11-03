@@ -15,9 +15,10 @@ class PhotoAlbumTableSeeder extends Seeder
             ]);
 
             for ($a = 0; $a < $faker->numberBetween(4, 8); $a++) {
+                $r = random_int(1, 2);
                 $item->photos()->create([
                     'name'     => $faker->sentence(2),
-                    'filename' => 'gallery.png',
+                    'filename' => "gallery-{$r}.png",
                 ]);
             }
         }

@@ -21,6 +21,7 @@ class BannerTableSeeder extends Seeder
                 'image'       => $item['image'],
                 'active_from' => \Carbon\Carbon::now(),
                 'is_website'  => $item['is_website'],
+                'hide_name'   => $item['hide_name'],
             ]);
         }
     }

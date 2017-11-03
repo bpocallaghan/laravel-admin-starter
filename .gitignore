@@ -15,7 +15,6 @@ yarn-error.log
 _ide_helper.php
 .phpstorm.meta.php
 public/mix-manifest.json
-public/uploads/
 resources/assets/images/home/
 resources/assets/images/fancy/
 resources/assets/js/vendor/jquery-2.2.2.js
