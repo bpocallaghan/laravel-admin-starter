@@ -22,11 +22,11 @@
 
         <title>{{ isset($title) ? $title : config('app.name') }}</title>
 
-        @if(config('app.debug') != 'local')
+        @if(config('app.env') != 'local')
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         @endif
 
-        <link rel="stylesheet" href="/css/website.css?v=1">
+        <link rel="stylesheet" href="/css/website.css?v=2">
 
         @yield('styles')
     </head>
@@ -59,7 +59,7 @@
             <i class="fa fa-angle-up"></i>
         </a>
 
-        <script type="text/javascript" charset="utf-8" src="/js/website.js?v=1"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/website.js?v=2"></script>
 
         @yield('scripts')
 

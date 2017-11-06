@@ -111,10 +111,11 @@ class PageTableSeeder extends Seeder
 
     private function pageMedia($page, $faker, $align = 'left')
     {
+        $r = random_int(1, 2);
         $component = PageMedia::create([
             'heading'         => $faker->sentence(2),
             'heading_element' => 'h2',
-            'media'           => 'square.png',
+            'media'           => "gallery-{$r}.png",
             'media_align'     => $align,
             'content'         => "<p>{$faker->paragraph(5)}</p>",
         ]);
@@ -131,11 +132,12 @@ class PageTableSeeder extends Seeder
         ]);
 
         for ($i = 0; $i < 10; $i++) {
+            $r = random_int(1, 2);
             $photo = Photo::create([
-                'filename'       => 'gallery.png',
-                'photoable_id'   => $component->id,
-                'photoable_type' => get_class($component),
                 'name'           => 'Photo Name',
+                'photoable_id'   => $component->id,
+                'filename'       => "gallery-{$r}.png",
+                'photoable_type' => get_class($component),
             ]);
         }
 
