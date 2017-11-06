@@ -15,6 +15,8 @@ class ForgotPasswordController extends AuthController
      */
     public function showLinkRequestForm()
     {
+        $this->showPageBanner = false;
+
         return $this->view('forgot_password');
     }
 

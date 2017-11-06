@@ -21,6 +21,7 @@ class ResetPasswordController extends AuthController
     public function showResetForm($token = null)
     {
         $email = request('email');
+        $this->showPageBanner = false;
 
         return $this->view('reset_password', compact('token', 'email'));
     }
