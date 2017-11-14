@@ -16,7 +16,7 @@ class BaseWebsiteController extends Controller
 
     protected $description = "";
 
-    protected $image = '/images/facebook_share.jpg';
+    protected $image = '/images/share.jpg';
 
     protected $parentPages = [];
 
