@@ -11,7 +11,7 @@ class SubscriptionPlanFeaturesSeeder extends Seeder
     {
         SubscriptionPlanFeature::truncate();
 
-        $csvPath = database_path() . '/seeds/csv/' . 'subscription_plan_features.csv';
+        $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'subscription_plan_features.csv';
         $items = csv_to_array($csvPath);
 
         foreach ($items as $key => $item) {

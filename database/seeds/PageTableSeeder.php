@@ -21,7 +21,7 @@ class PageTableSeeder extends Seeder
         PageContent::truncate();
         PageGallery::truncate();
 
-        $csvPath = database_path() . '\seeds\csv\\' . 'pages.csv';
+        $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'pages.csv';
         $items = csv_to_array($csvPath);
 
         foreach ($items as $key => $item) {

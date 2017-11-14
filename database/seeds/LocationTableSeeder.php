@@ -17,7 +17,7 @@ class LocationTableSeeder extends Seeder
         Country::truncate();
         Province::truncate();
 
-        $csvPath = database_path() . '\seeds\csv\\' . 'countries.csv';
+        $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'countries.csv';
         $items = csv_to_array($csvPath);
         foreach ($items as $key => $item) {
             Country::create([
