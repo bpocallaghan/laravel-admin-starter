@@ -28,7 +28,7 @@ class LocationTableSeeder extends Seeder
             ]);
         }
 
-        $csvPath = database_path() . '\seeds\csv\\' . 'provinces.csv';
+        $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'provinces.csv';
         $items = csv_to_array($csvPath);
         foreach ($items as $key => $item) {
             Province::create([
@@ -40,7 +40,7 @@ class LocationTableSeeder extends Seeder
             ]);
         }
 
-        $csvPath = database_path() . '\seeds\csv\\' . 'cities.csv';
+        $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'cities.csv';
         $items = csv_to_array($csvPath);
         foreach ($items as $key => $item) {
             City::create([
@@ -52,7 +52,7 @@ class LocationTableSeeder extends Seeder
             ]);
         }
 
-        $csvPath = database_path() . '\seeds\csv\\' . 'suburbs.csv';
+        $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'suburbs.csv';
         $items = csv_to_array($csvPath);
         foreach ($items as $key => $item) {
             Suburb::create([
