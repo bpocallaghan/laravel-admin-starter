@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Website\Account;
 
-use App\Models\FAQ;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Bpocallaghan\FAQ\Models\FAQ;
 use App\Http\Controllers\Website\WebsiteController;
 
 class AccountController extends WebsiteController
