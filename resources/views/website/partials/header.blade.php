@@ -1,8 +1,10 @@
 <div class="container">
     <div class="row p-3 d-flex align-items-center">
-        <a href="/" class="logo" title="{{ config('app.name') }}">
-            <img src="/images/logo.png">
-        </a>
+        <div style="width: 20%; max-width: 246px; min-width: 120px">
+            <a href="/" class="logo" title="{{ config('app.name') }}">
+                @svg('logo', ['id' => 'Layer-1'])
+            </a>
+        </div>
         <div class="ml-auto" role="group" aria-label="...">
             {{--@foreach($navigationFeatured as $item)--}}
                 {{--<a class="btn btn-link" href="{{ $item->url }}">{!! $item->name !!}</a>--}}
@@ -11,16 +13,21 @@
             @if(!\Auth::check())
                 <a href="#" class="btn btn-outline-primary" data-icon="fa-sign-in" data-toggle="modal" data-target="#modal-login">
                     <i class="fa fa-sign-in"></i>
-                    Login
+                    @lang('auth.login')
                 </a>
                 <a href="/auth/register" class="btn btn-outline-secondary" data-icon="fa-edit">
-                    Register
+                    @lang('auth.register')
                 </a>
             @else
                 @if(\Auth::check() && user()->hasRole('admin'))
                    <a href="/admin" class="btn btn-link"><i class="fa fa-user-secret"></i> Admin</a>
                 @endif
             @endif
+            <select id="LanguageSwitcher" class="btn btn-outline-danger">
+                <option value="en" <?php $cuRRlocal = Config::get('app.locale'); echo ($cuRRlocal == 'en' ? "selected" : "") ?>>English</option>
+                <div class="dropdown-divider"></div>
+                <option value="tr" <?php $cuRRlocal = Config::get('app.locale'); echo ($cuRRlocal == 'tr' ? "selected" : "") ?> >Turkish</option>
+            </select>
         </div>
 
     </div>
@@ -37,4 +44,5 @@
             });
         })
     </script>
+    <script type="text/javascript" src="{{ asset('js/locale.js') }}"></script>
 @endsection
