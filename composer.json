@@ -34,7 +34,8 @@
         "bpocallaghan/changelogs": "^0.0.3",
         "bpocallaghan/testimonials": "^0.0.3",
         "bpocallaghan/subscriptions": "^0.0.2",
-        "yajra/laravel-datatables-oracle": "^8.0"
+        "yajra/laravel-datatables-oracle": "^8.0",
+        "nothingworks/blade-svg": "^0.2.2"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
