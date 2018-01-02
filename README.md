@@ -29,7 +29,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - Manage Blog, Banners, FAQ, Photos and many more.
 
 ## Setup (Basic)
-- ```composer create-project bpocallaghan/laravel-admin-starter laravel-admin-starter```
+- ```composer create-project bpocallaghan/laravel-admin-starter:master laravel-admin-starter```
 - open .env and set the app info (url, title, description, etc)
 - create your database and set db name in .env
 - ```php artisan migrate```
