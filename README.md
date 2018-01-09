@@ -64,31 +64,23 @@ Please have a look in `webpack.mix.js` Line ~110 and uncomment the desired skin.
 Please also remember to update the skin's name in `'views\layouts\admin.blade.php'` - `<body class="skin-blue">`
 
 ## TODO
-- Move the 'core' files to the titan package
-- Move the admin 'components' to packages (The idea is to have Banners, Testimonials, Blog, etc in seperate packages to include when needed)
-- Update website style
-- Unit Testing
-- Vuejs
+[Upcoming Changes and Features](https://github.com/bpocallaghan/laravel-admin-starter/blob/master/TODO.md)
 
 ## Thank you
-
 - [ADMIN LTE](https://github.com/almasaeed2010/AdminLTE).
 - Thank you [Taylor Ottwell](https://github.com/taylorotwell) for [Laravel](http://laravel.com/).
 - Thank you [Jeffrey Way](https://github.com/JeffreyWay) for the awesome resources at [Laracasts](https://laracasts.com/).
 
 ## Note
-
 Please keep in mind this is for my personal workflow and might not fit your need.
 This is my starter project for most crud admin portals.
 I try to keep it clean, flexibly and friendly to use. This is not a complete project or best practises, just trying to help the community :).
 Please let me know about any issues or if you have any suggestions.
 
 ## Change log
-
 Please see the [CHANGELOG](http://bpocallaghan.co.za/changelog) for more information about changes.
 
 ## My Packages Included
-
 - [File Generators](https://github.com/bpocallaghan/generators) Laravel 5 File Generators with config and publishable stubs
 - [Notify](https://github.com/bpocallaghan/notify) Laravel 5 Flash Notifications with icons and animations and with a timeout
 - [Alert](https://github.com/bpocallaghan/alert) A helper package to flash a bootstrap alert to the browser via a Facade or a helper function.
