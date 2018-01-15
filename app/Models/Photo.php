@@ -22,7 +22,7 @@ class Photo extends TitanCMSModel
 
     protected $guarded = ['id'];
 
-    protected $appends = ['thumb', 'original', 'url'];
+    protected $appends = ['thumb', 'original_filename', 'url'];
 
     static public $rules = [
         'file' => 'required|image|max:5000|mimes:jpg,jpeg,png,bmp'
@@ -54,9 +54,18 @@ class Photo extends TitanCMSModel
      * Get the thumb path (append -tn at the end)
      * @return mixed
      */
-    public function getOriginalAttribute()
+    public function getOriginalFilenameAttribute()
     {
         return $this->appendBeforeExtension(self::$originalAppend);
+    }
+
+    /**
+     * Get the extension
+     * @return bool|string
+     */
+    public function getExtensionAttribute()
+    {
+        return substr($this->filename, strpos($this->filename, '.'));
     }
 
     /**
@@ -68,9 +77,22 @@ class Photo extends TitanCMSModel
         return $this->urlForName($this->filename);
     }
 
+    /**
+     * Get the thumb url
+     * @return string
+     */
     public function getThumbUrlAttribute()
     {
         return $this->urlForName($this->thumb);
+    }
+
+    /**
+     * Get the original url
+     * @return string
+     */
+    public function getOriginalUrlAttribute()
+    {
+        return $this->urlForName($this->original_filename);
     }
 
     /**

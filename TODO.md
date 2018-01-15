@@ -1,6 +1,6 @@
 ##Admin Starter - TODO
 
-- Add cropper for Gallery photos
+- ~~Add cropper for Gallery photos~~
 - Update bootstrap 4 to latest beta version
 - Move components to seperate packages for more mudular structure
     - ~~[Locations](https://github.com/bpocallaghan/locations)~~

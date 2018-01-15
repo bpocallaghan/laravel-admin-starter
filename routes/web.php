@@ -178,6 +178,12 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
 
             Route::resource('/albums', 'AlbumsController', ['except' => 'show']);
             Route::get('/albums/{album}', 'PhotosController@showAlbumPhotos');
+
+            // croppers
+            Route::post('/crop/{photo}', 'CropperController@cropPhoto');
+            Route::get('/news/{news}/crop/{photo}', 'CropperController@showNewsPhoto');
+            Route::get('/albums/{album}/crop/{photo}', 'CropperController@showAlbumsPhoto');
+            Route::get('/articles/{article}/crop/{photo}', 'CropperController@showArticlesPhoto');
         });
 
         // corporate

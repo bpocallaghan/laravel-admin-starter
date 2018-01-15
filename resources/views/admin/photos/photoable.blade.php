@@ -25,7 +25,7 @@
                                         <span id="image-row-title-span-{{ $photo->id }}" class="image-row-title-span">{{ $photo->name }}</span>
                                     </a>
                                 </td>
-                                <td>
+                                <td style="min-width: 55px;">
                                     <form id="form-delete-row{{ $photo->id }}" method="POST" action="/admin/photos/{{ $photo->id }}" class="dt-titan">
                                         <input name="_method" type="hidden" value="DELETE">
                                         <input name="_token" type="hidden" value="{{ csrf_token() }}">
@@ -36,6 +36,10 @@
                                             <i class="fa fa-times"></i>
                                         </a>
                                     </form>
+                                    <a href="{{ request()->url() }}/crop/{{ $photo->id }}" class="btn btn-info btn-xs" data-toggle="tooltip" title="Crop {{ $photo->name }}"
+                                       style="float:right; padding: 0px 6px; margin-right: 3px;">
+                                        <i class="fa fa-crop"></i>
+                                    </a>
                                 </td>
                             </tr>
                             </tbody>
