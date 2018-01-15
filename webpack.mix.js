@@ -103,6 +103,7 @@ if (COMPILE == 'admin' || COMPILE == 'all') {
         pathCSS + 'vendor/bootstrap-datetimepicker.css',
         pathCSS + 'vendor/datatables.bootstrap.css',
         pathCSS + 'vendor/responsive.bootstrap.css',
+        pathCSS + 'vendor/cropper.css',
 
         // admin
         pathCSS + 'admin-lte.css',
@@ -150,6 +151,7 @@ if (COMPILE == 'admin' || COMPILE == 'all') {
         pathJS + 'vendor/summernote.js',
         pathJS + 'vendor/jquery.nestable.js',
         pathJS + 'vendor/jquery.cookie.js',
+        pathJS + 'vendor/cropper.js',
 
         // date picker
         pathJS + 'vendor/moment.js',
