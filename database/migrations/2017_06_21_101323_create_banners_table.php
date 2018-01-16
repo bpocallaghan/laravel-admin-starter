@@ -23,6 +23,7 @@ class CreateBannersTable extends Migration
             $table->timestamp('active_to')->nullable();
             $table->boolean('is_website')->default(0); // if for a page or website
             $table->boolean('hide_name')->default(0); // to hide the banner name
+            $table->integer('list_order')->default(1); // default first banner
             $table->timestamps();
             $table->softDeletes();
             $table->integer('created_by')->unsigned();

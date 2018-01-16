@@ -15,7 +15,7 @@
 
                     @include('admin.partials.info')
 
-                    @include('admin.partials.toolbar')
+                    @include('admin.partials.toolbar', ['order' => true])
 
                     <table id="tbl-list" data-server="false" class="dt-table table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
@@ -27,7 +27,7 @@
                             <th>Active To</th>
                             <th>Image</th>
                             <th>Website</th>
-                            <th>Action</th>
+                            <th style="min-width: 70px;">Action</th>
                         </tr>
                         </thead>
                         <tbody>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Titan\Models\TitanCMSModel;
@@ -48,4 +49,26 @@ class Banner extends TitanCMSModel
 	{
 		return $this->belongsToMany(Page::class);
 	}
+
+    /**
+     * Get the is active label attribute
+     * @return string
+     */
+    public function getIsActiveLabelAttribute()
+    {
+        $title = 'Not Active';
+        $class = 'danger';
+
+        $from = Carbon::parse($this->active_from);
+        $to = Carbon::parse($this->active_to);
+
+        if (!$this->active_to || Carbon::now()->diffInMinutes($to, false) > 0) {
+            if (Carbon::now()->diffInMinutes($from, false) < 0) {
+                $title = 'Active';
+                $class = 'success';
+            }
+        }
+
+        return "<span class='label label-{$class}'>{$title}</span>";
+    }
 }

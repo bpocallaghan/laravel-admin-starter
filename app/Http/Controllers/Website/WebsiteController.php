@@ -66,7 +66,10 @@ class WebsiteController extends BaseWebsiteController
 
         // if no banners linked to page - get default
         if ($items->count() <= 0) {
-            $items = Banner::active()->where('is_website', 1)->orderBy('created_at', 'DESC')->get();
+            $items = Banner::active()
+                ->where('is_website', 1)
+                ->orderBy('list_order')
+                ->get();
         }
 
         return $items;

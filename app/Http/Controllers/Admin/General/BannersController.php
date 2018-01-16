@@ -116,6 +116,9 @@ class BannersController extends AdminController
      */
     public function destroy(Banner $banner, Request $request)
     {
+        // update list order
+        $banner->update(['list_order' => 999]);
+
         $this->deleteEntry($banner, $request);
 
         return redirect_to_resource();
