@@ -1,10 +1,14 @@
 <div class="container">
     <div class="row p-3 d-flex align-items-center">
-        <div style="width: 20%; max-width: 246px; min-width: 120px">
+        <a href="/" class="logo" title="{{ config('app.name') }}">
+            <img src="/images/logo.png">
+        </a>
+
+        {{--<div style="width: 20%; max-width: 246px; min-width: 120px">
             <a href="/" class="logo" title="{{ config('app.name') }}">
                 @svg('logo', ['id' => 'Layer-1'])
             </a>
-        </div>
+        </div>--}}
         <div class="ml-auto" role="group" aria-label="...">
             {{--@foreach($navigationFeatured as $item)--}}
                 {{--<a class="btn btn-link" href="{{ $item->url }}">{!! $item->name !!}</a>--}}
@@ -24,9 +28,9 @@
                 @endif
             @endif
             <select id="LanguageSwitcher" class="btn btn-outline-danger">
-                <option value="en" <?php $cuRRlocal = Config::get('app.locale'); echo ($cuRRlocal == 'en' ? "selected" : "") ?>>English</option>
+                <option value="en" <?php $cuRRlocal = config('app.locale'); echo ($cuRRlocal == 'en' ? "selected" : "") ?>>English</option>
                 <div class="dropdown-divider"></div>
-                <option value="tr" <?php $cuRRlocal = Config::get('app.locale'); echo ($cuRRlocal == 'tr' ? "selected" : "") ?> >Turkish</option>
+                <option value="tr" <?php $cuRRlocal = config('app.locale'); echo ($cuRRlocal == 'tr' ? "selected" : "") ?> >Turkish</option>
             </select>
         </div>
 
