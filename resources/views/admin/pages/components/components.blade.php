@@ -6,6 +6,12 @@
                     <span><i class="fa fa-table"></i></span>
                     <span>{!! $page->name !!}</span>
                 </h3>
+                <div class="pull-right">
+                    <a target="_blank" href="{!! $page->url !!}">
+                        <i class="fa fa-eye"></i>
+                        View Page
+                    </a>
+                </div>
             </div>
 
             <div class="box-body">
@@ -14,9 +20,7 @@
                         <h4 class="title">How to create Page Sections</h4>
                         <ul>
                             <li>Update the list order by dragging the headings up or down.</li>
-                            <li>Content Component</li>
-                            <li>Media Component</li>
-                            <li>Gallery Component</li>
+                            <li>Create a new Component</li>
                         </ul>
                     </div>
                 @endif
@@ -26,29 +30,9 @@
                         <span class="btn-label"><i class="fa fa-fw fa-chevron-left"></i></span>Back
                     </a>
 
-                    <a class="btn btn-labeled btn-info" href="{{ $page->url }}" target="_blank">
-                        <span class="btn-label"><i class="fa fa-fw fa-eye"></i></span>
-                        View Pages
-                    </a>
-
                     <a class="btn btn-labeled btn-primary" href="{{ (isset($url)? $url : request()->url()).'/content/create' }}">
                         <span class="btn-label"><i class="fa fa-fw fa-align-justify"></i></span>
                         Create Content
-                    </a>
-
-                    <a class="btn btn-labeled btn-primary" href="{{ (isset($url)? $url : request()->url()).'/media/create' }}">
-                        <span class="btn-label"><i class="fa fa-fw fa-id-card-o"></i></span>
-                        Create Media Component
-                    </a>
-
-                    <a class="btn btn-labeled btn-primary" href="{{ (isset($url)? $url : request()->url()).'/gallery/create' }}">
-                        <span class="btn-label"><i class="fa fa-fw fa-image"></i></span>
-                        Create Gallery Component
-                    </a>
-
-                    <a class="btn btn-labeled btn-primary" href="{{ (isset($url)? $url : request()->url()).'/document/create' }}">
-                        <span class="btn-label"><i class="fa fa-fw fa-files-o"></i></span>
-                        Create Documents Component
                     </a>
                 </div>
 
@@ -83,33 +67,31 @@
                                                         <span class="text-muted">
                                                             ({{ $item->component->heading_element }}
                                                             )
-                                                            <em><small>{{ $item->type }}</small></em>
+                                                            {{--<em><small>{{ $item->type }}</small></em>--}}
                                                         </span>
                                                     </span>
                                             </div>
                                             <div>
-                                                @if($item->type == 'content')
-                                                    {!! $item->component->summary !!}
-                                                @elseif($item->type == 'media')
-                                                    <div class="media">
+                                                <div class="media">
+                                                    @if($item->component->media)
                                                         <div class="media-left">
                                                             <a href="#">
                                                                 <img class="media-object" src="{{ $item->component->thumbUrl }}" style="height: 30px;">
                                                             </a>
                                                         </div>
-                                                        <div class="media-body">
-                                                            {!! $item->component->summary !!}
-                                                        </div>
+                                                    @endif
+                                                    <div class="media-body">
+                                                        {!! $item->component->summary !!}
                                                     </div>
-                                                @elseif($item->type == 'gallery')
-                                                    @foreach($item->component->photos as $photo)
-                                                        <img class=img-responsive" src="{{ $photo->thumb_url }}" style="height: 30px;">
-                                                    @endforeach
-                                                @elseif($item->type == 'document')
-                                                    @foreach($item->component->documents as $document)
-                                                        <a href="{{ $document->url }}">{{ $document->name }}</a>{{ $loop->last?'':' | ' }}
-                                                    @endforeach
-                                                @endif
+                                                </div>
+
+                                                @foreach($item->component->documents as $document)
+                                                    <a href="{{ $document->url }}">{{ $document->name }}</a>{{ $loop->last?'':' | ' }}
+                                                @endforeach
+
+                                                @foreach($item->component->photos as $photo)
+                                                    <img class=img-responsive" src="{{ $photo->thumb_url }}" style="height: 30px;">
+                                                @endforeach
                                             </div>
                                         </div>
                                     </li>

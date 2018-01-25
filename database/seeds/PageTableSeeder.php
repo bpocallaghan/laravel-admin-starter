@@ -1,8 +1,6 @@
 <?php
 
 use App\Models\PageContent;
-use App\Models\PageGallery;
-use App\Models\PageMedia;
 use App\Models\PageSection;
 use App\Models\Photo;
 use Illuminate\Database\Seeder;
@@ -16,10 +14,8 @@ class PageTableSeeder extends Seeder
     public function run(Faker\Generator $faker)
     {
         Page::truncate();
-        PageMedia::truncate();
         PageSection::truncate();
         PageContent::truncate();
-        PageGallery::truncate();
 
         $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'pages.csv';
         $items = csv_to_array($csvPath);
@@ -112,7 +108,7 @@ class PageTableSeeder extends Seeder
     private function pageMedia($page, $faker, $align = 'left')
     {
         $r = random_int(1, 2);
-        $component = PageMedia::create([
+        $component = PageContent::create([
             'heading'         => $faker->sentence(2),
             'heading_element' => 'h2',
             'media'           => "gallery-{$r}.png",
@@ -125,7 +121,7 @@ class PageTableSeeder extends Seeder
 
     private function pageGallery($page, $faker)
     {
-        $component = PageGallery::create([
+        $component = PageContent::create([
             'heading'         => $faker->sentence(2),
             'heading_element' => 'h2',
             'content'         => "<p>{$faker->paragraph(5)}</p>",

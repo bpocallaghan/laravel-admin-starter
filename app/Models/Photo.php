@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
+use Titan\Models\Traits\ModifyBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Titan\Models\TitanCMSModel;
 
 /**
  * Class Photo
  * @mixin \Eloquent
  */
-class Photo extends TitanCMSModel
+class Photo extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, ModifyBy;
 
     static public $thumbAppend = '-tn';
 
@@ -22,7 +22,7 @@ class Photo extends TitanCMSModel
 
     protected $guarded = ['id'];
 
-    protected $appends = ['thumb', 'original_filename', 'url'];
+    protected $appends = ['thumb', 'original', 'url'];
 
     static public $rules = [
         'file' => 'required|image|max:5000|mimes:jpg,jpeg,png,bmp'
@@ -53,16 +53,13 @@ class Photo extends TitanCMSModel
     /**
      * Get the thumb path (append -tn at the end)
      * @return mixed
+     * original is reserved (original modal data)
      */
     public function getOriginalFilenameAttribute()
     {
         return $this->appendBeforeExtension(self::$originalAppend);
     }
 
-    /**
-     * Get the extension
-     * @return bool|string
-     */
     public function getExtensionAttribute()
     {
         return substr($this->filename, strpos($this->filename, '.'));
@@ -77,19 +74,11 @@ class Photo extends TitanCMSModel
         return $this->urlForName($this->filename);
     }
 
-    /**
-     * Get the thumb url
-     * @return string
-     */
     public function getThumbUrlAttribute()
     {
         return $this->urlForName($this->thumb);
     }
 
-    /**
-     * Get the original url
-     * @return string
-     */
     public function getOriginalUrlAttribute()
     {
         return $this->urlForName($this->original_filename);

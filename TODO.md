@@ -1,5 +1,8 @@
 ##Admin Starter - TODO
 
+- ~~Merge the Page Components into one (no more seperate tables and create pages)~~
+- Page Content (media) - add cropper
+- Resource with single photo - save image in photos table and not his own table (upload directory and cropper)
 - ~~Add cropper for Gallery photos~~
 - Add cropper for Images (Banners)
 - ~~Update bootstrap 4 to latest beta version~~
@@ -11,7 +14,7 @@
     - ~~[FAQ](https://github.com/bpocallaghan/faq)~~
     - ~~[Corporate](https://github.com/bpocallaghan/corporate)~~
     - ~~[Changelogs](https://github.com/bpocallaghan/changelogs)~~
-    - Roles and Permissions
+    - Roles and Permissions (https://github.com/spatie/laravel-permission ?)
     - Titan (The core required modules pages, banners, gallery, etc) 
 - Unit Testing
 - Vuejs

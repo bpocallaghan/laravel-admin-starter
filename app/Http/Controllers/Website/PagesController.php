@@ -30,6 +30,23 @@ class PagesController extends WebsiteController
             throw new NotFoundHttpException();
         }
 
-        return $this->view('pages.page')->with('activePage', $page);
+        // find out if its a 'main page' and get the children
+        $children = $this->findChildrenPages($page);
+
+        return $this->view('pages.page')
+            ->with('activePage', $page)
+            ->with('childrenPages', $children);
+    }
+
+    /**
+     * Get the children pages
+     * @param Page $page
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    private function findChildrenPages(Page $page)
+    {
+        $pages = Page::where('parent_id', $page->id)->orderBy('header_order')->get();
+
+        return $pages;
     }
 }
