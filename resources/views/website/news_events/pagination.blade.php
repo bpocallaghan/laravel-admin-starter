@@ -7,7 +7,7 @@
                         <img src="{{ $item->cover_photo->thumbUrl }}">
                     </a>
                 </figure>
-                <div class="media">
+                <div class="media mt-2">
                     <div class="media-left mr-2">
                         <div class="date bg-primary mr-2">
                             {!! $item->active_from->format('\<\s\t\r\o\n\g\>d\</\s\t\r\o\n\g\> M Y') !!}

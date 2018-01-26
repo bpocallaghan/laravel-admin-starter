@@ -14,8 +14,7 @@ use Titan\Models\TitanCMSModel;
  */
 class Page extends TitanCMSModel
 {
-    use SoftDeletes, PageHelper/*, HasSlug*/
-        ;
+    use SoftDeletes, PageHelper/*, HasSlug*/;
 
     protected $table = 'pages';
 
