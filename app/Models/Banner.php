@@ -19,6 +19,10 @@ class Banner extends TitanCMSModel
 
     protected $dates = ['active_form', 'active_to'];
 
+    public static $LARGE_SIZE = [1920, 500];
+
+    public static $THUMB_SIZE = [576, 150];
+
     /**
      * Validation rules for this model
      */

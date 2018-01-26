@@ -183,6 +183,10 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::get('/news/{news}/crop/{photo}', 'CropperController@showNewsPhoto');
             Route::get('/albums/{album}/crop/{photo}', 'CropperController@showAlbumsPhoto');
             Route::get('/articles/{article}/crop/{photo}', 'CropperController@showArticlesPhoto');
+
+            // resource image crop
+            Route::post('/crop-resource', 'CropResourceController@cropPhoto');
+            Route::get('/banners/{banner}/crop-resource/', 'CropResourceController@showBanner');
         });
 
         // corporate

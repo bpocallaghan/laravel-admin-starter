@@ -150,6 +150,9 @@ class BannersController extends AdminController
 
         $path = upload_path_images($path);
 
+        // original
+        $imageTmp->save($path . $name . '-o.' . $extension);
+
         // save the image
         $image = $imageTmp->fit($size['o'][0], $size['o'][1])->save($path . $filename);
 

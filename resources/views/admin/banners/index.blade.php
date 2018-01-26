@@ -27,7 +27,7 @@
                             <th>Active To</th>
                             <th>Image</th>
                             <th>Website</th>
-                            <th style="min-width: 70px;">Action</th>
+                            <th style="min-width: 100px;">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -42,7 +42,14 @@
                                 <td>{{ isset($item->active_to)? format_date($item->active_to):'-' }}</td>
                                 <td>{!! image_row_link($item->image_thumb, $item->image) !!}</td>
                                 <td>{{ $item->is_website ? 'Yes':'No' }}</td>
-                                <td>{!! action_row($selectedNavigation->url, $item->id, $item->title, ['show', 'edit', 'delete']) !!}</td>
+                                <td>
+                                    <div class="btn-toolbar">
+                                        <a href="/admin/photos/banners/{{ $item->id }}/crop-resource" class="btn btn-info btn-xs" data-toggle="tooltip" title="Crop {{ $item->name }}">
+                                            <i class="fa fa-crop"></i>
+                                        </a>
+                                        {!! action_row($selectedNavigation->url, $item->id, $item->title, ['show', 'edit', 'delete'], false) !!}
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
