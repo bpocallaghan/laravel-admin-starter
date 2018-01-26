@@ -78,6 +78,8 @@ class User extends Authenticatable
         'firstname' => 'required',
         'lastname'  => 'required',
         'gender'    => 'required|in:male,female',
+        'telephone' => 'nullable|min:9',
+        'password'  => 'nullable|min:4|confirmed',
         'photo'     => 'required|image|max:6000|mimes:jpg,jpeg,png,bmp',
     ];
 }

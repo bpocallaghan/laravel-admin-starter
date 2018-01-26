@@ -58,7 +58,7 @@
                     @include('website.partials.form.feedback')
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-5">
                             <button type="submit" class="btn btn-primary btn-submit">Send
                                 Message
                             </button>

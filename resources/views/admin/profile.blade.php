@@ -76,12 +76,36 @@
 
                                 <div class="col col-6">
                                     <div class="form-group {{ form_error_class('password', $errors) }}">
-                                        <label for="password">Password (readonly)</label>
+                                        <label for="password">Password <small> (leave blank to keep it unchanged)</small></label>
                                         <div class="input-group">
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="*******" readonly>
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="" >
                                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                         </div>
                                         {!! form_error_message('password', $errors) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group {{ form_error_class('born_at', $errors) }}">
+                                        <label for="password">Date of Birth</label>
+                                        <div class="input-group">
+                                            <input id="born_at" type="text" class="form-control" name="born_at" placeholder="Select your birth date" value="{{ ($errors->any()? old('born_at') : user()->born_at) }}">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                        {!! form_error_message('born_at', $errors) !!}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group {{ form_error_class('password_confirmation', $errors) }}">
+                                        <label>Confirm Password</label>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="id-password_confirmation" name="password_confirmation" placeholder="Password Confirm" value="{{ ($errors->any()? old('password_confirmation') : user()->password_confirmation) }}">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                        </div>
+                                        {!! form_error_message('password_confirmation', $errors) !!}
                                     </div>
                                 </div>
                             </div>
@@ -100,19 +124,10 @@
                                                 <i></i>Female
                                             </label>
                                         </div>
+                                        {!! form_error_message('gender', $errors) !!}
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group {{ form_error_class('born_at', $errors) }}">
-                                        <label for="password">Date of Birth</label>
-                                        <div class="input-group">
-                                            <input id="born_at" type="text" class="form-control" name="born_at" placeholder="Select your birth date" value="{{ ($errors->any()? old('born_at') : user()->born_at) }}">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                        {!! form_error_message('born_at', $errors) !!}
-                                    </div>
-                                </div>
                             </div>
 
                             <section class="form-group {{ form_error_class('photo', $errors) }}">

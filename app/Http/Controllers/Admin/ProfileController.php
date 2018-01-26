@@ -53,6 +53,13 @@ class ProfileController extends AdminController
             'image'
         ]));
 
+        // update user  password
+        if ($request['password'] && strlen($request['password']) >= 2) {
+            user()->update([
+                'password' => bcrypt($request['password']),
+            ]);
+        }
+
         return redirect('/admin/profile');
     }
 
