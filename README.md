@@ -35,8 +35,8 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - ```php artisan migrate```
 - ```php artisan db:seed```
 	- open database\seeds\UserTableSeeder.php to enter your admin user
-- open your browser (http://laravel-admin.dev)
-- log into the admin (http://laravel-admin.dev/admin) with your admin user
+- open your browser (http://laravel-admin.local)
+- log into the admin (http://laravel-admin.local/admin) with your admin user
 
 ## Setup (Advanced)
 - complete 'basic' setup
