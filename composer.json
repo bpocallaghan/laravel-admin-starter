@@ -25,7 +25,7 @@
         "bpocallaghan/faq": "^0.0.2",
         "bpocallaghan/alert": "^1.1",
         "bpocallaghan/notify": "^2.1",
-        "bpocallaghan/titan": "^0.2.9",
+        "bpocallaghan/titan": "^0.2.10",
         "bpocallaghan/sluggable": "^1.0",
         "spatie/laravel-analytics": "^3.1",
         "bpocallaghan/impersonate": "^1.0",
