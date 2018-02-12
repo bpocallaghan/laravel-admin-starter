@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Reports;
 
 use App\Http\Requests;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\FeedbackContactUs;
 use Yajra\DataTables\Facades\DataTables;
@@ -28,21 +29,25 @@ class ContactUsController extends TitanAdminController
      */
     public function getChartData()
     {
-        $rows = FeedbackContactUs::selectRaw('count(id) as total, DATE_FORMAT(created_at, "%d %b %Y ") as date')
-            ->where('created_at', '>=', $this->inputDateFrom() . '%')
+        // get all items between dates
+        $rows = FeedbackContactUs::where('created_at', '>=', $this->inputDateFrom() . '%')
             ->where('created_at', '<=', $this->inputDateTo() . '  23:59:59')
-            ->groupBy(\DB::raw('DAY(created_at)'))
             ->orderBy('created_at')
             ->get();
+
+        // collection group by date
+        $days = $rows->groupBy(function ($row) {
+            return $row->created_at->format('l d F');
+        })->all();
 
         // format and add to response
         $response = ['labels' => [], 'total' => 0];
         $line = [];
-        foreach ($rows as $key => $row) {
-            $response['total'] += $row->total;
-            $response['labels'][] = $row->date;
+        foreach ($days as $date => $items) {
+            $response['total'] += $items->count();
+            $response['labels'][] = $date;
 
-            $line[] = $row->total;
+            $line[] = $items->count();
         }
 
         $response['datasets'][] = $this->getDataSet('Total', $line);
