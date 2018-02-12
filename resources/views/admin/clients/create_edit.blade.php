@@ -15,6 +15,28 @@
 
                     @include('admin.partials.info')
 
+                    <div class="col-sm-12">
+                        <br>
+                        <div class="well well-sm well-toolbar">
+                            <form action="/admin/general/clients/password/email" accept-charset="UTF-8" method="POST">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                                <input type="hidden" name="email" value="{{ ($errors->any()? old('email') : $item->email) }}">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary btn-flat btn-submit">
+                                            <i class="fa fa-refresh"></i> Send Instructions
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        {{--<div class="margin-top-20">--}}
+                            {{--@include('alert::alert')--}}
+                        {{--</div>--}}
+                    </div>
+
                     <form id="form-edit" method="POST" action="{{$selectedNavigation->url . (isset($item)? "/{$item->id}" : '')}}" accept-charset="UTF-8" enctype="multipart/form-data">
                         <input name="_token" type="hidden" value="{{ csrf_token() }}">
                         <input name="_method" type="hidden" value="{{isset($item)? 'PUT':'POST'}}">

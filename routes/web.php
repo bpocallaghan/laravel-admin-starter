@@ -131,6 +131,7 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::resource('banners', 'BannersController');
 
             Route::resource('clients', 'ClientsController');
+            Route::post('clients/password/email', 'ClientsController@sendResetLinkEmail');
         });
 
         // pages order

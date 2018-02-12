@@ -16,7 +16,7 @@
                     <label>Email Address</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="id-email" name="email" placeholder="Email Address" value="{{ old('email') }}">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
                     </div>
                     {!! form_error_message('email', $errors) !!}
                 </div>
@@ -25,7 +25,7 @@
                     <label>Password</label>
                     <div class="input-group">
                         <input type="password" class="form-control" id="id-password" name="password" placeholder="Password" value="{{ old('password') }}">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-lock"></i></span></div>
                     </div>
                     {!! form_error_message('password', $errors) !!}
                 </div>

@@ -16,7 +16,7 @@
                     <label>Enter your Email Address</label>
                     <div class="input-group">
                         <input type="text" class="form-control" name="email" placeholder="Please insert your Email" value="{{ old('email') }}">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-envelope"></i></span></div>
                     </div>
                     {!! form_error_message('email', $errors) !!}
                 </section>
