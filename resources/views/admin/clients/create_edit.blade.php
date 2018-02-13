@@ -16,25 +16,21 @@
                     @include('admin.partials.info')
 
                     <div class="col-sm-12">
-                        <br>
-                        <div class="well well-sm well-toolbar">
+                        <div class=" well-sm well-toolbar">
                             <form action="/admin/general/clients/password/email" accept-charset="UTF-8" method="POST">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                                 <input type="hidden" name="email" value="{{ ($errors->any()? old('email') : $item->email) }}">
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary btn-flat btn-submit">
-                                            <i class="fa fa-refresh"></i> Send Instructions
+                                        <button type="submit" class="btn btn-small btn-primary btn-flat btn-submit pull-right">
+                                            <i class="fa fa-refresh"></i> Send Forgot Password
+                                            Instructions
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
-
-                        {{--<div class="margin-top-20">--}}
-                            {{--@include('alert::alert')--}}
-                        {{--</div>--}}
                     </div>
 
                     <form id="form-edit" method="POST" action="{{$selectedNavigation->url . (isset($item)? "/{$item->id}" : '')}}" accept-charset="UTF-8" enctype="multipart/form-data">
@@ -126,8 +122,7 @@
 @section('scripts')
     @parent
     <script type="text/javascript" charset="utf-8">
-        $(function ()
-        {
+        $(function () {
             $("#born_at").datetimepicker({
                 viewMode: 'years',
                 format: 'YYYY-MM-DD'

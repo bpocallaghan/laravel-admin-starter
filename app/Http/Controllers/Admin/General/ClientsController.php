@@ -112,14 +112,13 @@ class ClientsController extends AdminController
         //need to show to the user. Finally, we'll send out a proper response.
         $response = Password::broker()->sendResetLink($request->only('email'));
 
-
-        if($response == 'passwords.sent'){
+        if ($response == 'passwords.sent') {
             notify()->success('Success!', 'Password email sent to client.');
-        }else {
+        }
+        else {
             notify()->error('Oops', 'Something went wrong', 'warning shake animated');
         }
 
         return redirect()->back();
-
     }
 }

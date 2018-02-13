@@ -70,6 +70,7 @@ Please also remember to update the skin's name in `'views\layouts\admin.blade.ph
 - [ADMIN LTE](https://github.com/almasaeed2010/AdminLTE).
 - Thank you [Taylor Ottwell](https://github.com/taylorotwell) for [Laravel](http://laravel.com/).
 - Thank you [Jeffrey Way](https://github.com/JeffreyWay) for the awesome resources at [Laracasts](https://laracasts.com/).
+- Thank you [Spatie](https://github.com/spatie) for all your packages.
 
 ## Note
 Please keep in mind this is for my personal workflow and might not fit your need.
