@@ -7,7 +7,7 @@
 - ~~Add cropper for Images (Banners)~~
 - ~~Update bootstrap 4 to latest beta version~~
 - ~~Make Banners Order Dynamic (specify their order)~~
-- Move components to seperate packages for more mudular structure
+- Move components to seperate packages for more mudular structure:
     - ~~[Locations](https://github.com/bpocallaghan/locations)~~
     - ~~[Subscriptions](https://github.com/bpocallaghan/subscriptions)~~
     - ~~[Testimonials](https://github.com/bpocallaghan/testimonials)~~
