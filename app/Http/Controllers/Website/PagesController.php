@@ -25,7 +25,7 @@ class PagesController extends WebsiteController
     {
         $url = $this->getCurrentUrl();
 
-        $page = Page::with('components')->where('url', $url)->first();
+        $page = Page::with('components.component')->where('url', $url)->first();
         if (!$page) {
             throw new NotFoundHttpException();
         }
