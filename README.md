@@ -1,7 +1,8 @@
 # Laravel CMS Starter Project
 
 A Laravel CMS Starter project with AdminLTE theme and core features.
-- Laravel 5.5
+- Laravel 5.6 (master)
+- Laravel 5.5 (Branch Laravel 5.5)
 - Laravel 5.4 (Branch Laravel 5.4)
 - Laravel 5.2 (Branch Laravel 5.2)
 

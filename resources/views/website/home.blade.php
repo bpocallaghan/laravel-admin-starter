@@ -13,11 +13,11 @@
         <div class="col-sm-3">
             <div class="card h-100">
                 <div class="card-header">
-                    <h4 class="card-title"><i class="fa fa-fw fa-check"></i> Laravel v5.5.32</h4>
+                    <h4 class="card-title"><i class="fa fa-fw fa-check"></i> Laravel v5.6.7</h4>
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li><strong>Laravel v5.5.32+</strong></li>
+                        <li><strong>Laravel v5.6.7+</strong></li>
                         <li><strong>AdminLTE v2.4.2</strong></li>
                         <li><strong>Bootstrap v4.0.0</strong></li>
                         <li><strong>jQuery v3.2.1</strong></li>
