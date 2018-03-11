@@ -51,13 +51,14 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
     - Enable the 'google analytics' API
 	- Create api browser key for google maps
 	- Get and Setup Laravel Analytics [Laravel Analytics (Spatie)](https://github.com/spatie/laravel-analytics/tree/3.1.0)
-        - create service account key for google analytics (json)
+        - create NEW service account key
+        - any name will work (I use google analytics)
+        - key type is JSON
         - add the email to the 'accounts' under google analytics
         - download and store the json
         - go to google analytics under the admin - view settings - for the 'site id'
 - get a Google Maps js API key (after you've created the project in google) https://developers.google.com/maps/documentation/javascript/get-api-key 
 - have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
-- Publish the SVG vendor library ```php artisan vendor:publish --provider="BladeSvg\BladeSvgServiceProvider"```
 
 ## Admin LTE
 If you would like to change the default skin. 
