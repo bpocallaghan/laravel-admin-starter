@@ -54,9 +54,11 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
         - create NEW service account key
         - any name will work (I use google analytics)
         - key type is JSON
-        - add the email to the 'accounts' under google analytics
-        - download and store the json
-        - go to google analytics under the admin - view settings - for the 'site id'
+        - download and rename the json to 'service-account-credentials.json'
+        - store the file under /storage/app/analytics
+        - go to (google analytics)[https://analytics.google.com/analytics/]
+        - go to admin - property - user management and add the service account's email as a user
+        - go to admin - view - settings and copy the 'site id' to your .env
 - get a Google Maps js API key (after you've created the project in google) https://developers.google.com/maps/documentation/javascript/get-api-key 
 - have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
 
