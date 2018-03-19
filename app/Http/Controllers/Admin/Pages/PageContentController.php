@@ -7,12 +7,29 @@ use App\Models\Page;
 use App\Http\Requests;
 use App\Models\Content;
 use App\Models\PageContent;
+use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Admin\AdminController;
 use Titan\Models\Traits\ImageThumb;
 
 class PageContentController extends AdminController
 {
+
+    /**
+     * Display a listing of content.
+     *
+     * @param Page $page
+     * @return Response
+     */
+    public function index(Page $page)
+    {
+        save_resource_url();
+
+        $page->load('sections');
+
+        return $this->view('pages.components.page_components')->with('page', $page);
+    }
+
     /**
      * Show the form for creating a new content.
      *
@@ -21,12 +38,35 @@ class PageContentController extends AdminController
      */
     public function create(Page $page)
     {
-        // create new content (used to link media and documents to)
-        $item = PageContent::create();
-
         return $this->view('pages.components.content')
-            ->with('page', $page)
-            ->with('item', $item);
+            ->with('page', $page);
+    }
+
+    /**
+     * Store a newly created news in storage.
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function store(Request $request)
+    {
+
+        if (is_null(request()->file('media'))) {
+            $attributes = request()->validate(array_except(PageContent::$rules, 'media'),
+                PageContent::$messages);
+        }
+        else {
+            $attributes = request()->validate(PageContent::$rules, PageContent::$messages);
+
+            $media = $this->moveAndCreatePhoto($attributes['media']);
+            if ($media) {
+                $attributes['media'] = $media;
+            }
+        }
+
+        $pageContent = $this->createEntry(PageContent::class, $attributes);
+
+        return redirect('admin/pages/'.$request->page_id.'/sections/content/'.$pageContent->id.'/edit');
     }
 
     /**
@@ -38,6 +78,7 @@ class PageContentController extends AdminController
      */
     public function edit(Page $page, PageContent $content)
     {
+
         return $this->view('pages.components.content')
             ->with('page', $page)
             ->with('item', $content);
@@ -68,9 +109,46 @@ class PageContentController extends AdminController
         unset($attributes['page_id']);
         $item = $this->updateEntry($content, $attributes);
 
-        $page->attachComponent($item);
+        return redirect_to_resource();
+    }
+
+    /**
+     * Remove the specified content from storage.
+     *
+     * @param Page        $page
+     * @param PageContent $section
+     * @return Response
+     * @internal param $page_section
+     */
+    public function destroy(Page $page, PageContent $section)
+    {
+        // delete page_content
+        $this->deleteEntry($section, request());
+
+        log_activity('Page Component Deleted', 'A Page Content was successfully removed from the Page', $section);
 
         return redirect_to_resource();
+    }
+
+    /**
+     * @param Page $page
+     * @return array
+     */
+    public function updateOrder(Page $page)
+    {
+        $items = json_decode(request('list'), true);
+
+        foreach ($items as $key => $item) {
+
+            $row = PageContent::find($item['id']);
+            if($row) {
+                $row->update([
+                    'list_order' => ($key + 1)
+                ]);
+            }
+        }
+
+        return ['result' => 'success'];
     }
 
     /**

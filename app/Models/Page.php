@@ -71,7 +71,7 @@ class Page extends TitanCMSModel
      */
     public function sections()
     {
-        return $this->hasMany(PageSection::class, 'page_id', 'id')->orderBy('list_order');
+        return $this->hasMany(PageContent::class, 'page_id', 'id')->orderBy('list_order');
     }
 
     /**
@@ -79,7 +79,7 @@ class Page extends TitanCMSModel
      */
     public function components()
     {
-        return $this->hasMany(PageSection::class, 'page_id', 'id')->orderBy('list_order');
+        return $this->hasMany(PageContent::class, 'page_id', 'id')->orderBy('list_order');
     }
 
     /**
@@ -96,28 +96,5 @@ class Page extends TitanCMSModel
     public function pageContent()
     {
         return $this->belongsToMany(PageContent::class);
-    }
-
-    /**
-     * Create and Attach a page component to this page
-     * @param $item
-     * @return bool
-     */
-    public function attachComponent($item)
-    {
-        // if already attached
-        $found = PageSection::where('page_id', $this->id)
-            ->where('component_id', $item->id)
-            ->where('component_type', get_class($item))
-            ->first();
-        if ($found) {
-            return true;
-        }
-
-        PageSection::create([
-            'page_id'        => $this->id,
-            'component_id'   => $item->id,
-            'component_type' => get_class($item),
-        ]);
     }
 }

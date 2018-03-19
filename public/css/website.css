@@ -15611,7 +15611,7 @@ a[data-fancybox] {
 a[data-fancybox]:before {
     width: 50px;
     line-height: 50px;
-    background: #339999;
+    background: #255d78;
     font-family: "FontAwesome";
     content: "\f00e";
     font-size: 20px;

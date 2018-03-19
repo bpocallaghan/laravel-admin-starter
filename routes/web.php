@@ -140,9 +140,9 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::post('/order/{type?}', 'OrderController@updateOrder');
 
             // manage page sections list order
-            Route::get('/{page}/sections', 'SectionsController@index');
-            Route::post('/{page}/sections/order', 'SectionsController@updateOrder');
-            Route::delete('/{page}/sections/{section}', 'SectionsController@destroy');
+            Route::get('/{page}/sections', 'PageContentController@index');
+            Route::post('/{page}/sections/order', 'PageContentController@updateOrder');
+            Route::delete('/{page}/sections/{section}', 'PageContentController@destroy');
 
             // page components
             Route::resource('/{page}/sections/content', 'PageContentController');

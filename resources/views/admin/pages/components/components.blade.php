@@ -18,7 +18,7 @@
                 @if(($page->sections->count() <= 1))
                     <div class="alert alert-info">
                         <h4 class="title">How to create Page Sections</h4>
-                        <ul>
+                        <ul>request()->url()
                             <li>Update the list order by dragging the headings up or down.</li>
                             <li>Create a new Component</li>
                         </ul>
@@ -44,7 +44,7 @@
                                     <li class="dd-item" data-id="{{ $item->id }}">
                                         <div class="btn-toolbar dt-table" data-server="true" style="float: right; margin-top: 5px; margin-right: 5px;">
                                             <div class="btn-group">
-                                                <a href="{{ "/admin/pages/{$page->id}/sections/{$item->type}/{$item->component->id}/edit" }}" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Edit {{ $item->component->heading }}">
+                                                <a href="{{ "/admin/pages/{$page->id}/sections/content/{$item->id}/edit" }}" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Edit {{ $item->heading }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                             </div>
@@ -54,7 +54,7 @@
                                                     <input name="_method" type="hidden" value="DELETE">
                                                     <input name="_id" type="hidden" value="{{ $item->id }}">
                                                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                                    <a data-form="form-delete-row{{ $item->id }}" class="btn btn-danger btn-xs btn-delete-row" data-toggle="tooltip" title="Delete {{ $item->component->heading }}">
+                                                    <a data-form="form-delete-row{{ $item->id }}" class="btn btn-danger btn-xs btn-delete-row" data-toggle="tooltip" title="Delete {{ $item->heading }}">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </form>
@@ -63,9 +63,9 @@
                                         <div class="dd-handle">
                                             <div>
                                                     <span class="text-bold" style="font-size: larger;">
-                                                        {{ $item->component->heading }}
+                                                        {{ $item->heading }}
                                                         <span class="text-muted">
-                                                            ({{ $item->component->heading_element }}
+                                                            ({{ $item->heading_element }}
                                                             )
                                                             {{--<em><small>{{ $item->type }}</small></em>--}}
                                                         </span>
@@ -73,23 +73,23 @@
                                             </div>
                                             <div>
                                                 <div class="media">
-                                                    @if($item->component->media)
+                                                    @if($item->media)
                                                         <div class="media-left">
                                                             <a href="#">
-                                                                <img class="media-object" src="{{ $item->component->thumbUrl }}" style="height: 30px;">
+                                                                <img class="media-object" src="{{ $item->thumbUrl }}" style="height: 30px;">
                                                             </a>
                                                         </div>
                                                     @endif
                                                     <div class="media-body">
-                                                        {!! $item->component->summary !!}
+                                                        {!! $item->summary !!}
                                                     </div>
                                                 </div>
 
-                                                @foreach($item->component->documents as $document)
+                                                @foreach($item->documents as $document)
                                                     <a href="{{ $document->url }}">{{ $document->name }}</a>{{ $loop->last?'':' | ' }}
                                                 @endforeach
 
-                                                @foreach($item->component->photos as $photo)
+                                                @foreach($item->photos as $photo)
                                                     <img class=img-responsive" src="{{ $photo->thumb_url }}" style="height: 30px;">
                                                 @endforeach
                                             </div>

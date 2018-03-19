@@ -67,6 +67,14 @@ class PageContent extends TitanCMSModel
      */
     public function pages()
     {
-        return $this->belongsToMany(Page::class);
+        return $this->belongsTo(Page::class);
+    }
+
+    /**
+     * Get the Page many to many
+     */
+    public function component()
+    {
+        return $this->belongsTo(Page::class);
     }
 }

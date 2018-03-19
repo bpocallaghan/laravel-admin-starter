@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\PageContent;
-use App\Models\PageSection;
 use App\Models\Photo;
 use Illuminate\Database\Seeder;
 use App\Models\Page;
@@ -14,7 +13,7 @@ class PageTableSeeder extends Seeder
     public function run(Faker\Generator $faker)
     {
         Page::truncate();
-        PageSection::truncate();
+        // PageSection::truncate();
         PageContent::truncate();
 
         $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'pages.csv';
@@ -97,18 +96,20 @@ class PageTableSeeder extends Seeder
     private function pageContent($page, $faker)
     {
         $component = PageContent::create([
+            'page_id'         => $page->id,
             'heading'         => $faker->sentence(2),
             'heading_element' => 'h2',
             'content'         => "<p>{$faker->paragraph(5)}</p>",
         ]);
 
-        $page->attachComponent($component);
+        // $page->attachComponent($component);
     }
 
     private function pageMedia($page, $faker, $align = 'left')
     {
         $r = random_int(1, 2);
         $component = PageContent::create([
+            'page_id'         => $page->id,
             'heading'         => $faker->sentence(2),
             'heading_element' => 'h2',
             'media'           => "gallery-{$r}.png",
@@ -116,12 +117,13 @@ class PageTableSeeder extends Seeder
             'content'         => "<p>{$faker->paragraph(5)}</p>",
         ]);
 
-        $page->attachComponent($component);
+        // $page->attachComponent($component);
     }
 
     private function pageGallery($page, $faker)
     {
         $component = PageContent::create([
+            'page_id'         => $page->id,
             'heading'         => $faker->sentence(2),
             'heading_element' => 'h2',
             'content'         => "<p>{$faker->paragraph(5)}</p>",
@@ -137,6 +139,6 @@ class PageTableSeeder extends Seeder
             ]);
         }
 
-        $page->attachComponent($component);
+        // $page->attachComponent($component);
     }
 }
