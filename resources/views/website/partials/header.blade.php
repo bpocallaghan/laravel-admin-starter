@@ -27,7 +27,7 @@
                    <a href="/admin" class="btn btn-link"><i class="fa fa-user-secret"></i> Admin</a>
                 @endif
             @endif
-            <select id="LanguageSwitcher" class="btn btn-outline-danger">
+            <select id="LanguageSwitcher" class="form-control btn btn-outline-dark" style="width:auto;">
                 <option value="en" <?php $cuRRlocal = config('app.locale'); echo ($cuRRlocal == 'en' ? "selected" : "") ?>>English</option>
                 <div class="dropdown-divider"></div>
                 <option value="tr" <?php $cuRRlocal = config('app.locale'); echo ($cuRRlocal == 'tr' ? "selected" : "") ?> >Turkish</option>

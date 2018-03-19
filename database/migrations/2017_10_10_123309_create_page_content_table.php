@@ -14,6 +14,7 @@ class CreatePageContentTable extends Migration
     {
         Schema::create('page_content', function (Blueprint $table) {
             $table->increments('id')->unique()->index();
+            $table->integer('page_id')->unsigned()->index();
             $table->string('heading')->nullable();
             $table->string('heading_element')->default('h2');
             $table->string('heading_class')->nullable();
@@ -21,6 +22,7 @@ class CreatePageContentTable extends Migration
             $table->string('media')->nullable();
             $table->string('media_align', 50)->default('left');
             $table->string('caption')->nullable();
+            $table->integer('list_order')->default(99);
             $table->timestamps();
             $table->softDeletes();
             $table->integer('created_by')->unsigned();

@@ -77,14 +77,26 @@
                             @endif
                         </fieldset>
 
-                        @include('admin.partials.form_footer')
+                        {{--@include('admin.partials.form_footer')--}}
+                        <div class="form-footer">
+                            @if(isset($submit) == false || $submit == true)
+                                <button class="btn btn-labeled btn-primary btn-submit">
+                                    <span class="btn-label"><i class="fa fa-fw fa-save"></i></span>Submit & Continue
+                                </button>
+                            @endif
+
+                            <a href="/admin/pages/{{ $page->id }}/edit" class="btn btn-labeled btn-default">
+                                <span class="btn-label"><i class="fa fa-fw fa-chevron-left"></i></span>Back
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    @if(isset($item))
+        @include('admin.photos.photoable', ['photoable' => $item, 'photos' => $item->photos])
 
-    @include('admin.photos.photoable', ['photoable' => $item, 'photos' => $item->photos])
-
-    @include('admin.documents.documentable', ['documentable' => $item, 'documents' => $item->documents])
+        @include('admin.documents.documentable', ['documentable' => $item, 'documents' => $item->documents])
+    @endif
 @endsection
