@@ -17,7 +17,7 @@
                                     <i class="fa fa-eye"></i>
                                 </a>
 
-                                <a id="image-row-clicker-{{ $document->id }}" class="dropzone-image-click" href="#" data-id="{{ $document->id }}" data-title="{{ $document->name }}">
+                                <a id="image-row-clicker-{{ $document->id }}" class="dropzone-document-click" href="#" data-id="{{ $document->id }}" data-title="{{ $document->name }}">
                                     <span id="image-row-title-span-{{ $document->id }}" class="image-row-title-span">{{ $document->name }}</span>
                                 </a>
 
@@ -81,7 +81,7 @@
 
                 <div id="preview-template" style="display: none">
                     <div class="dz-preview dz-file-preview">
-                        <a class="dropzone-image-click" href="#">
+                        <a class="dropzone-document-click" href="#">
                             <div class="dz-image">
                                 <img data-dz-thumbnail/>
                             </div>
@@ -155,7 +155,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">
                     Cancel
                 </button>
-                <button id="btn-form-save" type="button" class="btn btn-primary">
+                <button id="btn-form-save-document" type="button" class="btn btn-primary">
                     Submit
                 </button>
             </div>
@@ -196,8 +196,8 @@
 
             function activateImageClick()
             {
-                $('.dropzone-image-click').off('click');
-                $('.dropzone-image-click').on('click', function (e) {
+                $('.dropzone-document-click').off('click');
+                $('.dropzone-document-click').on('click', function (e) {
                     e.preventDefault();
 
                     var id = $($(this).parent().find('.image-row-id')).val();
@@ -216,7 +216,7 @@
                 });
             }
 
-            $('#btn-form-save').click(function (e) {
+            $('#btn-form-save-document').click(function (e) {
                 e.preventDefault();
 
                 $('#modal-document').modal('hide');
