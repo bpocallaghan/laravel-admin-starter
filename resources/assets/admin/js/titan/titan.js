@@ -109,7 +109,10 @@ function initSummerNote(selector, height)
             ['layout', ['ul', 'ol', 'paragraph']],
             ['insert', ['table', 'link', /*'picture', 'video',*/ 'hr']],
             ['misc', ['fullscreen', 'codeview', 'undo']]
-        ]
+        ],
+        onCreateLink: function (originalLink) {
+            return originalLink; // return original link
+        }
     });
 }
 

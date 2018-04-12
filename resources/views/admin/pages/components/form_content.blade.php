@@ -31,6 +31,9 @@
                     ],
                     buttons: {
                         document: DocumentButton
+                    },
+                    onCreateLink: function (originalLink) {
+                        return originalLink; // return original link
                     }
                 });
             }

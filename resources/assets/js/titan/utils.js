@@ -118,22 +118,6 @@ function setDateTimePickerRange(from, to)
     });
 }
 
-function initSummerNote(selector, height)
-{
-    $(selector).summernote({
-        height: height ? height : 120,
-        focus: false,
-        tabsize: 2,
-        toolbar: [
-            ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
-            ['color', ['color']],
-            ['layout', ['ul', 'ol', 'paragraph']],
-            ['insert', [/*'link', 'picture', 'video',*/ 'hr']],
-            ['misc', ['fullscreen', 'codeview', 'undo']]
-        ]
-    });
-}
-
 function isFunction(variable)
 {
     var getType = {};
