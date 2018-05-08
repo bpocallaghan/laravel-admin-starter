@@ -37,7 +37,7 @@
 
                 $('#{{ $id }} .loading-widget').show();
 
-                doAjax("{{ isset($url)? $url : Request::url() . '/chart' }}", {
+                doAjax("{{ isset($url)? $url : request()->url() . '/chart' }}", {
                     'date_from': start, 'date_to': end,
                 }, createLineChart);
 

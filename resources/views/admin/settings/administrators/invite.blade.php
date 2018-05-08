@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="box-body no-padding">
-                    <form id="form-settings-administrators" method="POST" action="{{ Request::url() }}">
+                    <form id="form-settings-administrators" method="POST" action="{{ request()->url() }}">
                         {!! csrf_field() !!}
                         <input type="hidden" name="invited_by" value="">
 

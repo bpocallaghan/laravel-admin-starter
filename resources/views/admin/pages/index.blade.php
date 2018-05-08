@@ -16,20 +16,20 @@
                     @include('admin.partials.info')
 
                     <div class="well well-sm well-toolbar">
-                        <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/create' }}">
+                        <a class="btn btn-labeled btn-primary" href="{{ request()->url().'/create' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-plus"></i></span>Create {{ ucfirst($resource) }}
                         </a>
 
-                        <a class="btn btn-labeled btn-default text-black" href="{{ Request::url().'/order' }}">
+                        <a class="btn btn-labeled btn-default text-black" href="{{ request()->url().'/order' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>General Order
                         </a>
 
-                        <a class="btn btn-labeled btn-default text-black" href="{{ Request::url().'/order/header' }}">
+                        <a class="btn btn-labeled btn-default text-black" href="{{ request()->url().'/order/header' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>{{ ucfirst($resource) }}
                             Header Order
                         </a>
 
-                        <a class="btn btn-labeled btn-default text-black" href="{{ Request::url().'/order/footer' }}">
+                        <a class="btn btn-labeled btn-default text-black" href="{{ request()->url().'/order/footer' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>{{ ucfirst($resource) }}
                             Footer Order
                         </a>

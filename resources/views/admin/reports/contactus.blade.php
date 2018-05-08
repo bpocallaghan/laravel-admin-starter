@@ -43,7 +43,7 @@
     <script type="text/javascript" charset="utf-8">
         function onUpdate(start, end)
         {
-            datatable = initDatatablesAjax('#main-datatable', "{{ Request::url() }}" + "/datatable?date_from=" + start + '&date_to=' + end, [
+            datatable = initDatatablesAjax('#main-datatable', "{{ request()->url() }}" + "/datatable?date_from=" + start + '&date_to=' + end, [
                 {data: 'fullname', name: 'fullname'},
                 {data: 'phone', name: 'phone'},
                 {data: 'email', name: 'email'},

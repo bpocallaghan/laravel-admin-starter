@@ -11,7 +11,7 @@
                 @include('website.partials.breadcrumb')
 
                 <h2>Send us a Message</h2>
-                <form id="form-contact-us" accept-charset="UTF-8" action="{{ Request::url().'/submit' }}" method="POST">
+                <form id="form-contact-us" accept-charset="UTF-8" action="{{ request()->url().'/submit' }}" method="POST">
                     {!! csrf_field() !!}
 
                     <div class="row">

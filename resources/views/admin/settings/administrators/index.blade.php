@@ -16,7 +16,7 @@
                     @include('admin.partials.info')
 
                     <div class="well well-sm well-toolbar">
-                        <a class="btn btn-labeled btn-primary" href="{{ Request::url().'/invites' }}">
+                        <a class="btn btn-labeled btn-primary" href="{{ request()->url().'/invites' }}">
                             <span class="btn-label"><i class="fa fa-fw fa-user-plus"></i></span>Invite
                             Administrator
                         </a>
