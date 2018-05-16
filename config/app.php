@@ -11,6 +11,12 @@ return [
     'google_analytics'     => env('GOOGLE_ANALYTICS', ''),
     'google_map_key'       => env('GOOGLE_MAP_KEY', ''),
 
+    'debug_blacklist' => [
+        '_ENV'    => array_keys($_ENV),
+        '_COOKIE' => array_keys($_COOKIE),
+        '_SERVER' => array_keys($_SERVER),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

@@ -91,6 +91,7 @@ var PaginationClass = function (options) {
             if (vars.onComplete) {
                 vars.onComplete();
             }
+            
             $('.js-pagination-loader').hide();
         }).fail(function () {
             isAjaxBusy = false;
