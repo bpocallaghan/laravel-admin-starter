@@ -47,15 +47,19 @@ class AdministratorsController extends AdminController
     public function postInvite(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email|unique:users|unique:user_invites'
+            'email' => 'required|email|unique:users' // |unique:user_invites
         ]);
 
-        // create row
-        $row = UserInvite::create([
-            'email'      => input('email'),
-            'token'      => '-',
-            'invited_by' => user()->id,
-        ]);
+        // if already exist - send invite again
+        $row = UserInvite::where('email', input('email'))->first();
+        if (!$row) {
+            // create row
+            $row = UserInvite::create([
+                'email'      => input('email'),
+                'token'      => '-',
+                'invited_by' => user()->id,
+            ]);
+        }
 
         // send mail to email
         Mail::send(new AdminInvitRegistration($row));
