@@ -22,11 +22,16 @@ Route::get('locale', function () {
 
 Route::get('locale/{locale}', function ($locale) {
     \Session::put('locale', $locale);
+
     return redirect()->back();
 });
 
 Route::post('/language-chooser', 'LanguageController@changeLanguage');
-Route::post('/language/', array('before' => 'csrf', 'as' => 'language-chooser', 'uses' => 'LanguageController@changeLanguage' ));
+Route::post('/language/', [
+    'before' => 'csrf',
+    'as'     => 'language-chooser',
+    'uses'   => 'LanguageController@changeLanguage'
+]);
 
 /*
 |------------------------------------------
@@ -191,12 +196,10 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
         // accounts
         Route::group(['prefix' => 'accounts', 'namespace' => 'Accounts'], function () {
             // clients
-            Route::get('clients', 'ClientsController@index');
             Route::post('clients/filter', 'ClientsController@filter');
-            Route::get('clients/{user}', 'ClientsController@show');
-            Route::get('clients/{user}/edit', 'ClientsController@edit');
-            Route::put('clients/{user}', 'ClientsController@update');
-            Route::post('clients/{user}/notify/forgot-password', 'ClientsController@sendResetLinkEmail');
+            Route::resource('clients', 'ClientsController');
+            Route::post('clients/{user}/notify/forgot-password',
+                'ClientsController@sendResetLinkEmail');
 
             // users
             Route::get('administrators/invites', 'AdministratorsController@showInvites');

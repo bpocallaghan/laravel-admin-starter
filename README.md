@@ -11,15 +11,15 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - Password: github
 
 ### What is New?
-- Upgraded to Laravel 5.6 and added many new 'components (blog, news, banners, etc)'
-- Page Builder (CRUD website pages with 3 different components)
+- Upgraded to Laravel 5.6'
 - Add config/app.php - "is_preview". This is to prevent users to delete pages and users from the demo site.
+- Add admin/accounts. The clients index.blade.php is a good example when working with 1+K entries. It use Laravel Paginator via Ajax pages and filter.
 
 ## Features / What it includes
 - Admin LTE admin theme
 - Members (website and admin users)
 - Google Analytics Reports (with charts)
-- Website Page Builder
+- Website Page Builder with 3 components (page content, photos, documents)
 - Log Website Activities (if contact us was submitted, etc)
 - Notifications (Laravel notifications)
 - Log Admin Activities (when admin create,edit,delete a resource)

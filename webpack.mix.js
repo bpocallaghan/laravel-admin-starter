@@ -169,6 +169,7 @@ if (COMPILE == 'admin' || COMPILE == 'all') {
         pathJS + 'titan/buttons.js',
         pathJS + 'titan/notify.js',
         pathJS + 'titan/datatables.js',
+        pathJS + 'titan/pagination.js',
         pathJS + 'titan/google_maps.js',
         pathJS + 'titan/notifications.js',
 
