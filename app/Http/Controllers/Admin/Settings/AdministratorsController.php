@@ -23,7 +23,7 @@ class AdministratorsController extends AdminController
     {
         save_resource_url();
 
-        $items = User::with('roles')->whereRole(Role::$ADMIN)->get();
+        $items = User::with('roles')->whereRole(Role::$BASE_ADMIN)->get();
 
         return $this->view('settings.administrators.index', compact('items'));
     }

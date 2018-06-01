@@ -25,7 +25,7 @@ class UserRegistered
         // if token - add admin role and mark as claimed
         $userInvite = UserInvite::whereToken($token)->whereNull('claimed_at')->first();
         if ($userInvite) {
-            $roles[] = Role::$ADMIN;
+            $roles[] = Role::$BASE_ADMIN;
             // set invite claimed
             $user->update(['gender' => 'male']);
             $userInvite->update(['claimed_at' => Carbon::now()]);

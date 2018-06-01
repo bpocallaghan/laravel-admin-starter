@@ -7,6 +7,16 @@ use App\Models\Role;
 trait UserAdmin
 {
     /**
+     * If User is base admin
+     * On /admin login validation and all /admin navigation
+     * @return bool
+     */
+    public function isBaseAdmin()
+    {
+        return $this->hasRole(Role::$BASE_ADMIN);
+    }
+
+    /**
      * If User is admin
      * @return bool
      */

@@ -2,6 +2,7 @@
 
 use App\User;
 use Carbon\Carbon;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
@@ -74,13 +75,14 @@ class UserTableSeeder extends Seeder
         }*/
     }
 
+    /**
+     * Add all the roles to the user
+     * @param $user
+     */
     private function addAllRolesToUser($user)
     {
-        $user->syncRoles([
-            \App\Models\Role::$WEBSITE,
-            \App\Models\Role::$ADMIN,
-            \App\Models\Role::$ADMIN_SUPER,
-            \App\Models\Role::$DEVELOPER,
-        ]);
+        $roles = Role::all()->pluck('keyword', 'id')->values();
+
+        $user->syncRoles($roles);
     }
 }
