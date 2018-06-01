@@ -20,7 +20,7 @@ class RoleTableSeeder extends Seeder
         // basic user (website or/and admin or any other accounts)
         Role::create([
             'icon'    => 'user',
-            'name'    => 'Base User',
+            'name'    => 'User',
             'slug'    => '/',
             'keyword' => 'user',
         ]);
@@ -28,7 +28,7 @@ class RoleTableSeeder extends Seeder
         // base admin role (to be able to log into /admin)
         Role::create([
             'icon'    => 'user-secret',
-            'name'    => 'Basic Admin',
+            'name'    => 'Base Admin',
             'slug'    => '/admin',
             'keyword' => 'base_admin',
         ]);

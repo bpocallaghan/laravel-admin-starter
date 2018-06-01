@@ -33,7 +33,7 @@
                                 <td>{{ $item->slug }}</td>
                                 <td>{{ $item->keyword }}</td>
                                 <td>
-                                    @if($item->id > 5)
+                                    @if(!config('app.is_preview') || $item->id > 5)
                                         {!! action_row($selectedNavigation->url, $item->id, $item->name, ['edit', 'delete']) !!}
                                     @else
                                         <span class="label label-warning">{{ $item->name }} Role is needed</span>

@@ -150,6 +150,13 @@ class NavigationController extends AdminController
      */
     public function destroy($id, Request $request)
     {
+        // for the showcase - do not delete 'active' pages
+        if (config('app.is_preview') || $id < 58) {
+            notify()->error('Whoops', "Site is in 'preview' mode. Please disable or nice try...");
+
+            return redirect_to_resource();
+        }
+
         $navigation = NavigationAdmin::findOrFail($id);
         $this->deleteEntry($navigation, $request);
 

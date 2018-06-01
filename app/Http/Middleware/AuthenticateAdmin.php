@@ -18,7 +18,7 @@ class AuthenticateAdmin
     public function handle($request, Closure $next, $guard = null)
     {
         // not logged in as an admin - logout and go home
-        if (!user()->isBaseAdmin()) {
+        if (!user()->isAdmin()) {
             \Auth::logout();
 
             return redirect()->guest('/');

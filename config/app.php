@@ -11,6 +11,11 @@ return [
     'google_analytics'     => env('GOOGLE_ANALYTICS', ''),
     'google_map_key'       => env('GOOGLE_MAP_KEY', ''),
 
+    // https://github.com/bpocallaghan/laravel-admin-starter
+    // This will add the 'preview' text / user roles validation
+    // Set to false or remove key will ignore the 'preview' settings
+    'is_preview' => true,
+
     'debug_blacklist' => [
         '_ENV'    => array_keys($_ENV),
         '_COOKIE' => array_keys($_COOKIE),

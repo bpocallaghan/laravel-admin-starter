@@ -81,7 +81,10 @@ class UserTableSeeder extends Seeder
      */
     private function addAllRolesToUser($user)
     {
-        $roles = Role::all()->pluck('keyword', 'id')->values();
+        // only 2 - to 5 are needed
+        $roles = Role::whereBetween('id', [2, 5])
+            ->pluck('keyword', 'id')
+            ->values();
 
         $user->syncRoles($roles);
     }

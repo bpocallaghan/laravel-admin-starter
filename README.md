@@ -11,8 +11,9 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - Password: github
 
 ### What is New?
-- Upgraded to Laravel 5.5 and added many new 'components (blog, news, banners, etc)'
+- Upgraded to Laravel 5.6 and added many new 'components (blog, news, banners, etc)'
 - Page Builder (CRUD website pages with 3 different components)
+- Add config/app.php - "is_preview". This is to prevent users to delete pages and users from the demo site.
 
 ## Features / What it includes
 - Admin LTE admin theme

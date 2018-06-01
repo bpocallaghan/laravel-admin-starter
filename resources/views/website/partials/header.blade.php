@@ -11,10 +11,10 @@
         </div>--}}
         <div class="ml-auto" role="group" aria-label="...">
             {{--@foreach($navigationFeatured as $item)--}}
-                {{--<a class="btn btn-link" href="{{ $item->url }}">{!! $item->name !!}</a>--}}
+            {{--<a class="btn btn-link" href="{{ $item->url }}">{!! $item->name !!}</a>--}}
             {{--@endforeach--}}
 
-            @if(!\Auth::check())
+            @if(!auth()->check())
                 <a href="#" class="btn btn-outline-primary" data-icon="fa-sign-in" data-toggle="modal" data-target="#modal-login">
                     <i class="fa fa-sign-in"></i>
                     @lang('auth.login')
@@ -23,14 +23,31 @@
                     @lang('auth.register')
                 </a>
             @else
-                @if(\Auth::check() && user()->hasRole('admin'))
-                   <a href="/admin" class="btn btn-link"><i class="fa fa-user-secret"></i> Admin</a>
+                @if (impersonate()->isActive())
+                    <small>
+                        <a href="{{ route('impersonate.logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('impersonate-logout-form').submit();">
+                            return to original user
+                        </a>
+                        <form id="impersonate-logout-form" action="{{ route('impersonate.logout') }}" method="post" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </small>
+                @endif
+
+                @if(auth()->check() && user()->isAdmin())
+                    <a href="/admin" class="btn btn-link"><i class="fa fa-user-secret"></i>
+                        Admin</a>
                 @endif
             @endif
             <select id="LanguageSwitcher" class="form-control btn btn-outline-dark" style="width:auto;">
-                <option value="en" <?php $cuRRlocal = config('app.locale'); echo ($cuRRlocal == 'en' ? "selected" : "") ?>>English</option>
+                <option value="en" <?php $cuRRlocal = config('app.locale'); echo($cuRRlocal == 'en' ? "selected" : "") ?>>
+                    English
+                </option>
                 <div class="dropdown-divider"></div>
-                <option value="tr" <?php $cuRRlocal = config('app.locale'); echo ($cuRRlocal == 'tr' ? "selected" : "") ?> >Turkish</option>
+                <option value="tr" <?php $cuRRlocal = config('app.locale'); echo($cuRRlocal == 'tr' ? "selected" : "") ?> >
+                    Turkish
+                </option>
             </select>
         </div>
 

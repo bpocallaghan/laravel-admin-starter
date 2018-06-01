@@ -11,7 +11,7 @@ trait UserAdmin
      * On /admin login validation and all /admin navigation
      * @return bool
      */
-    public function isBaseAdmin()
+    public function isAdmin()
     {
         return $this->hasRole(Role::$BASE_ADMIN);
     }
@@ -20,7 +20,7 @@ trait UserAdmin
      * If User is admin
      * @return bool
      */
-    public function isAdmin()
+    public function isSuperAdmin()
     {
         return $this->hasRole(Role::$ADMIN);
     }

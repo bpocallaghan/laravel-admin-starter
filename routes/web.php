@@ -123,15 +123,13 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::get('/website', 'HistoryController@website');
         });
 
+        // general
         Route::group(['prefix' => 'general'], function () {
             Route::resource('tags', 'TagsController');
 
             Route::get('/banners/order', 'BannersOrderController@index');
             Route::post('/banners/order', 'BannersOrderController@update');
             Route::resource('banners', 'BannersController');
-
-            Route::resource('clients', 'ClientsController');
-            Route::post('clients/password/email', 'ClientsController@sendResetLinkEmail');
         });
 
         // pages order
@@ -190,6 +188,22 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
             Route::get('/banners/{banner}/crop-resource/', 'CropResourceController@showBanner');
         });
 
+        // accounts
+        Route::group(['prefix' => 'accounts', 'namespace' => 'Accounts'], function () {
+            // clients
+            Route::get('clients', 'ClientsController@index');
+            Route::post('clients/filter', 'ClientsController@filter');
+            Route::get('clients/{user}', 'ClientsController@show');
+            Route::get('clients/{user}/edit', 'ClientsController@edit');
+            Route::put('clients/{user}', 'ClientsController@update');
+            Route::post('clients/{user}/notify/forgot-password', 'ClientsController@sendResetLinkEmail');
+
+            // users
+            Route::get('administrators/invites', 'AdministratorsController@showInvites');
+            Route::post('administrators/invites', 'AdministratorsController@postInvite');
+            Route::resource('administrators', 'AdministratorsController');
+        });
+
         // corporate
         Route::group(['prefix' => 'newsletter', 'namespace' => 'Newsletter'], function () {
             Route::resource('subscribers', 'SubscribersController');
@@ -225,11 +239,6 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
 
             // settings
             Route::resource('settings', 'SettingsController');
-
-            // users
-            Route::get('administrators/invites', 'AdministratorsController@showInvites');
-            Route::post('administrators/invites', 'AdministratorsController@postInvite');
-            Route::resource('administrators', 'AdministratorsController');
 
             // navigation
             Route::get('navigation/order', 'NavigationOrderController@index');
