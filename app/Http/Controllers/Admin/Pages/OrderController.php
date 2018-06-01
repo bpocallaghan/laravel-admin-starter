@@ -12,13 +12,13 @@ use Titan\Controllers\TitanAdminController;
 
 class OrderController extends TitanAdminController
 {
-    private $navigationType = 'main';
+    private $navigationType = 'list';
 
     private $defaultParent = 0;
 
     private $orderProperty = 'header_order';
 
-    private function updateNavType($type = 'all')
+    private function updateNavType($type = 'list')
     {
         $this->defaultParent = 0;
         $this->navigationType = $type;
@@ -31,7 +31,7 @@ class OrderController extends TitanAdminController
      * @param string $type
      * @return Response
      */
-    public function index($type = 'all')
+    public function index($type = 'list')
     {
         $this->updateNavType($type);
 
@@ -47,7 +47,7 @@ class OrderController extends TitanAdminController
      * @param Request $request
      * @return array
      */
-    public function updateOrder(Request $request, $type = 'main')
+    public function updateOrder(Request $request, $type = 'list')
     {
         $this->updateNavType($type);
 
@@ -76,14 +76,17 @@ class OrderController extends TitanAdminController
         $html = '<ol class="dd-list">';
 
         $parentId = ($parent ? $parent->id : 0);
-        $items = Page::whereParentIdORM($parentId, $this->navigationType,
-            $this->orderProperty);
+        $items = Page::whereParentIdORM($parentId, $this->navigationType, $this->orderProperty);
 
         foreach ($items as $key => $nav) {
             $html .= '<li class="dd-item" data-id="' . $nav->id . '">';
             $html .= '<div class="dd-handle">' . '<i class="fa-fw fa fa-' . $nav->icon . '"></i> ';
             $html .= $nav->title . ' ' . ($nav->is_hidden == 1 ? '(HIDDEN)' : '') . ' <span style="float:right"> ' . $nav->url . ' </span></div>';
-            $html .= $this->getNavigationHtml($nav);
+            // featured - ignore parent_id (only one level)
+            if ($this->orderProperty != "featured_order") {
+                $html .= $this->getNavigationHtml($nav);
+            }
+
             $html .= '</li>';
         }
 

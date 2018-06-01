@@ -24,13 +24,18 @@
                             <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>General Order
                         </a>
 
+                        <a class="btn btn-labeled btn-default text-black" href="{{ Request::url().'/order/featured' }}">
+                            <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>
+                            Featured Order
+                        </a>
+
                         <a class="btn btn-labeled btn-default text-black" href="{{ request()->url().'/order/header' }}">
-                            <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>{{ ucfirst($resource) }}
+                            <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>
                             Header Order
                         </a>
 
                         <a class="btn btn-labeled btn-default text-black" href="{{ request()->url().'/order/footer' }}">
-                            <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>{{ ucfirst($resource) }}
+                            <span class="btn-label"><i class="fa fa-fw fa-align-center"></i></span>
                             Footer Order
                         </a>
                     </div>

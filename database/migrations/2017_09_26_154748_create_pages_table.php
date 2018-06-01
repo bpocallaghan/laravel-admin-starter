@@ -20,12 +20,14 @@ class CreatePagesTable extends Migration
             $table->string('slug')->nullable();
             $table->string('url')->nullable();
             $table->string('icon')->nullable();
+            $table->integer('list_order')->nullable();
             $table->boolean('is_header')->nullable();
-            $table->integer('header_order')->default(99);
+            $table->integer('header_order')->nullable();
             $table->boolean('is_footer')->nullable();
             $table->integer('footer_order')->nullable();
             $table->boolean('is_hidden')->default(0);
             $table->boolean('is_featured')->nullable();
+            $table->integer('featured_order')->nullable();
             $table->integer('parent_id')->unsigned()->default(0);
             $table->integer('url_parent_id')->unsigned()->default(0);
             $table->unsignedBigInteger('views')->default(0);

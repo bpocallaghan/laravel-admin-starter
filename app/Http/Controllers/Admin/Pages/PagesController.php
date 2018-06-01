@@ -82,6 +82,12 @@ class PagesController extends AdminController
      */
     public function edit(Page $page)
     {
+        // fix for when you
+        // edit sections from the edit page
+        // or delete photo/document then
+        // need to update resource url
+        save_resource_url();
+
         $parents = Page::getAllList();
         $banners = Banner::getAllList();
 

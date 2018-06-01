@@ -37,23 +37,28 @@ trait PageHelper
      */
     static public function whereParentIdORM(
         $id,
-        $type = 'header',
-        $order = 'header_order',
+        $type = 'list',
+        $order = 'list_order',
         $hidden = 0
     ) {
-        $query = self::whereParentId($id);
+        $query = Page::query();
+        if($type != "featured") {
+            $query->whereParentId($id);
+        }
 
         switch ($type) {
-            case 'all':
-                $order = 'header_order';
-                $query->where('is_header', 0);
-                $query->where('is_footer', 0);
+            case "header":
+                $query->where('is_header', 1);
                 break;
-            case 'footer';
+            case "footer";
                 $query->where('is_footer', 1);
                 break;
+            case "featured":
+                $query->where('is_featured', 1);
+                break;
             default:
-                $query->where('is_header', 1);
+                $query->where('is_header', 0);
+                $query->where('is_footer', 0);
         }
 
         return $query->orderBy($order)->get();
@@ -65,8 +70,6 @@ trait PageHelper
      * Get the url from db
      * If true given, we generate a new one,
      * This us usefull if parent_id updated, etc
-     *
-     * @return \Eloquent
      */
     public function updateUrl()
     {
@@ -208,7 +211,7 @@ trait PageHelper
 
     public static function getFeatured()
     {
-        return self::where('is_featured', 1)->orderBy('name')->get();
+        return self::where('is_featured', 1)->orderBy('featured_order')->get();
     }
 
     public static function getHeaderNavigationRight()
