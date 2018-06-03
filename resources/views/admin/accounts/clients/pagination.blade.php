@@ -16,7 +16,7 @@
             <td>{{ $item->email }}</td>
             <td>{{ $item->roles_string }}</td>
             <td>
-                @if(!config('app.is_preview') || $item->id > 2)
+                @if(!config('app.is_preview') || $item->id > 3)
                     <div class="btn-group">
                         <a href="/admin/accounts/clients/{{$item->id}}" class="btn btn-default btn-xs" data-toggle="tooltip" title="Show {{$item->fullname}}">
                             <i class="fa fa-eye"></i>

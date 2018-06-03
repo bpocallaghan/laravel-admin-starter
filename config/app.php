@@ -16,11 +16,12 @@ return [
     // Set to false or remove key will ignore the 'preview' settings
     'is_preview' => true,
 
-    'debug_blacklist' => [
+    // enable this to hide the information on detailed error logs
+    /*'debug_blacklist' => [
         '_ENV'    => array_keys($_ENV),
         '_COOKIE' => array_keys($_COOKIE),
         '_SERVER' => array_keys($_SERVER),
-    ],
+    ],*/
 
     /*
     |--------------------------------------------------------------------------

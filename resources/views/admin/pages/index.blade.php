@@ -47,6 +47,7 @@
                             <th>Description</th>
                             <th>Url</th>
                             <th>Parent</th>
+                            <th>Page Views</th>
                             <th style="min-width: 100px;">Action</th>
                         </tr>
                         </thead>
@@ -57,6 +58,7 @@
                                 <td>{!! $item->description !!}</td>
                                 <td>{!! $item->url !!}</td>
                                 <td>{{ ($item->parent)? $item->parent->title : '-' }}</td>
+                                <td>{{ $item->views }}</td>
                                 <td>
                                     <div class="btn-toolbar">
                                         <div class="btn-group">
