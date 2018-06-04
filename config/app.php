@@ -17,11 +17,11 @@ return [
     'is_preview' => true,
 
     // enable this to hide the information on detailed error logs
-    /*'debug_blacklist' => [
+    'debug_blacklist' => [
         '_ENV'    => array_keys($_ENV),
         '_COOKIE' => array_keys($_COOKIE),
         '_SERVER' => array_keys($_SERVER),
-    ],*/
+    ],
 
     /*
     |--------------------------------------------------------------------------
