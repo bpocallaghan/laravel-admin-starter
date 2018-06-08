@@ -73,6 +73,12 @@ trait PageHelper
      */
     public function updateUrl()
     {
+        // if slug is url
+        if(is_slug_url($this->slug)) {
+            $this->url = $this->slug;
+            return $this;
+        }
+        
         $this->url = '';
         $this->generateCompleteUrl($this);
         $this->url = $this->url;
