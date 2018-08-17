@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Image;
-use App\User;
+use App\Models\User;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
