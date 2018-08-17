@@ -10,7 +10,7 @@ class UserTableSeeder extends Seeder
     public function run(Faker\Generator $faker)
     {
         User::truncate();
-        DB::delete('TRUNCATE role_user');
+        //DB::delete('TRUNCATE role_user'); //Unnecessary in Laravel 5.6
 
         //-------------------------------------------------
         // Ben-Piet
