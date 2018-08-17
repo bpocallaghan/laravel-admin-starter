@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\General;
 
 use Image;
 use Redirect;
 use App\Http\Requests;
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\AdminController;
 
 class BannersController extends AdminController
 {
