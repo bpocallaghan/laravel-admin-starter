@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Mail\AdminInvitRegistration;
 use App\Models\Role;
 use App\Models\UserInvite;
-use App\User;
+use App\Models\User;
 use App\Models\UsersInvite;
 use Illuminate\Http\Request;
 use Mail;

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\User;
+use App\Models\User;
 use App\Models\Traits\Photoable;
 use Bpocallaghan\Sluggable\SlugOptions;
 use Titan\Models\TitanCMSModel;

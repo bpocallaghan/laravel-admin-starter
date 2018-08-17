@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\LogActivity;
 use App\Models\Notification;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;

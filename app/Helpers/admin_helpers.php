@@ -1,6 +1,6 @@
 <?php
 
-use App\User;
+use App\Models\User;
 use App\Models\Role;
 
 if (!function_exists('notify_admins')) {

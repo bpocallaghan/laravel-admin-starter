@@ -3,7 +3,7 @@
 namespace App\Events;
 
 use App\Models\UserInvite;
-use App\User;
+use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Role;
 use Illuminate\Queue\SerializesModels;

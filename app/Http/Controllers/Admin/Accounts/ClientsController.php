@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Accounts;
 
 use Illuminate\Validation\Rule;
 use Password;
-use App\User;
+use App\Models\User;
 use App\Models\Role;
 use App\Http\Requests;
 use Illuminate\Http\Request;

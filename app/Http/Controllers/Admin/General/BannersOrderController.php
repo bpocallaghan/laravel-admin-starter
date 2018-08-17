@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\General;
 
 use App\Models\Banner;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\AdminController;
 
 class BannersOrderController extends AdminController
 {
