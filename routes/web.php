@@ -129,7 +129,7 @@ Route::group(['middleware' => ['auth', 'auth.admin'], 'prefix' => 'admin', 'name
         });
 
         // general
-        Route::group(['prefix' => 'general'], function () {
+        Route::group(['prefix' => 'general', 'namespace' => 'General'], function () {
             Route::resource('tags', 'TagsController');
 
             Route::get('/banners/order', 'BannersOrderController@index');
