@@ -8,7 +8,7 @@ class NavigationAdminTableSeeder extends Seeder
     public function run()
     {
         NavigationAdmin::truncate();
-        DB::delete('TRUNCATE navigation_admin_role');
+        //DB::delete('TRUNCATE navigation_admin_role');
 
         $csvPath = database_path() . DIRECTORY_SEPARATOR . 'seeds' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'navigation_admin.csv';
         $items = csv_to_array($csvPath);
