@@ -12,6 +12,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 
 ### What is New?
 - Upgraded to Laravel 5.6'
+- App\User model was changed to App\Models\User model
 - Add config/app.php - "is_preview". This is to prevent users to delete pages and users from the demo site.
 - Add admin/accounts. The clients index.blade.php is a good example when working with 1+K entries. It use Laravel Paginator via Ajax pages and filter.
 
@@ -33,6 +34,8 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 ## Setup (Basic)
 - ```composer create-project bpocallaghan/laravel-admin-starter:dev-master laravel-admin-starter```
 - open .env and set the app info (url, title, description, etc)
+- check the installation with file search by Notepad++ (App\Models\User the new place instead of the the App\User model)
+- check ..TableSeeder.php files because the DB::delete('TRUNCATE.. lines will generate DB errors, comment out them
 - create your database and set db name in .env
 - ```php artisan migrate```
 - ```php artisan db:seed```
