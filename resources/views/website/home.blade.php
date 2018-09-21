@@ -20,7 +20,7 @@
                         <ul>
                             <li><strong>Laravel v5.6.38+</strong></li>
                             <li><strong>AdminLTE v2.4.2</strong></li>
-                            <li><strong>Bootstrap v4.0.0</strong></li>
+                            <li><strong>Bootstrap v4.1.3</strong></li>
                             <li><strong>jQuery v3.2.1</strong></li>
                         </ul>
                     </div>
