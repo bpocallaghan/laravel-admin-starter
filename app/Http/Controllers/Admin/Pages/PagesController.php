@@ -125,8 +125,8 @@ class PagesController extends AdminController
     public function destroy(Page $page)
     {
         // for the showcase - do not delete 'active' pages
-        if (config('app.is_preview') || $page->id < 30) {
-            notify()->error('Whoops', "Site is in 'preview' mode. Please disable or nice try...");
+        if (config('app.is_preview')) {
+            notify()->error('Whoops', "Site is in 'preview' mode.");
 
             return redirect_to_resource();
         }
