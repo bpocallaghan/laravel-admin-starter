@@ -1,5 +1,11 @@
 # Laravel CMS Starter Project
 
+Thought I share with you all that I am busy refactoring 'titan' (all the core files of the admin starter, this includes the pages, navigation and then all functionality: blog, banners, page builder, etc)
+
+The idea is to have all the files in the vendor directoy and not the application to keep your application folder clean. You will be able to publish all or only selected features to your application for customization.
+Progress: ~50% (will upgrade this project as soon as I have it working)
+[Link to the repository](https://github.com/bpocallaghan/titan)
+
 A Laravel CMS Starter project with AdminLTE theme and core features.
 - Laravel 5.6 (master)
 - Laravel 5.5 (Branch Laravel 5.5)
