@@ -1,5 +1,10 @@
 ##Admin Starter - TODO
 
+- refactor titan
+- todo on titan [Link to the repository](https://github.com/bpocallaghan/titan)
+
+Updates
+
 - ~~Merge the Page Components into one (no more seperate tables and create pages)~~
 - Page Content (media) - add cropper
 - Resource with single photo - save image in photos table and not his own table (upload directory and cropper)
