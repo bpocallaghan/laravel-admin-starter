@@ -1,7 +1,7 @@
 # Laravel CMS Starter Project
 
 Version 2 is under development (alpha version). Please have a look here for [version 1](https://github.com/bpocallaghan/laravel-admin-starter/tree/version_1).
-Version 2 is a refactored version of `admin starter project`, meaning that all the files were inside your applications' directory. However now it is all inside a package.
+Version 2 is a refactored version of `version 1 (admin starter project)`, meaning that all the files were inside your applications' directory. However now it is all inside a package.
 [Link to the repository](https://github.com/bpocallaghan/titan).
 
 A Laravel CMS Starter project with AdminLTE theme and core features.
@@ -23,12 +23,13 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - Log Website Activities (if contact us was submitted, etc)
 - Notifications (Laravel notifications)
 - Log Admin Activities (when admin create,edit,delete a resource)
-- Bootstrap Alerts and Form Error messages. package; bpocallaghan/alert
-- Flash a Notification after a CRUD resource action. package; bpocallaghan/notify
-- Generate crud resource, individual files. package; bpocallaghan/generators
-- Impersonate any of your customers
+- Bootstrap Alerts and Form Error messages. [bpocallaghan/alert](https://github.com/bpocallaghan/alert)
+- Flash a Notification after a CRUD resource action. [bpocallaghan/notify](https://github.com/bpocallaghan/alert)
+- Generate crud resource, individual files. [bpocallaghan/generators](https://github.com/bpocallaghan/alert)
+- Impersonate any of your customers. [bpocallaghan/impersonate](https://github.com/bpocallaghan/impersonate)
 - Roles, Assign roles to the user and navigation to exlude navigation for a user.
-- Manage Blog, Banners, FAQ, Photos and many more.
+- Manage Blog, Banners, FAQ, Photos.
+- Reports with Chartjs
 
 ## Setup (Basic)
 - ```composer create-project bpocallaghan/laravel-admin-starter:dev-master laravel-admin-starter```
@@ -61,7 +62,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
 
 ## TODO
-- complete refactor titan
+- finish refactoring files to titan for easier use and more flexibility
 - [Upcoming Changes and Features](https://github.com/bpocallaghan/laravel-admin-starter/blob/master/TODO.md)
 
 ## Thank you
@@ -70,8 +71,8 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - Thank you [Jeffrey Way](https://github.com/JeffreyWay) for the awesome resources at [Laracasts](https://laracasts.com/).
 
 ## Note
-- I am busy refactoring project to titan (titan will get some version updates)
-- I am currently starting with a new website where I will use the updated version and do some updates.
+- I am busy refactoring the project to titan (titan will get some version updates)
+- I am starting with a new website where I will put it in use and probably do lots of updates to [titan](https://github.com/bpocallaghan/titan).
 
 This is my starter project for most crud admin portals.
 I try to keep it clean, flexibly and friendly to use and to help the community.
