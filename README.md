@@ -1,19 +1,22 @@
 # Laravel CMS Starter Project
 
-Version 2 is under development (alpha version). Please have a look here for [version 1](https://github.com/bpocallaghan/laravel-admin-starter/tree/version_1).
-Version 2 is a refactored version of `version 1 (admin starter project)`, meaning that all the files were inside your applications' directory. However now it is all inside a package.
-[Link to the repository](https://github.com/bpocallaghan/titan).
-
 A Laravel CMS Starter project with AdminLTE theme and core features.
-- [version 1](https://github.com/bpocallaghan/laravel-admin-starter/tree/version_1)
+- [version 1](https://github.com/bpocallaghan/laravel-admin-starter/tree/version_1) (The preview project link below)
 - version 2 (master branch)
 
 [Preview project here](http://bpocallaghan.co.za)
 - User: github@bpocallaghan.co.za
 - Password: github
 
+Version 1 vs Version 2
+Version 2 (master) is a completely refactored project. All the files were moved from your application to [a package (titan)](https://github.com/bpocallaghan/titan).
+This should help keeping the 'core features' up to date as you only have to update the package and not manually copying files anymore.
+Please check titan out as the setup is really quick. The install command does almost everything for you.  
+
 ### What is New?
 - Refactored all files to [titan](https://github.com/bpocallaghan/titan)
+- Titan has an install command to help setup your project
+- Laravel 5.7
 
 ## Features / What it includes
 - Admin LTE admin theme
@@ -66,6 +69,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 - [Upcoming Changes and Features](https://github.com/bpocallaghan/laravel-admin-starter/blob/master/TODO.md)
 
 ## Thank you
+- All [contributors](https://github.com/bpocallaghan/laravel-admin-starter/graphs/contributors)
 - [ADMIN LTE](https://github.com/almasaeed2010/AdminLTE).
 - Thank you [Taylor Ottwell](https://github.com/taylorotwell) for [Laravel](http://laravel.com/).
 - Thank you [Jeffrey Way](https://github.com/JeffreyWay) for the awesome resources at [Laracasts](https://laracasts.com/).
