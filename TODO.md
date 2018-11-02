@@ -46,3 +46,16 @@ https://github.com/jasonmccuen
 - JSON+LD and expanded OpenGraph: On-page SEO is getting more and more important, especially with Schema. Again, I'd be happy to try my hand at implementing a Schema module like I did for my RoR app.
 - Speed: Coming from RoR, One of the cool speed tools we have out of the box is TurboLinks. TurboLinks is basically a JS package that turns your app into a single-page app. When you are clicking through the navigation, only the is swapped out, cutting out a lot of time on page-reloads. I noticed that there is a port for Laravel: https://github.com/frenzyapp/turbolinks - I don't know if this would help with speed issues.
 - Search: I do a lot with search, and will be incorporating some sort of fuzzy search and geo-location calculations on my sites. I maintain a separate ELK stack for this, but again, I'm happy to contribute a module for ELK integration once I figure out what I'm doing. I have a feeling that I am approaching ELK completely backwards, but it seems to get me the results I need, and I don't have to burn through Google API requests to do it.
+
+https://github.com/nadja97
+- add general tags to everything? 
+- allow to add tags to photos? 
+(Pivot table already exist)
+- add subscription ID to user table?
+- build email newsletter sending component
+- convert to PDF functionality? 
+- add Role to Pages ( in situations where only registered website users should be able to see the/a page?)
+- Crop the Thumbnail, resize the rest
+- add chose a template page (e.g contact us/ about/blog/events/news….etc) : dynamic custom pages?
+- notifications for certain users
+- is_footer navigation, ammend so no more need to add the id's in the getfooter function
