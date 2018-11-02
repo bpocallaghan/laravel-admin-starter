@@ -27,7 +27,7 @@ class SaveActivity
 
         if ($event->eloquent && !strpos($subject, '\Models')) {
             $subjectId = null;
-            $subject = 'App\Models\User';
+            $subject = 'App\User';
         }
 
         // log adjustment
