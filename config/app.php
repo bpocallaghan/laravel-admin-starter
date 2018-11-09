@@ -2,14 +2,25 @@
 
 return [
         
-    'description' => env('APP_DESCRIPTION', 'App Description'),
-    'author'      => env('APP_AUTHOR', 'App Author'),
+    'description' => env('APP_DESCRIPTION', 'Description'),
+    'author'      => env('APP_AUTHOR', 'Author'),
     'keywords'    => env('APP_KEYWORDS', 'laravel'),
 
     'facebook_id'          => env('FACEBOOK_APP_ID', ''),
-    'recaptcha_public_key' => env('RECAPTCHA_PUBLIC_KEY', ''),
-    'google_analytics'     => env('GOOGLE_ANALYTICS', ''),
     'google_map_key'       => env('GOOGLE_MAP_KEY', ''),
+    'google_analytics'     => env('GOOGLE_ANALYTICS', ''),
+    'recaptcha_public_key' => env('RECAPTCHA_PUBLIC_KEY', ''),
+    'recaptcha_private_key' => env('RECAPTCHA_PRIVATE_KEY', ''),
+        
+    'description' => env('APP_DESCRIPTION', 'Description'),
+    'author'      => env('APP_AUTHOR', 'Author'),
+    'keywords'    => env('APP_KEYWORDS', 'laravel'),
+
+    'facebook_id'          => env('FACEBOOK_APP_ID', ''),
+    'google_map_key'       => env('GOOGLE_MAP_KEY', ''),
+    'google_analytics'     => env('GOOGLE_ANALYTICS', ''),
+    'recaptcha_public_key' => env('RECAPTCHA_PUBLIC_KEY', ''),
+    'recaptcha_private_key' => env('RECAPTCHA_PRIVATE_KEY', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -101,6 +112,19 @@ return [
     */
 
     'fallback_locale' => 'en',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Faker Locale
+    |--------------------------------------------------------------------------
+    |
+    | This locale will be used by the Faker PHP library when generating fake
+    | data for your database seeds. For example, this will be used to get
+    | localized telephone numbers, street address information and more.
+    |
+    */
+
+    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------

@@ -14,9 +14,9 @@ This should help keeping the 'core features' up to date as you only have to upda
 Please check titan out as the setup is really quick. The install command does almost everything for you.  
 
 ### What is New?
+- Titan Setup and Install command updates
+- Added UsersTableSeeder to application
 - Refactored all files to [titan](https://github.com/bpocallaghan/titan)
-- Titan has an install command to help setup your project
-- Laravel 5.7
 
 ## Features / What it includes
 - Admin LTE admin theme
@@ -35,15 +35,17 @@ Please check titan out as the setup is really quick. The install command does al
 - Reports with Chartjs
 
 ## Setup (Basic)
-- ```composer create-project bpocallaghan/laravel-admin-starter:dev-master laravel-admin-starter```
-- open .env and set the app info (url, title, description, etc)
-- create your database and set db name in .env
-- ```php artisan migrate```
-- ```php artisan titan:db:seed```
+- `composer create-project bpocallaghan/laravel-admin-starter:dev-master laravel-admin-starter`
+- create your database
+- setup your virtual host (example: http://titan.local)
+- open .env and add database name and user
+- open `database\seeds\UsersTableSeeder.php` and set your admin user credentials
+- php titan:install` and complete the answers (setup app_name, app_author, app_url, etc)
+- The above command will set .env values, but you can manually edit it before running `titan:install`
 
 ## Setup (Advanced)
-- complete 'basic' setup
-- config\app.php -> set timezone
+- complete `basic` setup
+- `config\app.php` -> set timezone
 - create FB Website App https://developers.facebook.com/
 - create a mailgun account and set custom domain
 - google captcha https://www.google.com/recaptcha/admin#list
@@ -65,7 +67,6 @@ Please check titan out as the setup is really quick. The install command does al
 - have a look at Admin\NavigationController.php on how to use datatables and datatables with ajax if more than 150 entries
 
 ## TODO
-- finish refactoring files to titan for easier use and more flexibility
 - [Upcoming Changes and Features](https://github.com/bpocallaghan/laravel-admin-starter/blob/master/TODO.md)
 
 ## Thank you
