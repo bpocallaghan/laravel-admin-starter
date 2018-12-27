@@ -8,9 +8,10 @@
         </a>
 
         @if (isset($navigation[$nav->id]))
-            <div class="dropdown-menu" aria-labelledby="{{ $nav->id }}">
-                @include('website.partials.navigation.dropdown', ['collection' => $navigation[$nav->id]])
+            <div class="dropdown-menu" aria-labelledby="{{ $nav->id }}" style="min-width: 200px;">
+                @include('website.partials.navigation.sub_level', ['collection' => $navigation[$nav->id]])
             </div>
         @endif
     </li>
 @endforeach
+

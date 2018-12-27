@@ -11,7 +11,7 @@
             <div id="main-navbar-collapse" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     @if(isset($navigation))
-                        @include('website.partials.navigation.navigation', ['collection' => $navigation['root'], 'navigation' => $navigation])
+                        @include('website.partials.navigation.top_level', ['collection' => $navigation['root'], 'navigation' => $navigation])
                     @endif
                 </ul>
             </div>
