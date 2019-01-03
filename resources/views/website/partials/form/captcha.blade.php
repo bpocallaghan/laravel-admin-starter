@@ -22,7 +22,7 @@
         $(".g-recaptcha").each(function() {
             var el = $(this);
             grecaptcha.render($(el).attr("id"), {
-                "sitekey"   : "{{ env('RECAPTCHA_PUBLIC_KEY') }}",
+                "sitekey": "{{ config('app.recaptcha_public_key') }}",
                 "badge"     : "bottomleft",
                 "callback"  : function(token) {
                     $(el).parents('form').find(".g-recaptcha-response").val(token);
