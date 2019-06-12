@@ -16,7 +16,7 @@ Please check titan out as the setup is really quick. The install command does al
 ### What is New?
 - Titan Setup and Install command updates
 - Added UsersTableSeeder to application
-- Refactored all files to [titan](https://github.com/bpocallaghan/titan)
+- [titan](https://github.com/bpocallaghan/titan) updated (removed all migration files on install)
 
 ## Features / What it includes
 - Admin LTE admin theme
