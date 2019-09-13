@@ -138,7 +138,7 @@ var FormClass = function (options)
 
                 // reset captcha and clear inputs on success
                 if (typeof grecaptcha != "undefined") {
-                    grecaptcha.reset();
+                    grecaptcha.reset(jQuery(form).find('*[data-widget-id]').attr('data-widget-id'));
                 }
             },
             error: function (data)
@@ -163,6 +163,10 @@ var FormClass = function (options)
                 $(spinner).slideUp();
                 BTN.reset(form.find('[type="submit"]'));
                 root.showAlert(alert, 'danger', messages);
+
+                if (typeof grecaptcha != "undefined") {
+                    grecaptcha.reset(jQuery(form).find('*[data-widget-id]').attr('data-widget-id'));
+                }
             }
         });
     }

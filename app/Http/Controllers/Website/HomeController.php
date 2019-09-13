@@ -14,8 +14,8 @@ class HomeController extends WebsiteController
      */
     public function index()
     {
-        $items = News::active()->orderBy('created_at', 'DESC')->get()->take(6);
+        //$items = News::isActive()->hasPhotos()->orderBy('created_at', 'DESC')->get()->take(6);
 
-        return $this->view('home')->with('news', $items)->with('hidePageFooter', true);
+        return $this->view('home')->with('hidePageFooter', true); //->with('news', $items)
     }
 }

@@ -21,7 +21,7 @@
     var onloadCallback = function() {
         $(".g-recaptcha").each(function() {
             var el = $(this);
-            grecaptcha.render($(el).attr("id"), {
+            var widgetId = grecaptcha.render($(el).attr("id"), {
                 "sitekey": "{{ config('app.recaptcha_public_key') }}",
                 "badge"     : "bottomleft",
                 "callback"  : function(token) {
@@ -29,6 +29,7 @@
                     return submitForm($(el).parents('form'));
                 }
             });
+            jQuery(this).attr('data-widget-id', widgetId);
         });
     };
 

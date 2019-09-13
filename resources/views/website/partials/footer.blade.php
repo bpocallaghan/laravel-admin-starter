@@ -19,8 +19,11 @@
                             <li><a class="text-grey" href="/contact-us">Contact Us</a></li>
                     </ul>--}}
                     <ul class="col-sm-4">
-                        <li><a class="text-white" href="#">Pages</a></li>
+                        {{-- <li><a class="text-white" href="#">Pages</a></li> --}}
                         @foreach($footerNavigation['Pages'] as $item)
+                            @if($loop->first)
+                                <li><a class="text-white" href="#">{{ $item->parent->name }}</a></li>
+                            @endif
                             <li><a class="text-grey" href="{{ $item->url }}">{!! $item->name !!}</a></li>
                         @endforeach
                     </ul>

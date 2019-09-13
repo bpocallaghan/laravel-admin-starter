@@ -11,16 +11,6 @@ return [
     'google_analytics'     => env('GOOGLE_ANALYTICS', ''),
     'recaptcha_public_key' => env('RECAPTCHA_PUBLIC_KEY', ''),
     'recaptcha_private_key' => env('RECAPTCHA_PRIVATE_KEY', ''),
-        
-    'description' => env('APP_DESCRIPTION', 'Description'),
-    'author'      => env('APP_AUTHOR', 'Author'),
-    'keywords'    => env('APP_KEYWORDS', 'laravel'),
-
-    'facebook_id'          => env('FACEBOOK_APP_ID', ''),
-    'google_map_key'       => env('GOOGLE_MAP_KEY', ''),
-    'google_analytics'     => env('GOOGLE_ANALYTICS', ''),
-    'recaptcha_public_key' => env('RECAPTCHA_PUBLIC_KEY', ''),
-    'recaptcha_private_key' => env('RECAPTCHA_PRIVATE_KEY', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -73,6 +63,8 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+
+    'asset_url' => env('ASSET_URL', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -209,6 +201,7 @@ return [
     'aliases' => [
 
         'App' => Illuminate\Support\Facades\App::class,
+        'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
@@ -238,6 +231,7 @@ return [
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
+        'Str' => Illuminate\Support\Str::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,

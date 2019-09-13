@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Website;
 
-use Illuminate\Http\Request;
+use App\Http\Requests;
 use Bpocallaghan\Titan\Models\Page;
 use Bpocallaghan\Titan\Models\Banner;
-use App\Http\Requests;
 
 class WebsiteController extends TitanWebsiteController
 {
@@ -48,14 +47,14 @@ class WebsiteController extends TitanWebsiteController
      */
     protected function view($view, $data = [])
     {
-        return parent::view($view, $data)//->with('navigationLeft', $this->navigationLeft)
-            //->with('navigationRight', $this->navigationRight)
-            ->with('footerNavigation', $this->footerNavigation)
-            ->with('navigationFeatured', $this->navigationFeatured)
-            ->with('popularPages', $this->popularPages)
-            ->with('activePageTiers', $this->activePageTiers)
+        return parent::view($view, $data)
+            ->with('settings', settings())
             ->with('banners', $this->getBanners())
-            ->with('showPageBanner', $this->showPageBanner);
+            ->with('popularPages', $this->popularPages)
+            ->with('showPageBanner', $this->showPageBanner)
+            ->with('activePageTiers', $this->activePageTiers)
+            ->with('footerNavigation', $this->footerNavigation)
+            ->with('navigationFeatured', $this->navigationFeatured);
     }
 
     protected function getBanners()

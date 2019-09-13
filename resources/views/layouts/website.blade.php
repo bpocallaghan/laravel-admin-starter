@@ -7,20 +7,20 @@
         <meta name="author" content="{{ config('app.author') }}">
         <meta name="keywords" content="{{ config('app.keywords') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="description" content="{{ isset($description) ? $description : config('app.description') }}"/>
+        <meta name="description" content="{{ $description ?? config('app.description') }}"/>
 
         <meta property="og:type" name="og:type" content="website"/>
         <meta property="og:site_name" content="{{ config('app.name') }}"/>
         <meta property="og:url" name="og:url" content="{{ request()->url() }}"/>
         <meta property="og:caption" name="og:caption" content="{{ config('app.url') }}"/>
         <meta property="fb:app_id" name="fb:app_id" content="{{ config('app.facebook_id') }}"/>
-        <meta property="og:title" name="og:title" content="{{ isset($title) ? $title : config('app.title') }}">
-        <meta property="og:description" name="og:description" content="{{ isset($description) ? $description : config('app.description') }}">
-        <meta property="og:image" name="og:image" content="{{ config('app.url') }}{{ isset($image) ? $image : '/images/logo.png' }}">
+        <meta property="og:title" name="og:title" content="{{ $title ?? config('app.title') }}">
+        <meta property="og:description" name="og:description" content="{{ $description ?? config('app.description') }}">
+        <meta property="og:image" name="og:image" content="{{ config('app.url') }}{{ $image ?? '/images/logo.png' }}">
 
         @include('partials.favicons')
 
-        <title>{{ isset($title) ? $title : config('app.name') }}</title>
+        <title>{{ $title ?? config('app.name') }}</title>
 
         @if(config('app.env') != 'local')
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -32,7 +32,7 @@
     </head>
 
     <body id="top" class="d-flex flex-column align-items-end">
-        <h1 class="d-none">{{ isset($title) ? $title : config('app.name') }}</h1>
+        <h1 class="d-none">{{ $title ?? config('app.name') }}</h1>
 
         @if(config('app.env') != 'local')
             @include('partials.facebook')
@@ -42,7 +42,7 @@
 
         @include('website.partials.navigation')
 
-        @if(isset($showPageBanner) && $showPageBanner == true || !isset($showPageBanner))
+        @if((isset($showPageBanner) && $showPageBanner === true) || !isset($showPageBanner))
             @include('website.partials.banner')
         @endif
 

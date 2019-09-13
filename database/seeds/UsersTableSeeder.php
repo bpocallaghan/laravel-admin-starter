@@ -26,6 +26,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $this->addAllRolesToUser($user);
+        $user->attachRole('developer');
 
         // dummy users
         /*for ($i = 0; $i < 5; $i++) {
@@ -52,7 +53,7 @@ class UsersTableSeeder extends Seeder
     private function addAllRolesToUser($user)
     {
         // only 2 - to 5 are needed
-        $roles = Role::whereBetween('id', [2, 5])
+        $roles = Role::whereBetween('id', [2, 6])
             ->pluck('keyword', 'id')
             ->values();
 
