@@ -1,8 +1,8 @@
 # Laravel CMS Starter Project
 
 A Laravel CMS Starter project with AdminLTE theme and core features.
-- [version 1](https://github.com/bpocallaghan/laravel-admin-starter/tree/version_1) (The preview project link below)
-- version 2 (master branch)
+- version 1
+- [version 2 (master branch)](https://github.com/bpocallaghan/laravel-admin-starter/tree/version_1) (The preview project link below)
 
 [Preview project here](http://bpocallaghan.co.za)
 - User: github@bpocallaghan.co.za
@@ -14,9 +14,7 @@ This should help keeping the 'core features' up to date as you only have to upda
 Please check titan out as the setup is really quick. The install command does almost everything for you.  
 
 ### What is New?
-- Titan Setup and Install command updates
-- Added UsersTableSeeder to application
-- [titan](https://github.com/bpocallaghan/titan) updated (removed all migration files on install)
+- I deployed a fresh version to Forge and Digital Ocean (13 September 2019). I just ran the 'install/setup' commands from [titan](https://github.com/bpocallaghan/titan).
 
 ## Features / What it includes
 - Admin LTE admin theme
