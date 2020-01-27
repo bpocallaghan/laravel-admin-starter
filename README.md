@@ -13,6 +13,10 @@ Version 2 (master) is a completely refactored project. All the files were moved 
 This should help keeping the 'core features' up to date as you only have to update the package and not manually copying files anymore.
 Please check titan out as the setup is really quick. The install command does almost everything for you.  
 
+### Test Driven Development
+- [titan-starter](https://github.com/bpocallaghan/titan-starter)
+- I have started from scratch a new test driven version. The end goal is to focus on TDD, more generic and easier to customize to help speed up website development.
+
 ### What is New?
 - I deployed a fresh version to Forge and Digital Ocean (13 September 2019). I just ran the 'install/setup' commands from [titan](https://github.com/bpocallaghan/titan).
 
