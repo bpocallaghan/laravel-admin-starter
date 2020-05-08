@@ -1,24 +1,14 @@
 # Laravel CMS Starter Project
 
 A Laravel CMS Starter project with AdminLTE theme and core features.
-- version 1
-- [version 2 (master branch)](https://github.com/bpocallaghan/laravel-admin-starter/tree/version_1) (The preview project link below)
 
 [Preview project here](http://bpocallaghan.co.za)
 - User: github@bpocallaghan.co.za
 - Password: github
 
-Version 1 vs Version 2
-Version 2 (master) is a completely refactored project. All the files were moved from your application to [a package (titan)](https://github.com/bpocallaghan/titan).
-This should help keeping the 'core features' up to date as you only have to update the package and not manually copying files anymore.
-Please check titan out as the setup is really quick. The install command does almost everything for you.  
-
-### Test Driven Development
-- [titan-starter](https://github.com/bpocallaghan/titan-starter)
-- I have started from scratch a new test driven version. The end goal is to focus on TDD, more generic and easier to customize to help speed up website development.
-
 ### What is New?
-- I deployed a fresh version to Forge and Digital Ocean (13 September 2019). I just ran the 'install/setup' commands from [titan](https://github.com/bpocallaghan/titan).
+- [titan-starter](https://github.com/bpocallaghan/titan-starter)
+- I have started from scratch an updated version. This version includes tests and Laravel 7 with Bootstrap 4.
 
 ## Features / What it includes
 - Admin LTE admin theme
@@ -78,8 +68,8 @@ Please check titan out as the setup is really quick. The install command does al
 - Thank you [Jeffrey Way](https://github.com/JeffreyWay) for the awesome resources at [Laracasts](https://laracasts.com/).
 
 ## Note
-- I am busy refactoring the project to titan (titan will get some version updates)
-- I am starting with a new website where I will put it in use and probably do lots of updates to [titan](https://github.com/bpocallaghan/titan).
+- I hardly maintain this repository anymore as all my free time goes into the new version: [titan-starter](https://github.com/bpocallaghan/titan-starter)
+- I do apologize about it (I still have live projects using this repository)
 
 This is my starter project for most crud admin portals.
 I try to keep it clean, flexibly and friendly to use and to help the community.
