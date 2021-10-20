@@ -5,6 +5,7 @@ A Laravel CMS Starter project with AdminLTE theme and core features.
 [Preview project here](http://bpocallaghan.co.za)
 - User: github@bpocallaghan.co.za
 - Password: github
+- Please note the Preview is Down - I am working on getting it up again. Sorry about that.
 
 ### What is New?
 - [titan-starter](https://github.com/bpocallaghan/titan-starter)
