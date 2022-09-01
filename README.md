@@ -1,5 +1,7 @@
 # Laravel CMS Starter Project
 
+Project is deprecated - please use https://github.com/bpocallaghan/titan-starter-website
+
 A Laravel CMS Starter project with AdminLTE theme and core features.
 
 [Preview project here](https://bpocallaghan.ie)
