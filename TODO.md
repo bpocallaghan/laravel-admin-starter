@@ -5,14 +5,14 @@
 
 Updates
 
-- ~~Merge the Page Components into one (no more seperate tables and create pages)~~
+- ~~Merge the Page Components into one (no more separate tables and create pages)~~
 - Page Content (media) - add cropper
 - Resource with single photo - save image in photos table and not his own table (upload directory and cropper)
 - ~~Add cropper for Gallery photos~~
 - ~~Add cropper for Images (Banners)~~
 - ~~Update bootstrap 4 to latest beta version~~
 - ~~Make Banners Order Dynamic (specify their order)~~
-- Move components to seperate packages for more mudular structure:
+- Move components to separate packages for more mudular structure:
     - ~~[Locations](https://github.com/bpocallaghan/locations)~~
     - ~~[Subscriptions](https://github.com/bpocallaghan/subscriptions)~~
     - ~~[Testimonials](https://github.com/bpocallaghan/testimonials)~~
